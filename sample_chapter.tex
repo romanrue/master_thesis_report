@@ -1,0 +1,118 @@
+\chapter{Sample Chapter}
+\label{chp:sample_chapter}
+In this chapter we present the main part of the bla bla.
+
+%***********************************************************************
+\section{Formula Use Example}
+\label{sec:forumla}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. \ac{EBNEV}, \ac{ESEVNEI}. \ac{CCCED}. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat \ac{SQL}. 
+
+To calculate the mean of n values $\mathbf{x} = [x_1, x_2, ..., x_n]$, we use
+\begin{equation}
+	\bar{x} = \frac{1}{n} \sum_{i=1}^{n}{x_i}
+	\label{eq:emp_mean}
+\end{equation}
+
+
+\subsection{Sample Subsection with References}
+\label{sec:sample_subsection}
+An equation in inline style looks like this $p(w_j)$.
+
+Here we give examples how to create references:
+\begin{itemize}
+% Note that you can only reference to labels (except for citations).
+% The way how you name your labels is up to you! The style "\label{type:name}" in this template is only a suggestion.
+	\item a chapter reference: \chpref{chp:sample_chapter}
+	\item a section reference: \secref{sec:sample_section}
+	\item an equation reference: \eqref{eq:emp_mean}
+	\item a figure reference: \figref{fig:sample1}
+	\item a table reference: \tabref{tab:longlist} in \apxref{apx:appendix}
+	\item a citation if BibTex is used: \cite{Iwata07}
+	\item mutiple citations: \cite{Su07,Feasel08}
+\end{itemize}
+
+
+%***********************************************************************
+\section{Sample Section with Figures}
+\label{sec:sample_section}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. See \figref{fig:sample1}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/samples/sample1} %NOTE that no .pdf has to be written
+    \caption[Some other short caption]{Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.}
+    \label{fig:sample1}
+\end{figure}
+
+
+
+%-------------------------------
+\subsection{Subfigure Use Example}
+Ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+\begin{figure}[!htb]
+	\centering
+	\subfigure[Caption 1]{\label{fig:sf1}\includegraphics[width=0.4\textwidth]{figures/title/ETH_logo}} \hfill
+	\subfigure[Caption 2]{\label{fig:sf2}\includegraphics[width=0.4\textwidth]{figures/title/ETH_logo}}
+	\subfigure[Caption 3]{\label{fig:sf3}\includegraphics[width=0.4\textwidth]{figures/title/ETH_logo}} \hfill
+	\subfigure[Caption 4]{\label{fig:sf4}\includegraphics[width=0.4\textwidth]{figures/title/ETH_logo}}
+	\caption[Short Caption]{Long caption. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Figure subreference inside a caption: \subref{fig:sf4}.}
+	\label{fig:sf_sample}
+\end{figure}
+
+Subfigure reference: \figref{fig:sf2}.
+
+%-------------------------------
+\subsection{Further Table and Figure Examples}
+\label{sec:impr_wd}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. See \tabref{tab:imprwdpatterns}.
+\begin{table}[!htb]
+	\footnotesize
+	\centering
+		\begin{tabular}{cll}
+			\toprule
+			Number & Something & Something Else \\
+			\midrule
+			1 & Blup & 1 | 2 | 3 | 4 | 5 | 6 | 7 \\
+			2 & Blup & 1 | 2 | 3 | 4 | 5 | 6 | \emph{blip} \\
+			3 & Blup & 1 | 2 | 3 | 4 | 5 | 6 | 7 \\
+			4 & Blup & 1 | 2 | 3 | 4 | 5 | 6 \\
+			5 & Blup & that's it \\
+			\bottomrule
+		\end{tabular}
+	\normalsize
+	\caption[Short caption]{Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.}
+	\label{tab:imprwdpatterns}
+\end{table}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+\begin{table}[!htb]
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\footnotesize
+		\begin{tabular}{lrr}
+			 \hline
+    	 \textbf{First} & \textbf{Second} & \textbf{Third} \\
+    	 \hline
+			Table & -0.20  & 4.5E-2 \\
+			Table & 0.07 & 6.6E-2 \\
+			Table & 0.06 & 2.0E-1 \\
+			Table & 0.20 & 1.8E-5 \\
+			Table & 0.38 & 1.3E-4 \\
+			Table & 0.32 & 9.5E-5 \\
+			Table & 0.49 & 6.9E-8 \\
+			\hline
+  	\end{tabular}
+  	\normalsize
+	\end{minipage} \hfill
+	\begin{minipage}{0.54\textwidth}
+		\centering
+		\includegraphics[width=0.5\linewidth]{figures/samples/sample2}
+	\end{minipage}
+	\caption[Some short caption]{Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.}
+	\label{tab:imprwd_params}
+\end{table}
+
+
+Ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.
+
