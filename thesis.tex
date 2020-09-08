@@ -1,94 +1,62 @@
-\documentclass[paper=a4,twoside=true,fontsize=11pt,numbers=noendperiod,chapterprefix=false]{scrbook}
+\documentclass[paper=a4, twoside=true, fontsize=11pt, chapterprefix=false]{scrbook}
 
-%\usepackage[ngerman]{babel} %use this if you write you thesis in GERMAN!
-%\usepackage[latin1]{inputenc}  %this is required if you want to use german umlauts in windows!
-%\usepackage[applemac]{inputenc} % umlauts under Mac
-%\usepackage[utf8]{inputenc} % umlauts if you have utf8 (recommended)
+%%%----------------------------------------------------------------
+%%% ENCODING AND FONTS
+\usepackage[utf8]{inputenc} % input encoding
+\usepackage{times}          % general
+\usepackage{helvet}         % sans serif
+\usepackage[T1]{fontenc}    % font encoding
 
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage[footnotesize,sl,SL,hang,tight]{subfigure}  
-%\usepackage{float} %for positioning figures with H
-\usepackage{longtable}
-\usepackage[font={small,sl},hang,labelfont=bf]{caption} %italic,hanging,normalize   //margin=1cm
-%\usepackage{captcont} % continue subfigures over several pages
-\usepackage{booktabs}
-%\usepackage{showkeys} % shows the labels above the references for easier development
+% %% special symbols
+% \usepackage{pifont}% http://ctan.org/pkg/pifont
+% \newcommand{\cmark}{\ding{51}}%
+% \newcommand{\xmark}{\ding{55}}%
 
-% modify headings:
-\usepackage{scrpage2}
-\KOMAoptions{headinclude}
+%%%----------------------------------------------------------------
+%%% DOCUMENT INFO
+%% additional variables
+\makeatletter
+\newcommand\reporttype[1]{\def\@reporttype{#1}}
+\newcommand\timespan[1]{\def\@timespan{#1}}
+\newcommand\group[1]{\def\@group{#1}}
+\newcommand\supervisor[1]{\def\@supervisor{#1}}
+\newcommand\chiefsupervisor[1]{\def\@chiefsupervisor{#1}}
+\makeatother
 
-% Font packages:
-\usepackage{times}
-\usepackage{helvet}   % sets sans serif font
-\usepackage[T1]{fontenc}
+%% entries
+\title{title}
+\subtitle{subtitle}
+\reporttype{Master Thesis}
+\author{Roman Rüttimann}
+\supervisor{Nino Ceresa}
+\chiefsupervisor{Prof. Konrad Wegener}
+\group{Institut für Werkzeug- und Fertigungstechnik}
+\timespan{Spring Semester 2020}
+\date{\today}
 
-%PDF hyperref config
-\ifpdfoutput{%
-	\usepackage[pdftex]{graphicx}
-	\usepackage[]{pdfpages} %for including full pdf pages
-	\usepackage[pdftex,
-		bookmarks,
-		bookmarksopen=true,
-		bookmarksnumbered=true,
-		pdfauthor={My Name},
-		pdftitle={Thesis Title},
-		colorlinks,
-		linkcolor=black,
-		citecolor=black,
-		filecolor=black,
-		urlcolor=black,
-		anchorcolor=black,
-		menucolor=black,
-		breaklinks=true,
-		pageanchor=true, %for jumping to a page
-		plainpages=false,
-		pdfpagelabels=true]{hyperref}
-	\pdfcompresslevel=9
-	\pdfoutput=1
-	\pdfminorversion=6
-	\DeclareGraphicsExtensions{.pdf,.png}
-}{
-	\usepackage{graphicx}
-}
-\usepackage{rotating} % rotate figures, must be loaded after graphicx!
+%%%----------------------------------------------------------------
+%%% PATHS
+\newcommand*{\texpath}{content}
+\newcommand*{\imgpath}{figures}
 
-\usepackage[printonlyused]{acronym} % Abbreviations list
+%%%----------------------------------------------------------------
+%%% INITIALIZE
+\input{setup}                       % loads all usepackages and changes layout
+\addbibresource{references.bib}     % loads bibliography
+\newlength{\distTextWidth}          % effective textwidth
+\newlength{\distColSep}             % separation gap when using multiple columns
+\setlength{\distTextWidth}{\dimexpr\textwidth-\columnsep\relax}
+\setlength{\distColSep}{6pt}
 
-\bibliographystyle{alpha}
+%%%----------------------------------------------------------------
+%%% DEBUGGING
+%\usepackage{showkeys}       % DEBUGGING show labels abover references
+%\usepackage{comment}        % DEBUGGING comment out code with comment environment
+%\usepackage{lipsum}         % DEBUGGING blind text
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}\PackageWarning{TODO:}{#1!}} % DEBUGGING todo note
 
-% Uncomment the chapter / section you are working on.
-%
-%\includeonly{chapter}
-%\pagestyle{useheadings}
-
-% A4 page layout
-% A4 = 210 x 297 mm /	 1in = 25.4mm / margin becomes margin + 1in in latex!
-\topmargin -12.7mm
-\textheight 234.0mm
-\textwidth 160.0mm
-\oddsidemargin 4.57mm
-\evensidemargin -5.59mm
-\parskip 2.54mm
-\parindent 0mm
-\headsep 15mm
-%\footskip 10mm
-
-\renewcommand{\arraystretch}{1.5}
-\renewcommand{\baselinestretch}{1}
-
-\input{preamble}
-
-\begin{document}
-
-%% Define leading chapter pages
-%
-\input{studchapter}
-\newpagestyle{mychapterpagestyle}{{\protect\mychpstyleintl}{\protect\mychpstyleintl}}{}
-\newpagestyle{myappendixpagestyle}{{\protect\mychpstyleintl}{\protect\mychpstyleintl}}{}
-%%
-
-%% macros
+%%%----------------------------------------------------------------
+%%% MACROS
 \newcommand{\mykeyword}[0]{my long text}
 %reference macros -> change this if you write you thesis in an other language!!!
 \newcommand{\chpref}[1]{Chapter \ref{#1}}
@@ -97,127 +65,67 @@
 \newcommand{\figref}[1]{Figure \ref{#1}}
 \newcommand{\tabref}[1]{Table \ref{#1}}
 \newcommand{\apxref}[1]{Appendix \ref{#1}}
-%%
 
-%---------------
-%% Title page:
-%---------------
-\pagenumbering{arabic} %pagenumbering for title
-\setcounter{page}{-1}  %required in order not to have more pages with pagenumber 1
-%\title{Book Title}
-%\author{My Name}
-%\date{January 2007}
-%\maketitle
-%\clearemptydoublepage
-% --- selfmade version ----
-\begin{titlepage}
-	\topmargin -3.8cm
-	\oddsidemargin 0.0cm
-	\evensidemargin 0.0cm
-	\centering
-%	\begin{minipage}{0.49\textwidth}
-%		\vspace{0pt}
-%		\includegraphics*[width=0.8\textwidth]{figures/title/ETH_logo}
-%		\vfill
-%	\end{minipage}
-%	\begin{minipage}{0.49\textwidth}
-%		\vspace{0pt}
-%		\hfill
-%		\includegraphics*[width=0.6\textwidth]{figures/title/logo_inspire_icvr}
-%	\end{minipage}
-%	\\
-	\includegraphics*[width=0.38\textwidth]{figures/title/ETH_logo} \hfill
-	% Choose your logo here!
-	\includegraphics*[width=0.21\textwidth]{figures/title/loco_icvr} \\
-	%\includegraphics*[width=0.21\textwidth]{figures/title/logo_inspire_ics} \\
-	%\includegraphics*[width=0.24\textwidth]{figures/title/logo_inspire_icvr} \\
-	%\includegraphics*[width=0.24\textwidth]{figures/title/logo_inspire_irpd} \\
-	\vspace{8.2cm}
-	\Huge
-	\textbf{\textsf{Thesis Title}} \\[2.0cm]
-	%\includegraphics*[width=0.4\textwidth]{figures/title/mytitlefigure} 
-	\vspace{5.0cm}
-	\sffamily
-	\Large
-	My Name
-	\\[0.8cm]
-	\large
-	Master Thesis or Bachelor Thesis
-	\\
-	Date
-	\\[0.8cm] %anstatt 1.5cm
-	Supervisor Name
-	\\[0.5cm]
-	Prof. Name
-	\vfill
-\end{titlepage}
-\clearemptydoublepage
-%%
+\begin{document}
 
-\pagenumbering{roman}
-\setcounter{page}{1}
-
-\include{abstract}
-
-%task description
-\cleardoublepage
-%\includegraphics[viewport=3cm 0cm 20cm 27.5cm]{task_description}
-\includepdf{task_description.pdf}
+%%%----------------------------------------------------------------
+%%% TITLE PAGE
+\maketitle
 \cleardoublepage
 
-\include{acknowledgment}
+%%%----------------------------------------------------------------
+%%% PREFACE
+\frontmatter
+\include{\texpath/abstract}
+%\cleardoublepage
+%\includepdf{\texpath/declaration_originality.pdf}
+\cleardoublepage
+\includepdf{\texpath/task_description.pdf}
+\cleardoublepage
+\include{\texpath/acknowledgement}
 
 \tableofcontents
 \cleardoublepage
-
-\listoffigures
-\addcontentsline{toc}{chapter}{List of Figures}
+%\include{\texpath/symbol}
+\include{\texpath/abbreviations}
 \cleardoublepage
 
-\listoftables
-\addcontentsline{toc}{chapter}{List of Tables}
-\cleardoublepage
-
-
-\addcontentsline{toc}{chapter}{List of Abbreviations} 
-\include{abbreviations}
-\cleardoublepage
-
-\addcontentsline{toc}{chapter}{List of Symbols} 
-\include{symbols}
-\cleardoublepage
-
-\pagenumbering{arabic}
-\renewcommand*{\chapterpagestyle}{mychapterpagestyle}
-\renewcommand*{\chapterformat}{} % show chapter titles only (no numbers)
-% \setchapterpreamble[o]{...}  unfortunately does not move the \chapter output downwards
-
-
-% ---- MAIN PART ----
-\include{introduction}
+%%%----------------------------------------------------------------
+%%% MAIN CONTENT
+\mainmatter
+\pagestyle{standardheadings}
+\include{\texpath/introduction}
 
 % add your chapter files here!
-\include{sample_chapter}
+\include{\texpath/sample_chapter}
 
+\include{\texpath/results}
+\include{\texpath/conclusion}
 
-\include{results}
-\include{conclusion}
-
-
-\appendix
+%%----------------------------------------------------------------
+%% APPENDIX
+\appendix\appendixtrue
 \clearpage
-\renewcommand*{\chapterpagestyle}{myappendixpagestyle}
-\include{appendix}
-% ---- END MAIN PART ----
+\include{\texpath/appendix}
 
-%bibliography:
+%%----------------------------------------------------------------
+%% REFERENCES
+\cleardoublepage
+\phantomsection
+% \renewcommand*{\chapterpagestyle}{empty}
+\addcontentsline{toc}{chapter}{List of figures}
+\listoffigures
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of tables}
+\listoftables
+
+\cleardoublepage
+\phantomsection
 \clearpage
-\renewcommand*{\chapterpagestyle}{empty}
-%\renewcommand*{\chapterheadstartvskip}{\vspace*{50pt}} % added to keep lyout after 25.08.15 (see studchapter.tex)
-%\nocite{*}
-
-\bibliography{references}
+%\renewcommand*{\chapterpagestyle}{empty}
 \addcontentsline{toc}{chapter}{Bibliography}
-
+\printbibliography
 
 \end{document}

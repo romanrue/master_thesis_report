@@ -1,0 +1,304 @@
+%%%----------------------------------------------------------------
+%%% PDF OUTPUT DETECTION
+\usepackage{ifpdf}
+
+%%%----------------------------------------------------------------
+%%% COLORS
+\usepackage{xcolor}       % color commands
+
+%%%----------------------------------------------------------------
+%%% MATH
+\usepackage{amsmath}      % principal math package
+\usepackage{amssymb}      % extended math symbols
+\usepackage{amsthm}       % improved theorem definition
+\usepackage{physics}      % simplified commands for physics notation
+\usepackage{siunitx}      % consistent SI-units
+  \sisetup{per-mode=symbol-or-fraction,range-phrase=\dots,range-units=single}
+
+%%%----------------------------------------------------------------
+%%% LISTS
+\usepackage{enumitem}
+\usepackage[printonlyused]{acronym} % abbreviation list
+
+%%%----------------------------------------------------------------
+%%% FIGURES
+%\usepackage{tocbasic}     % floating figures (KOMA script compatible)
+%\usepackage{scrhack}      % fixes floating environments in KOMA script 
+\usepackage[footnotesize, sl, SL, hang, tight]{subfigure}
+\ifpdf
+    \PassOptionsToPackage{pdftex}{graphicx}
+\fi
+\usepackage{graphicx}     % improved includegraphics
+\usepackage{rotating}     % rotate graphics (load after graphicx)
+
+
+%%%----------------------------------------------------------------
+%%% TABLES
+\usepackage{booktabs}     % better spacing
+\usepackage{longtable}    % multi page tables
+\usepackage{colortbl}     % allows to color cell backgrounds
+\usepackage{makecell}     % for easy table headers
+    \renewcommand\theadfont{\bfseries\sffamily}
+
+% %%%----------------------------------------------------------------
+% %%% CAPTIONS
+\usepackage[
+  font={small,sl},        % small, italic
+  hang,                   % hanging
+  labelfont=bf            % bold label
+  ]{caption}              % captions for tables and figures
+%/\usepackage{subcaption}   % allows to do subcaptions in figures
+%\usepackage{captcont}     % subfigures over multiple pages
+
+%%%----------------------------------------------------------------
+%%% PAGE STYLE
+\usepackage[automark]{scrlayer-scrpage}   % enhanced header editing in KOMA-Script
+\KOMAoptions{
+  DIV=8,                    % type area, the larger the factor, the larger the text block
+  BCOR=10mm,                % binding correction
+  headinclude=true,         % insert header space
+  headings=twolinechapter,  % chapter in two lines
+  numbers=noenddot          % all numbers of setioning commands are set without a final point
+}
+%% header presets
+\newpairofpagestyles{standardheadings}{%
+	\ohead{\rightmark}
+	\ofoot{\pagemark}
+}
+\newpairofpagestyles{chapterheadings}{%
+	\ohead{}
+	\ofoot{\pagemark}
+}
+\renewcommand*{\chapterpagestyle}{chapterheadings}
+
+
+\usepackage{microtype}      % better text spacing
+
+\topmargin  -12.7mm
+\textheight 234.0mm
+\textwidth  160.0mm
+\oddsidemargin   4.57mm
+\evensidemargin -5.59mm
+\parskip   2.54mm
+\parindent 0mm
+\headsep  15mm
+%\footskip 10mm
+
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\baselinestretch}{1}
+
+%%----------------------------------------------------------------
+%% BIBLIOGRAPHY
+\usepackage[backend=biber,style=numeric-verb,url=false,doi=false,isbn=false]{biblatex}
+
+%%%----------------------------------------------------------------
+%%% REFERENCING
+
+\makeatletter
+\Ifpdfoutput{% (if output is pdf)
+    \usepackage[%   % parse hyperref options
+        pdfusetitle=false,            % disable automatic metadata
+        pdftex,                       % pdftex backend
+        bookmarks,                    % make bookmarks
+        bookmarksopen=true,           % open bookmarks tree
+        bookmarksnumbered=true,       % put section numbers in bookmarks
+        pdfauthor={\@author},         % metadata, pdf author name
+        pdftitle={\@title: \@subtitle}, % metadata, pdf title name
+        pdfsubject={\@reporttype},    % metadata, pdf subject
+        pdfproducer={Latex with hyperref}, % metadata, pdf producer
+        pdfcreator={latexmk},         % metadata, pdf creator
+        colorlinks=true,             % box hyperlinks
+        linkcolor=black,              % textcolor of links
+        citecolor=black,              % textcolor of citation links
+        filecolor=black,              % textcolor of file links
+        urlcolor=black,               % textcolor of url links
+        anchorcolor=black,            % anchor color
+        menucolor=black,              % color of menu links
+        breaklinks=true,              % allow links to break over multiple lines
+        pageanchor=true,              % for jumping to a page
+        plainpages=false,             % page number anchors as plain arabic
+        pdfpagelabels=true            % pdf page labels correspond to file
+    ]{hyperref}
+    \makeatother
+}{% (else)
+    \usepackage{hyperref}
+}
+
+
+%%----------------------------------------------------------------
+%% TOOLKITS
+% \usepackage{csquotes}     % Advanced quotation tools
+\usepackage{pdfpages}     % include full pdf pages
+\usepackage{tcolorbox}    % colored text boxes
+  \tcbuselibrary{skins}
+\usepackage{currfile}     % get path information about current file
+\usepackage{tikz}
+
+\begin{comment}
+%%%----------------------------------------------------------------
+%%% BIBLIOGRAPHY URL LINKS
+% format that applies a hypertext reference
+\DeclareFieldFormat{linked}{%
+  \ifboolexpr{ test {\ifhyperref} and not test {\ifentrytype{online}} }
+    {\iffieldundef{doi}
+       {\iffieldundef{url}
+          {\iffieldundef{isbn}
+             {\iffieldundef{issn}
+                {#1}
+                {\href{https://portal.issn.org/resource/ISSN/\thefield{issn}}{#1}}}
+             {\href{https://books.google.com/books?vid=ISBN\thefield{isbn}}{#1}}}
+          {\href{\thefield{url}}{#1}}}
+       {\href{http://dx.doi.org/\thefield{doi}}{#1}}}
+    {#1}}
+
+% Define new command that returns the first word of a given field
+\makeatletter
+\def\thefieldfirstword#1{%
+  \expandafter\expandafter
+  \expandafter\firstword
+  \expandafter\expandafter
+  \expandafter{\csname abx@field@#1\endcsname}}
+\def\firstword#1{\firstword@i#1 \@nil}
+\def\firstword@i#1 #2\@nil{#1}
+\makeatother
+
+% Redefine url format to print only first URL, omit URL prefix
+\DeclareFieldFormat{url}{\url{\firstword{#1}}}
+
+\renewbibmacro*{title}{% Based on generic definition from biblatex.def
+  \ifboolexpr{ test {\iffieldundef{title}} and test {\iffieldundef{subtitle}} }
+    {}
+    {\printtext[title]{\printtext[linked]{%
+       \printfield[titlecase]{title}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{subtitle}}}%
+     \newunit}%
+  \printfield{titleaddon}}
+
+\renewbibmacro*{periodical}{% Based on generic definition from biblatex.def
+  \iffieldundef{title}
+    {}
+    {\printtext[title]{\printtext[linked]{%
+       \printfield[titlecase]{title}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{subtitle}}}}}
+
+% Don't link titles in citations
+\AtEveryCite{\DeclareFieldAlias{linked}{default}}
+\end{comment}
+\pdfcompresslevel=9
+\pdfoutput=1
+\DeclareGraphicsExtensions{.pdf,.png}
+
+%%%----------------------------------------------------------------
+%%% HEADERS
+%\definecolor{laccentcolor}{HTML}{d3d3d3}
+
+\renewcommand*{\chapterheadstartvskip}{\vspace{7cm}}
+\addtokomafont{disposition}{\sffamily}
+\addtokomafont{chapter}{\huge}
+
+\newif\ifappendix
+
+\def\chaplengths{{11mm,6mm,7mm,2.5mm,7mm,5mm,6mm,7mm,6.5mm}}
+\def\applengths{{4mm,8.5mm,6mm}}
+\renewcommand*{\chapterformat}{%
+	\begin{tikzpicture}[remember picture, overlay]
+		\pgfmathsetmacro{\mylength}{\ifappendix\applengths[\arabic{chapter}-1]\else\chaplengths[\arabic{chapter}-1]\fi}
+    	\node(n)[anchor=north east, inner sep=0, outer sep=1cm,
+        	font=\fontsize{3.4cm}{3.4cm}\selectfont, align=right%,text=laccentcolor
+			  ] at (\linewidth+1cm, 6cm) {\hfill \rule{0pt}{\ht\strutbox}\thechapter};
+    	\pgfresetboundingbox
+    	\useasboundingbox(n.south west)rectangle([xshift=-\mylength]n.north east);% bounding box with a fixed height
+	\end{tikzpicture}%
+}
+
+%%%----------------------------------------------------------------
+%%% TITLE PAGE
+\makeatletter
+\renewcommand\maketitle{%
+    \pagestyle{empty}
+    \begin{center}
+    \includegraphics*[width=0.38\textwidth]{figures/title/ETH_logo} \hfill
+    % Choose your logo here!
+    %\includegraphics*[width=0.21\textwidth]{figures/title/loco_icvr}
+    \includegraphics*[width=0.21\textwidth]{figures/title/logo_inspire_ics} 
+    %\includegraphics*[width=0.24\textwidth]{figures/title/logo_inspire_icvr}
+    %\includegraphics*[width=0.24\textwidth]{figures/title/logo_inspire_irpd}
+    \vspace{6cm}
+    \newline
+	\Huge
+	\textbf{\textsf{\@title}}\\[0.7cm]
+	\Large\@subtitle\\[2.0cm]
+	%\includegraphics*[width=0.4\textwidth]{\imgpath/title/mytitlefigure} 
+	\vspace{1cm}
+	\sffamily\Large
+    \@author\\[0.7cm]
+	\large\@reporttype\\[0.7cm]
+	\@supervisor\\
+	\@chiefsupervisor\\[0.7cm]
+	%\begin{tabular}[t]{rl}
+	%    supervisor: & \@supervisor\\
+	%    chief supervisor: & \@chiefsupervisor
+	%\end{tabular}\\[0.7cm]
+	\@group
+	\end{center}
+}
+\makeatother
+
+% %% CHAPTER (with numbering)
+% \titleformat{\chapter}[block]
+%     {\normalfont\Large\bfseries}    % format applied to label+text
+%     {}                              % label
+%     {1pc}                           % horizontal separation between label and title body
+%     {%
+%         \noindent\parbox[][4cm][t]{\textwidth - 4\fboxsep}{%
+%             \begin{flushright}
+%                 \begin{tcolorbox}[
+%                     standard jigsaw,
+%                     flushright upper,
+%                     boxrule=0pt,
+%                     frame hidden,
+%                     opacityback=0,
+%                     width=2.8cm]
+%                     \resizebox{1.8cm}{!}{\color{black}\thechapter}%
+%                 \end{tcolorbox}
+%             \end{flushright}
+%         }\\\Huge
+%     }                               % before the title body
+%     []                              % after the title body
+
+% %% CHAPTER (without numbering)
+% \titleformat{name=\chapter,numberless}
+%     {\normalfont\Large\bfseries}   % format applied to label+text
+%     {\hspace{-1em}}                % label, fix for horizontal spacing
+%     {1pc}                          % horizontal separation between label and title body
+%     {%
+%         \noindent\parbox[][4cm][t]{\textwidth - 4\fboxsep}{%
+%         }\\\Huge
+%     }                              % before the title body
+%     []                             % after the title body
+
+% \addtokomafont{paragraph}{\sffamily}
+
+% \def\mychpstyleintl{%
+% {\noindent\setlength{\tabcolsep}{0pt}\setlength{\arrayrulewidth}{2pt}%
+% \begin{tabular}{c}
+% \\[100pt]
+% \begin{tabular}{lr}
+% \begin{tabular}{p{0.6\linewidth}}
+% \\
+% \end{tabular}
+% &
+% \begin{tabular}{p{0.4\linewidth}}
+% \rightline{{%
+% \sffamily%
+% \fontseries{bx}%
+% \fontshape{n}%
+% \fontsize{100}{120}%choose baselineskip to be 1.2 times font size
+% \selectfont
+% \thechapter}}
+% \end{tabular}
+% \end{tabular}\\[300pt]
+% \end{tabular}
+% }}
