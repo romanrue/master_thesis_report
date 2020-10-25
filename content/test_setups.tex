@@ -4,24 +4,45 @@
 \subsection{Hammer-Hammer Test}
 
 The hammer tips of the reference system and the experimental system are hit against eachother.
-\begin{figure}[!htb]
+\\[4ex]
+\begin{minipage}{\linewidth}
+\centering
+\begin{minipage}[b]{0.7\textwidth}
     \centering
-    \includestandalone[scale=1]{\imgpath/test_setups/HH_parts/HH_parts}
-    \\[0.5em]
+    \includestandalone[scale=0.7]{\imgpath/test_setups/HH_parts/HH_parts}
+    \captionof{figure}[Hammer-Hammer Test components]{Hammer-Hammer test components}
+    \label{fig:HH_parts}
+\end{minipage}
+\hspace{0em}
+\begin{minipage}[b]{0.2\textwidth}
+    \centering
     \footnotesize
-		\begin{tabular}{c@{ :\hskip 0.5em}l}
-			\toprule
-            \large{1} & Piezo + \ac{AMP}\\
-            \large{2} & Soft Tip\\
-            \large{3} & Tip 34CrMo4\\
-            \large{4} & \ac{LC} DYMH-103\\
-            \large{5} & \ac{IN-AMP} AD627\\
-			\bottomrule
-		\end{tabular}
-	\normalsize
-    \caption[MCU communication protocol]{Protocol used to communicate between two MCU's and between MCU and computer}
-    \label{tab:mcu_com_protocol}
-\end{figure}
+    \def\circlabel#1#2{%
+        \begin{tikzpicture}[%
+            x=1em,y=1ex,
+            baseline={([yshift=3] N.south)},
+            font={\fontsize{6pt}{6.2pt}\selectfont},
+            ]%
+            \node[%
+                circle, fill=white, draw=#1, line width=1pt,
+                inner sep=2pt, minimum size=8pt, align=center,
+                ] (N) {#2};
+        \end{tikzpicture}
+    }
+    \begin{tabular}{c@{ :\hskip 0.5em}l}
+        \toprule
+        \large{\circlabel{WesMixL8qual3}{1}} & Piezo + \acs{AMP}\\
+        \large{\circlabel{WesMixL8qual3}{2}} & Soft Tip\\
+        \large{\circlabel{WesMixL8qual3}{3}} & Tip 34CrMo4\\
+        \large{\circlabel{WesMixL8qual3}{4}} & \acs{LC} DYMH-103\\
+        \large{\circlabel{WesMixL8qual3}{5}} & \acs{IN-AMP} AD627\\
+        \bottomrule
+    \end{tabular}
+    \normalsize
+    \captionof{table}[Legend to Hammer Hammer Test Components]{Legend to \figref{fig:HH_parts}}
+    \label{tab:HH_parts}
+\end{minipage}
+\end{minipage}\\[4ex]
 
 \begin{figure}[!htb]
     \centering
