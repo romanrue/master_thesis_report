@@ -1,0 +1,133 @@
+graph G {
+	graph [rankdir=LR]
+	0 [style=invis]
+	1 [style=invis]
+	0 -- 1 [style=invis]
+	2 [style=invis]
+	1 -- 2 [style=invis]
+	3 [style=invis]
+	2 -- 3 [style=invis]
+	node [color="#B8E8FF" shape=box style=filled]
+	ichead [label="IC Packages"]
+	node [color="#AABCEE" shape=box style=filled]
+	through [label="Through Hole Packages"]
+	ichead -- through
+	surf [label="Surface Mount Packages"]
+	ichead -- surf
+	contl [label="Contactless Packages"]
+	ichead -- contl
+	node [color="#FCCEC5" shape=box style=filled]
+	through_cer [label=Ceramic]
+	through -- through_cer
+	through_pla [label=Plastic]
+	through -- through_pla
+	surf_cer [label=Ceramic]
+	surf -- surf_cer
+	surf_pla [label=Plastic]
+	surf -- surf_pla
+	surf_met [label=Metal]
+	surf -- surf_met
+	node [color="#F7EEE3" shape=box style=filled]
+	dual [label=Dual]
+	surf_pla -- dual
+	quad [label=Quad]
+	surf_pla -- quad
+	array [label=Array]
+	surf_pla -- array
+	node [color="#EEF1F2" shape=box style=filled]
+	through_cer_p [label=Power]
+	through_cer -- through_cer_p
+	through_pla_p [label=Power]
+	through_pla -- through_pla_p
+	surf_cer_p [label=Power]
+	surf_cer -- surf_cer_p
+	dual_p [label=Power]
+	dual -- dual_p
+	quad_p [label=Power]
+	quad -- quad_p
+	array_p [label=Power]
+	array -- array_p
+	node [color=white shape=box style=filled]
+	HCPGA [label=HCPGA]
+	through_cer_p -- HCPGA
+	CDIL [label=CDIL]
+	through_pla_p -- CDIL
+	CPGA [label=CPGA]
+	through_pla_p -- CPGA
+	DBS [label=DBS]
+	surf_cer_p -- DBS
+	HDIP [label=HDIP]
+	surf_cer_p -- HDIP
+	RBS [label=RBS]
+	surf_cer_p -- RBS
+	RDBS [label=RDBS]
+	surf_cer_p -- RDBS
+	SIL [label=SIL]
+	surf_cer_p -- SIL
+	TBS [label=TBS]
+	surf_cer_p -- TBS
+	HSOP [label=HSOP]
+	dual_p -- HSOP
+	HTSSOP [label=HTSSOP]
+	dual_p -- HTSSOP
+	HBCC [label=HBCC]
+	quad_p -- HBCC
+	HLQFP [label=HLQFP]
+	quad_p -- HLQFP
+	HQFP [label=HQFP]
+	quad_p -- HQFP
+	HSQFP [label=HSQFP]
+	quad_p -- HSQFP
+	HTQFP [label=HTQFP]
+	quad_p -- HTQFP
+	HBGA [label=HBGA]
+	array_p -- HBGA
+	CDIL [label=CDIL]
+	through_cer -- CDIL
+	CPGA [label=CPGA]
+	through_cer -- CPGA
+	DIP [label=DIP]
+	through_pla -- DIP
+	SDIP [label=SDIP]
+	through_pla -- SDIP
+	SIL [label=SIL]
+	through_pla -- SIL
+	CLLCC [label=CLLCC]
+	surf_cer -- CLLCC
+	CWQCCN [label=CWQCCN]
+	surf_cer -- CWQCCN
+	PMFP [label=PMFP]
+	dual -- PMFP
+	SO [label=SO]
+	dual -- SO
+	SSOP [label=SSOP]
+	dual -- SSOP
+	TSSOP [label=TSSOP]
+	dual -- TSSOP
+	PMFP [label=PMFP]
+	dual -- PMFP
+	BBC [label=BBC]
+	quad -- BBC
+	LQFP [label=LQFP]
+	quad -- LQFP
+	PLCC [label=PLCC]
+	quad -- PLCC
+	QFP [label=QFP]
+	quad -- QFP
+	SQFP [label=SQFP]
+	quad -- SQFP
+	TQFP [label=TQFP]
+	quad -- TQFP
+	SQFP [label=SQFP]
+	quad -- SQFP
+	BGA [label=BGA]
+	array -- BGA
+	LFBGA [label=LFBGA]
+	array -- LFBGA
+	TFBGA [label=TFBGA]
+	array -- TFBGA
+	VFBGA [label=VFBGA]
+	array -- VFBGA
+	MSQFP [label=MSQFP]
+	surf_met -- MSQFP
+}

@@ -1,0 +1,8 @@
+graph G {
+	A [label="King Arthur"]
+	B [label="Sir Bedevere the Wise"]
+	subgraph child {
+		node [fillcolor=blue label=label name=name shape=box style=filled]
+		foo -- bar
+	}
+}

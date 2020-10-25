@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="piezo_radial_rod.svg"
+   xml:space="preserve"
+   enable-background="new 0 0 1190.55 841.89"
+   viewBox="0 0 128.35009 25.1891"
+   height="25.1891"
+   width="128.3501"
+   y="0px"
+   x="0px"
+   id="Ebene_1"
+   version="1.1"><metadata
+   id="metadata1345"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs1343">
+	<defs
+   id="defs43">
+		<polyline
+   id="SVGID_1_"
+   points="27,27 1164.001,27 1164.001,815.001 27,815.001 27,27   " />
+	</defs>
+	<clipPath
+   id="SVGID_2_">
+		<use
+   xlink:href="#SVGID_1_"
+   overflow="visible"
+   id="use45"
+   x="0"
+   y="0"
+   width="100%"
+   height="100%" />
+	</clipPath>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+</defs><sodipodi:namedview
+   fit-margin-bottom="0"
+   fit-margin-right="0"
+   fit-margin-left="0"
+   fit-margin-top="0"
+   inkscape:current-layer="Ebene_1"
+   inkscape:window-maximized="0"
+   inkscape:window-y="0"
+   inkscape:window-x="1273"
+   inkscape:cy="-1064.0448"
+   inkscape:cx="-502.34893"
+   inkscape:zoom="0.44055267"
+   showgrid="false"
+   id="namedview1341"
+   inkscape:window-height="1368"
+   inkscape:window-width="1278"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0"
+   guidetolerance="10"
+   gridtolerance="10"
+   objecttolerance="10"
+   borderopacity="1"
+   bordercolor="#666666"
+   pagecolor="#ffffff" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<g
+   transform="translate(-779.27695,-687.42495)"
+   id="g3570"><g
+     id="g932"
+     clip-path="url(#SVGID_2_)">
+		<defs
+   id="defs913">
+			<polyline
+   points="786.757,687.921 900.143,687.921 901.558,688.157 902.816,688.843 904.089,690.034      905.084,691.464 906.212,694.198 906.898,697.072 907.131,700.02 906.898,702.968 906.212,705.842 905.084,708.575      904.089,710.009 902.816,711.2 901.558,711.882 900.143,712.118 786.757,712.118 788.172,711.882 789.431,711.2 790.703,710.009      791.698,708.575 792.826,705.842 793.512,702.968 793.744,700.02 793.512,697.072 792.826,694.198 791.698,691.464      790.703,690.034 789.431,688.843 788.172,688.157 786.757,687.921    "
+   id="SVGID_41_" />
+		</defs>
+		<clipPath
+   id="SVGID_42_">
+			<use
+   height="100%"
+   width="100%"
+   y="0"
+   x="0"
+   id="use915"
+   overflow="visible"
+   xlink:href="#SVGID_41_" />
+		</clipPath>
+		<g
+   id="g930"
+   clip-path="url(#SVGID_42_)">
+			<g
+   id="g928">
+				<defs
+   id="defs919">
+					<rect
+   height="24.195999"
+   width="120.374"
+   y="687.92102"
+   x="786.75702"
+   id="SVGID_43_" />
+				</defs>
+				<clipPath
+   id="SVGID_44_">
+					<use
+   height="100%"
+   width="100%"
+   y="0"
+   x="0"
+   id="use921"
+   overflow="visible"
+   xlink:href="#SVGID_43_" />
+				</clipPath>
+				<g
+   id="g926"
+   clip-path="url(#SVGID_44_)">
+					
+						<image
+   id="image924"
+   transform="matrix(0.24,0,0,0.24,786.7568,687.9214)"
+   xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEBLAEsAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA EAMCAwYAAAMZAAAF3AAABw//2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa JjAjHh4eHiMwKy4nJycuKzU1MDA1NUBAP0BAQEBAQEBAQEBAQP/CABEIAGgB/AMBIgACEQEDEQH/ xACJAAEBAQEBAQEAAAAAAAAAAAAAAwIEBQEGAQEAAAAAAAAAAAAAAAAAAAAAEAEBAQEBAAIBAwQD AAAAAAAAEhEEFQEDBXACJCFDJUVCFEQRAAEFAAECAwgDAAAAAAAAAAABMZHRAsFQEXESciFhYoID E2ODYIEUEgEAAAAAAAAAAAAAAAAAAABw/9oADAMBAAIRAxEAAAD98zkomKJiiYomKJiiYomKJiiY omKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJiiYp9lQnPUSiYomKJiiYomKJiiYomK JiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJil+TpJQpzlExRMUTFExRMUTFEx RMUTFExRMUTFExRMUTFExRMUTFExRMUTFExRMUTFExRMUTFExRMUTFOvg7jn5ejjKJiiYomKJiiY omKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKej5XqHJxdfCbYG2Bt gbYG2BtgbYG2BtgbYG2BtgbYG2BtgbYG2BtgbYG2BtgbYG2BtgbYG2BtgbYG2Btgb9bxvYOPz+7z SiYomKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJiiYomKJint+B7 xLjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6of//aAAgBAgABBQD9YP/aAAgBAwABBQD9YP/aAAgB AQABBQD5+cUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpv9P3/OfOta1rWt a1rWta1rWta1rWta1rWta1rWta1rWta1rWta1rWta1rWtf8AD7vnP3UpSlKUpSlKUpSlKUpSlKUp SlKUpSlKUpSlKUpSlKUpSlKUpSlKUp/a6PnP3a1rWta1rWta1rWta1rWta1rWta1rWta1rWta1rW ta1rWta1rWta1/Y6vnP30pSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpv8bt +c+ylKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlN/id/zn2a1rWta1rWta1r Wta1rWta1rWta1rWta1rWta1rWta1rWta1rWta1/4vyXzn20pSlKUpSlKUpSlKUpSlKUpSlKUpSl KUpSlKUpSlKUpSlKUpSlKUpv8D8p8591KUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpS lKUpSlKb/jvy3zn3a1rWta1rWta1rWta1rWta1rWta1rWta1rWta1rWta1rWta1rWta1/rPzPzn3 0pSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpSlKUpv+K/N/OdGta1rWta1rWta1rW ta1rWta1rWta1rWta1rWta1rWta1rWta1rWtf6j8n+P6Or7fF7Xi9rxe14va8XteL2vF7Xi9rxe1 4va8XteL2vF7Xi9rxe14va8XteL2vF7Xi9rxe14va8XteL2vF7Xi9rxe14va8XteL2vF7Xi9rxe1 4va8XteL2vF7Xi9rxe14va8XteL2vF7Xi9rxe14va8XteL2vF7Xi9rxe14va8XteL2vF7Xi9rxe1 4va8XteL2vF7Xi9r/r/Z5/8A/9oACAECAgY/AGD/2gAIAQMCBj8AYP/aAAgBAQEGPwDr/f8AgH9C eHX+/uE8Ov8AyieHX+/wmfDnr/f4ODPp56/8nBn089f7/j4Menlev9/x8GPTyvX/ANXBj0cr1/v+ Lg+n6OV6/wDp4Mb+l5e2c9l8y9vb38B8StD4laHxK0PiVofErQ+JWh8StD4laHxK0PiVofErQ+JW h8StD4laHxK0PiVofErQ+JWh8StD4laHxK0PiVofErQ+JWh8StD4laHxK0PiVofErQ+JWh8StD4l aHxK0PiVofErQ+JWh8StD4laHxK0PiVofErQ+JWh8StD4laHxK0PiVofErQ+JWh8StD4laHxK0Pi VofErQ+JWh8StD4laHxK0PiVofErQ+JWh8StD4laP83s+59vye7v2P/Z"
+   height="101"
+   width="502"
+   overflow="visible">
+					</image>
+				</g>
+			</g>
+		</g>
+	</g><g
+     id="g954"
+     clip-path="url(#SVGID_2_)">
+		<defs
+   id="defs935">
+			<polyline
+   points="779.772,700.02 780.005,702.968 780.691,705.842 781.819,708.575 782.812,710.009      784.084,711.2 785.346,711.882 786.757,712.118 788.172,711.882 789.431,711.2 790.703,710.009 791.698,708.575 792.826,705.842      793.512,702.968 793.744,700.02 793.512,697.072 792.826,694.198 791.698,691.464 790.703,690.034 789.431,688.843      788.172,688.157 786.757,687.921 785.346,688.157 784.084,688.843 782.812,690.034 781.819,691.464 780.691,694.198      780.005,697.072 779.772,700.02    "
+   id="SVGID_45_" />
+		</defs>
+		<clipPath
+   id="SVGID_46_">
+			<use
+   height="100%"
+   width="100%"
+   y="0"
+   x="0"
+   id="use937"
+   overflow="visible"
+   xlink:href="#SVGID_45_" />
+		</clipPath>
+		
+			<line
+   id="line940"
+   y2="709.73102"
+   x2="790.896"
+   y1="711.203"
+   x1="789.42499"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_46_)" />
+		
+			<line
+   id="line942"
+   y2="703.14899"
+   x2="793.46997"
+   y1="711.66699"
+   x1="784.95099"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_46_)" />
+		
+			<line
+   id="line944"
+   y2="698.95099"
+   x2="793.659"
+   y1="709.88397"
+   x1="782.72699"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_46_)" />
+		
+			<line
+   id="line946"
+   y2="695.46997"
+   x2="793.12903"
+   y1="707.30499"
+   x1="781.29498"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_46_)" />
+		
+			<line
+   id="line948"
+   y2="692.47699"
+   x2="792.11401"
+   y1="704.27502"
+   x1="780.31598"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_46_)" />
+		
+			<line
+   id="line950"
+   y2="689.95898"
+   x2="790.62402"
+   y1="700.75403"
+   x1="779.82898"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_46_)" />
+		
+			<line
+   id="line952"
+   y2="688.245"
+   x2="788.33002"
+   y1="696.41199"
+   x1="780.16101"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_46_)" />
+	</g><g
+     id="g1172"
+     clip-path="url(#SVGID_2_)">
+		<defs
+   id="defs1165">
+			<polyline
+   points="28.542,813.626 28.542,28.374 1162.459,28.374 1162.459,813.626 28.542,813.626    "
+   id="SVGID_87_" />
+		</defs>
+		<clipPath
+   id="SVGID_88_">
+			<use
+   height="100%"
+   width="100%"
+   y="0"
+   x="0"
+   id="use1167"
+   overflow="visible"
+   xlink:href="#SVGID_87_" />
+		</clipPath>
+		
+			<path
+   id="path1170"
+   d="m 793.744,700.02 c 0,-6.682 -3.129,-12.099 -6.987,-12.099 -3.857,0 -6.984,5.417 -6.984,12.099 0,6.681 3.127,12.098 6.984,12.098 3.858,0 6.987,-5.417 6.987,-12.098"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.9921"
+   stroke="#000000"
+   fill="none"
+   clip-path="url(#SVGID_88_)" />
+	</g><g
+     id="g1182"
+     clip-path="url(#SVGID_2_)">
+		<defs
+   id="defs1175">
+			<polyline
+   points="28.542,813.626 28.542,28.374 1162.459,28.374 1162.459,813.626 28.542,813.626    "
+   id="SVGID_89_" />
+		</defs>
+		<clipPath
+   id="SVGID_90_">
+			<use
+   height="100%"
+   width="100%"
+   y="0"
+   x="0"
+   id="use1177"
+   overflow="visible"
+   xlink:href="#SVGID_89_" />
+		</clipPath>
+		
+			<path
+   id="path1180"
+   d="m 900.143,687.921 c 3.858,0 6.988,5.417 6.988,12.099 0,6.681 -3.13,12.098 -6.988,12.098"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.9921"
+   stroke="#000000"
+   fill="none"
+   clip-path="url(#SVGID_90_)" />
+	</g><line
+     id="line1272"
+     y2="687.92102"
+     x2="900.14301"
+     y1="687.92102"
+     x1="786.75702"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1274"
+     y2="712.11798"
+     x2="900.14301"
+     y1="712.11798"
+     x1="786.75702"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /></g>
+</svg>

@@ -1,0 +1,33 @@
+{
+    // hide latex compilation files
+    "files.exclude": {
+		"**/*.aux": true,
+        "**/*.bbl": true,
+		"**/*.bcf": true,
+        "**/*.blg": true,
+        "**/*.bib.bak": true,
+		"**/*.idx": true,
+		"**/*.ind": true,
+		"**/*.lof": true,
+		"**/*.lot": true,
+		"**/*.out": true,
+		"**/*.toc": true,
+		"**/*.acn": true,
+		"**/*.acr": true,
+		"**/*.alg": true,
+		"**/*.glg": true,
+		"**/*.glo": true,
+		"**/*.gls": true,
+		"**/*.ist": true,
+		"**/*.fls": true,
+		"**/*.log": true,
+		"**/*.nav": true,
+		"**/*.snm": true,
+		"**/*.fdb_latexmk": true,
+		"**/*.synctex.gz": true,
+		"**/*.run.xml": true
+	},
+	"editor.wordWrap": true,
+	"latex-workshop.latex.autoBuild.run": "onSave",
+	"git.ignoreLimitWarning": true
+}

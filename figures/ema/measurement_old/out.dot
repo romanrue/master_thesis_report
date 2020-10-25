@@ -1,0 +1,27 @@
+graph G {
+	nodesep=0.5 rankdir=LR ranksep=1
+	LOT1 [shape=rect]
+	LOT2 [shape=rect]
+	LOT3 [shape=rect]
+	LOT4 [shape=rect]
+	LOT5 [shape=rect]
+	{
+		rank=same
+		PO
+		dot1 [shape=point width=0]
+		dot2 [shape=point width=0]
+		PO -- dot1
+		dot1 -- dot2 [arrowhead=none]
+	}
+	WO
+	dot1 -- WO
+	{
+		rank=same
+		dot21 [shape=point width=0]
+		dot22 [shape=point width=0]
+		WO -- dot21
+		dot21 -- dot22
+	}
+	mt [label="" image="mt_scheme.svg" shape=none]
+	dot2 -- mt
+}

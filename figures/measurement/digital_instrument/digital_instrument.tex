@@ -1,0 +1,195 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{shapes.geometric,
+    arrows}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+% \usepackage{pgffor}
+% \usepackage{calc}
+\usepackage{xparse}
+\usepackage{varwidth}
+\usetikzlibrary{trees}
+\usetikzlibrary{shadows, arrows.meta}
+\usetikzlibrary{fit, fadings, backgrounds}
+\usetikzlibrary{shapes.misc}
+\usepackage[edges]{forest}
+
+% encoding and fonts
+\usepackage[utf8]{inputenc} % input encoding
+\usepackage{times}          % general
+\usepackage{helvet}         % sans serif
+\usepackage[T1]{fontenc}    % font encoding
+
+\usepackage{array}
+\usepackage{booktabs}
+\newcommand{\imgpath}{img}
+
+% user defined colors (define in colors.csv, run gen_colors_tex.py to update changes)
+\input{../../presets/colors/colors}
+\tikzset{colorset/.code={\pgfplotscolormapdefinemappedcolor{#1}}}
+
+\newcommand{\nvarwidth}[2][3cm]{%
+	\begin{varwidth}{#1}
+		\centering
+		#2
+  \end{varwidth}
+}
+
+\NewDocumentCommand{\alabel}{O{3cm}+m}{%
+  \nvarwidth[#1]{#2}
+}
+
+\NewDocumentCommand{\imlabel}{O{scale=0.9}+m}{%
+  \includegraphics[#1]{#2}
+}
+
+\renewcommand{\arraystretch}{1.2}
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\newcommand{\nsbox}[3][2]{%
+  % #1:   num columns (optional)
+  % #2:   savebox name
+  % #3:   tabular content
+  \newsavebox{#2}
+  \sbox{#2}{ \hspace{-5pt}\scriptsize
+    \begin{tabular}{*{#1}{P{1cm}}}
+      #3
+    \end{tabular}
+  }
+}
+
+\def\defcolormapshading#1#2{%
+  \pgfplotscolormaptoshadingspec{#2}{50pt}\tempa%
+  \def\tempb{\pgfdeclarehorizontalshading{#1}{\paperheight}}%
+  \expandafter\tempb\expandafter{\tempa}%
+  \let\tempa\undefined\let\tempb\undefined%
+}%
+
+\defcolormapshading{myshading}{ZissouUL5div}
+\begin{tikzfadingfrompicture}[name=myfading]
+  % must be 2cm*2cm in size
+  \clip (0,0) rectangle (2,2);
+  \shade [left color=transparent!50,
+          right color=transparent!0]
+         (0,0) rectangle (0.2,2);
+  \shade [left color=transparent!0,
+          right color=transparent!0]
+         (0.2,0) rectangle (0.35,2);
+  \shade [left color=transparent!0,
+          right color=transparent!65]
+         (0.35,0) rectangle (0.54,2);
+  \shade [left color=transparent!65,
+          right color=transparent!85]
+         (0.54,0) rectangle (1.36,2);
+  \shade [left color=transparent!85,
+          right color=transparent!100]
+         (1.36,0) rectangle (1.5,2);
+\end{tikzfadingfrompicture}
+
+\tikzset{%
+  box/.style={%
+    draw,
+    line width=1.2pt,
+    fill=white,
+    rounded corners=0.1em,
+    minimum width=2cm,
+    minimum height=1.4cm,
+    text centered,
+  },
+  sbox/.style={%
+    draw,
+    line width=0.7pt,
+    rounded corners=0.1em,
+    minimum width=1.6cm,
+    minimum height=0.4cm,
+    text centered,
+  },
+  invis/.style={%
+    text opacity=0,
+    opacity=0,
+  },
+}
+
+\begin{document}
+
+\begin{forest}
+	arrow north label/.style={%
+		edge label={node [midway, font=\small, sloped, above] {#1}},
+  },
+  arrow south label/.style={%
+    edge label={node [midway, font=\small, sloped, below] {#1}},
+  },
+  arrow ns label/.style n args={3}{%
+    edge label={%
+      node [midway, font=\small, sloped, above, xshift=#3] {#1}
+      node [midway, sbox, font=\small, sloped, below, xshift=#3, yshift=-3em] {#2}
+    },
+  },
+  for tree={
+    box,
+    grow=east,
+		s sep=0.5em,
+		l sep=1em,
+		edge={thick, -{Latex[]}},
+    calign= child edge,
+  },
+  where level=0{%
+    draw=none,
+  }{%
+    if level=1{%
+      draw=WesMixL8qual0,
+    }{%
+      if level=2{%
+        draw=WesMixL8qual0,
+      }{%
+        if level=3{%
+          draw=WesMixL8qual1,
+        }{%
+          if level=4{%
+            draw=WesMixL8qual1,
+          }{%
+            if level=5{%
+              draw=WesMixL8qual2,
+            }{%
+              if level=6{%
+              draw=WesMixL8qual3,
+              }{%
+                if level=7{%
+                draw=WesMixL8qual3,
+                }{},
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  [{\includegraphics[scale=0.2]{\imgpath/physical_world}}, name=physw, fill=none,
+   label={[name=physw_l, label distance=0.2em]270:Physical world}
+    [\nvarwidth{Physical\\ signal}
+      [\nvarwidth{Sensor\\ and/or\\ transducer}
+        [\nvarwidth{Analog\\ signal\\ conditioner}
+          [Multiplexer
+            [\nvarwidth{A/D\\ Converter}
+              [\nvarwidth{CPU\\ or\\ MCU}
+                [Memory, name=eastmost]
+              ]
+            ]
+          ]
+				]
+			]
+    ]
+  ]
+  \begin{pgfonlayer}{background}
+    \node[shading=myshading, path fading=myfading, inner sep=2mm,
+      fit={(physw.north) (physw_l.south) (eastmost.east) (physw_l)},
+      rounded rectangle, rounded rectangle east arc=0pt,
+      ] (shade) {};
+  \end{pgfonlayer}
+  \node[sbox, fill=white, yshift=3ex] at (shade.south) {Ambient distortions and noise};
+\end{forest}
+
+\end{document}

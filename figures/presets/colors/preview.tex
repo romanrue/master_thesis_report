@@ -1,0 +1,46 @@
+\documentclass[]{scrartcl}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{pgfplots}
+\usepackage{pgffor}
+\usepackage{calc}
+\pgfplotsset{compat=1.17}
+
+\input{colors}
+
+\newcommand{\prevColpal}[2]{%
+    %   #1:     colpalName
+    %   #2:     numCols
+    \subsection*{#1}
+    \foreach \index in {0, ..., \number\numexpr#2-1\relax} {
+        \tikz \fill [#1\index] (0.0,0.0) rectangle (0.5,0.5);
+    }
+}
+
+\newcommand{\prevColmap}[2]{%
+    %   #1:     colpalName
+    \subsection*{#1}
+    \begin{tikzpicture}
+    \begin{axis}[
+        hide axis,
+        scale only axis,
+        height=0pt,
+        width=0pt,
+        colormap name = #1,
+        colorbar horizontal,
+        point meta min=0,
+        point meta max=1,
+        colorbar style={
+            width=10cm,
+        }]
+        \addplot [draw=none] coordinates {(0,0)};
+    \end{axis}
+    \end{tikzpicture}
+}
+
+\begin{document}
+
+\noindent\input{prev_content}
+
+\end{document}

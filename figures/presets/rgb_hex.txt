@@ -1,0 +1,46 @@
+
+for el in colpalettes:...
+ZissouSTD5qual
+['#0099e6', '#12255a', '#f23814', '#dfb78b', '#b6c3c5']
+
+ZissouL5qual
+['#3bbdff', '#264ebe', '#f5735a', '#e8ccad', '#cbd4d6']
+
+ZissouUL5qual
+['#b9e7ff', '#abbcee', '#fbcdc4', '#f7ede2', '#ecf0f0']
+
+ZissouSTD5div
+['#548ea9', '#80aebe', '#e0c636', '#d2a821', '#d43a0f']
+
+ZissouL5div
+['#86b0c3', '#a6c6d1', '#e9d772', '#e5c55d', '#f16b45']
+
+ZissouUL5div
+['#d4e2e9', '#dfeaee', '#f7f0cc', '#f5eac5', '#facabc']
+
+WesMixSTD8qual
+['#527782', '#c17537', '#daaa2c', '#423b64', '#2b5d47', '#5093b1', '#931f28', '#747b74']
+
+WesMixL8qual
+['#7fa3ae', '#d69e70', '#e5c36b', '#6f64a3', '#4ea981', '#84b3c8', '#d63f4a', '#9da29d']
+
+WesMixUL8qual
+['#d1dee2', '#f0dccc', '#f5e9ca', '#cbc7de', '#bfe1d2', '#d3e3eb', '#f0babe', '#dcdedc']
+
+CustomSTD8qual
+['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf']
+
+CustomL8qual
+['#ec5e5f', '#6ca5d3', '#80c87e', '#b97fc2', '#ffa54c', '#ffff70', '#d58353', '#f9a6d2']
+
+CustomUL8qual
+['#f8c5c6', '#cadeef', '#d1ebd1', '#e6d1e9', '#ffdfbf', '#ffffcc', '#f0d2c1', '#fddfef']
+
+ETHpptSTD12qual
+['#000000', '#ffffff', '#72791c', '#1269b0', '#91056a', '#6f6f64', '#a8322d', '#007a96', '#956013', '#ffffff', '#1269b0', '#8cb63c']
+
+ETHpptL12qual
+['#4c4c4c', '#ffffff', '#c3cf31', '#3699ea', '#f60bb5', '#9b9b90', '#d35f5b', '#03cfff', '#e3982a', '#ffffff', '#3699ea', '#afd071']
+
+ETHpptUL12qual
+['#bfbfbf', '#ffffff', '#e9eeb5', '#b7daf7', '#fba7e4', '#dbdbd7', '#efc6c4', '#a4eeff', '#f5dab3', '#ffffff', '#b7daf7', '#e2eecc']

@@ -1,0 +1,114 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{shapes.geometric,
+    arrows}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+% \usepackage{pgffor}
+% \usepackage{calc}
+\usepackage{xparse}
+\usepackage{varwidth}
+\usetikzlibrary{trees}
+\usetikzlibrary{shadows, arrows.meta}
+\usetikzlibrary{fit}
+\usepackage[edges]{forest}
+
+% encoding and fonts
+\usepackage[utf8]{inputenc} % input encoding
+\usepackage{times}          % general
+\usepackage{helvet}         % sans serif
+\usepackage[T1]{fontenc}    % font encoding
+
+\usepackage{array}
+\usepackage{booktabs}
+\newcommand{\imgpath}{img}
+
+% user defined colors (define in colors.csv, run gen_colors_tex.py to update changes)
+\input{../../presets/colors/colors}
+\tikzset{colorset/.code={\pgfplotscolormapdefinemappedcolor{#1}}}
+
+\newcommand{\nvarwidth}[2][3cm]{%
+	\begin{varwidth}{#1}
+		\centering
+		#2
+  \end{varwidth}
+}
+
+\NewDocumentCommand{\alabel}{O{3cm}+m}{%
+  \nvarwidth[#1]{#2}
+}
+
+\NewDocumentCommand{\imlabel}{O{scale=0.9}+m}{%
+  \includegraphics[#1]{#2}
+}
+
+\renewcommand{\arraystretch}{1.2}
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usetikzlibrary{matrix}
+
+\newcommand{\nsbox}[3][2]{%
+    % #1:   num columns (optional)
+    % #2:   savebox name
+    % #3:   tabular content
+    \newsavebox{#2}
+    \sbox{#2}{ \hspace{-5pt}\scriptsize
+        \begin{tabular}{*{#1}{P{1cm}}}
+            #3
+        \end{tabular}
+    }
+}
+
+\tikzset{%
+  box/.style={%
+    draw,
+    line width=1.2pt,
+    fill=white,
+    rounded corners=0.1em,
+    minimum width=2cm,
+    minimum height=1.4cm,
+    text centered,
+  },
+  sbox/.style={%
+    draw,
+    line width=0.7pt,
+    rounded corners=0.1em,
+    minimum width=1.6cm,
+    minimum height=0.4cm,
+    text centered,
+  },
+  txt/.style={%
+    minimum height=0.4cm,
+    text centered,
+  }
+  invis/.style={%
+    text opacity=0,
+    opacity=0,
+  },
+}
+
+\begin{document}
+
+\begin{forest}
+  for tree={
+    grow=east,
+		s sep=-0.5em,
+		l sep=0em,
+		no edge,
+    calign= child edge,
+  },
+  [{\large <[}, txt, text=WesMixL8qual6,
+    [{\large (reg)}, txt, text=WesMixL8qual0,
+      [{\large (\#bytes)}, txt, text=WesMixL8qual4,
+        [{\large (data)}, txt, text=WesMixL8qual5,
+          [{\large ]>}, txt, text=WesMixL8qual6,]
+        ]
+			]
+    ]
+  ]
+\end{forest}
+
+
+\end{document}

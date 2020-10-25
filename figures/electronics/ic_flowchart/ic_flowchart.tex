@@ -1,0 +1,182 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{shapes.geometric,
+    arrows}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+% \usepackage{pgffor}
+% \usepackage{calc}
+\usepackage{varwidth}
+\usetikzlibrary{trees}
+\usepackage[edges]{forest}
+
+% encoding and fonts
+\usepackage[utf8]{inputenc} % input encoding
+\usepackage{times}          % general
+\usepackage{helvet}         % sans serif
+\usepackage[T1]{fontenc}    % font encoding
+
+\usepackage{array}
+\usepackage{booktabs}
+
+% user defined colors (define in colors.csv, run gen_colors_tex.py to update changes)
+\input{../../colors/colors}
+\tikzset{colorset/.code={\pgfplotscolormapdefinemappedcolor{#1}}}
+
+\renewcommand{\arraystretch}{1.2}
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usetikzlibrary{matrix}
+
+\newcommand{\nsbox}[3][2]{%
+    % #1:   num columns (optional)
+    % #2:   savebox name
+    % #3:   tabular content
+    \newsavebox{#2}
+    \sbox{#2}{ \hspace{-5pt}\scriptsize
+        \begin{tabular}{*{#1}{P{1cm}}}
+            #3
+        \end{tabular}
+    }
+}
+
+\nsbox[1]{\contlplapck}{%
+PLLMC
+}
+
+\nsbox[1]{\surfcerpck}{%
+CDIL \\
+CPGA 
+}
+
+\nsbox{\surfplaarrpck}{%
+\thead{Low Power} & \thead{Power} \tabularnewline
+BGA & HBGA\\
+LFBGA\\
+TFBGA\\
+VFBGA
+}
+
+\nsbox{\surfplaquadpck}{%
+\thead{Low Power} & \thead{Power} \tabularnewline
+BCC & HBCC\\
+LQFP & HLQFP\\
+PLCC & HQFP\\ 
+QFP & HSQFP\\
+SQFP & HTQFP\\
+TQFP\\
+VQFP
+}
+
+\nsbox{\surfpladualpck}{%
+\thead{Low Power} & \thead{Power} \tabularnewline
+PMFP & HSOP\\
+SO & HTSSOP\\
+SSOP\\
+TSSOP\\
+VSO
+}
+
+\nsbox[1]{\surfmetpck}{%
+MSQFP 
+}
+
+\nsbox{\thrcerpck}{%
+\thead{Low Power} & \thead{Power} \tabularnewline
+CDIL & HCPGA\\
+CPGA 
+}
+
+\nsbox{\thrplapck}{%
+\thead{Low Power} & \thead{Power} \tabularnewline
+DIP & HDIP\\
+SDIP & DBS\\
+SIL & SIL\\
+& RBS\\
+& RDBS\\
+& TBS
+}
+ 
+\begin{document}
+
+\begin{forest}
+  for tree={
+		forked edges,
+		s sep=0.5em,
+		l sep=1em,
+		fork sep=1em,
+		draw,
+		inner sep=3pt,
+		line width=1.2pt,
+		fill=white,
+    rounded corners=0.1em,
+		node options={align=center,},
+    minimum width=2cm,
+  },
+	where level=0{%
+		draw=WesMixL8qual0,
+		parent anchor=center,
+		inner sep=8pt,
+	}{%
+    folder,
+    grow'=0,
+    if level=1{%
+			before typesetting nodes={child anchor=north},
+			before computing xy={s+=-5.6em},
+      		edge path'={(!u.parent anchor) -| (.child anchor)},
+			edge+={blend mode=lighten},
+			draw=WesMixL8qual1,
+			minimum width=2.6cm,
+		}{%
+			if level=2{%
+				draw=WesMixL8qual2
+			}{%
+				if level=3{%
+					draw=WesMixL8qual3
+				}{%
+					if level=4{%
+						draw=WesMixL8qual4
+					}{},
+				},
+			},
+		},
+	}
+	[IC Packages
+		[\begin{varwidth}{3cm}\centering Through Hole\\ Packages\end{varwidth}
+			[Plastic
+				[\usebox{\thrplapck}, for tree={draw=WesMixL8qual4}]
+			]
+			[Ceramic
+				[\usebox{\thrcerpck}, for tree={draw=WesMixL8qual4}]
+			]
+		]
+		[\begin{varwidth}{3cm}\centering Surface Mount\\ Packages\end{varwidth}
+			[Plastic
+				[Array
+					[\usebox{\surfplaarrpck}]
+				]
+				[Quad
+					[\usebox{\surfplaquadpck}]
+				]
+				[Dual
+					[\usebox{\surfpladualpck}]
+				]
+			]
+			[Ceramic
+				[\usebox{\surfcerpck}, for tree={draw=WesMixL8qual4}]
+			]
+			[Metal
+				[\usebox{\surfmetpck}, for tree={draw=WesMixL8qual4}]
+			]
+		]
+		[\begin{varwidth}{3cm}\centering Contactless\\ Packages\end{varwidth}
+			[Plastic
+					[\usebox{\contlplapck}, for tree={draw=WesMixL8qual4}]
+			]
+		]
+	]
+\end{forest}
+
+\end{document}

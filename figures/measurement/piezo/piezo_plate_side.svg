@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="piezo_plate_side.svg"
+   xml:space="preserve"
+   enable-background="new 0 0 1190.55 841.89"
+   viewBox="0 0 209.3381 45.443088"
+   height="45.443089"
+   width="209.3381"
+   y="0px"
+   x="0px"
+   id="Ebene_1"
+   version="1.1"><metadata
+   id="metadata1345"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs1343">
+	<defs
+   id="defs43">
+		<polyline
+   id="SVGID_1_"
+   points="27,27 1164.001,27 1164.001,815.001 27,815.001 27,27   " />
+	</defs>
+	<clipPath
+   id="SVGID_2_">
+		<use
+   xlink:href="#SVGID_1_"
+   overflow="visible"
+   id="use45"
+   x="0"
+   y="0"
+   width="100%"
+   height="100%" />
+	</clipPath>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+</defs><sodipodi:namedview
+   fit-margin-bottom="0"
+   fit-margin-right="0"
+   fit-margin-left="0"
+   fit-margin-top="0"
+   inkscape:current-layer="Ebene_1"
+   inkscape:window-maximized="0"
+   inkscape:window-y="0"
+   inkscape:window-x="1273"
+   inkscape:cy="42.084069"
+   inkscape:cx="117.21351"
+   inkscape:zoom="0.88110534"
+   showgrid="false"
+   id="namedview1341"
+   inkscape:window-height="1368"
+   inkscape:window-width="1278"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0"
+   guidetolerance="10"
+   gridtolerance="10"
+   objecttolerance="10"
+   borderopacity="1"
+   bordercolor="#666666"
+   pagecolor="#ffffff" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<g
+   transform="translate(-228.01695,-459.46495)"
+   id="g3028"><g
+     id="g746"
+     clip-path="url(#SVGID_2_)">
+		<defs
+   id="defs693">
+			<polyline
+   points="228.513,474.135 280.953,504.412 280.953,490.239 228.513,459.961 228.513,474.135    "
+   id="SVGID_31_" />
+		</defs>
+		<clipPath
+   id="SVGID_32_">
+			<use
+   height="100%"
+   width="100%"
+   y="0"
+   x="0"
+   id="use695"
+   overflow="visible"
+   xlink:href="#SVGID_31_" />
+		</clipPath>
+		
+			<line
+   id="line698"
+   y2="502.099"
+   x2="280.953"
+   y1="503.564"
+   x1="279.48599"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line700"
+   y2="498.09"
+   x2="280.953"
+   y1="502.099"
+   x1="276.94501"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line702"
+   y2="494.08301"
+   x2="280.953"
+   y1="500.63"
+   x1="274.40302"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line704"
+   y2="490.17899"
+   x2="280.84799"
+   y1="499.16299"
+   x1="271.862"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line706"
+   y2="488.70999"
+   x2="278.306"
+   y1="497.69699"
+   x1="269.32101"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line708"
+   y2="487.24301"
+   x2="275.76501"
+   y1="496.228"
+   x1="266.77899"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line710"
+   y2="485.77701"
+   x2="273.22299"
+   y1="494.763"
+   x1="264.23801"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line712"
+   y2="484.30801"
+   x2="270.68201"
+   y1="493.29401"
+   x1="261.69601"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line714"
+   y2="482.84"
+   x2="268.14001"
+   y1="491.82599"
+   x1="259.15399"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line716"
+   y2="481.375"
+   x2="265.599"
+   y1="490.36099"
+   x1="256.61301"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line718"
+   y2="479.90701"
+   x2="263.05701"
+   y1="488.892"
+   x1="254.07201"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line720"
+   y2="478.44101"
+   x2="260.51599"
+   y1="487.42401"
+   x1="251.53"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line722"
+   y2="476.97198"
+   x2="257.974"
+   y1="485.95801"
+   x1="248.989"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line724"
+   y2="475.504"
+   x2="255.433"
+   y1="484.48999"
+   x1="246.44701"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line726"
+   y2="474.039"
+   x2="252.89101"
+   y1="483.022"
+   x1="243.90601"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line728"
+   y2="472.57001"
+   x2="250.35001"
+   y1="481.556"
+   x1="241.364"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line730"
+   y2="471.10199"
+   x2="247.808"
+   y1="480.08701"
+   x1="238.823"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line732"
+   y2="469.63599"
+   x2="245.267"
+   y1="478.62299"
+   x1="236.28101"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line734"
+   y2="468.168"
+   x2="242.726"
+   y1="477.15399"
+   x1="233.74001"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line736"
+   y2="466.70001"
+   x2="240.18401"
+   y1="475.686"
+   x1="231.198"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line738"
+   y2="465.23401"
+   x2="237.642"
+   y1="474.22"
+   x1="228.657"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line740"
+   y2="463.76599"
+   x2="235.101"
+   y1="470.354"
+   x1="228.513"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line742"
+   y2="462.297"
+   x2="232.56"
+   y1="466.345"
+   x1="228.513"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+		
+			<line
+   id="line744"
+   y2="460.832"
+   x2="230.01801"
+   y1="462.33701"
+   x1="228.513"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_32_)" />
+	</g><line
+     id="line1196"
+     y2="459.961"
+     x2="384.418"
+     y1="490.23901"
+     x1="436.85901"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1198"
+     y2="459.961"
+     x2="228.513"
+     y1="459.961"
+     x1="384.418"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1200"
+     y2="474.13501"
+     x2="228.513"
+     y1="459.961"
+     x1="228.513"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1202"
+     y2="504.41199"
+     x2="280.953"
+     y1="474.13501"
+     x1="228.513"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1204"
+     y2="490.23901"
+     x2="280.953"
+     y1="504.41199"
+     x1="280.953"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1206"
+     y2="490.23901"
+     x2="436.85901"
+     y1="490.23901"
+     x1="280.953"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1256"
+     y2="504.41199"
+     x2="436.85901"
+     y1="490.23901"
+     x1="436.85901"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1258"
+     y2="504.41199"
+     x2="280.953"
+     y1="504.41199"
+     x1="436.85901"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1260"
+     y2="459.961"
+     x2="228.513"
+     y1="490.23901"
+     x1="280.953"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /></g>
+</svg>

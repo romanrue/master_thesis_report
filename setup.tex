@@ -24,13 +24,12 @@
 %%% FIGURES
 %\usepackage{tocbasic}     % floating figures (KOMA script compatible)
 %\usepackage{scrhack}      % fixes floating environments in KOMA script 
-\usepackage[footnotesize, sl, SL, hang, tight]{subfigure}
+%\usepackage[footnotesize, sl, SL, hang, tight]{subfigure}
 \ifpdf
     \PassOptionsToPackage{pdftex}{graphicx}
 \fi
 \usepackage{graphicx}     % improved includegraphics
 \usepackage{rotating}     % rotate graphics (load after graphicx)
-
 
 %%%----------------------------------------------------------------
 %%% TABLES
@@ -38,16 +37,20 @@
 \usepackage{longtable}    % multi page tables
 \usepackage{colortbl}     % allows to color cell backgrounds
 \usepackage{makecell}     % for easy table headers
+\usepackage{multirow}     % merge cells vertically
     \renewcommand\theadfont{\bfseries\sffamily}
 
 % %%%----------------------------------------------------------------
 % %%% CAPTIONS
 \usepackage[
   font={small,sl},        % small, italic
-  hang,                   % hanging
+  format=hang,            % hanging
   labelfont=bf            % bold label
   ]{caption}              % captions for tables and figures
-%/\usepackage{subcaption}   % allows to do subcaptions in figures
+\usepackage[%
+  subrefformat=parens,
+  labelformat=parens
+  ]{subcaption}            % allows to do subcaptions in figures
 %\usepackage{captcont}     % subfigures over multiple pages
 
 %%%----------------------------------------------------------------
@@ -129,10 +132,14 @@
 %% TOOLKITS
 % \usepackage{csquotes}     % Advanced quotation tools
 \usepackage{pdfpages}     % include full pdf pages
+\usepackage[mode=image]{standalone}   % include standalone tikz graphics as tex or pdf
 \usepackage{tcolorbox}    % colored text boxes
   \tcbuselibrary{skins}
 \usepackage{currfile}     % get path information about current file
 \usepackage{tikz}
+\usepackage{anyfontsize}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
 
 \begin{comment}
 %%%----------------------------------------------------------------

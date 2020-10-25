@@ -24,13 +24,13 @@
 \makeatother
 
 %% entries
-\title{title}
+\title{Development of a Low-Cost Modal Analysis System}
 \subtitle{subtitle}
 \reporttype{Master Thesis}
 \author{Roman Rüttimann}
 \supervisor{Nino Ceresa}
 \chiefsupervisor{Prof. Konrad Wegener}
-\group{Institut für Werkzeug- und Fertigungstechnik}
+\group{Institute of Machine Tools and Manufacturing}
 \timespan{Spring Semester 2020}
 \date{\today}
 
@@ -42,6 +42,8 @@
 %%%----------------------------------------------------------------
 %%% INITIALIZE
 \input{setup}                       % loads all usepackages and changes layout
+\input{preamble}
+\input{\imgpath/presets/colors/colors} % imports predefined colors
 \addbibresource{references.bib}     % loads bibliography
 \newlength{\distTextWidth}          % effective textwidth
 \newlength{\distColSep}             % separation gap when using multiple columns
@@ -50,10 +52,10 @@
 
 %%%----------------------------------------------------------------
 %%% DEBUGGING
-%\usepackage{showkeys}       % DEBUGGING show labels abover references
+%\usepackage{showkeys}       % DEBUGGING show labels above references
 %\usepackage{comment}        % DEBUGGING comment out code with comment environment
 %\usepackage{lipsum}         % DEBUGGING blind text
-\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}\PackageWarning{TODO:}{#1!}} % DEBUGGING todo note
+\usepackage{todonotes}
 
 %%%----------------------------------------------------------------
 %%% MACROS
@@ -97,7 +99,12 @@
 \include{\texpath/introduction}
 
 % add your chapter files here!
-\include{\texpath/sample_chapter}
+\include{\texpath/state_of_art}
+\include{\texpath/signal_conditioning}
+% \include{\texpath/analog_circuits}
+\include{\texpath/dac_software}
+\include{\texpath/test_setups}
+% \include{\texpath/sample_chapter}
 
 \include{\texpath/results}
 \include{\texpath/conclusion}

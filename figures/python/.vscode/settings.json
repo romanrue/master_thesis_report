@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "c:\\Users\\roman\\OneDrive - ETHZ\\projects\\eth\\master_thesis\\report\\master_thesis_report\\figures\\python\\venv\\Scripts\\python.exe",
+    "terminal.integrated.env.windows": {
+        "PYTHONPATH": "${workspaceFolder}/src;${workspaceFolder}/venv"
+    }
+}

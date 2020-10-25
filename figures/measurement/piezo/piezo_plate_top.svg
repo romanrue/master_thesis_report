@@ -1,0 +1,1232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="piezo_plate_top.svg"
+   xml:space="preserve"
+   enable-background="new 0 0 1190.55 841.89"
+   viewBox="0 0 209.3381 45.442111"
+   height="45.442112"
+   width="209.3381"
+   y="0px"
+   x="0px"
+   id="Ebene_1"
+   version="1.1"><metadata
+   id="metadata1345"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs1343">
+	<defs
+   id="defs43">
+		<polyline
+   id="SVGID_1_"
+   points="27,27 1164.001,27 1164.001,815.001 27,815.001 27,27   " />
+	</defs>
+	<clipPath
+   id="SVGID_2_">
+		<use
+   xlink:href="#SVGID_1_"
+   overflow="visible"
+   id="use45"
+   x="0"
+   y="0"
+   width="100%"
+   height="100%" />
+	</clipPath>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+</defs><sodipodi:namedview
+   fit-margin-bottom="0"
+   fit-margin-right="0"
+   fit-margin-left="0"
+   fit-margin-top="0"
+   inkscape:current-layer="Ebene_1"
+   inkscape:window-maximized="0"
+   inkscape:window-y="0"
+   inkscape:window-x="1273"
+   inkscape:cy="-30.737467"
+   inkscape:cx="387.41864"
+   inkscape:zoom="0.31151778"
+   showgrid="false"
+   id="namedview1341"
+   inkscape:window-height="1368"
+   inkscape:window-width="1278"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0"
+   guidetolerance="10"
+   gridtolerance="10"
+   objecttolerance="10"
+   borderopacity="1"
+   bordercolor="#666666"
+   pagecolor="#ffffff" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<g
+   transform="translate(-228.01695,-275.10295)"
+   id="g2988"><g
+     id="g690"
+     clip-path="url(#SVGID_2_)">
+		<defs
+   id="defs567">
+			<polyline
+   points="228.513,275.599 280.953,305.876 436.859,305.876 384.418,275.599 228.513,275.599    "
+   id="SVGID_29_" />
+		</defs>
+		<clipPath
+   id="SVGID_30_">
+			<use
+   height="100%"
+   width="100%"
+   y="0"
+   x="0"
+   id="use569"
+   overflow="visible"
+   xlink:href="#SVGID_29_" />
+		</clipPath>
+		
+			<line
+   id="line572"
+   y2="304.49301"
+   x2="434.46399"
+   y1="305.87601"
+   x1="433.08099"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line574"
+   y2="303.02399"
+   x2="431.92099"
+   y1="305.87601"
+   x1="429.07199"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line576"
+   y2="301.556"
+   x2="429.38101"
+   y1="305.87601"
+   x1="425.06201"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line578"
+   y2="300.09"
+   x2="426.83899"
+   y1="305.87601"
+   x1="421.05301"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line580"
+   y2="298.62201"
+   x2="424.29599"
+   y1="305.87601"
+   x1="417.04501"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line582"
+   y2="297.15701"
+   x2="421.75601"
+   y1="305.87601"
+   x1="413.03699"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line584"
+   y2="295.68799"
+   x2="419.21301"
+   y1="305.87601"
+   x1="409.02899"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line586"
+   y2="294.22"
+   x2="416.67401"
+   y1="305.87601"
+   x1="405.01801"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line588"
+   y2="292.754"
+   x2="414.13101"
+   y1="305.87601"
+   x1="401.009"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line590"
+   y2="291.28601"
+   x2="411.591"
+   y1="305.87601"
+   x1="397.00101"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line592"
+   y2="289.81699"
+   x2="409.048"
+   y1="305.87601"
+   x1="392.99301"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line594"
+   y2="288.35199"
+   x2="406.50601"
+   y1="305.87601"
+   x1="388.98499"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line596"
+   y2="286.884"
+   x2="403.966"
+   y1="305.87601"
+   x1="384.974"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line598"
+   y2="285.41599"
+   x2="401.423"
+   y1="305.87601"
+   x1="380.966"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line600"
+   y2="283.95001"
+   x2="398.883"
+   y1="305.87601"
+   x1="376.95801"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line602"
+   y2="282.48199"
+   x2="396.341"
+   y1="305.87601"
+   x1="372.94901"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line604"
+   y2="281.01501"
+   x2="393.80099"
+   y1="305.87601"
+   x1="368.93799"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line606"
+   y2="279.547"
+   x2="391.258"
+   y1="305.87601"
+   x1="364.92999"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line608"
+   y2="278.07999"
+   x2="388.716"
+   y1="305.87601"
+   x1="360.922"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line610"
+   y2="276.61301"
+   x2="386.17599"
+   y1="305.87601"
+   x1="356.914"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line612"
+   y2="275.599"
+   x2="383.17999"
+   y1="305.87601"
+   x1="352.905"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line614"
+   y2="275.599"
+   x2="379.17099"
+   y1="305.87601"
+   x1="348.89499"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line616"
+   y2="275.599"
+   x2="375.16299"
+   y1="305.87601"
+   x1="344.88599"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line618"
+   y2="275.599"
+   x2="371.155"
+   y1="305.87601"
+   x1="340.87799"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line620"
+   y2="275.599"
+   x2="367.146"
+   y1="305.87601"
+   x1="336.87"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line622"
+   y2="275.599"
+   x2="363.13599"
+   y1="305.87601"
+   x1="332.862"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line624"
+   y2="275.599"
+   x2="359.12701"
+   y1="305.87601"
+   x1="328.85101"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line626"
+   y2="275.599"
+   x2="355.11899"
+   y1="305.87601"
+   x1="324.84201"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line628"
+   y2="275.599"
+   x2="351.11099"
+   y1="305.87601"
+   x1="320.83401"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line630"
+   y2="275.599"
+   x2="347.10001"
+   y1="305.87601"
+   x1="316.82599"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line632"
+   y2="275.599"
+   x2="343.09201"
+   y1="305.87601"
+   x1="312.815"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line634"
+   y2="275.599"
+   x2="339.08301"
+   y1="305.87601"
+   x1="308.80701"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line636"
+   y2="275.599"
+   x2="335.07599"
+   y1="305.87601"
+   x1="304.79901"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line638"
+   y2="275.599"
+   x2="331.06699"
+   y1="305.87601"
+   x1="300.79099"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line640"
+   y2="275.599"
+   x2="327.056"
+   y1="305.87601"
+   x1="296.78201"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line642"
+   y2="275.599"
+   x2="323.048"
+   y1="305.87601"
+   x1="292.771"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line644"
+   y2="275.599"
+   x2="319.04001"
+   y1="305.87601"
+   x1="288.763"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line646"
+   y2="275.599"
+   x2="315.03201"
+   y1="305.87601"
+   x1="284.755"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line648"
+   y2="275.599"
+   x2="311.02301"
+   y1="305.79901"
+   x1="280.82199"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line650"
+   y2="275.599"
+   x2="307.013"
+   y1="304.33099"
+   x1="278.28"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line652"
+   y2="275.599"
+   x2="303.004"
+   y1="302.866"
+   x1="275.73901"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line654"
+   y2="275.599"
+   x2="298.996"
+   y1="301.397"
+   x1="273.19699"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line656"
+   y2="275.599"
+   x2="294.98801"
+   y1="299.92899"
+   x1="270.65601"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line658"
+   y2="275.599"
+   x2="290.97699"
+   y1="298.46301"
+   x1="268.11401"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line660"
+   y2="275.599"
+   x2="286.96899"
+   y1="296.995"
+   x1="265.573"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line662"
+   y2="275.599"
+   x2="282.95999"
+   y1="295.526"
+   x1="263.03101"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line664"
+   y2="275.599"
+   x2="278.952"
+   y1="294.061"
+   x1="260.48999"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line666"
+   y2="275.599"
+   x2="274.94299"
+   y1="292.59299"
+   x1="257.948"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line668"
+   y2="275.599"
+   x2="270.93399"
+   y1="291.12701"
+   x1="255.407"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line670"
+   y2="275.599"
+   x2="266.92499"
+   y1="289.659"
+   x1="252.866"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line672"
+   y2="275.599"
+   x2="262.91699"
+   y1="288.19"
+   x1="250.32401"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line674"
+   y2="275.599"
+   x2="258.90799"
+   y1="286.72501"
+   x1="247.782"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line676"
+   y2="275.599"
+   x2="254.899"
+   y1="285.25601"
+   x1="245.241"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line678"
+   y2="275.599"
+   x2="250.89"
+   y1="283.78799"
+   x1="242.7"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line680"
+   y2="275.599"
+   x2="246.881"
+   y1="282.32199"
+   x1="240.158"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line682"
+   y2="275.599"
+   x2="242.873"
+   y1="280.854"
+   x1="237.617"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line684"
+   y2="275.599"
+   x2="238.864"
+   y1="279.38699"
+   x1="235.075"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line686"
+   y2="275.599"
+   x2="234.855"
+   y1="277.92001"
+   x1="232.534"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+		
+			<line
+   id="line688"
+   y2="275.599"
+   x2="230.84599"
+   y1="276.453"
+   x1="229.992"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_30_)" />
+	</g><line
+     id="line1208"
+     y2="275.599"
+     x2="384.418"
+     y1="305.87601"
+     x1="436.85901"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1210"
+     y2="275.599"
+     x2="228.513"
+     y1="275.599"
+     x1="384.418"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1212"
+     y2="289.772"
+     x2="228.513"
+     y1="275.599"
+     x1="228.513"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1214"
+     y2="320.04901"
+     x2="280.953"
+     y1="289.772"
+     x1="228.513"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1216"
+     y2="305.87601"
+     x2="280.953"
+     y1="320.04901"
+     x1="280.953"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1218"
+     y2="305.87601"
+     x2="436.85901"
+     y1="305.87601"
+     x1="280.953"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1250"
+     y2="320.04901"
+     x2="436.85901"
+     y1="305.87601"
+     x1="436.85901"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1252"
+     y2="320.04901"
+     x2="280.953"
+     y1="320.04901"
+     x1="436.85901"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1254"
+     y2="275.599"
+     x2="228.513"
+     y1="305.87601"
+     x1="280.953"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /></g>
+</svg>

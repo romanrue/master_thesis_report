@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="piezo_axial_flat.svg"
+   xml:space="preserve"
+   enable-background="new 0 0 1190.55 841.89"
+   viewBox="0 0 128.55111 52.016101"
+   height="52.016102"
+   width="128.55112"
+   y="0px"
+   x="0px"
+   id="Ebene_1"
+   version="1.1"><metadata
+   id="metadata1345"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs1343">
+	<defs
+   id="defs43">
+		<polyline
+   id="SVGID_1_"
+   points="27,27 1164.001,27 1164.001,815.001 27,815.001 27,27   " />
+	</defs>
+	<clipPath
+   id="SVGID_2_">
+		<use
+   xlink:href="#SVGID_1_"
+   overflow="visible"
+   id="use45"
+   x="0"
+   y="0"
+   width="100%"
+   height="100%" />
+	</clipPath>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+</defs><sodipodi:namedview
+   fit-margin-bottom="0"
+   fit-margin-right="0"
+   fit-margin-left="0"
+   fit-margin-top="0"
+   inkscape:current-layer="Ebene_1"
+   inkscape:window-maximized="0"
+   inkscape:window-y="0"
+   inkscape:window-x="1273"
+   inkscape:cy="-804.41077"
+   inkscape:cx="-270.57593"
+   inkscape:zoom="0.44055267"
+   showgrid="false"
+   id="namedview1341"
+   inkscape:window-height="1368"
+   inkscape:window-width="1278"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0"
+   guidetolerance="10"
+   gridtolerance="10"
+   objecttolerance="10"
+   borderopacity="1"
+   bordercolor="#666666"
+   pagecolor="#ffffff" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<g
+   transform="translate(-782.13994,-427.79095)"
+   id="g3529"><g
+     id="g134"
+     clip-path="url(#SVGID_2_)">
+		<defs
+   id="defs115">
+			<polyline
+   points="783.86,450.307 785.519,452.201 787.488,453.765 791.871,456.257 796.497,458.258      801.316,459.741 812.45,462.096 823.704,463.786 835.04,464.8 846.415,465.138 857.791,464.8 869.123,463.786 880.38,462.096      891.512,459.741 896.33,458.258 900.957,456.257 905.339,453.765 907.31,452.201 908.968,450.307 909.88,448.612      910.195,446.712 910.195,460.886 909.88,462.785 908.968,464.48 907.31,466.374 905.339,467.939 900.957,470.43 896.33,472.431      891.512,473.914 880.38,476.269 869.123,477.958 857.791,478.974 846.415,479.311 835.04,478.974 823.704,477.958      812.45,476.269 801.316,473.914 796.497,472.431 791.871,470.43 787.488,467.939 785.519,466.374 783.86,464.48 782.95,462.785      782.636,460.886 782.636,446.712 782.95,448.612 783.86,450.307    "
+   id="SVGID_15_" />
+		</defs>
+		<clipPath
+   id="SVGID_16_">
+			<use
+   height="100%"
+   width="100%"
+   y="0"
+   x="0"
+   id="use117"
+   overflow="visible"
+   xlink:href="#SVGID_15_" />
+		</clipPath>
+		<g
+   id="g132"
+   clip-path="url(#SVGID_16_)">
+			<g
+   id="g130">
+				<defs
+   id="defs121">
+					<rect
+   height="32.598999"
+   width="127.56"
+   y="446.71201"
+   x="782.63599"
+   id="SVGID_17_" />
+				</defs>
+				<clipPath
+   id="SVGID_18_">
+					<use
+   height="100%"
+   width="100%"
+   y="0"
+   x="0"
+   id="use123"
+   overflow="visible"
+   xlink:href="#SVGID_17_" />
+				</clipPath>
+				<g
+   id="g128"
+   clip-path="url(#SVGID_18_)">
+					
+						<image
+   id="image126"
+   transform="matrix(0.24,0,0,0.24,782.6357,446.7124)"
+   xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEBLAEsAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA EAMCAwYAAAOJAAAE1QAABnP/2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa JjAjHh4eHiMwKy4nJycuKzU1MDA1NUBAP0BAQEBAQEBAQEBAQP/CABEIAI4CGgMBIgACEQEDEQH/ xACEAAEBAQADAQAAAAAAAAAAAAABAAQDBQYCAQEAAAAAAAAAAAAAAAAAAAAAEAABAgYDAQEBAQAA AAAAAAAAAxMCEgQUBRVgATQRIYAQEQACAAUEAgICAwAAAAAAAAAAAZHRAjIzMZIDNGBxEaEg0hAi BBIBAAAAAAAAAAAAAAAAAAAAgP/aAAwDAQACEQMRAAAA9/URAkDfIfV8h9XxH2fAchxxyXEHLcMc twhznCHOcAaDgDRZg02YNNljUZQ12ONdjDZYw2WINxiDcYY3WAN918b7rw7C66OxOuDsrrQ7K6wO zusDs7q47rtfM+mCoBCEAQhAqAQKgECoBCEAQhAEIQKgECoBCEAQhAqAQKgECoBCEAQhAqNPpvM+ mCoBCEAQhAqAQKgECoBCEAQhAEIQKgECoBCEAQhAqAQKgECoBCEAQhAqNPpvM+mCoBCEAQhAqAQK gECoBCEAQhAEIQKgECoBCEAQhAqAQKgECoBCEAQhAqNPpvM+mCoBCEAQhAqAQKgECoBCEAQhAEIQ KgECoBCEAQhAqAQKgECoBCEAQhAqNPpvM+mCoBCEAQhAqAQKgECoBCEAQhAEIQKgECoBCEAQhAqA QKgECoBCEAQhAqNPpvM+mCoBCEAQhAqAQKgECoBCEAQhAEIQKgECoBCEAQhAqAQKgECoBCEAQhAq NPpvM+mCoBCEAQhAqAQKgECoBCEAQhAEIQKgECoBCEAQhAqAQKgECoBCEAQhAqNPpvM+mCoBgPoP k+w+T7D4vsPg+447kDjOUOK5I4jmDiOYOE5w4TnDgNAcBoDPaAzmkM1pDMagzGoMprDKawyWsMhs DHbAxm0MVtDEbgxG4MJvDCbwwW8OL03S90f/2gAIAQIAAQUA/jL/2gAIAQMAAQUA/jL/2gAIAQEA AQUAPp9PpMTE5P2OdjnY72O9j3Y92Pdj/Y/2XHZcRFzEXMRdRF1EXcRdxF5EXkReRF7EXsRfRl9G X8ZfxmwjNhGbGM2MZsYzZRmyjNnGbNQ2ihtFDaqG1UNsobZQ26ht1DbqG4UNwqblU3KpulTdKm7V N2qbxU3ipvFTeqm9VN8sUmYUqKjgeM93A8Z7uB4z3cDxnu4HjPdwPGe7geM93A8Z7uB4z3cDxnu4 HjPdwPGe7geM93A8Z7uB4z3cDxnu/wB/D8Pw+QnyE+QnyA+QHyA+JnxMlTJUiVIlSJUSVElRJUCR AkQJKckpySnJKYkpiSmG6UbpRulG6QbpBukG6QboxujGqIaohqiGqEaoRqhGqEaoBmgGaAZx4zjx nHjOOGccM44YxoxjRjGjGMGMYMYwYxYxiy3xZb4ot8UW+KKJHHQ1J//aAAgBAgIGPwAZf//aAAgB AwIGPwAZf//aAAgBAQEGPwD89DQ0NDQ0NDQ0NDRGiLUWotRai1FqLUWotRai1FqLUWIsRYixFiiW KJYoliiWKLLFFliiyxRZjUWY1FmNRZjUWY6Ysx0xZjpizHTFmOmLMdMWY6Ysx0xZjpizFTFmKmLM VMWYqYsxUxZipizFTFmKmLMVMWUcT46aVU/j5TfgnF78E4vfgnF78E4vfgnF78E4vfgnF78E4vfg nF78E4vfgnF78E4vfgnF78E4vfgnF78E4vf5ampqampqXF30XfRd9F30XfRe4F7gXuBe4F7gXuBk cGZHBmRwZkcGZHBmRwZkcGZXByMrg5GVwcjK4ORle1yMr2uRme1yMz2uRme1yMz2uRme1yMz2uRn e1yM72uRne1yM72uRne1yM72uR2HtcjsVbXI7FW1yOxVtcjsVbXI7FW1yOzVtcjs1bXI7NWxyOzV scjs1bHI7NWxyOzVscjtVbHI7VWxyO1VscjtVbHI7VWx/qdqrY/1KHxf6Kq+RP8ArS6Wvn6/j//Z"
+   height="136"
+   width="532"
+   overflow="visible">
+					</image>
+				</g>
+			</g>
+		</g>
+	</g><g
+     id="g208"
+     clip-path="url(#SVGID_2_)">
+		<defs
+   id="defs137">
+			<polyline
+   points="910.195,446.712 909.88,444.813 908.968,443.119 907.31,441.228 905.339,439.663      900.957,437.168 896.33,435.17 891.512,433.685 880.38,431.329 869.123,429.642 857.791,428.627 846.415,428.288 835.04,428.627      823.704,429.642 812.45,431.329 801.316,433.685 796.497,435.17 791.871,437.168 787.488,439.663 785.519,441.228      783.86,443.119 782.95,444.813 782.636,446.712 782.95,448.612 783.86,450.307 785.519,452.201 787.488,453.765 791.871,456.257      796.497,458.258 801.316,459.741 812.45,462.096 823.704,463.786 835.04,464.8 846.415,465.138 857.791,464.8 869.123,463.786      880.38,462.096 891.512,459.741 896.33,458.258 900.957,456.257 905.339,453.765 907.31,452.201 908.968,450.307 909.88,448.612      910.195,446.712    "
+   id="SVGID_19_" />
+		</defs>
+		<clipPath
+   id="SVGID_20_">
+			<use
+   height="100%"
+   width="100%"
+   y="0"
+   x="0"
+   id="use139"
+   overflow="visible"
+   xlink:href="#SVGID_19_" />
+		</clipPath>
+		
+			<line
+   id="line142"
+   y2="446.203"
+   x2="910.10901"
+   y1="456.94601"
+   x1="899.36298"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line144"
+   y2="443.25699"
+   x2="909.04401"
+   y1="459.276"
+   x1="893.02502"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line146"
+   y2="441.12"
+   x2="907.17297"
+   y1="460.53799"
+   x1="887.75598"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line148"
+   y2="439.40201"
+   x2="904.883"
+   y1="461.612"
+   x1="882.67297"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line150"
+   y2="437.948"
+   x2="902.32599"
+   y1="462.48499"
+   x1="877.789"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line152"
+   y2="436.60699"
+   x2="899.65802"
+   y1="463.19299"
+   x1="873.07501"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line154"
+   y2="435.397"
+   x2="896.85999"
+   y1="463.84799"
+   x1="868.409"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line156"
+   y2="434.405"
+   x2="893.84497"
+   y1="464.242"
+   x1="864.00702"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line158"
+   y2="433.517"
+   x2="890.724"
+   y1="464.63599"
+   x1="859.60199"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line160"
+   y2="432.81699"
+   x2="887.41302"
+   y1="464.87201"
+   x1="855.35797"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line162"
+   y2="432.117"
+   x2="884.104"
+   y1="464.996"
+   x1="851.229"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line164"
+   y2="431.41699"
+   x2="880.797"
+   y1="465.11801"
+   x1="847.09601"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line166"
+   y2="430.87299"
+   x2="877.33301"
+   y1="465.04199"
+   x1="843.164"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line168"
+   y2="430.35101"
+   x2="873.84601"
+   y1="464.92499"
+   x1="839.27002"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line170"
+   y2="429.827"
+   x2="870.35901"
+   y1="464.80899"
+   x1="835.37701"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line172"
+   y2="429.42999"
+   x2="866.74799"
+   y1="464.5"
+   x1="831.68103"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line174"
+   y2="429.10101"
+   x2="863.06799"
+   y1="464.168"
+   x1="828.00098"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line176"
+   y2="428.76901"
+   x2="859.39001"
+   y1="463.83899"
+   x1="824.32202"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line178"
+   y2="428.56201"
+   x2="855.591"
+   y1="463.349"
+   x1="820.80103"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line180"
+   y2="428.44601"
+   x2="851.69897"
+   y1="462.828"
+   x1="817.31702"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line182"
+   y2="428.32999"
+   x2="847.80402"
+   y1="462.30301"
+   x1="813.83099"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line184"
+   y2="428.367"
+   x2="843.75897"
+   y1="461.67401"
+   x1="810.45203"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line186"
+   y2="428.492"
+   x2="839.62598"
+   y1="460.974"
+   x1="807.14099"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line188"
+   y2="428.61401"
+   x2="835.49597"
+   y1="460.27399"
+   x1="803.83301"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line190"
+   y2="428.97601"
+   x2="831.12201"
+   y1="459.517"
+   x1="800.58197"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line192"
+   y2="429.37399"
+   x2="826.71698"
+   y1="458.573"
+   x1="797.51801"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line194"
+   y2="429.867"
+   x2="822.216"
+   y1="457.45099"
+   x1="794.63202"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line196"
+   y2="430.57199"
+   x2="817.50201"
+   y1="456.237"
+   x1="791.83698"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line198"
+   y2="431.28101"
+   x2="812.78497"
+   y1="454.78299"
+   x1="789.28003"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line200"
+   y2="432.32999"
+   x2="807.72803"
+   y1="453.23199"
+   x1="786.82202"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line202"
+   y2="433.40399"
+   x2="802.64301"
+   y1="451.30701"
+   x1="784.73901"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line204"
+   y2="435.00201"
+   x2="797.03497"
+   y1="448.92001"
+   x1="783.11401"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+		
+			<line
+   id="line206"
+   y2="438.50299"
+   x2="789.52301"
+   y1="445.13101"
+   x1="782.896"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.2835"
+   stroke="#5f5f5f"
+   fill="none"
+   clip-path="url(#SVGID_20_)" />
+	</g><g
+     id="g1122"
+     clip-path="url(#SVGID_2_)">
+		<defs
+   id="defs1115">
+			<polyline
+   points="28.542,813.626 28.542,28.374 1162.459,28.374 1162.459,813.626 28.542,813.626    "
+   id="SVGID_77_" />
+		</defs>
+		<clipPath
+   id="SVGID_78_">
+			<use
+   height="100%"
+   width="100%"
+   y="0"
+   x="0"
+   id="use1117"
+   overflow="visible"
+   xlink:href="#SVGID_77_" />
+		</clipPath>
+		
+			<path
+   id="path1120"
+   d="m 910.195,446.712 c 0,-10.176 -28.557,-18.425 -63.78,-18.425 -35.226,0 -63.779,8.249 -63.779,18.425 0,10.177 28.554,18.426 63.779,18.426 35.224,0 63.78,-8.249 63.78,-18.426"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.9921"
+   stroke="#000000"
+   fill="none"
+   clip-path="url(#SVGID_78_)" />
+	</g><g
+     id="g1132"
+     clip-path="url(#SVGID_2_)">
+		<defs
+   id="defs1125">
+			<polyline
+   points="28.542,813.626 28.542,28.374 1162.459,28.374 1162.459,813.626 28.542,813.626    "
+   id="SVGID_79_" />
+		</defs>
+		<clipPath
+   id="SVGID_80_">
+			<use
+   height="100%"
+   width="100%"
+   y="0"
+   x="0"
+   id="use1127"
+   overflow="visible"
+   xlink:href="#SVGID_79_" />
+		</clipPath>
+		
+			<path
+   id="path1130"
+   d="m 910.195,460.886 c 0,10.176 -28.557,18.425 -63.78,18.425 -35.226,0 -63.779,-8.249 -63.779,-18.425"
+   stroke-miterlimit="10"
+   stroke-linejoin="round"
+   stroke-linecap="round"
+   stroke-width="0.9921"
+   stroke="#000000"
+   fill="none"
+   clip-path="url(#SVGID_80_)" />
+	</g><line
+     id="line1240"
+     y2="460.88599"
+     x2="782.63599"
+     y1="446.71201"
+     x1="782.63599"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /><line
+     id="line1242"
+     y2="460.88599"
+     x2="910.19501"
+     y1="446.71201"
+     x1="910.19501"
+     stroke-miterlimit="10"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     stroke-width="0.9921"
+     stroke="#000000"
+     fill="none"
+     clip-path="url(#SVGID_2_)" /></g>
+</svg>

@@ -1,0 +1,11 @@
+{
+    "version": "0.0.0",
+    "configurations": [
+        {
+            "name": "Python: master thesis figures",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+        }
+    ]
+}

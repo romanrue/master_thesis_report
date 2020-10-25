@@ -1,0 +1,178 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{shapes.geometric,
+    arrows}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+% \usepackage{pgffor}
+% \usepackage{calc}
+\usepackage{xparse}
+\usepackage{varwidth}
+\usetikzlibrary{trees}
+\usetikzlibrary{shadows, arrows.meta}
+\usetikzlibrary{fit}
+\usepackage[edges]{forest}
+
+% encoding and fonts
+\usepackage[utf8]{inputenc} % input encoding
+\usepackage{times}          % general
+\usepackage{helvet}         % sans serif
+\usepackage[T1]{fontenc}    % font encoding
+
+\usepackage{array}
+\usepackage{booktabs}
+
+% user defined colors (define in colors.csv, run gen_colors_tex.py to update changes)
+\input{../../colors/colors}
+\tikzset{colorset/.code={\pgfplotscolormapdefinemappedcolor{#1}}}
+
+\newcommand{\nvarwidth}[2][3cm]{%
+	\begin{varwidth}{#1}
+		\centering
+		#2
+  \end{varwidth}
+}
+
+\NewDocumentCommand{\alabel}{O{4em}+O{3cm}+m}{%
+  \hspace{#1}\nvarwidth[#2]{#3}
+}
+
+\NewDocumentCommand{\imlabel}{O{4em}+O{width=5em}+m}{%
+  \hspace{#1}\includegraphics[#2]{img/plots/pdf/#3}
+}
+
+\renewcommand{\arraystretch}{1.2}
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usetikzlibrary{matrix}
+
+\newcommand{\nsbox}[3][2]{%
+    % #1:   num columns (optional)
+    % #2:   savebox name
+    % #3:   tabular content
+    \newsavebox{#2}
+    \sbox{#2}{ \hspace{-5pt}\scriptsize
+        \begin{tabular}{*{#1}{P{1cm}}}
+            #3
+        \end{tabular}
+    }
+}
+
+\tikzset{%
+  box/.style={%
+    draw,
+    line width=1.2pt,
+    fill=white,
+    rounded corners=0.1em,
+    minimum width=2cm,
+    minimum height=1.2cm,
+    text centered,
+  },
+  sbox/.style={%
+    draw,
+    line width=0.7pt,
+    rounded corners=0.2cm,
+    minimum width=1.6cm,
+    minimum height=0.4cm,
+    text centered,
+  },
+  invis/.style={%
+    text opacity=0,
+    opacity=0,
+  },
+}
+
+\begin{document}
+
+% \begin{forest}
+% 	arrow north label/.style={%
+% 		edge label={node [midway, font=\small, sloped, above] {#1}},
+%   },
+%   arrow south label/.style={%
+%     edge label={node [midway, font=\small, sloped, below] {#1}},
+%   },
+%   arrow ns label/.style 2 args={%
+%     edge label={%
+%       node [midway, font=\small, sloped, above] {#1}
+%       node [midway, font=\small, sloped, below, yshift=-1.5em] {#2}
+%     },
+%   },
+% 	% arrow pic/.style 2 args={
+% 	% 	edge label={node [midway, below] {\hspace{#1}\includegraphics[#2]{#3}}
+% 	% }
+%   for tree={
+%     box,
+%     grow=east,
+% 		forked edges,
+% 		s sep=0.5em,
+% 		l sep=6em,
+% 		fork sep=1em,
+% 		edge={thick, -{Latex[]}},
+%     calign= child edge,
+%   },
+%   where level=0{%
+%     parent anchor=center,
+%     s sep=0.8cm,
+%   }{%
+%     if level=1{%
+%       draw=ZissouSTD5qual0,
+%       fork sep=0em,
+%     }{%
+%       if level=2{%
+%         draw=ZissouSTD5qual1,
+%       }{%
+%         if level=3{%
+%           draw=ZissouSTD5qual2,
+%         }{%
+%           if level=4{%
+%             draw=ZissouSTD5qual3,
+%           }{%
+%             if level=5{%
+%               draw=ZissouSTD5qual4,
+%             }{},
+%           },
+%         },
+%       },
+%     },
+%   },
+%   [MT, name=mt,
+%    l sep=10em,
+%    minimum width=1cm
+%     [Sensor,
+%      arrow ns label={\alabel[18em]{Physical\\ measurement\\ variable}}{\imlabel[18em]{plot_impulse_response}}
+%       [Amplifier,
+%        arrow ns label={\alabel{Analog\\ signal\\ variable}}{\imlabel{plot_impulse_response_volt}}
+%         [\nvarwidth{A/D\\ Converter},
+%          label={270:\imlabel[0em]{plot_impulse_response_stem}},
+%          arrow ns label={\alabel{Analog\\ signal\\ variable}}{\imlabel{plot_impulse_response_volt}}
+%           [Computer, name=cpu,
+%            text depth=2em,
+%            arrow ns label={\alabel{Digital\\ signal\\ variable}}{\imlabel{plot_binary}}]
+% 				]
+% 			]
+%     ][Sensor, name=exsens,
+%     no edge,
+%       [Amplifier
+%         [\nvarwidth{A/D\\ Converter}, name=exadc]
+%       ]
+%     ][Excitor, name=extr,
+%     no edge,
+%     draw=black,
+%       [dummy, name=exdmy, invis, edge={{Latex[]}-}]
+%     ]
+%   ]
+%   \draw[thick, -{Latex[]}] (extr) edge (exsens);
+%   \draw[thick, -{Latex[]}, to path={-| (\tikztotarget)},] (extr) edge ([yshift=2.56cm]mt.center);
+%   \draw[thick, -{Latex[]}, to path={-| (\tikztotarget)},] (exadc) edge[decorate] (cpu);
+%   \node at ([yshift=-2em]mt.south) [anchor=south] {\includegraphics[width=3.2cm]{img/pdf/mt_scheme.pdf}};
+%   \node at (mt.center) [anchor=center] {Structure};
+%   \node at (cpu.center) [yshift=-0.7em, sbox] {Memory};
+% \end{forest}
+
+\begin{tikzpicture}
+  \draw[{-{Latex[]}},draw opacity=0] (0,0) -- (0,1);
+\end{tikzpicture}
+
+\end{document}
