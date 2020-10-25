@@ -28,6 +28,5 @@
 		"**/*.run.xml": true
 	},
 	"editor.wordWrap": true,
-	"latex-workshop.latex.autoBuild.run": "onSave",
-	"git.ignoreLimitWarning": true
+	"latex-workshop.latex.autoBuild.run": "onSave"
 }
