@@ -79,7 +79,7 @@ xlabelshift=np.array([0.0, 0.34])  # [-] relative x-label shift to x-axis enpoin
 ylabelshift=np.array([0.15, 0.5])  # [-] relative y-label shift to y-axis enpoint
 
 ### Contentual parameters
-axislables=['t','x']
+axislables=['t','u']
 a = np.array([[-0.5572, -0.7814],[0.7814,  0]])
 b = np.array([[1, -1],[0, 2]])
 c = np.array([1.9691,  6.4493])

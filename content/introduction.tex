@@ -5,22 +5,20 @@
 
 %-----------------------------------------------------
 \section{Motivation}
-The \ac{EMA} is a powerful tool for evaluating dynamic models of structures. Despite its extensive usage in the aerospace industry, in many other engineering fields the benefits of \ac{EMA} are overshadowed by the initial investment and the operator costs of an \ac{EMA} system. Progress in \ac{MEMS} enables a different branch of sensors to be used for \ac{EMA}.
+The \ac{EMA} is a powerful tool for evaluating dynamic models of structures. Despite its extensive usage in the aerospace industry, in many other engineering fields the benefits of \ac{EMA} are overshadowed by the initial investment and the operator costs of an \ac{EMA} system. To enable \ac{MT} manufactures to test their products and validate their modal predictions. Progress in \ac{MEMS} technology enables the use of new generation of low-cost senors in \ac{EMA}.
 
 %-----------------------------------------------------
 \section{Related Work}
-In the field of civil engineering bridges and skyscrapers require continuous vibration signal logging for structural health monitoring. This leads to an increased interest in driving down the cost of accelerometer based monitoring systems. {Bla bli and blu}\todo{Names of civil engineers developing low cost systems} have developed low-cost \ac{MEMS} systems for structural health monitoring of civil structures. {Bli, bla and blu}\todo{Names of civil engineers that developed wlan systems} have expanded on this idea by interfacing the system via a \ac{WLAN} protocol.
-{Somebody}\todo{Engineer using Instrument piezo} developed an modal test system, which uses piezo load cells that are typically used to tune musical instruments as response sensors. \citeauthor{waltham2009construction} implemented a piezo load cell that is designed to trigger barbeque lighters in a modal impact hammer \cite{waltham2009construction}.
 
-\cite{beskhyroun2012low}
+Considering the use of low-cost accelerometers in \ac{EMA} specifically, a two-point vibration measurement system with a bandwidth of \SI{500}{\hertz} has been developed \cite{chan2017multiple}. The authors \citeauthor{chan2017multiple} used this system to conduct a multiple-point vibration test a \ac{MT}. Operating at lower frequencies, \citeauthor{beskhyroun2012low} used \ac{MEMS} based accelerometers to conduct an \ac{EMA} on building structures. \citeauthor{piana2016experimental} developed a modal test system, which uses piezoelectric transducers that are typically used to tune musical instruments as response sensors \cite{piana2016experimental}. Moreover, a construction kit for a low-cost vibration analysis system was proposed by \citeauthor{vollmer2009construction} back in 2009 \cite{vollmer2009construction}.
+
+In the field of civil engineering, bridges and skyscrapers require continuous vibration signal logging for structural health monitoring. This leads to an increased interest in driving down the cost of accelerometer based vibration monitoring systems. \citeauthor{girolami2018modal} has developed a low-cost \ac{MEMS} systems for structural health monitoring of civil structures \cite{girolami2018modal}.
+
+Structural health monitoring is also required in rotary systems such as gas and wind turbines. \citeauthor{esu2014integration} integrated low-cost accelerometers in wind turbines and logged data via radio frequency to a central device.
+
+Addressing low-cost impact hammer constructions, \citeauthor{waltham2009construction} implemented a piezoelectric transducer in a hammer, that is designed to trigger barbecue lighters \cite{waltham2009construction}. And for inexpensive calibration of a load cell used for modal testing, \citeauthor{wang2015practical} introduced practical techniques \cite{wang2015practical}.
 
 %-----------------------------------------------------
 \section{Overview}
-We will first give background information bla bla bla.
-* EMA
-* EMA system
-** Components
-** Filter
-** 
 
-
+First fundamentals in measurement instrumentation, sensors and \ac{EMA} is introduced in the state of the art. Then the \acf{DAC} developed for this project is presented in \autoref{chap:dac_software}. Testing environment are described in the \autoref{chap:test_setups} and measurement results are discussed in results. Finally the conclusion gives reflects on the project.

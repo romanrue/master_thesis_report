@@ -116,6 +116,7 @@ It is obvious that the performance of accelerometers depends on their static sen
 
 
 \begin{figure}[!htb]
+    \centering
     \includegraphics[scale=0.8]{\imgpath/measurement/accel/seismic_accelerometer_edited}
     \caption[Second-Order System Bode plots]{Bode plots of second order system describing the dynamic behavior of seismic accelerometers}
     \label{fig:seismic_accelerometer_edited}
@@ -124,20 +125,22 @@ It is obvious that the performance of accelerometers depends on their static sen
 \subsection{Piezoelectric Sensors}
 Some materials develop electric charge proportional to directly applied mechanical stress. The same materials show the converse effect. A proportional strain of the material will occur to an applied electric field.
 
-The first phenomenon has found its application in a variety of self-generating sensors that output electrical signals -- amely in \ac{LC}s and accelerometers, where the piezoelectric charge is converted into a current or voltage signal.
+The first phenomenon has found its application in a variety of self-generating sensors that output electrical signals -- namely in \ac{LC}s and accelerometers, where the piezoelectric charge is converted into a current or voltage signal.
 
-Piezoelectric sensors are designed to exploit the piezoelectric effect of the material in one axis. Additionally, we use amplifier circuits so that the weak current or voltage, induced due to the piezoelectric charge, is elevated to amplitudes that are in the range of operation of standard electronic components. These circuits require additional energy. Commercially available \ac{LC}s therefore require supplied energy -- see \figref{fig:piezo_ampcirc}.
+Piezoelectric sensors are designed to exploit the piezoelectric effect of the material in one axis. Additionally, we use amplifier circuits so that the weak electrical signal, induced due to the piezoelectric charge, is elevated to amplitudes that are in the range of operation of standard electronic components. These circuits require additional energy. Commercially available \ac{LC}s therefore require supplied energy -- see \figref{fig:piezo_ampcirc}.
 
 \begin{figure}[!htb]
     \centering
     \subcaptionbox{Piezoelectric sensor connected to a voltage amplifier\label{sfig:piezo_voltage_amp}}{%
         \includegraphics[scale=0.9]{\imgpath/measurement/sensors/piezo_voltage_amp}}
     \hspace{4em}
-    \subcaptionbox{Strain gauge in Wheatstone bridge circuit\label{sfig:processing_force_scheme}}{%
+    \subcaptionbox{Strain gauge in Wheatstone bridge circuit\label{sfig:piezo_current_amp}}{%
         \includegraphics[scale=0.9]{\imgpath/measurement/sensors/piezo_current_amp}}
     \caption[Piezoelectric sensors in amplifier circuits \cite{webster2018measurement}]{Piezoelectric sensors connected to amplifier circuits \cite{webster2018measurement}}
     \label{fig:piezo_ampcirc}
 \end{figure}
+
+Depending on the design of the sensor, piezoelectric materials are used in different shapes. \figref{fig:piezo_designs} shows some possible variations.
 
 
 \subsection{Strain Gauge Load Cells}
@@ -152,12 +155,13 @@ In order to measure deformations one needs to take environmental influences into
 
 \begin{figure}[!htb]
     \centering
-    \subcaptionbox{Strain gauge on structure, with (1) Structure, (2) Metal Pad, (3) Grid and (4) Carrier\label{sfig:wheatstone_bridge_single}}{%
+    \subcaptionbox{Strain gauge on structure, with (1) Structure, (2) Metal Pad, (3) Grid and (4) Carrier\label{sfig:strain_gauge}}{%
         \includegraphics[scale=0.7]{\imgpath/measurement/sensors/strain_gauge}}
     \hspace{4em}
     \subcaptionbox{Strain gauge in Wheatstone bridge circuit\label{sfig:wheatstone_bridge_single}}{%
         \includegraphics[scale=0.7]{\imgpath/measurement/sensors/wheatstone_bridge_single}}
-    \caption[Strain Gauge]{Strain Guage}
+    \caption[Strain Gauge]{Strain gauge}
+    \label{fig:strain_gauge}
 \end{figure}
 
 \subsection{Capacitive Accelerometers}
@@ -165,7 +169,6 @@ In order to measure deformations one needs to take environmental influences into
 To understand the working principle of capacitive accelerometers, we first consider the displacement sensors.
 
 \subsubsection{Capacitive Displacement Sensors}
-
 The basic sensing element of a displacement sensor typically consists of two parallel electrodes with capacitance C.
 \begin{align}
     C &= f(d,A,\varepsilon)
@@ -219,7 +222,7 @@ Giving approximately
     \frac{\delta C}{C} = \frac{\delta d}{d}
 \end{align}
 
-\begin{figure}[!ht]
+\begin{figure}[!htb]
     \sbox0{\subcaptionbox{Variable distance displaceement\label{sfig:cap_var_disp}}{%
         \includegraphics[scale=0.7]{\imgpath/measurement/capac/cap_var_disp}
         }}% a
@@ -242,63 +245,38 @@ Giving approximately
         \begin{tabular}{ccc}
             \usebox0 & \usebox1 \\
             \usebox2 & \usebox3 \\
-        \end{tabular}\\[4ex]
-        \usebox4
+        \end{tabular}%\\[4ex]
+        % \usebox4
     }
     \caption[Capacitive displacement sensors]{Capacitive displacement sensors \cite{webster2018measurement}}
     \label{fig:cap_disp}
 \end{figure}
 
-\begin{figure}[!ht]
-\sbox0{\subcaptionbox{Vertical stress, longitudinal particle displacement\label{sfig:piezo_beam}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_beam}
-        }}% a
-    \sbox1{\subcaptionbox{Vertical stress, lateral particle displacement\label{sfig:piezo_plate_top}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_plate_top}
-        }}% b
-    \sbox2{\subcaptionbox{Vertical stress, lateral particle displacement\label{sfig:piezo_plate_side}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_plate_side}
-        }}% c
-    \sbox3{\subcaptionbox{Lateral stress, lateral particle displacement\label{sfig:piezo_radial_long}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_radial_long}
-        }}% d
-    \sbox4{\subcaptionbox{Radial particle displacement\label{sfig:piezo_radial_flat}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_radial_flat}
-        }}% e
-    \sbox5{\subcaptionbox{Radial particle displacement\label{sfig:piezo_axial_hole_flat}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_axial_hole_flat}
-        }}% f
-    \sbox6{\subcaptionbox{Vertical stress, radial particle displacement\label{sfig:piezo_sphere}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_sphere}
-        }}% g
-    \sbox7{\subcaptionbox{Radial particle displacement\label{sfig:piezo_axial_flat}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_axial_flat}
-       }}% h
-    \sbox8{\subcaptionbox{Radial particle displacement\label{sfig:piezo_radial_rod}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_radial_rod}
-       }}% i
+\subsubsection{From Displacement to Acceleration}
+If a combines a capacitive displacement sensor with a seismic mass, one can use the inertia force to estimate to correlate the acceleration to the displacement and hence to the change in the electric field of the sensor. With the use of differential capacitive designs and high machining accuracy these designs can be realized in a tiny form factor as \acf{MEMS}. A scheme of such a sensor is shown in \figref{fig:accelerometer_bent}.
+
+\begin{figure}[!htb]
     \centering
-    {%
-        \renewcommand{\arraystretch}{4}%
-        \setlength{\tabcolsep}{2em}
-        \begin{tabular}{ccc}
-            \usebox0 & \usebox3 & \usebox6 \\
-            \usebox1 & \usebox4 & \usebox7 \\
-            \usebox2 & \usebox5 & \usebox8
-        \end{tabular}
-    }
-    \caption[Piezoelectric designs]{Piezoelectric designs, where electrodes are placed on the shaded areas}
-    \label{fig:allsix}
+    \includegraphics[scale=0.7]{\imgpath/measurement/sensors/accelerometer_bent}
+    \caption[Capacitive MEMS Accelerometer]{Capacitive MEMS accelerometer, with acceleration a and the seismic mass m. The bridges attached to the seismic mass act as dielectricum.}
+    \label{fig:accelerometer_bent}
 \end{figure}
 
-\subsubsection{Capacitive Accelerometers}
+\section{Signal Conditioning and Processing}
+In an ideal world, the signal output of a sensor would correlate to the measurand exactly. In real systems this is not the case because of a variety of reasons. In low-frequency applications, the most important ones are:
 
+\begin{itemize}
+    \item The voltage or current rating at a sensor's output is not perfectly linear with respect to the measurand. Often the output is pseudo-linear in a limited range of values and deviates from the trajectory for values outside of this range.
+    \item Noise and shifts introduced through the inherent impedances of analog components lead to deviations from the voltage or current rating of the sensor as well as deviations of these ratings with respect to the measurand itself.
+    \item The quantization process causes the captured value space to have a finite resolution.
+    \item Analog signals can only be digitized with a finite sampling rate. A discrete set of data points is captured instead of a continuous signal.
+\end{itemize}
+
+The field of signal processing includes analyzing, modifying and synthesizing signals. Most prominently, in data acquisition systems we convert analog signals to digital ones that can be further processed without the parasitic effects of the analog realm. On the opposite side when addressing these parasitic effects one needs to apply signal conditioning. In other words, before every processing step of an analog signal we need to consider signal conditioning. When dealing with digital signals, no signal conditioning is required.
 
 \section{Experimental Modal Analysis}
 
-\ac{EMA} is a powerful tool to detect vibration related problems of mechanical structures. We use modes to characterize resonant vibrations of the system
-\cite{schwarz1999experimental}
-
+\ac{EMA} is a powerful tool to detect vibration related problems of mechanical structures. We use modes to characterize resonant vibrations of the system. This section is only a short excerpt of an introduction to \ac{EMA}. An overview has been presented by \citeauthor{schwarz1999experimental} in \cite{schwarz1999experimental}.
 
 \subsubsection{Vibration}
 
@@ -335,13 +313,9 @@ Common examples of vibration sources in \ac{MT} are displayed in \figref{fig:vib
 
 Resonant vibration arises when one or more of the natural modes of vibration, inherent properties of the structure under investigation, is excited. Resonant vibration typically amplifies the vibration response to a level that exceeds deflection, stress and strain caused by static loading. 
 
-\subsubsection{Modes}
-
-Modes or resonances are properties that are inherent to a structure. 
-
 \subsection{Frequency Response Measurement}
 
-In a \ac{EMA} one needs to determine the \ac{FRF} from input to output. To achieve this we measure the so called response or output function of the structure under investigation. The measurement instrument for this task uses a signal chain in form of \ref{fig:measurment}.
+In a \ac{EMA} one needs to determine the \ac{FRF} from input to output. To achieve this we measure the so called response or output function of the structure under investigation. The measurement instrument for this task uses a signal chain in form of \ref{fig:measurement}.
 \begin{itemize}
     \item The sensor on the structure translates the physical value (acceleration, velocity or position) into an electrical voltage or current, the analog signal variable.
     \item The amplifier amplifies the typically low power signal to fit it to the input range of the \ac{ADC}.
@@ -352,14 +326,14 @@ In a \ac{EMA} one needs to determine the \ac{FRF} from input to output. To achie
 
 \begin{figure}[!htb]
     \centering
-    \includestandalone[width=\linewidth]{\imgpath/ema/measurment/measurment}
+    \includestandalone[width=\linewidth]{\imgpath/ema/measurement/measurement}
     \caption[Frequency Response Measurement]{\ac{FRF} measurement setup}
-    \label{fig:measurment}
+    \label{fig:measurement}
 \end{figure}
 
 \section{Electronic Components}
 
-This section serves as an introduction to the function of selected electronic components and circuits. It does not give a complete overview of the state of the art. For more background on electronics \todo{cite electronic handbooks} may be consulted.
+This section serves as an introduction to the function of selected electronic components and circuits. It does not give a complete overview of the state of the art. For more background on electronics \cite{Stiny2019AeB} may be consulted.
 
 Electronic components are divided into two main types; passive and active ones. Where active components are allowed to generate, amplify or oscillate an electrical signal, passive components can only absorb, dissipate or store electric energy.
 
@@ -383,11 +357,7 @@ Resistors are loads that reduce the current flow and set the voltage levels with
 
 \subsection{Integrated Circuits}
 
-\begin{figure}[!htb]
-    \centering
-    \includestandalone[scale=1]{\imgpath/electronics/ic_flowchart/ic_flowchart}
-    \caption[IC packages flowchart]{Flowchart of IC packages}
-    \label{fig:ic_flowchart}
-\end{figure}
+Integrated Circuits (ICs) are 
+
 
 \subsection{Circuits}

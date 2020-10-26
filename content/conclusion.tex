@@ -7,12 +7,25 @@ In this thesis
     \item A low-cost capacitive accelerometer \ac{IC} has been used to measure the output signal of an \ac{EMA} measurement setup
     \item An impulse hammer using a strain gauge load cell has been developed using low-cost components.
     \item Different conditioning filter circuits have been studied and tested for the impulse hammer signal
-    \item An Arduino communication protocol has been developed
+    \item A communication protocol has been developed
 \end{itemize}
 
+\subsection{Deficiencies}
+Because of the lack of a thorough state of the art research in the beginning of the project, the solution space of the project has been constricted early on. In this solution space, the data rates and the required compute efficiency of \ac{MCU}s were not met by the software. Furthermore, the issue of conditioning the analog signal of the \ac{LC} signal has been addressed at a late stage. Leading to no successful hardware setup with an upstream \ac{LPF}. 
+
+\newpage
 %***********************************************************************
 \section{Future Work}
-multichannelling
-industrialization
-\ac{PCB}
-\ac{FPGA}
+There are multiple options to progress from this point. They can be framed in ... directions:
+\begin{itemize}
+    \item Explore the same solution space further, i.e. handling the \ac{LPF} circuit and optimizing the software.
+    \item Change to a different solution space with either standard components using \ac{CPU}s or \ac{FPGA}s, targeting simpler implementation or higher bandwidths
+    \item Exploring the limits of the application and limits current solution without additional preconditioning
+\end{itemize}
+
+Independent of the chosen direction one can progress by
+\begin{itemize}
+    \item Testing the limits of multi channelling
+    \item Leaving the prototyping stage and simplify the production
+    \item Exploring wireless communication
+\end{itemize}

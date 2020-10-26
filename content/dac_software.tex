@@ -14,7 +14,7 @@ The \ac{DAC} system developed in this thesis is an open source Arduino based sys
     \subcaptionbox{With signal conditioning and external \ac{ADC}\label{sfig:dac_comp_precond}}
         {\includegraphics[scale=0.5]{\imgpath/dac/dac_components/dac_comp_precond}}
     \\[0.5em]
-    \caption[DAC building blocks]{\acs{DAC}-system building blocks}
+    \caption[DAC building blocks]{\acs{DAC}-system building blocks -- note that \ref{sfig:dac_comp_simple} has been realized, but \ref{sfig:dac_comp_precond} has not been implemented yet, due to communication issues between the devices}
     \label{fig:dac_building_blocks}
 \end{figure}
 
@@ -52,7 +52,7 @@ The \ac{DAC} system developed in this thesis is an open source Arduino based sys
 
 Building blocks are the main components used in the \ac{DAC} signal chain. Additional components that are required to enable the stable operation of the building blocks are not listed.
 
-Because the of accelerometer \ac{IC} output interfaces it is not possible to connect all sensors directly to one \ac{MCU} that acts as a \ac{DAC}. We need to transform the signal to a different interface. A low-cost and versatile method to achieve this, is to use a \ac{MCU} for each accelerometer \ac{IC}. These read the sensor \ac{IC} registers and communicate to the \ac{MCU} master. The master, on the other hand, acts as a passthrough and transmits the data to the \ac{CPU}. In the setup used, it also reads out the \ac{LC} signal. \tabref{tab:mcu_used} lists the \ac{MCU}s used during this thesis. Other components can be found in \autoref{apx:appendix}.
+Because the of accelerometer \ac{IC} output interfaces it is not possible to connect all sensors directly to one \ac{MCU} that acts as a \ac{DAC}. We need to transform the signal to a different interface. A low-cost and versatile method to achieve this, is to use a \ac{MCU} for each accelerometer \ac{IC}. These read the sensor \ac{IC} registers and communicate to the \ac{MCU} master. The master, on the other hand, acts as a passthrough and transmits the data to the \ac{CPU}. In the setup used, it also reads out the \ac{LC} signal. \tabref{tab:mcu_used} lists the \ac{MCU}s used during this thesis.% Other components can be found in \autoref{apx:appendix}.
 
 The analog signal output of the \ac{LC} needs to be amplified to match the input range of the \ac{ADC}. To gain the maximum resolution, this depends on the expected input range. To get a higher value resolution than offered by the \ac{MCU} embedded \ac{ADC} one can set in an external \ac{ADC} \ac{IC} upstream to the \ac{MCU}. Additionally, we use a \ac{LPF} in \figref{sfig:dac_comp_precond}. The \ac{LPF} is needed to cut off high frequency components of the signal that occur particularly in sharp impulse signals. This design choice may lead to problems because it is not standard procedure in the development a measurement instrument. Typically, components in the analog signal chain are chosen, based on the frequency bandwidth of the input signal. This means, the cut-off frequency of the \ac{LPF} is set well above the signal's bandwidth. But because we use low-cost components in our system, the bandwidth is limited to half the sampling rate of the slowest sensor. According to the Nyquist frequency theorem, the cut-off frequency then needs to be reduced to half the sampling frequency, potentially reducing the output magnitude of higher frequency components of the signal.
 
@@ -154,15 +154,15 @@ For the instrument to work, some functions are required, while other desired fun
 
 The requirements to the software tools are:
 \begin{enumerate}[label=\emph{m\arabic*}, itemindent=3em, labelsep=2em]
-    \item Read out accelerometer and \ac{LC} data at the maximum sample speed of the accelerometer \ac{IC}. \label{req:read_out}
-    \item Synchronize measurements timestamps\label{req:sync}
-    \item Initialize measurement by hammer impulse\label{req:init}
+    \item Read out accelerometer and \ac{LC} data at the maximum sample speed of the accelerometer \ac{IC}.\label{req:read_out}
+    \item Synchronize measurements timestamps.\label{req:sync}
+    \item Initialize measurement by hammer impulse.\label{req:init}
 \end{enumerate}
 
 The desired software tools are:
 \begin{enumerate}[label=\emph{w\arabic*}, itemindent=3em, labelsep=2em]
-    \item Continuous real time output of measurement data\label{des:cont_out}
-    \item Cache clearing\label{des:cache}
+    \item Generate continuous real time output of measurement data.\label{des:cont_out}
+    \item Track data transfer via \ac{USB}.\label{des:dat_track}
 \end{enumerate}
 
 % \subsubsection*{\ref{req:read_out}:}

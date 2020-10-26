@@ -1,14 +1,50 @@
 \chapter{Results and Discussion}
 \label{chp:results}
 
-In this chapter we summarize the results of this work.
-
+The isolated features that wer tested were analysed bas
 
 %***********************************
 \section{Hammer-Hammer Test}
 
-\section{Hammer-Surface Test}
+The results of the hammer-hammer test are impulse signal recordings of both, the reference system and the prototype \ac{LC}. Because the prototype signal is not calibrated, in order to able to compare the signals one needs to normalize the signal range of the reference signal. Furthermore, the signals need to be synced in time, by applying a time shift to one. The outputs gained after these transformations are shown in \figref{fig:HH_comparison}.
 
-\section{Impulse hammer}
-\label{sec:first_sec}
-First section bla bla bla. 
+It can be seen that if one is using the soft PVC tip of the reference system both signals correlate well. If we then focus on the detailed view of such a test, as seen in \figref{fig:HH_noise}, the difference in resolution becomes apparent.
+
+\begin{figure}[!htb]
+    \centering
+    \includestandalone[width=0.9\linewidth]{\imgpath/test_setups/HH_comparison/HH_comparison}
+    \caption[HH-Test comparison]{The HH-Test recordings of the reference hammer (orange) and the evaluated impact hammer system (turquoise). Note that the evaluated signal values are normalized so that the maxima are equal to the reference system.}
+    \label{fig:HH_comparison}
+\end{figure}
+\begin{figure}[!htb]
+    \centering
+    \includestandalone[width=\linewidth]{\imgpath/test_setups/HH_noise/HH_noise}
+    \caption[HH006 Plot]{Detailed plot of HH-Test 006 }
+    \label{fig:HH_noise}
+\end{figure}
+
+\section{Andromeda Measurement}
+Before comparing the accelerometer signals of the reference with the ones of the prototype system, one needs to subtract the constant gravitational part from the prototype signals. Additionally, the signals need to be synchronized in the time axis, as can be seen in \figref{fig:HAp024_TDat_z}.
+
+When we then consider the frequency domain of \figref{fig:HAp024_FFTa_z} one can see that both signals cover the excited frequency bandwidth of around \SI{250}{\hertz} in a similar manner. The initial deviation at \SI{1}{\hertz} can be explained due to the signal conditioning in the reference system, where lower frequencies are cut-off.
+
+\begin{figure}[!htb]
+    \centering
+    \includestandalone[width=0.8\linewidth]{\imgpath/results/HAp024_TDat_z}
+    \caption[Andromeda Measurement HAp024, Time Domain in Z-Axis]{Measurement HAp024 in the time domain, excitation at point A, as shown in \figref{fig:andromeda_positions}}
+    \label{fig:HAp024_TDat_z}
+\end{figure}
+\begin{figure}[!htb]
+    \centering
+    \includestandalone[width=0.8\linewidth]{\imgpath/results/HAp024_FFTa_z}
+    \caption[Andromeda Measurement HAp024, FFT in Z-Axis]{Measurement FFT HAp024, excitation at point A, as shown in \figref{fig:andromeda_positions}}
+    \label{fig:HAp024_FFTa_z}
+\end{figure}
+
+\section{Other Test Setups}
+
+Other tests failed to deliver results:
+\begin{itemize}
+    \item The hammer-surface test did not give insight to the maximum bandwidith of the prototype hammer because of software issues, bottelnecking the data rate.
+    \item The clock tunable filter test failed do to an insufficiently precise clock signal.
+\end{itemize}

@@ -16,9 +16,9 @@ try:
 except Exception as e:
     print("Some Modules are missing. {}".format(e))
 
-# mpl.use('PDF') 
-# mpl.rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
-# mpl.rc('pdf', use14corefonts=True)
+mpl.use('PDF') 
+mpl.rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+mpl.rc('pdf', use14corefonts=True)
 cmap = None
 for el in colpalettes:
     if el.name == 'WesMixL':
