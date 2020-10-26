@@ -4,10 +4,9 @@
 \section{Measurement}
 The process of measurement is the comparison of data from the physical world in the frame of an agreed standard. It is carried out by using an instrument.
 
-This section brings to light some key aspects of measurement instruments and components, used in the frame of this thesis. As a result some sections of \cite{webster2018measurement} are summarized.
+This section points to some key aspects of measurement instruments and components, used in the frame of this thesis. As a result some sections of \cite{webster2018measurement} are summarized.
 
 \subsection{Measurement and Instrumentation}
-
 Measurement instruments translate signals from the physical world into an agreed upon standard. These standardized signals can be compared, altered and stored.
 The original data acquired from the physical signal is usually in analog form. This is then converted to digital before it is passed on. The signal chain of a typical digital measurement instrument is shown in \figref{fig:digital_instrument}.
 
@@ -46,7 +45,7 @@ Furthermore, these methods yield numerous of designs of measuring equipment. Eac
 
 \subsection{Accelerometers}
 
-Accelerometers are sensors that convert acceleration into an electrical signal. In order to measure a physical phenomenon we use seismic masses that act on the sensor structure based on their inertia properties. In strain gauge based accelerometers the structure translates the inertia force into a deformation, where capacitive sensor structures may use deformations or relative motions of separate components in an electric field. In piezoelectric accelerometers the seismic mass deforms a piezoelectric material. \figref{fig:piezo_sensor}
+Accelerometers are sensors that convert acceleration into an electrical signal. In order to measure a physical phenomenon we use seismic masses that act on the sensor structure based on their inertia properties. In strain gauge based accelerometers the structure translates the inertia force into a deformation, where capacitive sensor structures may use deformations or relative motions of separate components in an electric field. In piezoelectric accelerometers the seismic mass deforms a piezoelectric material, see \figref{fig:piezo_sensor}.
 \\[4ex]
 \begin{minipage}{\linewidth}
 \centering
@@ -111,7 +110,7 @@ where
     \item $\omega_n=\sqrt{k/m}$ is the undamped frequency in \si{\radian\per\second}
     \item $\zeta=c/2\sqrt{km}$ is the damping ratio
 \end{description}
-It is obvious that the performance of accelerometers depends on their static sensitivity, the natural frequency and the damping ratio. We want the accelerometer to have an linear transfer function in the range of operation. But namely the damping ratio can distort a measurement when operating an accelerometer near its eigenfrequency, see \figref{fig:seismic_accelerometer_edited}.
+It is obvious that the performance of accelerometers depends on their static sensitivity, the natural frequency and the damping ratio. We want the accelerometer to have a linear transfer function in the range of operation. But namely the damping ratio can distort a measurement when operating an accelerometer near its eigenfrequency, see \figref{fig:seismic_accelerometer_edited}.
 
 
 \begin{figure}[!htb]
@@ -206,7 +205,7 @@ In variable dielectric sensors, the capacitance depends on the ratio of each per
 \end{align}
 where
 \begin{description}[topsep=0ex, noitemsep]
-    \item $x$ is the displacement normal to the plates direction
+    \item $x$ is the displacement normal to the plate's direction
     \item $\varepsilon_1$ is the relative permittivity of the dielectric material
     \item $\varepsilon_2$ is the permittivity of the displacing material (e.g. liquid)
 \end{description}
@@ -222,7 +221,7 @@ Giving approximately
 \end{align}
 
 \begin{figure}[!htb]
-    \sbox0{\subcaptionbox{Variable distance displaceement\label{sfig:cap_var_disp}}{%
+    \sbox0{\subcaptionbox{Variable distance displacement\label{sfig:cap_var_disp}}{%
         \includegraphics[scale=0.7]{\imgpath/measurement/capac/cap_var_disp}
         }}% a
     \sbox1{\subcaptionbox{Variable area displacement\label{sfig:cap_var_area}}{%
@@ -252,7 +251,7 @@ Giving approximately
 \end{figure}
 
 \subsubsection{From Displacement to Acceleration}
-If a combines a capacitive displacement sensor with a seismic mass, one can use the inertia force to correlate the acceleration to the displacement and hence to the change in the electric field of the sensor. With the use of differential capacitive designs and high machining accuracy these designs can be realized in a tiny form factor as \acf{MEMS}. A scheme of such a sensor is shown in \figref{fig:accelerometer_bent}.
+If one combines a capacitive displacement sensor with a seismic mass, one can use the inertia force to correlate the acceleration to the displacement and hence to the change in the electric field of the sensor. With the use of differential capacitive designs and high machining accuracy these designs can be realized in a tiny form factor as \acf{MEMS}. A scheme of such a sensor is shown in \figref{fig:accelerometer_bent}.
 
 \begin{figure}[!htb]
     \centering
@@ -314,7 +313,7 @@ Resonant vibration arises when one or more of the natural modes of vibration, in
 
 \subsection{Frequency Response Measurement}
 
-In a \ac{EMA} one needs to determine the \ac{FRF} from input to output. To achieve this we measure the so called response or output function of the structure under investigation. The measurement instrument for this task uses a signal chain in form of \ref{fig:measurement}.
+In an \ac{EMA} one needs to determine the \ac{FRF} from input to output. To achieve this we measure the so called response or output function of the structure under investigation. The measurement instrument for this task uses a signal chain in form of \ref{fig:measurement}.
 \begin{itemize}
     \item The sensor on the structure translates the physical value (acceleration, velocity or position) into an electrical voltage or current, the analog signal variable.
     \item The amplifier amplifies the typically low power signal to fit it to the input range of the \ac{ADC}.

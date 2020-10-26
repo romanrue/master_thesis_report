@@ -133,7 +133,7 @@ The communication protocol for \ac{MCU} to \ac{MCU} and \ac{MCU} to computer was
 \subsection{Dataflow}
 
 All \acs{MCU}s operate sequentially.
-The dataflow in \ac{MCU} must be sequential. For this reason during a measurement all data is passed to a central \ac{MCU}, where it is streamlined to the pc. The central \ac{MCU} or master cycles through all connected \ac{MCU} performing a data request, hold and receive action. As soon as a slave \ac{MCU} gets a request, it transmits a data package from its buffer. The master now receiving the data package will throughput the signal to the \ac{CPU}, where it is stored. By the end of this process the master will jump to the next slave.
+The dataflow in \ac{MCU} must be sequential. For this reason during a measurement all data is passed to a central \ac{MCU}, where it is streamlined to the \ac{CPU}. The central \ac{MCU} or master cycles through all connected \ac{MCU} performing a data request, hold and receive action. As soon as a slave \ac{MCU} gets a request, it transmits a data package from its buffer. The master now receiving the data package will throughput the signal to the \ac{CPU}, where it is stored. By the end of this process the master will jump to the next slave.
 
 All measurements consist of a \SI{32}{bit}-timestamp and the measured values and are pushed into a \ac{FIFO} buffer in the flash memory of the \ac{MCU}, directly connected to the sensor. Bundled data packages are then pulled from the buffer and translated into the transmission code as defined in \tabref{tab:mcu_com_protocol}. In \figref{fig:data_flow} the data flow is represented by a system that is using only one slave \ac{MCU}, displayed in violet.
 
