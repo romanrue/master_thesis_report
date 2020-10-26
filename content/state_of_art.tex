@@ -11,7 +11,6 @@ This section brings to light some key aspects of measurement instruments and com
 Measurement instruments translate signals from the physical world into an agreed upon standard. These standardized signals can be compared, altered and stored.
 The original data acquired from the physical signal is usually in analog form. This is then converted to digital before it is passed on. The signal chain of a typical digital measurement instrument is shown in \figref{fig:digital_instrument}.
 
-\cite{webster2018measurement}
 \begin{figure}[!htb]
     \centering
     \includestandalone[width=\linewidth]{\imgpath/measurement/digital_instrument/digital_instrument}
@@ -253,7 +252,7 @@ Giving approximately
 \end{figure}
 
 \subsubsection{From Displacement to Acceleration}
-If a combines a capacitive displacement sensor with a seismic mass, one can use the inertia force to estimate to correlate the acceleration to the displacement and hence to the change in the electric field of the sensor. With the use of differential capacitive designs and high machining accuracy these designs can be realized in a tiny form factor as \acf{MEMS}. A scheme of such a sensor is shown in \figref{fig:accelerometer_bent}.
+If a combines a capacitive displacement sensor with a seismic mass, one can use the inertia force to correlate the acceleration to the displacement and hence to the change in the electric field of the sensor. With the use of differential capacitive designs and high machining accuracy these designs can be realized in a tiny form factor as \acf{MEMS}. A scheme of such a sensor is shown in \figref{fig:accelerometer_bent}.
 
 \begin{figure}[!htb]
     \centering
@@ -333,7 +332,7 @@ In a \ac{EMA} one needs to determine the \ac{FRF} from input to output. To achie
 
 \section{Electronic Components}
 
-This section serves as an introduction to the function of selected electronic components and circuits. It does not give a complete overview of the state of the art. For more background on electronics \cite{Stiny2019AeB} may be consulted.
+This section serves as an introduction to the function of selected electronic components and circuits. It does not give a complete overview of the state of the art. For more background on electronics \cite{Stiny2019AeB} and \cite{Tietze2008EC} may be consulted.
 
 Electronic components are divided into two main types; passive and active ones. Where active components are allowed to generate, amplify or oscillate an electrical signal, passive components can only absorb, dissipate or store electric energy.
 
@@ -341,23 +340,31 @@ Electronic components are divided into two main types; passive and active ones. 
 
 Because of the increase in digital processing, the number of passive components has decreased drastically in modern electronic circuits. This, in addition to the trend of using more complex devices in favour to multiple simple passive components, has led to a great variety of passive components which are designed with emphasis on reliability.
 
-\subsubsection{Wires}
+Typical examples of passive components are:
+\begin{description}
+    \item[Wires] Depending on the mechanical requirements for the wire, it can either be designed with a solid core or a stranded wire core. A wire consisting of multiple smaller diameter conductors shows better flexibility but reduced current-carrying capacity at the same wire diameter. This is because of the smaller overall conductor cross-section of a stranded wire and, when transmitting high frequency signals, a greater power dissipation due to the more prevalent skin effect. Furthermore the simplicity of solid core wires makes them more resistant to corrosion and more suitable to be used in harsh environments.
+    \item[Resistors] Depending on the application different types of resistors can be applied. Fixed value resistors, can be used for safety of other components by dissipating heat or reducing to set the current and voltage in combination relative to other devices. Variable resistors change their value due to different physical phenomena. Thermistors show resistances that are highly susceptible to temperature changes, potentiometers resistance is manually tunable and photoresistors show a light dependant resistance, to name a few. 
+    \item[Capacitors] Capacitors store energy in form of an electric field. They have many applications, most prominently in filter circuits and as bypass capacitors to reduce smooth out non constant power draws.
+    \item[Inductive Devices] Are devices that store energy in form of an electric field. In modern devices coils are less common due to benefits, when realizing the circuit with capacitors instead. But in specialized applications, namely when converting between electrical and mechanical signals, i.e. in motors, generators, loudspeakers etc.
+\end{description}
+% \subsubsection{Wires}
 
-Wires connect several electronic components. Ideally no loss or noise is introduced in wires but inductances occur due to the conductor's shape and material properties as well as electric fields, that are either self induced or present due to ambient conditions.
+% Wires connect several electronic components. Ideally no loss or noise is introduced in wires but inductances occur due to the conductor's shape and material properties as well as electric fields, that are either self induced or present due to ambient conditions.
 
-Depending on the mechanical requirements for the wire, it can either be designed with a solid core or a stranded wire core. A wire consisting of multiple smaller diameter conductors shows better flexibility but reduced current-carrying capacity at the same wire diameter. This is because of the smaller overall conductor cross-section of a stranded wire and, when transmitting high frequency signals, a greater power dissipation due to the more prevalent skin effect. Furthermore the simplicity of solid core wires makes them more resistant to corrosion and more suitable to be used in harsh environments.
+% Depending on the mechanical requirements for the wire, it can either be designed with a solid core or a stranded wire core. A wire consisting of multiple smaller diameter conductors shows better flexibility but reduced current-carrying capacity at the same wire diameter. This is because of the smaller overall conductor cross-section of a stranded wire and, when transmitting high frequency signals, a greater power dissipation due to the more prevalent skin effect. Furthermore the simplicity of solid core wires makes them more resistant to corrosion and more suitable to be used in harsh environments.
 
-Braided or foil shielding wires are usually used to shield other wires from ambient fields. Shaped as a tube they enclose one or multiple wires acting as a Faraday cage.
+% Braided or foil shielding wires are usually used to shield other wires from ambient fields. Shaped as a tube they enclose one or multiple wires acting as a Faraday cage.
 
-\subsubsection{Resistors}
+% \subsubsection{Resistors}
 
-Resistors are loads that reduce the current flow and set the voltage levels within a circuit. There are many different types of resistors.
+% Resistors are loads that reduce the current flow and set the voltage levels within a circuit. There are many different types of resistors.
 
 \subsection{Active Components}
+Active components show some form of amplification of the input signal in most cases; in other ones they generate vibrations, but generally an additional energy supply is needed to operate active components.
 
-\subsection{Integrated Circuits}
+As an essential example, we consider the \acf{OP-AMP}. The \ac{OP-AMP} is a multi-stage, high gain and galvanically coupled differential amplifier. It is used to amplify an electrical signal, and its function is primarily determined by its surrounding circuit. Namely filters can be realized by using \ac{OP-AMP}s.
 
-Integrated Circuits (ICs) are 
+Normally \ac{OP-AMP}s are connected to symmetric operating voltages. But when used with digital circuits, a single voltage supply is preferred. For this case, single supply voltage \ac{OP-AMP}s are used. Furthermore, rail-to-rail \ac{OP-AMP}s are have the capability to control the output between the the positive and negative supply voltage.
 
-
-\subsection{Circuits}
+\subsection{Applictions}
+Electrical signal conditioning is based on arrangements of active and passive components in circuits. A good and in depth coverage of active filters and measurement circuits can be found in \cite{Tietze2008}.
