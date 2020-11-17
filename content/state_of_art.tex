@@ -320,7 +320,6 @@ In an \ac{EMA} one needs to determine the \ac{FRF} from input to output. To achi
     \item The \ac{ADC} samples and quantizes the analog signal. It is then converted into a digital signal, in which the quantity is expressed in form of a binary code.
     \item The discrete time signal is then stored on the computer memory.
 \end{itemize}
-\cite{fu2001modal}
 
 \begin{figure}[!htb]
     \centering
@@ -365,5 +364,59 @@ As an essential example, we consider the \acf{OP-AMP}. The \ac{OP-AMP} is a mult
 
 Normally \ac{OP-AMP}s are connected to symmetric operating voltages. But when used with digital circuits, a single voltage supply is preferred. For this case, single supply voltage \ac{OP-AMP}s are used. Furthermore, rail-to-rail \ac{OP-AMP}s are have the capability to control the output between the the positive and negative supply voltage.
 
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[scale=0.7]{\imgpath/electronics/op_amp/plot_opamp_railrail}
+    \caption[OP-AMP controllability]{OP-AMP controllability at $\pm\SI{5}{\volt}$ operating voltage}
+    \label{fig:plot_opamp_railrail}
+\end{figure}
+
 \subsection{Applictions}
-Electrical signal conditioning is based on arrangements of active and passive components in circuits. A good and in depth coverage of active filters and measurement circuits can be found in \cite{Tietze2008}.
+Electrical signal conditioning is based on arrangements of active and passive components in circuits. A good and in depth coverage of active filters and measurement circuits can be found in \cite{Tietze2008EC}. For many common applications a \acf{IC} exists. These circuits internal to chips that come in various package sizes, see \figref{fig:ic_flowchart}.
+
+
+\subsection{Anti Aliasing Filter}
+The \acf{AAF} is used ahead of \ac{ADC}s to reduce the signal bandwidth. More precisely, it aims to reduce the aliasing effect, i.e. the artificial distortion of signals, that occurs when sampling at a finite frequency.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[scale=0.7]{\imgpath/electronics/aaf/plot_aliasing}
+    \caption[Aliasing]{Aliasing effect}
+    \label{fig:plot_aliasing}
+\end{figure}
+
+\subsection{Analog to Digital Converters}
+
+Additionally to other noise sources in the signal chain the \ac{ADC} shows internal noise that can categorized into two uncorrelated main sources. The quantization noise and the thermal noise. The total internal noise can thus be expressed as the Euclidean norm of these two sources.
+
+\begin{align}
+    n_\text{ADC} &= \sqrt{n_{\text{ADC},\text{Thermal}}^2 + n_{\text{ADC},\text{Quantization}}^2}
+\end{align}
+
+Quantization noise is present due to the process of mapping an infinite number of possible electrical signal values in an analog signal to a finite number of digital codes. Subsequently, any digital output corresponds to an infinite number of analog inputs within range of the output value, plus and minus half the \ac{LSB} size, $s_\text{LBS}$. One can decrease quantization noise by choosing a higher resolution \ac{ADC}.
+
+\begin{align}
+    s_\text{LBS} &= \frac{U_{FSR}}{2^m}
+\end{align}
+where
+\begin{description}[topsep=0ex, noitemsep]
+    \item $U_{\text{FSR}}$ is the full-scale range of the analog input value and
+    \item $m$ is the resolution in number of bits
+\end{description}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[scale=0.7]{\imgpath/electronics/adc/plot_lsberr}
+    \caption[ADC LSB waveform]{\ac{ADC} -- Analog input, digital output and \ac{LSB} error waveform with $s_\text{LBS} = \SI{375}{\milli\volt}$\cite{hall2020fund}}
+    \label{fig:plot_lsberr}
+\end{figure}
+
+Thermal noise is a phenomenon inherent in all electrical components. Because of this it is a function of the device design and cannot be affected by the embedded system designer. Typically, one assumes the thermal noise to have a Gaussian distribution.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{\imgpath/electronics/adc/plot_thermerr}
+    \caption[ADC thermal noise]{ADC -- Thermal noise in the time domain with Gaussian probability density \cite{hall2020fund}}
+    \label{fig:plot_themerr}
+\end{figure}
+

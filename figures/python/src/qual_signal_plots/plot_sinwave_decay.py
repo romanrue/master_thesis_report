@@ -56,7 +56,7 @@ def dict_svgpath_to_mpl(svgpathdict):
         marker_dict[key].vertices -= marker_dict[key].vertices.mean(axis=0)
     return marker_dict
 
-svgpath_dict = importsvgpaths(dir_path / 'markers')
+svgpath_dict = importsvgpaths(dir_path.parent / 'markers')
 marker_dict = dict_svgpath_to_mpl(svgpath_dict)
 
 # %%

@@ -1,6 +1,54 @@
 \chapter{Appendix}
 \label{apx:appendix}
 
+\begin{figure}[!htb]
+\sbox0{\subcaptionbox{Vertical stress, longitudinal particle displacement\label{sfig:piezo_beam}}{%
+        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_beam}
+        }}% a
+    \sbox1{\subcaptionbox{Vertical stress, lateral particle displacement\label{sfig:piezo_plate_top}}{%
+        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_plate_top}
+        }}% b
+    \sbox2{\subcaptionbox{Vertical stress, lateral particle displacement\label{sfig:piezo_plate_side}}{%
+        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_plate_side}
+        }}% c
+    \sbox3{\subcaptionbox{Lateral stress, lateral particle displacement\label{sfig:piezo_radial_long}}{%
+        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_radial_long}
+        }}% d
+    \sbox4{\subcaptionbox{Radial particle displacement\label{sfig:piezo_radial_flat}}{%
+        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_radial_flat}
+        }}% e
+    \sbox5{\subcaptionbox{Radial particle displacement\label{sfig:piezo_axial_hole_flat}}{%
+        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_axial_hole_flat}
+        }}% f
+    \sbox6{\subcaptionbox{Vertical stress, radial particle displacement\label{sfig:piezo_sphere}}{%
+        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_sphere}
+        }}% g
+    \sbox7{\subcaptionbox{Radial particle displacement\label{sfig:piezo_axial_flat}}{%
+        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_axial_flat}
+       }}% h
+    \sbox8{\subcaptionbox{Radial particle displacement\label{sfig:piezo_radial_rod}}{%
+        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_radial_rod}
+       }}% i
+    \centering
+    {%
+        \renewcommand{\arraystretch}{4}%
+        \setlength{\tabcolsep}{2em}
+        \begin{tabular}{ccc}
+            \usebox0 & \usebox3 & \usebox6 \\
+            \usebox1 & \usebox4 & \usebox7 \\
+            \usebox2 & \usebox5 & \usebox8
+        \end{tabular}
+    }
+    \caption[Piezoelectric designs]{Piezoelectric designs, where electrodes are placed on the shaded areas}
+    \label{fig:piezo_designs}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includestandalone[scale=0.8]{\imgpath/electronics/ic_flowchart/ic_flowchart}
+    \caption[IC packages flowchart]{Flowchart of IC packages}
+    \label{fig:ic_flowchart}
+\end{figure}
 {\scriptsize%
 \begin{longtable}{lccc}
 \caption[Andromeda Measurements, Prototype Impact Hammer]{Andromeda measurement setup that is excited by the prototype impact hammer. The prototype accelerometer is set to a dynamic range of $\pm$\SI{16}{g} and a \acs{AAF} cut-off of \SI{800}{\hertz}.}\\
@@ -217,54 +265,6 @@ Label & \makecell{Prototype\\tip} & \makecell{Prototype Sampling\\Rate / \si{\ki
 \end{longtable}
 }
 
-\begin{figure}[!htb]
-\sbox0{\subcaptionbox{Vertical stress, longitudinal particle displacement\label{sfig:piezo_beam}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_beam}
-        }}% a
-    \sbox1{\subcaptionbox{Vertical stress, lateral particle displacement\label{sfig:piezo_plate_top}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_plate_top}
-        }}% b
-    \sbox2{\subcaptionbox{Vertical stress, lateral particle displacement\label{sfig:piezo_plate_side}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_plate_side}
-        }}% c
-    \sbox3{\subcaptionbox{Lateral stress, lateral particle displacement\label{sfig:piezo_radial_long}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_radial_long}
-        }}% d
-    \sbox4{\subcaptionbox{Radial particle displacement\label{sfig:piezo_radial_flat}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_radial_flat}
-        }}% e
-    \sbox5{\subcaptionbox{Radial particle displacement\label{sfig:piezo_axial_hole_flat}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_axial_hole_flat}
-        }}% f
-    \sbox6{\subcaptionbox{Vertical stress, radial particle displacement\label{sfig:piezo_sphere}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_sphere}
-        }}% g
-    \sbox7{\subcaptionbox{Radial particle displacement\label{sfig:piezo_axial_flat}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_axial_flat}
-       }}% h
-    \sbox8{\subcaptionbox{Radial particle displacement\label{sfig:piezo_radial_rod}}{%
-        \includegraphics[scale=0.7]{\imgpath/measurement/piezo/piezo_radial_rod}
-       }}% i
-    \centering
-    {%
-        \renewcommand{\arraystretch}{4}%
-        \setlength{\tabcolsep}{2em}
-        \begin{tabular}{ccc}
-            \usebox0 & \usebox3 & \usebox6 \\
-            \usebox1 & \usebox4 & \usebox7 \\
-            \usebox2 & \usebox5 & \usebox8
-        \end{tabular}
-    }
-    \caption[Piezoelectric designs]{Piezoelectric designs, where electrodes are placed on the shaded areas}
-    \label{fig:piezo_designs}
-\end{figure}
-
-\begin{figure}[!htb]
-    \centering
-    \includestandalone[scale=1]{\imgpath/electronics/ic_flowchart/ic_flowchart}
-    \caption[IC packages flowchart]{Flowchart of IC packages \cite{Tietze2008EC}}
-    \label{fig:ic_flowchart}
-\end{figure}
 
 \begin{figure}[!htb]
     \centering
