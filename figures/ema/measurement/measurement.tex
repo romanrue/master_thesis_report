@@ -24,7 +24,7 @@
 \usepackage{array}
 \usepackage{booktabs}
 \newcommand{\imgpath}{img}
-\newcommand{\plotspath}{\imgpath/plots}
+\newcommand{\plotspath}{figures/plots}
 
 % user defined colors (define in colors.csv, run gen_colors_tex.py to update changes)
 \input{../../presets/colors/colors}
@@ -163,16 +163,16 @@
     ][Excitor, name=extr,
     no edge,
     draw=WesMixL8qual6,
-    label={[label distance=1.22em, sbox]90:\imlabel{\plotspath/plot_impulse}}%\imgpath/impulse_hammer_scheme}}
+    label={[label distance=1.22em, sbox]90:\imlabel{\plotspath/plot_impulse}}%figures/impulse_hammer_scheme}}
       [dummy, name=exdmy, invis, edge={{Latex[]}-},
-        edge label={node [midway,above, xshift=3em, yshift=1em] {\scalebox{-1}[1]{\imlabel[scale=0.6]{\imgpath/impulse_hammer_scheme}}}},
+        edge label={node [midway,above, xshift=3em, yshift=1em] {\scalebox{-1}[1]{\imlabel[scale=0.6]{figures/impulse_hammer_scheme}}}},
       ]
     ]
   ]
   \draw[thick, -{Latex[]}] (extr) edge (exsens);
   \draw[thick, -{Latex[]}, to path={-| (\tikztotarget)}] (extr) edge ([yshift=2.56cm]mt.center);
   \draw[thick, -{Latex[]}, to path={-| (\tikztotarget)},] (exadc) edge[decorate] (cpu);
-  \node at ([yshift=-2em]mt.south) [anchor=south] {\includegraphics[width=3.2cm]{\imgpath/mt_scheme}};
+  \node at ([yshift=-2em]mt.south) [anchor=south] {\includegraphics[width=3.2cm]{figures/mt_scheme}};
   \node at (mt.center) [anchor=center] {Structure};
   \node at (cpu.center) [yshift=-0.7em, sbox] {Memory};
 \end{forest}

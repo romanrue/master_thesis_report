@@ -1,0 +1,65 @@
+\documentclass[tikz,11pt]{standalone}
+\usetikzlibrary{shapes.geometric,
+    arrows}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+% encoding and fonts
+\usepackage[utf8]{inputenc} % input encoding
+\usepackage{times}          % general
+\usepackage{helvet}         % sans serif
+\usepackage[T1]{fontenc}    % font encoding
+
+\usepackage{array}
+\usepackage{booktabs}
+
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+
+% user defined colors (define in colors.csv, run gen_colors_tex.py to update changes)
+\input{../../../presets/colors/colors}
+\tikzset{colorset/.code={\pgfplotscolormapdefinemappedcolor{#1}}}
+
+\newcommand{\ju}{\mathrm{j}\mkern1mu}
+\newcommand{\vect}[1]{\mathbf{#1}}
+
+\usetikzlibrary{calc}
+\usepackage[european,americaninductors,RPvoltages]{circuitikz}
+\ctikzset{voltage/distance from node=.2}% defines arrow's distance from nodes
+\ctikzset{voltage/distance from line=.02}% defines arrow's distance from wires
+\ctikzset{voltage/bump b/.initial=0}% defines arrow's curvature
+\colorlet{voltcol}{WesMixL8qual6}
+\colorlet{currcol}{WesMixL8qual5}
+
+\begin{document}
+\def\scale{0.7}
+\begin{circuitikz}[scale=\scale]
+\ctikzset{resistors/scale=\scale,
+  capacitors/scale=\scale,
+  amplifiers/scale=\scale
+}
+\draw (0, 0) node[op amp, yscale=-1] (OA) {}
+  (OA.-)  -| ++(-0.5,-1.5) coordinate(OAn)
+  (OA.+) to [short] ++(-1.8, 0) coordinate(OAp)
+  (OA.out) to [short] ++(0.5, 0) coordinate(OAout)
+  (OAp) to [R, l_=$R_1$] ++(-3, 0) coordinate(r2)
+    to [R, l_=$R_2$] ++(-3, 0) coordinate(r3)
+    to [R, l_=$R_3$] ++(-3,0) to [short, -o] ++(-0.5, 0) coordinate(vi)
+  (OAp) to [short, *-, C, l_=$C_1$] (OAp|-OAn) node[ground](g){}
+  (OAn) -| (OAout)
+  (OAout) to [short, *-o] ++(1.5, 0) coordinate(vo)
+  (r3) to [short, *-, C, l_=$C_3$] (r3|-g) node[ground]{}
+  (r2) to [short, *-, C=$C_2$] ++(0,2) -| (OAout)
+  (vi|-g) node[ground]{} node[ocirc]{}
+  (vo|-g) node[ground]{} node[ocirc]{}
+;
+\draw[voltcol]
+	(vi) to [open, v>=$\vect{U}_i$, color=voltcol] (vi|-g)  % input voltage
+  (vo) to [open, v^>=$\vect{U}_o$, color=voltcol] (vo|-g) % output voltage
+;
+\end{circuitikz}
+\end{document} 

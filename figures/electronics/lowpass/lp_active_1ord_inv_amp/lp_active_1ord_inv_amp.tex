@@ -1,0 +1,60 @@
+\documentclass[tikz,11pt]{standalone}
+\usetikzlibrary{shapes.geometric,
+    arrows}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+% encoding and fonts
+\usepackage[utf8]{inputenc} % input encoding
+\usepackage{times}          % general
+\usepackage{helvet}         % sans serif
+\usepackage[T1]{fontenc}    % font encoding
+
+\usepackage{array}
+\usepackage{booktabs}
+
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+
+% user defined colors (define in colors.csv, run gen_colors_tex.py to update changes)
+\input{../../../presets/colors/colors}
+\tikzset{colorset/.code={\pgfplotscolormapdefinemappedcolor{#1}}}
+
+\newcommand{\ju}{\mathrm{j}\mkern1mu}
+\newcommand{\vect}[1]{\mathbf{#1}}
+
+\usepackage[european,americaninductors,RPvoltages]{circuitikz}
+\ctikzset{voltage/distance from node=.2}% defines arrow's distance from nodes
+\ctikzset{voltage/distance from line=.02}% defines arrow's distance from wires
+\ctikzset{voltage/bump b/.initial=0}% defines arrow's curvature
+\colorlet{voltcol}{WesMixL8qual6}
+\colorlet{currcol}{WesMixL8qual5}
+
+\begin{document}
+\def\scale{0.7}
+\begin{circuitikz}[scale=\scale]
+\ctikzset{resistors/scale=\scale,
+  capacitors/scale=\scale,
+  amplifiers/scale=\scale
+}
+\draw (0, 0) node[op amp] (opamp) {}
+  (opamp.-) to[short,-*] ++(-0.5, 0) coordinate(A)
+  (opamp.+) -| ++(-0.5,-0.8) node[ground](B){}
+  (opamp.out) to[short,-*] ++(0.5, 0) coordinate(C)
+  to [short, -o] ++(1,0) coordinate(E)
+  (E |- B) node[ground]{} node[ocirc]{}
+  (A) to[short, -o, R, l_=$R_1$] ++(-3, 0) coordinate(D)
+  (D |- B) node[ground]{} node[ocirc]{}
+  (A) |- ++(.75,2.75) coordinate (L1) to[C=$C_1$] ++(2,0) -| (C)
+  ([shift={(-0.6cm,-1.5cm)}]L1) coordinate (L2) [short, -*] to (L2-|A)
+  (L2) [short, -*, R=$R_2$] to (L2-|C)
+;
+\draw[voltcol]
+	(D) to [open, v>=$\vect{U}_i$, color=voltcol] (D|-B) % input voltage
+	(E) to [open, v^>=$\vect{U}_o$, color=voltcol] (E|-B); % output voltage
+\end{circuitikz}
+\end{document} 

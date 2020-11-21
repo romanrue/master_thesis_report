@@ -1,0 +1,49 @@
+\documentclass[tikz,11pt]{standalone}
+\usetikzlibrary{shapes.geometric,
+    arrows}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+% encoding and fonts
+\usepackage[utf8]{inputenc} % input encoding
+\usepackage{times}          % general
+\usepackage{helvet}         % sans serif
+\usepackage[T1]{fontenc}    % font encoding
+
+\usepackage{array}
+\usepackage{booktabs}
+
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+
+% user defined colors (define in colors.csv, run gen_colors_tex.py to update changes)
+\input{../../../presets/colors/colors}
+\tikzset{colorset/.code={\pgfplotscolormapdefinemappedcolor{#1}}}
+
+\newcommand{\ju}{\mathrm{j}\mkern1mu}
+\newcommand{\vect}[1]{\mathbf{#1}}
+
+\usepackage[european,RPvoltages]{circuitikz}
+\ctikzset{voltage/distance from node=.2}% defines arrow's distance from nodes
+\ctikzset{voltage/distance from line=.02}% defines arrow's distance from wires
+\ctikzset{voltage/bump b/.initial=0}% defines arrow's curvature
+\colorlet{voltcol}{WesMixL8qual6}
+\colorlet{currcol}{WesMixL8qual5}
+
+\begin{document}
+\begin{circuitikz}[scale=0.7]
+\draw[voltcol]
+	(0,0) to [open, v^<=$\vect{U}_i$, color=voltcol] (0,3) % input voltage
+	(8,3) to [open, v^>=$\vect{U}_o$, color=voltcol] (8,0); % output voltage
+\draw
+  (0,3) to [short, o-, L=$L$] (3,3) % impedance
+  to [R=$R$] (6,3) % resistance
+  to [short, -o] (8,3)
+  (8,0) to [short, o-o] (0,0)
+  (6,0) to [short, *-*, C, l=$C$] (6,3); % capacitance
+\end{circuitikz}
+\end{document} 

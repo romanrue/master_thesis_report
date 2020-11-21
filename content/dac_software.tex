@@ -9,10 +9,10 @@ The \ac{DAC} system developed in this thesis is an open source Arduino based sys
 \begin{figure}[!htb]
     \centering
     \subcaptionbox{Without signal conditioning\label{sfig:dac_comp_simple}}
-        {\includegraphics[scale=0.5]{\imgpath/dac/dac_components/dac_comp_simple}}
+        {\includegraphics[scale=0.5]{figures/dac/dac_components/dac_comp_simple}}
         \hfill
     \subcaptionbox{With signal conditioning and external \ac{ADC}\label{sfig:dac_comp_precond}}
-        {\includegraphics[scale=0.5]{\imgpath/dac/dac_components/dac_comp_precond}}
+        {\includegraphics[scale=0.5]{figures/dac/dac_components/dac_comp_precond}}
     \\[0.5em]
     \caption[DAC building blocks]{\acs{DAC}-system building blocks -- note that \ref{sfig:dac_comp_simple} has been realized, but \ref{sfig:dac_comp_precond} has not been implemented yet, due to communication issues between the devices}
     \label{fig:dac_building_blocks}
@@ -107,7 +107,7 @@ The communication protocol for \ac{MCU} to \ac{MCU} and \ac{MCU} to computer was
 
 \begin{table}[!htb]
     \centering
-    \includestandalone[scale=1]{\imgpath/software/mcu_com_protocol/mcu_com_protocol}
+    \includestandalone[scale=1]{figures/software/mcu_com_protocol/mcu_com_protocol}
     \\[0.5em]
     \footnotesize
 		\begin{tabular}{c@{ :\hskip 0.5em}l}
@@ -141,7 +141,7 @@ Measurements are packaged due to the time the master requires to change the comm
 
 \begin{figure}[!htb]
     \centering
-    \includestandalone[width=0.8\linewidth]{\imgpath/software/data_flow/data_flow}
+    \includestandalone[width=0.8\linewidth]{figures/software/data_flow/data_flow}
     \caption[Data flow]{Data flow between two \ac{MCU}s and the CPU}
     \label{fig:data_flow}
 \end{figure}
