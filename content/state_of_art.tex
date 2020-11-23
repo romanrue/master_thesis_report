@@ -172,7 +172,7 @@ The basic sensing element of a displacement sensor typically consists of two par
     C &= f(d,A,\varepsilon)
 \end{align}
 
-With variable distance, dielectric material or area and with the measurement of the capacitance, we can then deduce the plate displacement in normal and parallel direction to the plates depending on the method used. See \figref{fig:cap_disp} 
+With variable distance, dielectric material or area and with the measurement of the capacitance, we can then deduce the plate displacement in normal and parallel direction to the plates depending on the method used. See \figref{fig:cap_disp}
 
 In variable displacement sensors, the distance between two capacitive plates is inversely proportional to the capacitance.
 \begin{align}
@@ -195,7 +195,7 @@ where
 \begin{description}[topsep=0ex, noitemsep]
     \item $\varepsilon_2$ is the permittivity of the displacing material (e.g. liquid)
     \item $w$ is the width
-    \item $wx$ is the reduction in the area due to movement of the plate 
+    \item $wx$ is the reduction in the area due to movement of the plate
     \item $d$ is the distance of the plates in \si{\meter}
 \end{description}
 
@@ -309,7 +309,7 @@ Common examples of vibration sources in \ac{MT} are displayed in \figref{fig:vib
     \label{fig:vibration_sources}
 \end{figure}
 
-Resonant vibration arises when one or more of the natural modes of vibration, inherent properties of the structure under investigation, is excited. Resonant vibration typically amplifies the vibration response to a level that exceeds deflection, stress and strain caused by static loading. 
+Resonant vibration arises when one or more of the natural modes of vibration, inherent properties of the structure under investigation, is excited. Resonant vibration typically amplifies the vibration response to a level that exceeds deflection, stress and strain caused by static loading.
 
 \subsection{Frequency Response Measurement}
 
@@ -341,7 +341,7 @@ Because of the increase in digital processing, the number of passive components 
 Typical examples of passive components are:
 \begin{description}
     \item[Wires] Depending on the mechanical requirements for the wire, it can either be designed with a solid core or a stranded wire core. A wire consisting of multiple smaller diameter conductors shows better flexibility but reduced current-carrying capacity at the same wire diameter. This is because of the smaller overall conductor cross-section of a stranded wire and, when transmitting high frequency signals, a greater power dissipation due to the more prevalent skin effect. Furthermore the simplicity of solid core wires makes them more resistant to corrosion and more suitable to be used in harsh environments.
-    \item[Resistors] Depending on the application different types of resistors can be applied. Fixed value resistors, can be used for safety of other components by dissipating heat or reducing to set the current and voltage in combination relative to other devices. Variable resistors change their value due to different physical phenomena. Thermistors show resistances that are highly susceptible to temperature changes, potentiometers resistance is manually tunable and photoresistors show a light dependant resistance, to name a few. 
+    \item[Resistors] Depending on the application different types of resistors can be applied. Fixed value resistors, can be used for safety of other components by dissipating heat or reducing to set the current and voltage in combination relative to other devices. Variable resistors change their value due to different physical phenomena. Thermistors show resistances that are highly susceptible to temperature changes, potentiometers resistance is manually tunable and photoresistors show a light dependant resistance, to name a few.
     \item[Capacitors] Capacitors store energy in form of an electric field. They have many applications, most prominently in filter circuits and as bypass capacitors to reduce smooth out non constant power draws.
     \item[Inductive Devices] Are devices that store energy in form of an electric field. In modern devices coils are less common due to benefits, when realizing the circuit with capacitors instead. But in specialized applications, namely when converting between electrical and mechanical signals, i.e. in motors, generators, loudspeakers etc.
 \end{description}
@@ -366,7 +366,7 @@ Normally \ac{OP-AMP}s are connected to symmetric operating voltages. But when us
 
 \begin{figure}[htb!]
     \centering
-    \includegraphics[scale=0.7]{figures/electronics/op_amp/plot_opamp_railrail}
+    \includegraphics[scale=0.72]{figures/electronics/op_amp/plot_opamp_railrail}
     \caption[OP-AMP controllability]{OP-AMP controllability at $\pm\SI{5}{\volt}$ operating voltage}
     \label{fig:plot_opamp_railrail}
 \end{figure}
@@ -374,24 +374,16 @@ Normally \ac{OP-AMP}s are connected to symmetric operating voltages. But when us
 \subsection{Applictions}
 Electrical signal conditioning is based on arrangements of active and passive components in circuits. A good and in depth coverage of active filters and measurement circuits can be found in \cite{Tietze2008EC}. For many common applications a \acf{IC} exists. These circuits internal to chips that come in various package sizes, see \figref{fig:ic_flowchart}.
 
-\subsection{Lowpass Filter}
+\subsection{Low-Pass Filter}
 \cite{Tietze2008EC}
 
-The frequency response of the simplest \ac{LPF} can be expressed as
+The frequency response of the simplest \ac{LPF}, as shown in \figref{fig:lp_passive_1ord}, can be expressed as
 \begin{align}
-    \vect{A}(\ju\omega) &= \frac{\vect{u}_o}{\vect{u}_i} = \frac{1}{1+\ju\omega RC}
+    \vect{H}(\ju\omega) &= \frac{\vect{u}_o}{\vect{u}_i} = \frac{1}{1+\ju\omega RC}
 \end{align}
-By replacing $\ju\omega$ by $\ju\omega+\sigma = s$ one can express the transform function as
+By replacing $\ju\omega$ by $\ju\omega+\sigma = s$ one can express the transfer function as
 \begin{align}
-    A(s) &= \frac{\LT{U_o(t)}}{\LT{U_i(t)}} = \frac{1}{1 + sRC}
-\end{align}
-This is the ratio between the Laplace transformed time-domain output signal over the Laplace transformed time-domain input signal. For further simplification one can set $\sigma$ to zero; which is equivalent to assuming sinusoidal form of the input signal. Furthermore we generalize the result by normalizing the complex frequency variable $s$ by defining
-\begin{align}
-    s_n &= \frac{s}{\omega_c}
-\end{align}
-Thus, for $\sigma=0$
-\begin{align}
-    s_n &= \frac{\ju\omega}{\omega_c} = \ju\frac{f}{f_c} = \ju\omega_n
+    H(s) &= \frac{\LT{U_o(t)}}{\LT{U_i(t)}} = \frac{1}{1 + sRC}
 \end{align}
 
 \begin{figure}[htb!]
@@ -401,19 +393,132 @@ Thus, for $\sigma=0$
     \label{fig:lp_passive_1ord}
 \end{figure}
 
+This is the ratio between the Laplace transformed time-domain signals of the output and input respectively. We then generalize the result by normalizing the complex frequency variable $s$ by defining
+\begin{align}
+    s_n &= \frac{s}{\omega_c}
+\end{align}
+
+For further simplification one can set $\sigma$ to zero; which is equivalent to assuming sinusoidal form of the input signal.
+Thus, for $\sigma=0$
+\begin{align}
+    s_n &= \frac{\ju\omega}{\omega_c} = \ju\frac{f}{f_c} = \ju\omega_n
+\end{align}
+
+The cutoff frequency of the circuit in \figref{fig:lp_passive_1ord} is $f_c=1/(2\pi RC)$. By definition the normalized complex frequency variable thus becomes $s_n=2\pi RC$. Therefore, the transfer function can be written as
+\begin{align}
+    H(s_n) &= \frac{1}{1+s_n}
+\end{align}
+
+The magnitude $\abs{\vect{H}(\ju\omega_n)}$ and phase $\varphi=\angle\vect{H}(\ju\omega_n)$ of the transfer function for sinusoidal signals are then given by
+\begin{align}
+    \abs{\vect{H}(\ju\omega_n)}^2 &= \frac{1}{1+\omega_n^2} &&\text{and} &\varphi &= \angle\vect{H}(\ju\omega_n) = \arctan\frac{1}{1 + \ju\omega_n}
+\end{align}
+
+For frequencies $\omega_n\gg 1$ one can approximate $\abs{\vect{H}}=1/\omega_n$. This corresponds to a reduction in gain of \SI{20}{\decibel} per frequency decade.
+
+If a sharper cutoff is required, $N$ \ac{LPF}s can be connected in series. The \ac{TF} then becomes
+\begin{align}
+    \vect{H}(s_n) &= \prod\limits_{i=1}^{N}\frac{1}{1+\alpha_i s_n}
+\end{align}
+where $\alpha_i$ are real and positive coefficients and for frequencies $\omega_n\gg 1$, $\abs{\vect{H}}\approx 1/\omega_n^N\propto 1/\omega^N$. The gain therefore falls off at $N\cdot\SI{20}{\decibel}\:\text{per decade}$. It can be observed that the \ac{TF} posesses $N$ real and negative poles. This is characteristic of $N$th-order passive $RC$ \ac{LPF}.
+
+If we cascade \ac{LPF}s with identical cutoff frequencies, then
+\begin{align}
+    \alpha &= \alpha_i = \sqrt{\sqrt[N]{2}-1}
+\end{align}
+which is the condition for which \emph{critical damping} occurs. Each individual cutoff frequency is a factor $1/\alpha$ higher than that of the filter as a whole.
+
+The \ac{TF} of the $N$th-order \ac{LPF} has the general form
+\begin{align}
+    H(s_n) &= H_0 \pqty{1 + \sum\limits_{i=1}^N c_i s_n}^{-1} \label{eqn:lpf_nthord_tf_general}
+\end{align}
+where $c_i$ are real and positive coefficients and the order of the filter is equal to the highest power of $s_n$. By rewriting the denominator in factored form and allowing complex poles, one denotes \autoref{eqn:lpf_nthord_tf_general} as
+\begin{align}
+    H(s_n) &= \frac{H_0}{(1+a_1s_n+b_1s_n^2)(1+a_2s_n+b_2s_n^2)\cdots} \label{eqn:lpf_nthord_tf_poles}
+\end{align}
+where $a_i$ and $b_i$ are real and positive coefficients and $b_1=0$ for odd orders $N$.
+
+The frequency response can be optimized to different theoretical aspects by setting the coefficients $a_i$ and $b_i$. As a consequence of these optimizations, complex poles arise, that cannot be realized by blocks of passive $RC$ filters. It is possible to meet the optimized conditions by using $LRC$ filters with the simplest example shown in \figref{fig:lp_passive_2ord}, where
+\begin{align}
+    H(s) &= \frac{1/(LC)}{s^2+\frac{R}{L}s+\frac{1}{LC}} &&\text{and} &f_c &= \frac{1}{2\pi\sqrt{LC}}
+\end{align}
+This design does not pose any difficulties when opting for high cutoff frequencies. But it is apparent, that one requires the use of large capacitances as well as large inductances for low cutoff frequencies. And because large inductances are unwieldy and have poor electrical properties, an active filter design is better suited for low cutoff frequencies. In these types of circuits the inductances are avoided by the addition of active elements -- namely \ac{OP-AMP}s -- to the $RC$ network.
+
 \begin{figure}[htb!]
     \centering
     \includegraphics[scale=1]{figures/electronics/lowpass/lp_passive_2ord/lp_passive_2ord}
-    \caption[Passive second-order lowpass-filter]{Passive second-order \ac{LPF}}
+    \caption[Passive second-order \ac{LPF}]{Passive second-order \ac{LPF}, $LRC$ circuit}
     \label{fig:lp_passive_2ord}
 \end{figure}
 
-%nth-order butterworth
+
+\subsubsection{Butterworth Lowpass Filter}
+From the general solution in \autoref{eqn:lpf_nthord_tf_general} the squared absolute gain in \ac{LPF}s takes the form
 \begin{align}
-    \abs{\vect{A}} &= \frac{A_0^2}{1+k_2\omega_n^2+k_4\omega_n^4+\cdots k_{2N}\omega_n^{2N}}
+    \abs{\vect{H}(\omega_n)}^2 &= H_0^2 \pqty{1 + \sum\limits_{i=1}^N k_{2i}\omega_n^{2i}}^{-1}
+\end{align}
+where odd powers of $\omega_n$ do not occur, since $\abs{\vect{H}}^2$ must be an even function. In Butterworth \ac{LPF}s the function $\abs{\vect{H}}^2$ must be maximally flat at $\omega_n < 1$, i.e. for frequencies below the cutoff frequency. This condition is best met if we only keep the highest order term, since lower order terms contribute the most to the denominator at low frequencies, decreasing the gain. Hence, for Butterworth \ac{LPF}s
+\begin{align}
+    \abs{\vect{H}(\omega_n)}^2 &= \frac{H_0^2}{1+k_{2N}\omega_n^{2N}} \label{eqn:butterwoth_gain_squared}
+\end{align}
+where $k_{2N}=1$ due to the normalizing condition, which states that the square of the gain is reduced by \SI{3}{\decibel} at $\omega_n=1$, i.e. $\abs{\vect{H}(\omega_n=1)}^2 \approx \abs{\vect{H}(\omega_n=0)}^2/2$.
+
+When implementing a Butterworth \ac{LPF}, one needs to consider the complex gain $\vect{H}$ involved in \autoref{eqn:butterwoth_gain_squared}. It can be determined by solving for coefficients $c_i$ in \autoref{eqn:lpf_nthord_tf_general}, given the squared gain of \autoref{eqn:butterwoth_gain_squared}. It is possible to solve the transfer function analytically by combining complex conjugate poles. We then obtain the coefficients $a_i$ and $b_i$ of the quadratic expression in \autoref{eqn:lpf_nthord_tf_poles}
+\begin{align}
+    \intertext{even order $N$:}
+    a_i &= 2\cos\frac{(2i-1)\pi}{2N} &\text{for}\: &i = 1,2,\dots.\frac{N}{2}\\
+    b_i &= 1
+    \intertext{odd order $N$:}
+    a_2 &= 1,\qquad a_i =2\cos\frac{(i-1)\pi}{N} &\text{for}\: & i=2,3,\dots,\frac{N+1}{2}\\
+    b_1 &= 0,\qquad b_i =1
 \end{align}
 
 
+\begin{figure}[!htb]
+    \centering
+    \subcaptionbox{Standard normalization, cutoff frequency at \SI{-3}{\decibel}\label{sfig:lp_filter_2ord_bessel_bp}}[0.45\textwidth]{%
+        \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_2ord_bessel_bp}}
+    \hfill
+    \subcaptionbox{Chebyshev normalization, cutoff frequency at negative the allowed ripple $\delta$\label{sfig:lp_filter_2ord_cheby_bp}}[0.45\textwidth]{%
+        \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_2ord_cheby_bp}}
+    \caption[\ac{LPF} Pass- and Stopband]{\ac{LPF} Pass- and Stopband, where the passband is defined by $\omega_n<1$ and the stopband is chosen depending on the application (usually at \SIrange{-20}{-160}{\decibel})}
+    \label{fig:lp_lowpass_pass_stopband}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_4ord_step}
+    \caption[Step response of fourth-order \ac{LPF}]{Step response of fourth-order \ac{LPF} -- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.}
+    \label{fig:lp_filter_4ord_step}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_4ord_imp}
+    \caption[Impulse response of fourth-order \ac{LPF}]{Impulse response of fourth-order \ac{LPF} -- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.}
+    \label{fig:lp_filter_4ord_imp}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_mag}
+    \caption[Influence of \ac{LPF} order $N$ on the amplitude of the frequency response]{Influence of \ac{LPF} order $N$ on the amplitude of the frequency response -- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.}
+    \label{fig:lp_filter_mag}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_pha}
+    \caption[Influence of the \ac{LPF} order $N$ on the  phase of the frequency response]{Influence of the \ac{LPF} order $N$ on the  phase of the frequency response -- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.}
+    \label{fig:lp_filter_pha}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_grd}
+    \caption[Influence of the \ac{LPF} order $N$ on the group delay of the frequency response]{Influence of the \ac{LPF} order $N$ on the group delay of the frequency response -- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.}
+    \label{fig:lp_filter_grd}
+\end{figure}
 
 \begin{figure}[!htb]
     \centering
@@ -462,7 +567,7 @@ The \acf{AAF} is used ahead of \ac{ADC}s to reduce the signal bandwidth. More pr
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[scale=0.7]{figures/electronics/aaf/plot_aliasing}
+    \includegraphics[scale=0.72]{figures/electronics/aaf/plot_aliasing}
     \caption[Aliasing]{Aliasing effect}
     \label{fig:plot_aliasing}
 \end{figure}
@@ -488,7 +593,7 @@ where
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[scale=0.7]{figures/electronics/adc/plot_lsberr}
+    \includegraphics[scale=0.72]{figures/electronics/adc/plot_lsberr}
     \caption[ADC LSB waveform]{\ac{ADC} -- Analog input, digital output and \ac{LSB} error waveform with $s_\text{LBS} = \SI{375}{\milli\volt}$\cite{hall2020fund}}
     \label{fig:plot_lsberr}
 \end{figure}
@@ -497,7 +602,7 @@ Thermal noise is a phenomenon inherent in all electrical components. Because of 
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.7]{figures/electronics/adc/plot_thermerr}
+    \includegraphics[scale=0.72]{figures/electronics/adc/plot_thermerr}
     \caption[ADC thermal noise]{ADC -- Thermal noise in the time domain with Gaussian probability density \cite{hall2020fund}}
     \label{fig:plot_themerr}
 \end{figure}

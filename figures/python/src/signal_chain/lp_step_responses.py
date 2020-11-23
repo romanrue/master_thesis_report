@@ -81,10 +81,10 @@ type_names = dict(zip(type_keys,[
   r'Critically damped',
   r'Bessel',
   r'Butterworth',
-  r'Chebychev, 0.5dB ripple',
-  r'Chebychev, 1dB ripple',
-  r'Chebychev, 2dB ripple',
-  r'Chebychev, 3dB ripple']))
+  r'Chebyshev, 0.5dB ripple',
+  r'Chebyshev, 1dB ripple',
+  r'Chebyshev, 2dB ripple',
+  r'Chebyshev, 3dB ripple']))
 
 poly_values = {
   'crit':[#
@@ -343,14 +343,15 @@ def filter_tf(typename, N, A_0=1, dataset=filter_poly_list):
 #   return H
 
 #%%
-### Plot
-H = dict(zip(
-  type_keys,
-  [filter_tf(filtertype,2) for filtertype in type_keys]))
-for key in H: # normalize over dc gain
-  H[key] = H[key]/np.asscalar(dcgain(H[key]))
+def getH(N, normalize=True):
+  H = dict(zip(
+    type_keys,
+    [filter_tf(filtertype,N) for filtertype in type_keys]))
+  if normalize:
+    for key in H: # normalize over dc gain
+      H[key] = H[key]/np.asscalar(dcgain(H[key]))
+  return H
 
-#%%
 def find_nearest(a, a0):
   idx = np.abs(a - a0).argmin()
   return (idx, a[idx])
@@ -380,20 +381,22 @@ def find_fc(TF, init_range=[0,1000], res_step=1000, tol=1e-2, target=1/np.sqrt(2
   res, omega = fc_recurs_approx(mag, omega)
   return (omega[res[0]], res[1])
 
-#%%
-fig = plt.figure()
-ax = fig.add_subplot()
-ax.set_prop_cycle(cc)
+#%% plot step response
+H_tp = getH(2) 
+
+fig_tp = plt.figure()
+ax_tp = fig_tp.add_subplot()
+ax_tp.set_prop_cycle(cc)
 
 plot_keys = [type_keys[i] for i in [0,1,2,3,6]]
 for key in plot_keys:
-  x, y = step_response(H[key])
+  x, y = step_response(H_tp[key])
   #x = x/find_fc(H[key])[0]
-  ax.plot(x,y, label=type_names[key]) 
+  ax_tp.plot(x,y, label=type_names[key]) 
 
-ax.legend()
-ax.set_xlabel(r'Time')
-ax.set_ylabel(r'Signal')
+ax_tp.legend()
+ax_tp.set_xlabel(r'Time')
+ax_tp.set_ylabel(r'Signal')
 
 # ax.tick_params(
 #     axis='x',
@@ -405,11 +408,44 @@ ax.set_ylabel(r'Signal')
 #     labelbottom=False,
 #     labelleft=False,
 # )
-ax.grid()
+ax_tp.grid()
 
 if filename is None or not filename:
   filename = Path(__file__).stem
 plt.savefig('{}.svg'.format(filename))
 
 plt.show()
+
+#%% plot magnitude
+H_mag = [getH(4,False), getH(10,False)]
+
+fig_mag = plt.figure()
+gs = fig_mag.add_gridspec(2,1)
+# gs.update(vspace=0.3)
+ax0_mag = fig_mag.add_subplot(gs[0,0])
+ax1_mag = fig_mag.add_subplot(gs[1,0])
+axs_mag = [ax0_mag, ax1_mag]
+
+plot_keys = [type_keys[i] for i in [2,3,6]]
+rng = np.linspace(0,12,1000)
+for i,ax in enumerate(axs_mag):
+  ax.set_prop_cycle(cc)
+  for key in plot_keys:
+    m, p, omg = bode(H_mag[i][key],rng,dB=True,Plot=False)
+    omg = omg/find_fc(H_mag[i][key])[0]
+    ax.plot(omg, m, label=type_names[key])
+  plt.xscale('log')
+  ax.set_xlim(0,5)
+  ax.legend()
+# ax_tp.set_xlabel(r'Time')
+# ax_tp.set_ylabel(r'Signal')
+
+# ax_tp.grid()
+
+# if filename is None or not filename:
+#   filename = Path(__file__).stem
+# plt.savefig('{}.svg'.format(filename))
+
+plt.show()
+
 # %%
