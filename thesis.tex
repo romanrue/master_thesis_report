@@ -29,7 +29,7 @@
 \reporttype{Master Thesis}
 \author{Roman Rüttimann}
 \supervisor{Nino Ceresa}
-\chiefsupervisor{Prof. Konrad Wegener}
+\chiefsupervisor{Prof.\ Konrad Wegener}
 \group{Institute of Machine Tools and Manufacturing}
 \timespan{Spring Semester 2020}
 \date{\today}
@@ -61,19 +61,19 @@
 %%% MACROS
 \newcommand{\mykeyword}[0]{my long text}
 %reference macros -> change this if you write you thesis in an other language!!!
-\newcommand{\chpref}[1]{Chapter \ref{#1}}
-\newcommand{\secref}[1]{Section \ref{#1}}
-%\newcommand{\equref}[1]{Equation \ref{#1}} %better use builtin \eqref{} !!!
-\newcommand{\figref}[1]{Figure \ref{#1}}
-\newcommand{\tabref}[1]{Table \ref{#1}}
-\newcommand{\apxref}[1]{Appendix \ref{#1}}
+\newcommand{\chpref}[1]{Chapter~\ref{#1}}
+\newcommand{\secref}[1]{Section~\ref{#1}}
+%\newcommand{\equref}[1]{Equation~\ref{#1}} %better use builtin \eqref{} !!!
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\apxref}[1]{Appendix~\ref{#1}}
 
 \begin{document}
 
 %%%----------------------------------------------------------------
 %%% TITLE PAGE
 \maketitle
-\cleardoublepage
+\cleardoublepage%
 
 %%%----------------------------------------------------------------
 %%% PREFACE
@@ -81,25 +81,26 @@
 \include{\texpath/abstract}
 %\cleardoublepage
 %\includepdf{\texpath/declaration_originality.pdf}
-\cleardoublepage
+\cleardoublepage%
 \includepdf{\texpath/task_description.pdf}
-\cleardoublepage
+\cleardoublepage%
 \include{\texpath/acknowledgement}
 
 \tableofcontents
-\cleardoublepage
+\cleardoublepage%
 %\include{\texpath/symbol}
 \include{\texpath/abbreviations}
-\cleardoublepage
+\cleardoublepage%
 
 %%%----------------------------------------------------------------
 %%% MAIN CONTENT
-\mainmatter
+\mainmatter%
 \pagestyle{standardheadings}
 \include{\texpath/introduction}
 
 % add your chapter files here!
 \include{\texpath/state_of_art}
+\include{\texpath/signal_chain}
 \include{\texpath/dac_software}
 \include{\texpath/test_setups}
 
@@ -108,28 +109,28 @@
 
 %%----------------------------------------------------------------
 %% APPENDIX
-\appendix\appendixtrue
+\appendix\appendixtrue%
 \clearpage
 \include{\texpath/appendix}
 
 %%----------------------------------------------------------------
 %% REFERENCES
-\cleardoublepage
-\phantomsection
+\cleardoublepage%
+\phantomsection%
 % \renewcommand*{\chapterpagestyle}{empty}
 \addcontentsline{toc}{chapter}{List of figures}
 \listoffigures
 
-\cleardoublepage
-\phantomsection
+\cleardoublepage%
+\phantomsection%
 \addcontentsline{toc}{chapter}{List of tables}
 \listoftables
 
-\cleardoublepage
-\phantomsection
+\cleardoublepage%
+\phantomsection%
 \clearpage
 %\renewcommand*{\chapterpagestyle}{empty}
 \addcontentsline{toc}{chapter}{Bibliography}
-\printbibliography
+\printbibliography%
 
 \end{document}
