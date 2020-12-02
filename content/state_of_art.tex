@@ -17,8 +17,8 @@ The original data acquired from the physical signal is usually in analog form. T
     \label{fig:digital_instrument}}
 \end{figure}
 
-\subsection{Sensors and Transducers}
-A device that responds to a changing phenomenon is called sensor. If we need to transfer the energy from one to another, we use a device called transducer. If one compares sensors and transducers based on the energy input and output, one identifies three types:
+\section{Sensors and Transducers}
+A device that responds to a changing phenomenon is called sensor. If we need to transfer from one energy from to another, we use a device called transducer. If one compares sensors and transducers based on the energy input and output, one identifies three types:
 \begin{itemize}
   \item In \emph{modifiers} a specific energy form is not converted but modified. Hence they use the same form of energy as input and output.
   \item \emph{Self-generators} give out electric signals from non-electric inputs without the need of additional energy.
@@ -42,6 +42,27 @@ A force measurement sensor that converts a force into an electrical signal is ca
 Furthermore, these methods yield numerous of designs of measuring equipment. Each of which addressing two main problems. First, the physical and geometrical constrains by the application of the device and second, the means by which the force can be converted into an electrical signal.
 
 \ac{LC}s in \ac{EMA} equipment designs typically use piezoelectric sensors because of their high bandwidth in compact designs and their capability to detect small deflections.
+
+\subsubsection{Strain Gauges}
+
+In strain gauge \ac{LC}s the elastic properties of a material probe is exploited.
+
+The probe is loaded in a controlled manner in its elastic region. Deformations are captured by a strain gauge at a suitable location. The probe deformation is directly determined by the force acting on the probe because of Hooke's law.
+
+The strain gauges themselves each use a specific length gauge wire in order to reach a resistance of typically \SI{120}{\ohm}. The wire is bonded between two thin sheets in coiled up form as can be seen in \figref{sfig:strain_gauge}. The sheets act as insulating carrier and can be easily deformed with the intent of passing the load to the wire grid. The gauge is attached to the probe structure by a wax or a resin. The intent is that deformations in transversal direction of the strain gauge act on all coils simultaneously, changing their resistance. By using small sized strain gauges with respect to the probe, the mechanical and thermal properties of the strain gauge become negligible small. As an example, we assume the probe expands. Then a strain gauge on its surface experiences tension. The coils in the grid are therefore stretched and as a result of the generalized Hook's law the coil cross sections decrease. Both the strain in axial direction of the coil and the decreased coil cross sections increase the wire's resistance.
+
+In order to measure deformations one needs to take environmental influences into consideration. It is well known that resistance is susceptible to variations in temperature. Placing the strain gauge in a wheatstone bridge, with resistors, that change their resistance in the same manner as the strain gauge will reduce the influence of temperature significantly --- see \figref{sfig:wheatstone_bridge_single}.
+
+\begin{figure}[!htb]
+  \centering
+  \subcaptionbox{Strain gauge on structure, with (1) Structure, (2) Metal Pad, (3) Grid and (4) Carrier\label{sfig:strain_gauge}}{%
+    \includegraphics[scale=0.7]{figures/measurement/sensors/strain_gauge}}
+  \hspace{4em}
+  \subcaptionbox{Strain gauge in Wheatstone bridge circuit\label{sfig:wheatstone_bridge_single}}{%
+    \includegraphics[scale=0.7]{figures/measurement/sensors/wheatstone_bridge_single}}
+  \caption[Strain Gauge]{Strain gauge%
+    \label{fig:strain_gauge}}
+\end{figure}
 
 \subsection{Accelerometers}
 
@@ -76,7 +97,7 @@ Accelerometers are sensors that convert acceleration into an electrical signal. 
     \large{a} & Acceleration\\
     \large{m} & Mass\\
     \large{i} & Induced Current\\
-    \large{u} & Induced voltage\\
+    \large{v} & Induced voltage\\
     \large{\circlabel{WesMixL8qual3}{1}} & Seismic mass\\
     \large{\circlabel{WesMixL8qual3}{2}} & Piezoelectric material\\
   \bottomrule
@@ -123,9 +144,9 @@ It is obvious that the performance of accelerometers depends on their static sen
 \subsection{Piezoelectric Sensors}
 Some materials develop electric charge proportional to directly applied mechanical stress. The same materials show the converse effect. A proportional strain of the material will occur to an applied electric field.
 
-The first phenomenon has found its application in a variety of self-generating sensors that output electrical signals -- namely in \ac{LC}s and accelerometers, where the piezoelectric charge is converted into a current or voltage signal.
+The first phenomenon has found its application in a variety of self-generating sensors that output electrical signals --- namely in \ac{LC}s and accelerometers, where the piezoelectric charge is converted into a current or voltage signal.
 
-Piezoelectric sensors are designed to exploit the piezoelectric effect of the material in one axis. Additionally, we use amplifier circuits so that the weak electrical signal, induced due to the piezoelectric charge, is elevated to amplitudes that are in the range of operation of standard electronic components. These circuits require additional energy. Commercially available \ac{LC}s therefore require supplied energy -- see \figref{fig:piezo_ampcirc}.
+Piezoelectric sensors are designed to exploit the piezoelectric effect of the material in one axis. Additionally, we use amplifier circuits so that the weak electrical signal, induced due to the piezoelectric charge, is elevated to amplitudes that are in the range of operation of standard electronic components. These circuits require additional energy. Commercially available \ac{LC}s therefore require supplied energy --- see \figref{fig:piezo_ampcirc}.
 
 \begin{figure}[!htb]
   \centering
@@ -141,26 +162,6 @@ Piezoelectric sensors are designed to exploit the piezoelectric effect of the ma
 Depending on the design of the sensor, piezoelectric materials are used in different shapes. \figref{fig:piezo_designs} shows some possible variations.
 
 
-\subsection{Strain Gauge Load Cells}
-
-In strain gauge \ac{LC}s the elastic properties of a material probe is exploited.
-
-The probe is loaded in a controlled manner in its elastic region. Deformations are captured by a strain gauge at a suitable location. The probe deformation is directly determined by the force acting on the probe because of Hooke's law.
-
-The strain gauges themselves each use a specific length gauge wire in order to reach a resistance of typically \SI{120}{\ohm}. The wire is bonded between two thin sheets in coiled up form as can be seen in \figref{sfig:strain_gauge}. The sheets act as insulating carrier and can be easily deformed with the intent of passing the load to the wire grid. The gauge is attached to the probe structure by a wax or a resin. The intent is that deformations in transversal direction of the strain gauge act on all coils simultaneously, changing their resistance. By using small sized strain gauges with respect to the probe, the mechanical and thermal properties of the strain gauge become negligible small. As an example, we assume the probe expands. Then a strain gauge on its surface experiences tension. The coils in the grid are therefore stretched and as a result of the generalized Hook's law the coil cross sections decrease. Both the strain in axial direction of the coil and the decreased coil cross sections increase the wire's resistance.
-
-In order to measure deformations one needs to take environmental influences into consideration. It is well known that resistance is susceptible to variations in temperature. Placing the strain gauge in a wheatstone bridge, with resistors, that change their resistance in the same manner as the strain gauge will reduce the influence of temperature significantly --- see \figref{sfig:wheatstone_bridge_single}.
-
-\begin{figure}[!htb]
-  \centering
-  \subcaptionbox{Strain gauge on structure, with (1) Structure, (2) Metal Pad, (3) Grid and (4) Carrier\label{sfig:strain_gauge}}{%
-    \includegraphics[scale=0.7]{figures/measurement/sensors/strain_gauge}}
-  \hspace{4em}
-  \subcaptionbox{Strain gauge in Wheatstone bridge circuit\label{sfig:wheatstone_bridge_single}}{%
-    \includegraphics[scale=0.7]{figures/measurement/sensors/wheatstone_bridge_single}}
-  \caption[Strain Gauge]{Strain gauge%
-    \label{fig:strain_gauge}}
-\end{figure}
 
 \subsection{Capacitive Accelerometers}
 
@@ -260,7 +261,7 @@ If one combines a capacitive displacement sensor with a seismic mass, one can us
     \label{fig:accelerometer_bent}}
 \end{figure}
 
-\section{Signal Conditioning and Processing}
+\section{Signal Conditioning and Processing\label{signal_conditioning_processing}}
 In an ideal world, the signal output of a sensor would correlate to the measurand exactly. In real systems this is not the case because of a variety of reasons. In low-frequency applications, the most important ones are:
 
 \begin{itemize}
@@ -360,30 +361,21 @@ Typical examples of passive components are:
 \subsection{Active Components}
 Active components show some form of amplification of the input signal in most cases; in other ones they generate vibrations, but generally an additional energy supply is needed to operate active components.
 
-As an essential example, we consider the \acf{OP-AMP}. The \ac{OP-AMP} is a multi-stage, high gain and galvanically coupled differential amplifier. It is used to amplify an electrical signal, and its function is primarily determined by its surrounding circuit. Namely filters can be realized by using \ac{OP-AMP}s.
-
-Normally \ac{OP-AMP}s are connected to symmetric operating voltages. But when used with digital circuits, a single voltage supply is preferred. For this case, single supply voltage \ac{OP-AMP}s are used. Furthermore, rail-to-rail \ac{OP-AMP}s are have the capability to control the output between the the positive and negative supply voltage.
-
-\begin{figure}[htb!]
-  \centering
-  \includegraphics[scale=0.72]{figures/electronics/op_amp/plot_opamp_railrail}
-  \caption[OP-AMP controllability]{OP-AMP controllability at $\pm\SI{5}{\volt}$ operating voltage%
-    \label{fig:plot_opamp_railrail}}
-\end{figure}
+As an essential example, we consider the \acf{OPA}. The \ac{OPA} is a multi-stage, high gain and galvanically coupled differential amplifier. It is used to amplify an electrical signal, and its function is primarily determined by its surrounding circuit. Namely filters can be realized by using \ac{OPA}s.
 
 \subsection{Applictions}
 Electrical signal conditioning is based on arrangements of active and passive components in circuits. A good and in depth coverage of active filters and measurement circuits can be found in~\cite{Tietze2008EC}. For many common applications a \acf{IC} exists. These circuits internal to chips that come in various package sizes, see \figref{fig:ic_flowchart}.
 
-\subsection{Lowpass Filter%
-  \cite{Tietze2008EC}}
+\subsection{Lowpass Filter}
+\cite{Tietze2008EC}
 
 The frequency response of the simplest \ac{LPF}, as shown in \figref{fig:lp_passive_1ord}, can be expressed as
 \begin{align}
-  \vect{H}(\ju\omega) &= \frac{\vect{u}_o}{\vect{u}_i} = \frac{1}{1+\ju\omega RC}
+  \vect{H}(\ju\omega) &= \frac{\vect{v}_o}{\vect{v}_i} = \frac{1}{1+\ju\omega RC}
 \end{align}
 By replacing $\ju\omega$ by $\ju\omega+\sigma = s$ one can express the transfer function as
 \begin{align}
-  H(s) &= \frac{\LT{U_o(t)}}{\LT{U_i(t)}} = \frac{1}{1 + sRC}
+  H(s) &= \frac{\LT{V_o(t)}}{\LT{V_i(t)}} = \frac{1}{1 + sRC}
 \end{align}
 
 \begin{figure}[htb!]
@@ -442,7 +434,7 @@ The frequency response can be optimized to different theoretical aspects by sett
 \begin{align}
   H(s) &= \frac{1/(LC)}{s^2+\frac{R}{L}s+\frac{1}{LC}} &&\text{and} &f_c &= \frac{1}{2\pi\sqrt{LC}}
 \end{align}
-This design does not pose any difficulties when opting for high cutoff frequencies. But it is apparent, that one requires the use of large capacitances as well as large inductances for low cutoff frequencies. And because large inductances are unwieldy and have poor electrical properties, an active filter design is better suited for low cutoff frequencies. In these types of circuits the inductances are avoided by the addition of active elements --- namely \ac{OP-AMP}s --- to the $RC$ network.
+This design does not pose any difficulties when opting for high cutoff frequencies. But it is apparent, that one requires the use of large capacitances as well as large inductances for low cutoff frequencies. And because large inductances are unwieldy and have poor electrical properties, an active filter design is better suited for low cutoff frequencies. In these types of circuits the inductances are avoided by the addition of active elements --- namely \ac{OPA}s --- to the $RC$ network.
 
 \begin{figure}[htb!]
   \centering
@@ -481,7 +473,7 @@ When implementing a Butterworth \ac{LPF}, one needs to consider the complex gain
   \hfill
   \subcaptionbox{Chebyshev normalization, cutoff frequency at negative the allowed ripple $\delta$\label{sfig:lp_filter_2ord_cheby_bp}}[0.45\textwidth]{%
     \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_2ord_cheby_bp}}
-  \caption[\ac{LPF} Pass- and Stopband]{\ac{LPF} Pass- and Stopband, where the passband is defined by $\omega_n<1$ and the stopband is chosen depending on the application (usually at \SIrange{-20}{-160}{\decibel})%
+  \caption[\ac{LPF} Pass- and Stopband]{\ac{LPF} Pass- and Stopband, where the passband is defined by $\omega_n<1$ and the stopband is chosen depending on the application (usually starting at \SIrange{-20}{-160}{\decibel})%
     \label{fig:lp_lowpass_pass_stopband}}
 \end{figure}
 

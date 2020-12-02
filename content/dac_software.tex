@@ -132,12 +132,14 @@ The communication protocol for \ac{MCU} to \ac{MCU} and \ac{MCU} to computer was
 
 \subsection{Dataflow}
 
-All \acs{MCU}s operate sequentially.
-The dataflow in \ac{MCU} must be sequential. For this reason during a measurement all data is passed to a central \ac{MCU}, where it is streamlined to the \ac{CPU}. The central \ac{MCU} or master cycles through all connected \ac{MCU} performing a data request, hold and receive action. As soon as a slave \ac{MCU} gets a request, it transmits a data package from its buffer. The master now receiving the data package will throughput the signal to the \ac{CPU}, where it is stored. By the end of this process the master will jump to the next slave.
+The dataflow between the \ac{MCU}s is sequential and all data is passed to a central \ac{MCU}, called master, before we streamline it to the \ac{CPU}. The master cycles through all connected \ac{MCU} performing a data request, hold and receive action. As soon as a slave \ac{MCU} gets a request, it transmits a data package from its buffer. The master, now receiving the data package, will throughput the signal to the \ac{CPU}, where the data is stored. By the end of this process the master will jump to the next slave.
 
 All measurements consist of a \SI{32}{bit}-timestamp and the measured values and are pushed into a \ac{FIFO} buffer in the flash memory of the \ac{MCU}, directly connected to the sensor. Bundled data packages are then pulled from the buffer and translated into the transmission code as defined in \tabref{tab:mcu_com_protocol}. In \figref{fig:data_flow} the data flow is represented by a system that is using only one slave \ac{MCU}, displayed in violet.
 
-Measurements are packaged due to the time the master requires to change the communication to another slave. During these switches no data is transmitted eventually bottlenecking the data rate of the system.
+Clock synchronizations are executed in form digital data exchange, by synchronizing the timestamps before a complete measurement. The sensor measurements themselves are conducted as soon as ready to benefit of the sensors maximum measurement frequency. With this method, no data bandwidth is used between measurement cycles for clock synchronization, but it comes with three caveats. Firstly, every \ac{MCU} runs on its own clock cycle. Measurements are conducted whenever the individual time interval after the clock is exceeded. These time intervals are matched by sharing the master timestamp with the ones of the slave programmically. The slave timestamps are then tuned to same value during a setup process. But after the synchronization the Gausssian distributed deviations to the intervals accumulate, ultimately yielding unknown time-shifts to the signals.
+
+
+Measurements are packaged due to the time the master requires to change the communication to another slave. During these switches no data is transmitted eventually limiting the data rate of the system.
 
 \begin{figure}[!htb]
   \centering
