@@ -62,6 +62,9 @@
 \newcommand{\PDerT}[2]{\frac{\partial^2 #1}{\partial {#2}^2}}
 \newcommand{\PDerM}[3]{\frac{\partial^2 #1}{\partial #2 \, \partial #3}}
 
+\DeclareMathOperator\arcsinh{arcsinh}
+\DeclareMathOperator\arccosh{arccosh}
+\DeclareMathOperator\arctanh{arctanh}
 % mass density symbol
 \newcommand{\Den}{\delta}
 
@@ -76,7 +79,7 @@
   \begin{center}
   \begin{minipage}{6in}
   \par\noindent\hspace*{0pt}\hrulefill
-  
+
   \begin{localFigure} \label{#1}
 }{
   \end{localFigure}
@@ -90,7 +93,7 @@
 \newenvironment{Table}[1]{
   \begin{center}
   \begin{minipage}{6in}
-  
+
   \begin{localTable} \label{#1}
 }{
   \end{localTable}
@@ -100,7 +103,7 @@
 
 % "CDROM" environment for source code on disk
 %\newenvironment{CDROM}[1]{
-%  \label{#1} 
+%  \label{#1}
 %    \includegraphics{cdrom.png} \hspace*{0.1in}{\tt PointShop3D}. \rm
 %}{
 %  $\bowtie$

@@ -1,0 +1,179 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{shapes.geometric,
+    arrows, positioning, calc, chains, backgrounds}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+% \usepackage{pgffor}
+\usepackage{xparse}
+\usepackage{varwidth}
+\usetikzlibrary{trees}
+\usetikzlibrary{shadows, arrows.meta}
+\usetikzlibrary{fit, fadings, backgrounds}
+\usetikzlibrary{shapes.misc}
+\usepackage[edges]{forest}
+
+% encoding and fonts
+\usepackage[utf8]{inputenc} % input encoding
+\usepackage{times}          % general
+\usepackage{helvet}         % sans serif
+\usepackage[T1]{fontenc}    % font encoding
+
+\usepackage{array}
+\usepackage{booktabs}
+\newcommand{\imgpath}{img}
+
+% user defined colors (define in colors.csv, run gen_colors_tex.py to update changes)
+\input{../../presets/colors/colors}
+\tikzset{colorset/.code={\pgfplotscolormapdefinemappedcolor{#1}}}
+
+\newcommand{\nvarwidth}[2][3cm]{%
+	\begin{varwidth}{#1}
+		\centering
+		#2
+  \end{varwidth}
+}
+
+\NewDocumentCommand{\alabel}{O{3cm}+m}{%
+  \nvarwidth[#1]{#2}
+}
+
+\NewDocumentCommand{\imlabel}{O{scale=0.9}+m}{%
+  \includegraphics[#1]{#2}
+}
+
+\renewcommand{\arraystretch}{1.2}
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\newcommand{\nsbox}[3][2]{%
+  % #1:   num columns (optional)
+  % #2:   savebox name
+  % #3:   tabular content
+  \newsavebox{#2}
+  \sbox{#2}{ \hspace{-5pt}\scriptsize
+    \begin{tabular}{*{#1}{P{1cm}}}
+      #3
+    \end{tabular}
+  }
+}
+
+\def\defcolormapshading#1#2{%
+  \pgfplotscolormaptoshadingspec{#2}{50pt}\tempa%
+  \def\tempb{\pgfdeclarehorizontalshading{#1}{\paperheight}}%
+  \expandafter\tempb\expandafter{\tempa}%
+  \let\tempa\undefined\let\tempb\undefined%
+}%
+
+\defcolormapshading{myshading}{ZissouUL5div}
+\begin{tikzfadingfrompicture}[name=myfading]
+  % must be 2cm*2cm in size
+  \clip (0,0) rectangle (2,2);
+  \shade [left color=transparent!50,
+          right color=transparent!0]
+         (0,0) rectangle (0.2,2);
+  \shade [left color=transparent!0,
+          right color=transparent!0]
+         (0.2,0) rectangle (0.35,2);
+  \shade [left color=transparent!0,
+          right color=transparent!65]
+         (0.35,0) rectangle (0.54,2);
+  \shade [left color=transparent!65,
+          right color=transparent!85]
+         (0.54,0) rectangle (1.36,2);
+  \shade [left color=transparent!85,
+          right color=transparent!100]
+         (1.36,0) rectangle (1.5,2);
+\end{tikzfadingfrompicture}
+
+\tikzset{%
+  box/.style={%
+    draw,
+    line width=1.2pt,
+    fill=white,
+    rounded corners=0.1em,
+    minimum width=2cm,
+    minimum height=1.4cm,
+    text centered,
+  },
+  sbox/.style={%
+    draw,
+    line width=0.7pt,
+    rounded corners=0.1em,
+    minimum width=1.6cm,
+    minimum height=0.4cm,
+    text centered,
+  },
+  invis/.style={%
+    text opacity=0,
+    opacity=0,
+  },
+}
+
+\newlength{\stackboxheight}
+\setlength{\stackboxheight}{0.7cm}
+\newlength{\stackWidth}
+\setlength{\stackWidth}{6cm}
+
+\tikzset{%
+  leftflat/.style={
+    append after command={%
+      \pgfextra
+        \fill[fill=#1] (\tikzlastnode.north west) [rounded corners] -| (\tikzlastnode.east) |- (\tikzlastnode.south) [sharp corners] -| (\tikzlastnode.south west)--cycle;
+          \draw[rounded corners] (\tikzlastnode.north west) -| (\tikzlastnode.east) |- (\tikzlastnode.south west);
+      \endpgfextra}},
+  rightflat/.style={
+    append after command={%
+      \pgfextra
+        \fill[fill=#1] (\tikzlastnode.south east) [rounded corners] -| (\tikzlastnode.west) |- (\tikzlastnode.north) [sharp corners] -| (\tikzlastnode.north east)--cycle;
+        \draw[rounded corners] (\tikzlastnode.south east) -| (\tikzlastnode.west) |- (\tikzlastnode.north east);
+      \endpgfextra}},
+  sideflat/.style={
+    append after command={%
+      \pgfextra
+        \fill[fill=#1] (\tikzlastnode.south east) [sharp corners] -| (\tikzlastnode.west) |- (\tikzlastnode.north) [sharp corners] -| (\tikzlastnode.north east)--cycle;
+        \draw (\tikzlastnode.south west) -- (\tikzlastnode.south east);
+        \draw (\tikzlastnode.north west) -- (\tikzlastnode.north east);
+      \endpgfextra}},
+  pics/stblock/.style n args={4}{
+    code = { %
+      \node[rightflat=#1, minimum height=\stackboxheight, minimum width=0.3\stackWidth] (l_st) at (0,0) {#2};
+      \node[sideflat=#1,anchor=west, minimum height=\stackboxheight, minimum width=0.6\stackWidth] (c_st) at (l_st.east) {#3};
+      \node[leftflat=#1,anchor=west, minimum height=\stackboxheight, minimum width=0.1\stackWidth] (r_st) at (c_st.east) {#4};
+      \draw[] (l_st.south east) -- (l_st.north east);
+  }},
+  pics/lblblock/.style n args={3}{%
+    code = {%
+      \node[minimum height=\stackboxheight, minimum width=0.3\stackWidth] (l_st) at (0,0) {#1};
+      \node[anchor=west, minimum height=\stackboxheight, minimum width=0.6\stackWidth] (c_st) at (l_st.east) {#2};
+      \node[anchor=west, minimum height=\stackboxheight, minimum width=0.1\stackWidth] (c_st) at (l_st.east) {#3};
+  }},
+  mybox/.style={align=center, fill=white, inner sep=10pt},
+  >=Latex
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \def\firstlist{"Bits", "Frames", "Packets", "Segments", "Data", "Data", "Data"}
+  \def\secondlist{"Physical", "Data Link", "Network", "Transport", "Session", "Presentation", "Application"}
+  \begin{scope}[start cain=going below, node distance=4ex]
+    \foreach \i [evaluate=\i as \c using {array({\firstlist},\i)},evaluate=\i as \d using {array({\secondlist},\i)}]    in {0,1,2,...,6}
+    {
+      \pgfmathsetmacro\idx{\i+1}
+      \pgfmathsetmacro\iabove{1*\i}
+      \pic (L\i) at (0,\iabove) {stblock={WesMixUL8qual\i!80}{\c}{\d}{\pgfmathprintnumber[int trunc]{\idx}}};
+      \chainin (L\i);
+    };
+    \pic (LT) at (0, 6.8) {lblblock={Data}{Layers}{}};
+    \node[mybox] (tl) at (-2, 6.8) {Transmitt\\Data};
+    \node[mybox] (bc) at (2.2,-1.4) {Physical Link};
+    \node[mybox] (tr) at (6.2, 6.8) {Receive\\Data};
+    \draw[->] (tl) |- (bc);
+    \draw[<-] (tr) |- (bc);
+  \end{scope}
+\end{tikzpicture}
+
+\end{document}

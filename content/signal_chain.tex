@@ -130,15 +130,12 @@ This means that the area under the plot of the squared magnitude is replaced by 
     \label{fig:equivalent_noise_bandwidth}}
 \end{figure}
 
-
-
 \section{Filtering}
-
 Whenever we measure a signal in the real world, it will inherently contain some form of noise. Filtering enables us to cut off contributions to the signal amplitude, that are outside the useful signal frequency bandwidth.
 
 The two main types of filters are analog and digital ones, where the digital filters are more versatile, cost-effective and precise compared to their counterpart. Nevertheless, analog filters are required when dealing with analog signals, i.e.\ whenever the signal must be bandwidth limited. As described previously, it is advantageous if a signal is bandwidth limited before it is amplified, because we do not want to amplify the noise components of the signal. Furthermore electric devices in the signal chain may be bandwidth limited as well; disturbances of the signal occur due to frequency dependent phase shifts or damping when operating outside these ranges. Namely when digitizing a signal, the additional effect of aliasing may disturb a signal significantly if it contains frequency components above the Nyquist frequency.
 
-We operate at a low frequency in the frame of this thesis. The useful bandwidth of the lower modes in \ac{EMA} of \ac{MT}s range typically between a few ten and a few hundred hertz. Therefore, we focus on a lowpass-filter design, so that there is no miss on the lowest eigenfrequencies. For simplicity, from this point on onward the term bandwidth addresses the upper bandwidth limit, while the lower limit remains near zero. Additionally, the cutoff frequency refers to the lowpass cutoff frequency. For more details on other filter designs we recommend the textbooks for analog electronics \cite{Tietze2008EC, Stiny2019AeB}.
+We operate at a low frequencies in the frame of this thesis. The useful bandwidth of the lower modes in \ac{EMA} of \ac{MT}s range typically between a few ten and a few hundred hertz. Therefore, we focus on a lowpass-filter design, so that there is no miss on the lowest eigenfrequencies. For simplicity, from this point on onward the term bandwidth addresses the upper bandwidth limit, while the lower limit remains near zero. Additionally, the cutoff frequency refers to the lowpass cutoff frequency. For more details on other filter designs we recommend the textbooks for analog electronics and filter design \cite{Tietze2008EC, Stiny2019AeB, williams2014analog}. The content in this Section is reliant on the theories, found in these books.
 
 \subsection{Passive Lowpass Filters}
 The frequency response of the simplest \ac{LPF}, as shown in \figref{fig:lp_passive_1ord}, can be expressed as
@@ -215,7 +212,7 @@ This design does not pose any difficulties when opting for high cutoff frequenci
     \label{fig:lp_passive_2ord}}
 \end{figure}
 
-\subsection{Optimal Lowpass Filters}
+\subsection{Optimization of Lowpass Filters}
 We take the \emph{standard form} of the second-order \ac{LPF} into consideration, where:
 \begin{align}
   H(s_n) &= \frac{H_0}{1+a_1s_n+b_1s_n^2} = \frac{k}{\displaystyle 1+\frac{s_n}{Q}+s_n^2} = \frac{k}{1+2\zeta s_n+s_n^2} \\
@@ -228,17 +225,21 @@ where $k$ is the gain factor and $Q$ is the quality factor repsectively $\zeta$ 
 and that the poles are\dots
 \begin{itemize}
   \item real if $\zeta\geq 1$
-  \item complex if $\zeta\geq 1$
-  \item imaginary if $\zeta\geq 1$
-  \item in the right half plane and unstable with $\mathrm{Re}\Bqty{p}>0$ if $\zeta\geq 1$
+  \item complex if $0<\zeta<1$
+  \item imaginary if $\zeta=0$
+  \item in the right half plane and unstable with $\mathrm{Re}\Bqty{p}>0$ if $\zeta<0$
 \end{itemize}
+If we now take a look at the second-order system used to describe the accelerometer dynamics in \eqref{eqn:acceler_dynamics} and replace the static sensitivity $K$ with the gain factor $k$ the system dynamics are equal and one can see the influence of the damping factor on the system behavior in \figref{fig:seismic_accelerometer_edited}.
+Many filter designs expose this configurability of a second order systems. Because of parameters $k$ and $\zeta$ respectively $Q$ to tune the filter behavior and gain different optimization points targeted. Moreover, when connecting multiple second-order filters in series to realize higher-order filters with steeper roll-offs, the individual second-order filter parameters can be tuned to match three distinct optimization points:
 
 \begin{itemize}
+  \item The \emph{Chebyshev} filter is optimized to have a steep roll-off rate but shows ripple in the pass- and stopband.
   \item The \emph{Butterworth} filter is optimized to have the most stable gain at the passband but has a poor roll-off rate.
-  \item The \emph{Chebichev} filter is optimized to have a steep roll-off rate but shows ripple in the pass- and stopband.
-  \item The \emph{Bessel} filter is optimized to have the most stable phase response, which is critical for fast signal level changes. The caveat comes with the poorest roll-off of all filters.
+  \item The \emph{Bessel} filter is optimized to have the most stable phase response, which is critical for fast signal level changes. The caveat comes in form of the poorest roll-off of all filters, when compared at same order.
 \end{itemize}
-These are all-pole filters, i.e.\ no nodes are present as defined in \eqref{eqn:lpf_nthord_tf_poles}. With filter designs that include nodes, one can realize sharper cutoffs without increasing the phase shift. Generally more complex filter curves are possible at the cost of more unstable behavior and more complex filter design. Due to these disadvantages their behavior is not as reliable as the filters listed before. Therefore they were not considered during this thesis. For more background on these filters, also called \emph{elliptic-function} filters, we advice to take look at the textbook \cite{williams2014analog}.
+
+Here the bandpass refer to the until gain section in the filter up until the cutoff frequency and the stopband is defined depending on application. If one expects high noise densities directly above the cutoff frequency, the stop band needs to be defined at a low gain and the roll-off of the filter must designs to be steep, whereas if some application only allows small phase shifts, the latter cannot be achieved by a high order filter. The definition of the cutoff frequency is more consistent. For most filters the cut-off frequency is reached, when the gain reaches \SI{-3}{\decibel}, i.e\ approximately when when the filter halves squared gain, that is proportional to the power transmission. An exception is the Chebyshev here it is common to define the cutoff the point where the filter roll-off reaches minus the maximally allowed ripple gain in decibel, see \figref{fig:lp_lowpass_pass_stopband}.
+Note that given the three optima, any hybrid filter design between the Chebyshev and the Butterworth as well as between the Butterworth and Bessel is possible too.
 
 \begin{figure}[!htb]
   \centering
@@ -250,6 +251,8 @@ These are all-pole filters, i.e.\ no nodes are present as defined in \eqref{eqn:
   \caption[\ac{LPF} Pass- and Stopband]{\ac{LPF} Pass- and Stopband, where the passband is defined by $\omega_n<1$ and the stopband is chosen depending on the application (usually starting at \SIrange{-20}{-160}{\decibel})%
     \label{fig:lp_lowpass_pass_stopband}}
 \end{figure}
+
+Until now we described all-pole \ac{LPF}s, i.e.\ no nodes are present in the filter system, as can be seen in the \ac{TF} of \eqref{eqn:lpf_nthord_tf_poles}. With filter designs that include nodes, one can realize sharper cutoffs without increasing the phase shift. Generally more complex filter curves are possible at the cost of more unstable behavior and more complex filter design. Due to these disadvantages their behavior is not as reliable as the filters listed before. Therefore they were not considered during this thesis. For more background on these filters, also called \emph{elliptic-function} filters, we advice to take look at the textbook \cite{williams2014analog} for more background.
 
 \begin{figure}[!htb]
   \centering
@@ -329,6 +332,73 @@ These are all-pole filters, i.e.\ no nodes are present as defined in \eqref{eqn:
     \label{fig:lp_active_3ord_bessel_simple}}
 \end{figure}
 
+\subsubsection{Chebyshev Lowpass Filter}
+In the passband the Chebyshev \ac{LPF} is allowed to have a predetermined ripple. The characteristic of Chebyshev polynomials is, that the ripple ripples are constant, i.e.\ their local extrema in the gain plot can be connected by two horizontal lines that are displaced by the predetermined ripple.
+\begin{align}
+  T_N(x) &=\left\{%
+    \begin{aligned}
+      &\cos(N \arccos x),  &\text{for}\;&0\leq x\leq 1\\
+      &\cos(N \arccosh x), &\text{for}\;&x>1
+    \end{aligned}
+  \right.
+\end{align}
+To get the \ac{LPF} frome these Chebyshev polynomials, we define
+\begin{align}
+  \abs{\vect{A}}^2 &= \frac{kA_0^2}{1+\varepsilon^2T_N^2(x)}
+\end{align}
+where $A_0$ is the so called DC- or zero-gain and the constant $k$ is chosen such that, for $x=0$, the square of the gain $\abs{\vec{A}}^2$ becomes $A_0^2$. If $N$ is even, that is $k=1$ and if $N$ is odd, we set $k=1+\varepsilon^2$. The latter is a measure of the ripple and is given by
+\begin{align}
+  &\frac{A_{\max}}{A_{\min}} = \sqrt{1+\varepsilon^2}\\
+  \intertext{and}
+  &\left.\begin{aligned}
+    A_{\max} &= A_0\sqrt{1+\varepsilon^2}\;\\
+    A_{\min} &= A_0
+  \end{aligned}\right\}
+  \quad\text{if}\;N\;\text{is even}
+  &&\left.\begin{aligned}
+    A_{\max} &= A_0\\
+    A_{\min} &= A_0/\sqrt{1+\varepsilon'2}\;
+  \end{aligned}\right\}
+  \quad\text{if}\;N\;\text{is odd}
+\end{align}
+Once $\abs{\vect{A}}^2$ is determined, the complex gains can be calculated. However, it is easier to derive the poles of the transfer function directly of the Butterworth filters. By combining the complex conjugates the coefficients $a_i$ and $b_i$ in \eqref{eqn:lpf_nthord_tf_poles} are determined:
+\begin{align*}
+  \left.\begin{aligned}
+    b_i' &= \frac{1}{\cosh^2\gamma - \cos^2\frac{(2i-1)\pi}{2N}}\;\\
+    a_i' &= 2b_i'\cdot\sinh\gamma\cdot\cos\frac{(2i-1)\pi}{2N}
+  \end{aligned}\right\}&
+  \quad\begin{aligned}
+    &\text{if}\;N\;\text{is even and}\\
+    &\text{for}\;i=1\dots\frac{N}{2}
+  \end{aligned}\\
+  \left.\begin{aligned}
+    b_1' &= 0\\
+    a_1' &= 1/\sin\gamma\\
+    b_i' &= \frac{1}{\cosh^2\gamma - \cos^2\frac{(i-1)\pi}{N}}\;\\
+    a_i' &= 2b_i'\cdot\sinh\gamma\cdot\cos\frac{(i-1)\pi}{N}
+  \end{aligned}\right\}&
+  \quad\begin{aligned}
+    &\text{if}\;N\;\text{is odd and}\\
+    &\text{for}\;i=2\dots\frac{N+1}{2}
+  \end{aligned}\\
+  \text{where}\; \gamma = &\frac{1}{N}\arcsinh\frac{1}{\varepsilon}
+\end{align*}
+
+The obtained coefficients $a_i'$ and $b_i'$ define a Chebyshev filter at the cutoff frequency $\omega_x$, which the gain assumes the value $A_{\min}$ for the last time. For easy comparison with other filter types we want to evaluate the filter at a cutoff frequency where the gain is \SI{-3}{\decibel}. For this we multiply the normalized frequency $s_n$ with a real constant $\alpha$, changing the quadratic expressions in the denominator of \eqref{eqn:lpf_nthord_tf_poles} to
+\begin{align}
+  (1 + a_i'\alpha s_n + b_i'\alpha^2s_^2)
+\end{align}
+Next, we evaluate $\alpha$, so that the gain value is $1/\sqrt{2}\hateq\SI{-3}{\decibel}$ at the normalized frequency $s_n=\ju$. The coefficients for the filter with cutoff frequency pass through at \SI{-3}{\decibel} can then be determined by multiplication with the constant.
+\begin{align*}
+  a_i &= \alpha a_i' &\text{and}& &b_i &= \alpha^2b_i'
+\end{align*}
+
+In
+
+
+
+
+
 
 \subsubsection{Butterworth Lowpass Filter}
 From the general solution in \autoref{eqn:lpf_nthord_tf_general} the squared absolute gain in \ac{LPF}s takes the form
@@ -351,6 +421,7 @@ When implementing a Butterworth \ac{LPF}, one needs to consider the complex gain
   b_1 &= 0,\qquad b_i =1
 \end{align}
 
+\subsubsection{Bessel Lowpass Filter}
 
 
 
