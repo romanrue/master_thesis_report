@@ -37,8 +37,8 @@
 \begin{document}
 \begin{circuitikz}[scale=0.7]
 \draw[voltcol]
-	(0,0) to [open, v^<=$\vect{U}_i$, color=voltcol] (0,3) % input voltage
-	(8,3) to [open, v^>=$\vect{U}_o$, color=voltcol] (8,0); % output voltage
+	(0,0) to [open, v^<=$\vect{V}_i$, color=voltcol] (0,3) % input voltage
+	(8,3) to [open, v^>=$\vect{V}_o$, color=voltcol] (8,0); % output voltage
 \draw
   (0,3) to [short, o-, L=$L$] (3,3) % impedance
   to [R=$R$] (6,3) % resistance
@@ -46,4 +46,4 @@
   (8,0) to [short, o-o] (0,0)
   (6,0) to [short, *-*, C, l=$C$] (6,3); % capacitance
 \end{circuitikz}
-\end{document} 
+\end{document}

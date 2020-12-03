@@ -10,23 +10,35 @@ Electrical signals are amplified by active electrical components; i.e.\ typicall
 
 \subsection{Operational Amplifier}
 
-Amplifiers apply signal gain on electrical inputs so that the output matches the input times a constant gain factor. The latter is determined by the impedance of the subsequent device in the signal chain and the magnitude at the input. But by setting the gain factor one predetermines the introduced absolute noise due to the amplifier's inherent \ac{SNR}.
+Amplifiers apply signal gain on electrical inputs so that the output matches the input times a constant gain factor. The latter is determined by the impedance of the subsequent device in the signal chain and the magnitude at the input. But by setting the gain factor one predetermines the introduced absolute noise due to the amplifier's \ac{SNR}.
 
 In simple amplifiers, the \ac{SNR} purely depends on the quality of the components and the environmental conditions. This can be bypassed by building differential setups, where amplifiers, like transistors and field transistors, are fed with both the non-inverted and the inverted input signal individually. With multi-staging and additional filter circuits one can reduce the noise further and ultimately the \ac{SNR} becomes strongly dependent on the circuit design and less dependent on the quality of each component. Specific to different applications, many variants of the described circuitry are available in so-called Operational Amplifiers (\acs{OPA}s).
 
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[scale=1]{figures/electronics/op_amp/op_amp_types/op_amp_types}
+  \caption[Main OPA types]{Main operational amplifier types%
+  \label{fig:op_amp_types}}
+\end{figure}
+
 \ac{OPA}s are available in a variety of \ac{IC} packages and differ little from discrete transistors in terms of size and prize. In some packages even multiple individual \ac{OPA}s are included. Initially \ac{OPA}s offered high accuracy at low frequencies. Over time different circuit designs for different needs have broadened the field of application considerably. Today, it is hard to find a task that is better met by a transistor than by an \ac{OPA}. We subdivide the latter into four main types, as shown in \figref{fig:op_amp_types}. The differences are high-resistive or low-resistive inputs and outputs. The standard \ac{OPA} and the transconductance amplifier, for example, have high-resistance inputs. Therefore, they are voltage controlled. The outputs on the other hand are of low and high internal resistance respectively, where low-resistance outputs act as voltage sources and high-resistance outputs act as current sources. In the naming convention the two leading letters represent input and output. ``V'' at first position stands for a voltage controlled \ac{OPA} with a high-resistance input, where ``C'' means current controlled and low-resistive input. At the second position ``V'' and ``C'' define low- and high-resistance outputs that act as voltage and current source respectively.
-The differential gain of an ideal VV-\ac{OPA} is given by the slope at the operating b by
+The differential gain of an ideal VV-\ac{OPA} is given by the slope at the operating or bias point:
 \begin{align}
   A_D &= \eval{\dv{V_o}{V_D}}_{b}
 \end{align}
+The transfer characteristics of an ideal \ac{OPA}s can be seen in \figref{fig:op_amp_transfer_cuves}. When dealing with current outputs the differential transconductance $g_{m,D}$ indicates the degree of output current increase with rising input voltage.
+\begin{align}
+  g_{m,D} &= \eval{\dv{I_o}{V_D}}_{b}
+\end{align}
 
-
-Because of their differential circuit, \ac{OPA}s normally are powered by symmetric operating voltages. Rail-to-rail \ac{OPA}s have the capability to control the output between the positive and negative supply voltage, allowing maximal amplification, see \figref{fig:plot_opamp_railrail}.
-When working with digital circuits, a single voltage supply is preferred. For this case, single supply voltage \ac{OPA}s are used.
+Although the major part of electronics is based on voltage controlled circuits, the amplifiers with low-resistance inputs are better suited for high frequency applications. The main advantages of the latter are the lower oscillation tendency due to shortened internal signal paths and larger range of possible gains compared to high-resistance input \ac{OPA}s. When designing circuits with current amplifiers it is often easier to use the current transfer factor $k_I$ than the differential transconductance.
+\begin{align}
+  k_I &= \eval{\dv{I_o}{I_N}}_{b}
+\end{align}
 
 \begin{figure}[!htb]
   \sbox0{\subcaptionbox{Amplifier with voltage output\label{sfig:op_amp_transfer_volt}}{%
-      \includegraphics[scale=0.72]{figures/electronics/op_amp/op_amp_transfer_volt}
+    \includegraphics[scale=0.72]{figures/electronics/op_amp/op_amp_transfer_volt}
     }}% a
   \sbox1{\subcaptionbox{Amplifier with current output\label{sfig:op_amp_transfer_curr}}{%
     \includegraphics[scale=0.72]{figures/electronics/op_amp/op_amp_transfer_curr}
@@ -39,16 +51,14 @@ When working with digital circuits, a single voltage supply is preferred. For th
       \usebox0 & \usebox1 \\
     \end{tabular}%
   }
-  \caption[Capacitive displacement sensors]{Capacitive displacement sensors \cite{webster2018measurement}%
-    \label{fig:cap_disp}}
+  \caption[Transfer characteristics of OPAs]{Transfer characteristics of \ac{OPA}s, where the dotted square includes the line of positive operating or bias points.%
+    \label{fig:op_amp_transfer_cuves}}
 \end{figure}
 
-\begin{figure}[htb!]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/op_amp/op_amp_types/op_amp_types}
-  \caption[Main OPA types]{Main operational amplifier types%
-  \label{fig:op_amp_types}}
-\end{figure}
+Because of their differential circuit, \ac{OPA}s normally are powered by symmetric operating voltages. Rail-to-rail \ac{OPA}s have the capability to control the output between the positive and negative supply voltage, allowing maximal amplification, see \figref{fig:plot_opamp_railrail}.
+When working with digital circuits, a single voltage supply is preferred. For this case one uses single supply voltage \ac{OPA}s.
+
+
 
 \begin{figure}[htb!]
   \centering
@@ -57,11 +67,305 @@ When working with digital circuits, a single voltage supply is preferred. For th
     \label{fig:plot_opamp_railrail}}
 \end{figure}
 
+\subsection{Mean Noise Figure and the Signal-to-Noise Ratio}
+
+To determine the mean noise figure and the \acf{SNR} one needs conduct tests on an amplifier with a known signal. In its simplest form one can determine the \ac{SNR} and the mean noise figure by connecting a signal generator directly to the amplifier's input. Per definition, the \ac{SNR} is the ratio of the information containing signal power over the noise power:
+\begin{align}
+  \mathrm{SNR} &= \frac{P_{us}}{P_n}
+\end{align}
+where $P_n$ is the power in the application specific frequency interval $f_L<f<f_U$. We know that the power is proportional to the square of its effective value. The effective value, on the other hand, is defined as the root-mean-square of the electrical signal. Hence the noise of the signal generator is:
+\begin{align}
+  \mathrm{SNR}_g &= \frac{\nu_{g,\text{eff}}^2}{\nu_{r,\text{eff}}} = \frac{\nu_{g,\text{eff}}^2}{\displaystyle\int_{f_L}^{f_U} \abs{\vect{\nu}_{r,g}(f)}^2 \dd{f}} \label{eqn:snr_g}
+\end{align}
+An amplifier increases the noise density by the \emph{spectral noise figure} $F(f)$. The \ac{SNR} at the amplifier input is thus:
+\begin{align}
+  \mathrm{SNR}_i &= \frac{\nu_{g,\text{eff}}^2}{\nu_r} = \frac{\nu_{g,\text{eff}}^2}{\displaystyle\int_{f_L}^{f_U} \abs{\vect{\nu}_r(f)}^2 \dd{f}} = \frac{\nu_{g,\text{eff}}^2}{\displaystyle\int_{f_L}^{f_U} F(f)\abs{\vect{\nu}_{r,\text{eff}}(f)}^2 \dd{f}} \label{eqn:snr_i}
+\end{align}
+which is lower than the \ac{SNR} of the signal generator.
+
+The \emph{mean noise figure} corresponds to the relation of the \ac{SNR} ratios:
+\begin{align}
+  F &= \frac{\mathrm{SNR}_g}{\mathrm{SNR}_i} = \frac{\displaystyle \int_{f_L}^{f_U} F(f)\abs{\vect{\nu}_{r,g}(f)}^2 \dd{f}}{\displaystyle \int_{f_L}^{f_U} \abs{\vect{\nu}_{r,g}(f)}^2 \dd{f}} \label{eqn:mean_noise_figure}
+\end{align}
+And is usually quoted in decibels \si{\decibel}
+\begin{align}
+  F_{\si{\decibel}} &= 10\log F &F_{\si{\decibel}} &= \mathrm{SNR}_{g,\si{\decibel}} - \mathrm{SNR}_{g,\si{\decibel}}
+\end{align}
+When using an ideal signal generator, that has uniform noise density over all frequencies, \eqref{eqn:mean_noise_figure} simplifies to:
+\begin{align}
+  F &= \frac{1}{f_U-f_L}\int_{f_L}^{f_U} F(f)\dd{f}
+\end{align}
+Additionally, one can often assume the noise figure to be constant. Thus $F=F(f)$, which is generally referred to as the noise figure $F$.
+
+In some applications the noise causes stronger interference in certain ranges of the given frequency interval than in other ranges. Then a weighted filter, whose absolute frequency response is proportional to the disturbing effect, is used to get more meaningful \ac{SNR}s. For this the noise density of the generator in the denominators of Equations~\ref{eqn:snr_g}~and~\ref{eqn:snr_i} are replaced by the \emph{weighted noise density}:
+\begin{align}
+  \abs{\vect{\nu}_{r(B),g}(f)}^2 &= \abs{\vec{H}_B(2\ju\pi f)}^2\abs{\vect{\nu}_{r,g}(f)}^2
+\end{align}
+with the transfer function of the weighted filter $\vect{H}_B(s)$.
+
+Note that the bandwidth of the amplifier needs to cover at least the interval of the useful signal $f_L<f<f_U$ to provide equal amplification. Moreover, the bandwidth of the amplifier is usually wider than required, i.e.\ it amplifies the ranges $f<f_L$ and $f>f_U$ with operating gain $\vect{A}_B(s)$. It is in these ranges, where the signal only contains noise. Which means, that the amplifier, if not limited to the frequency range, provides the noise power at the output:
+\begin{align}
+  P_{n,o} &= \int_0^\infty \abs{\vect{A}_B(2\ju\pi f)}^2F(f)\abs{\vect{\nu}_{r,g}(f)}^2\dd{f} \label{eqn:p_no}
+\end{align}
+Considering that the signal is amplified by the useful gain $\vect{A}_{B,us}$, which is assumed to be constant over the useful range, the \ac{SNR} ath the amplifier output becomes:
+\begin{align}
+  \mathrm{SNR}_o &= \frac{\abs{\vect{A}_{B,us}}^2\nu_{g,\text{eff}}^2}{P_{n,o}} = \frac{\abs{\vect{A}_{B,us}}^2\nu_{g,\text{eff}}^2}{\int_0^\infty \abs{\vect{A}_B(2\ju\pi f)}^2F(f)\abs{\vect{\nu}_{r,g}(f)}^2\dd{f}}
+\end{align}
+Which is lower than $\mathrm{SNR}_i$, given by \eqref{snr_i}, since $P_{n,o}$ includes the total noise, compared to the range $f_L<f<f_U$ used to define in $P_{n,i}$. Note that the components following the amplifier are primarily driven by the amplified noise, if the power at the output $P_{n,o}$ is considerably larger than the useful signal power. That said, the noise of the $P_{n,o}$ as defined in \eqref{eqn:p_no} is only of importance if the noise outside the useful range is transmitted. To reduce this signal component we apply a filter that reduces the bandwidth of the signal. Optimally this is a bandpass filter with lower and upper cutoff frequencies at $f_L$ and $f_U$.
+
+If the noise densities of both the signal generator and the amplifier are almost constant in the transfer bandwidth, the noise power at the amplifier output can be approximated by:
+\begin{align}
+  P_{n,o} &\approx F\abs{\vect{\nu}_{r,g}}^2\int_0^\infty \abs{\vect{A}_B(2\ju\pi f)}^2\dd{f} = F\abs{\vect{\nu}_{r,g}}^2\abs{\vect{A}_{B,us}}^2 B_r
+\end{align}
+Where we defined the \emph{equivalent noise bandwidth} as:
+\begin{align}
+  B_r = \frac{\displaystyle\int_0^\infty \abs{\vect{A}_B(2\ju\pi f)}^2\dd{f}}{\abs{\vect{A}_{B,us}(2\ju\pi f)}^2} \quad\abs{\vect{A}_B}^2\quad f_L\quad f_U \quad f\:\text{(linear)}
+\end{align}
+This means that the area under the plot of the squared magnitude is replaced by the area of rectangle shown in \figref{fig:equivalent_noise_bandwidth}, i.e.\ the squared constant gain $\abs{\vect{A}_{B,us}}^2$ times the equivalent noise bandwidth $B_r$.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[scale=1]{figures/electronics/op_amp/equivalent_noise_bandwidth}
+  \caption[Equivalent Noise Bandwidth of an Amplifier]{Equivalent noise bandwidth of an amplifier \cite{Tietze2008EC}%
+    \label{fig:equivalent_noise_bandwidth}}
+\end{figure}
+
+
+
 \section{Filtering}
 
-Whenever we measure a signal in the real world, it will inherently contain some form of noise. Filtering enables us to cut off contributions to the signal amplitude, that are outside the expected signal frequency bandwidth.
+Whenever we measure a signal in the real world, it will inherently contain some form of noise. Filtering enables us to cut off contributions to the signal amplitude, that are outside the useful signal frequency bandwidth.
 
-The two main types of filters are analog and digital ones, where the digital filters are more versatile, cost-effective and precise compared to their counterpart. Nevertheless, analog filters are required when filtering analog signals, i.e.\ whenever the signal must be denoised or bandwidth limited. As an example, it is advantageous if a signal is denoised, before it is amplified because we do not want to amplify the noise components of the signal. Furthermore electric devices in the signal chain have a bandwidth limited range of operation. Disturbances of the signal occur due to frequency dependent phase shifts or damping when operating outside these ranges. Namely when digitizing a signal, the additional effect of aliasing may disturb a signal significantly if it contains frequency components above the Nyquist frequency.
+The two main types of filters are analog and digital ones, where the digital filters are more versatile, cost-effective and precise compared to their counterpart. Nevertheless, analog filters are required when dealing with analog signals, i.e.\ whenever the signal must be bandwidth limited. As described previously, it is advantageous if a signal is bandwidth limited before it is amplified, because we do not want to amplify the noise components of the signal. Furthermore electric devices in the signal chain may be bandwidth limited as well; disturbances of the signal occur due to frequency dependent phase shifts or damping when operating outside these ranges. Namely when digitizing a signal, the additional effect of aliasing may disturb a signal significantly if it contains frequency components above the Nyquist frequency.
+
+We operate at a low frequency in the frame of this thesis. The useful bandwidth of the lower modes in \ac{EMA} of \ac{MT}s range typically between a few ten and a few hundred hertz. Therefore, we focus on a lowpass-filter design, so that there is no miss on the lowest eigenfrequencies. For simplicity, from this point on onward the term bandwidth addresses the upper bandwidth limit, while the lower limit remains near zero. Additionally, the cutoff frequency refers to the lowpass cutoff frequency. For more details on other filter designs we recommend the textbooks for analog electronics \cite{Tietze2008EC, Stiny2019AeB}.
+
+\subsection{Passive Lowpass Filters}
+The frequency response of the simplest \ac{LPF}, as shown in \figref{fig:lp_passive_1ord}, can be expressed as
+\begin{align}
+  \vect{H}(\ju\omega) &= \frac{\vect{v}_o}{\vect{v}_i} = \frac{1}{1+\ju\omega RC}
+\end{align}
+By replacing $\ju\omega$ by $\ju\omega+\sigma = s$ one can express the transfer function as
+\begin{align}
+  H(s) &= \frac{\LT{V_o(t)}}{\LT{V_i(t)}} = \frac{1}{1 + sRC}
+\end{align}
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[scale=1]{figures/electronics/lowpass/lp_passive_1ord/lp_passive_1ord}
+  \caption[Passive first-order \ac{LPF}]{Simplest passive \ac{LPF} of first-order%
+    \label{fig:lp_passive_1ord}}
+\end{figure}
+
+This is the ratio between the Laplace transformed time-domain signals of the output and input respectively. We then generalize the result by normalizing the complex frequency variable $s$ by defining
+\begin{align}
+  s_n &= \frac{s}{\omega_c}
+\end{align}
+
+For further simplification one can set $\sigma$ to zero; which is equivalent to assuming sinusoidal form of the input signal.
+Thus, for $\sigma=0$
+\begin{align}
+  s_n &= \frac{\ju\omega}{\omega_c} = \ju\frac{f}{f_c} = \ju\omega_n
+\end{align}
+
+The cutoff frequency of the circuit in \figref{fig:lp_passive_1ord} is $f_c=1/(2\pi RC)$. By definition the normalized complex frequency variable thus becomes $s_n=2\pi RC$. Therefore, the transfer function can be written as
+\begin{align}
+  H(s_n) &= \frac{1}{1+s_n}
+\end{align}
+
+The magnitude $\abs{\vect{H}(\ju\omega_n)}$ and phase $\varphi=\angle\vect{H}(\ju\omega_n)$ of the transfer function for sinusoidal signals are then given by
+\begin{align}
+  \abs{\vect{H}(\ju\omega_n)}^2 &= \frac{1}{1+\omega_n^2} &&\text{and} &\varphi &= \angle\vect{H}(\ju\omega_n) = \arctan\frac{1}{1 + \ju\omega_n}
+\end{align}
+
+For frequencies $\omega_n\gg 1$ one can approximate $\abs{\vect{H}}=1/\omega_n$. This corresponds to a reduction in gain of \SI{20}{\decibel} per frequency decade.
+
+If a sharper cutoff is required, $N$ \ac{LPF}s can be connected in series. The \ac{TF} then becomes
+\begin{align}
+  \vect{H}(s_n) &= \prod\limits_{i=1}^{N}\frac{1}{1+\alpha_i s_n}
+\end{align}
+where $\alpha_i$ are real and positive coefficients and for frequencies $\omega_n\gg 1$, $\abs{\vect{H}}\approx 1/\omega_n^N\propto 1/\omega^N$. The gain therefore falls off at $N\cdot\SI{20}{\decibel}\:\text{per decade}$. It can be observed that the \ac{TF} posesses $N$ real and negative poles. This is characteristic of $N$th-order passive $RC$ \ac{LPF}.
+
+If we cascade \ac{LPF}s with identical cutoff frequencies, then
+\begin{align}
+  \alpha &= \alpha_i = \sqrt{\sqrt[N]{2}-1}
+\end{align}
+which is the condition for which \emph{critical damping} occurs. Each individual cutoff frequency is a factor $1/\alpha$ higher than that of the filter as a whole.
+
+The \ac{TF} of the $N$th-order \ac{LPF} has the general form
+\begin{align}
+  H(s_n) &= H_0 \pqty{1 + \sum\limits_{i=1}^N c_i s_n}^{-1} \label{eqn:lpf_nthord_tf_general}
+\end{align}
+where $c_i$ are real and positive coefficients and the order of the filter is equal to the highest power of $s_n$. By rewriting the denominator in factored form and allowing complex poles, one denotes \autoref{eqn:lpf_nthord_tf_general} as
+\begin{align}
+  H(s_n) &= \frac{H_0}{(1+a_1s_n+b_1s_n^2)(1+a_2s_n+b_2s_n^2)\cdots} \label{eqn:lpf_nthord_tf_poles}
+\end{align}
+where $a_i$ and $b_i$ are real and positive coefficients and $b_1=0$ for odd orders $N$.
+
+The frequency response can be optimized to different theoretical aspects by setting the coefficients $a_i$ and $b_i$. As a consequence of these optimizations, complex poles arise, that cannot be realized by blocks of passive $RC$ filters. It is possible to meet the optimized conditions by using $LRC$ filters with the simplest example shown in \figref{fig:lp_passive_2ord}, where
+\begin{align}
+  H(s) &= \frac{1/(LC)}{s^2+\frac{R}{L}s+\frac{1}{LC}} &&\text{and} &f_c &= \frac{1}{2\pi\sqrt{LC}}
+\end{align}
+This design does not pose any difficulties when opting for high cutoff frequencies. But it is apparent, that one requires the use of large capacitances as well as large inductances for low cutoff frequencies. And because large inductances are unwieldy and have poor electrical properties, an active filter design is better suited for low cutoff frequencies. With these designs the use of inductances are avoided by the addition of active elements, namely \ac{OPA}s, to the $RC$ network.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[scale=1]{figures/electronics/lowpass/lp_passive_2ord/lp_passive_2ord}
+  \caption[Passive second-order \ac{LPF}]{Passive second-order \ac{LPF}, $LRC$ circuit%
+    \label{fig:lp_passive_2ord}}
+\end{figure}
+
+\subsection{Optimal Lowpass Filters}
+We take the \emph{standard form} of the second-order \ac{LPF} into consideration, where:
+\begin{align}
+  H(s_n) &= \frac{H_0}{1+a_1s_n+b_1s_n^2} = \frac{k}{\displaystyle 1+\frac{s_n}{Q}+s_n^2} = \frac{k}{1+2\zeta s_n+s_n^2} \\
+  Q &= \frac{1}{2\zeta} = \frac{b_1}{a_1}
+\end{align}
+where $k$ is the gain factor and $Q$ is the quality factor repsectively $\zeta$ the damping ratio. In the case of unity gain, $k=1$, one can see that the two poles are given by:
+\begin{align}
+  p_{1,2} &= (-\zeta \pm \sqrt{\zeta^2-1})\omega_n
+\end{align}
+and that the poles are\dots
+\begin{itemize}
+  \item real if $\zeta\geq 1$
+  \item complex if $\zeta\geq 1$
+  \item imaginary if $\zeta\geq 1$
+  \item in the right half plane and unstable with $\mathrm{Re}\Bqty{p}>0$ if $\zeta\geq 1$
+\end{itemize}
+
+\begin{itemize}
+  \item The \emph{Butterworth} filter is optimized to have the most stable gain at the passband but has a poor roll-off rate.
+  \item The \emph{Chebichev} filter is optimized to have a steep roll-off rate but shows ripple in the pass- and stopband.
+  \item The \emph{Bessel} filter is optimized to have the most stable phase response, which is critical for fast signal level changes. The caveat comes with the poorest roll-off of all filters.
+\end{itemize}
+These are all-pole filters, i.e.\ no nodes are present as defined in \eqref{eqn:lpf_nthord_tf_poles}. With filter designs that include nodes, one can realize sharper cutoffs without increasing the phase shift. Generally more complex filter curves are possible at the cost of more unstable behavior and more complex filter design. Due to these disadvantages their behavior is not as reliable as the filters listed before. Therefore they were not considered during this thesis. For more background on these filters, also called \emph{elliptic-function} filters, we advice to take look at the textbook \cite{williams2014analog}.
+
+\begin{figure}[!htb]
+  \centering
+  \subcaptionbox{Standard normalization, cutoff frequency at \SI{-3}{\decibel}\label{sfig:lp_filter_2ord_bessel_bp}}[0.45\textwidth]{%
+    \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_2ord_bessel_bp}}
+  \hfill
+  \subcaptionbox{Chebyshev normalization, cutoff frequency at negative the allowed ripple $\delta$\label{sfig:lp_filter_2ord_cheby_bp}}[0.45\textwidth]{%
+    \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_2ord_cheby_bp}}
+  \caption[\ac{LPF} Pass- and Stopband]{\ac{LPF} Pass- and Stopband, where the passband is defined by $\omega_n<1$ and the stopband is chosen depending on the application (usually starting at \SIrange{-20}{-160}{\decibel})%
+    \label{fig:lp_lowpass_pass_stopband}}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_4ord_step}
+  \caption[Step response of fourth-order \ac{LPF}]{Step response of fourth-order \ac{LPF} --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
+    \label{fig:lp_filter_4ord_step}}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_4ord_imp}
+  \caption[Impulse response of fourth-order \ac{LPF}]{Impulse response of fourth-order \ac{LPF} --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
+    \label{fig:lp_filter_4ord_imp}}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_mag}
+  \caption[Influence of \ac{LPF} order $N$ on the amplitude of the frequency response]{Influence of \ac{LPF} order $N$ on the amplitude of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
+    \label{fig:lp_filter_mag}}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_pha}
+  \caption[Influence of the \ac{LPF} order $N$ on the  phase of the frequency response]{Influence of the \ac{LPF} order $N$ on the  phase of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
+    \label{fig:lp_filter_pha}}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_grd}
+  \caption[Influence of the \ac{LPF} order $N$ on the group delay of the frequency response]{Influence of the \ac{LPF} order $N$ on the group delay of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
+  \label{fig:lp_filter_grd}}
+\end{figure}
+
+\subsubsection{Active Filter Designes}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_1ord_imp_conv/lp_active_1ord_imp_conv}
+  \caption[Active first-order \ac{LPF} with impetance converter]{Active first-order \ac{LPF} with impetance converter%
+    \label{fig:lp_active_1ord_imp_conv}}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_1ord_inv_amp/lp_active_1ord_inv_amp}
+  \caption[Active first-order \ac{LPF} with inverting amplifier]{Active first-order \ac{LPF} with inverting amplifier%
+    \label{fig:lp_active_1ord_inv_amp}}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_2ord_neg/lp_active_2ord_neg}
+  \caption[Active second-order \ac{LPF} with multiple negative feedback]{Active second-order \ac{LPF} with multiple negative feedback%
+    \label{fig:lp_active_2ord_neg}}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_2ord_pos/lp_active_2ord_pos}
+  \caption[Active second-order \ac{LPF} with single positive feedback]{Active second-order \ac{LPF} with single positive feedback%
+    \label{fig:lp_active_2ord_pos}}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_3ord_bessel/lp_active_3ord_bessel}
+  \caption[Active third-order \ac{LPF}]{Active third-order \ac{LPF}%
+    \label{fig:lp_active_3ord_bessel}}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_3ord_bessel_simple/lp_active_3ord_bessel_simple}
+  \caption[Simplified active third-order \ac{LPF}]{Simplified active third-order \ac{LPF}%
+    \label{fig:lp_active_3ord_bessel_simple}}
+\end{figure}
+
+
+\subsubsection{Butterworth Lowpass Filter}
+From the general solution in \autoref{eqn:lpf_nthord_tf_general} the squared absolute gain in \ac{LPF}s takes the form
+\begin{align}
+  \abs{\vect{H}(\omega_n)}^2 &= H_0^2 \pqty{1 + \sum\limits_{i=1}^N k_{2i}\omega_n^{2i}}^{-1}
+\end{align}
+where odd powers of $\omega_n$ do not occur, since $\abs{\vect{H}}^2$ must be an even function. In Butterworth \ac{LPF}s the function $\abs{\vect{H}}^2$ must be maximally flat at $\omega_n < 1$, i.e.\ for frequencies below the cutoff frequency. This condition is best met if we only keep the highest order term, since lower order terms contribute the most to the denominator at low frequencies, decreasing the gain. Hence, for Butterworth \ac{LPF}s
+\begin{align}
+  \abs{\vect{H}(\omega_n)}^2 &= \frac{H_0^2}{1+k_{2N}\omega_n^{2N}} \label{eqn:butterwoth_gain_squared}
+\end{align}
+where $k_{2N}=1$ due to the normalizing condition, which states that the square of the gain is reduced by \SI{3}{\decibel} at $\omega_n=1$, i.e. $\abs{\vect{H}(\omega_n=1)}^2 \approx \abs{\vect{H}(\omega_n=0)}^2/2$.
+
+When implementing a Butterworth \ac{LPF}, one needs to consider the complex gain $\vect{H}$ involved in \autoref{eqn:butterwoth_gain_squared}. It can be determined by solving for coefficients $c_i$ in \autoref{eqn:lpf_nthord_tf_general}, given the squared gain of \autoref{eqn:butterwoth_gain_squared}. It is then possible to solve the transfer function analytically by combining complex conjugate poles. In the solution, we obtain the coefficients $a_i$ and $b_i$ of the quadratic expression in \autoref{eqn:lpf_nthord_tf_poles}
+\begin{align}
+  \intertext{even order $N$:}
+  a_i &= 2\cos\frac{(2i-1)\pi}{2N} &\text{for}\: &i = 1,2,\dots.\frac{N}{2}\\
+  b_i &= 1
+  \intertext{odd order $N$:}
+  a_2 &= 1,\qquad a_i =2\cos\frac{(i-1)\pi}{N} &\text{for}\: & i=2,3,\dots,\frac{N+1}{2}\\
+  b_1 &= 0,\qquad b_i =1
+\end{align}
+
+
+
+
+
+
+
+\subsection{Anti Aliasing Filter}
+The \acf{AAF} is used ahead of \ac{ADC}s to reduce the signal bandwidth. More precisely, it aims to reduce the aliasing effect, i.e.\ the artificial distortion of signals, that occurs when sampling at a finite frequency.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.72]{figures/electronics/aaf/plot_aliasing}
+  \caption[Aliasing]{Aliasing effect%
+    \label{fig:plot_aliasing}}
+\end{figure}
 
 \section{Analog to Digital Conversion}
 

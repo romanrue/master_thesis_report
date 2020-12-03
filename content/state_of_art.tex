@@ -122,7 +122,7 @@ where
 \end{description}
 The second-order system expressed in Laplace transform thus takes the form
 \begin{align}
-  G(s) &= \frac{X(s)}{F(s)} \frac{K}{s^2/\omega_n^2 + 2\zeta s/\omega_n + 1}
+  G(s) &= \frac{X(s)}{F(s)} = \frac{K}{s^2/\omega_n^2 + 2\zeta s/\omega_n + 1 \label{eqn:acceler_dynamics}}
 \end{align}
 where
 \begin{description}[topsep=0ex, noitemsep]
@@ -366,202 +366,38 @@ As an essential example, we consider the \acf{OPA}. The \ac{OPA} is a multi-stag
 \subsection{Applictions}
 Electrical signal conditioning is based on arrangements of active and passive components in circuits. A good and in depth coverage of active filters and measurement circuits can be found in~\cite{Tietze2008EC}. For many common applications a \acf{IC} exists. These circuits internal to chips that come in various package sizes, see \figref{fig:ic_flowchart}.
 
-\subsection{Lowpass Filter}
-\cite{Tietze2008EC}
-
-The frequency response of the simplest \ac{LPF}, as shown in \figref{fig:lp_passive_1ord}, can be expressed as
-\begin{align}
-  \vect{H}(\ju\omega) &= \frac{\vect{v}_o}{\vect{v}_i} = \frac{1}{1+\ju\omega RC}
-\end{align}
-By replacing $\ju\omega$ by $\ju\omega+\sigma = s$ one can express the transfer function as
-\begin{align}
-  H(s) &= \frac{\LT{V_o(t)}}{\LT{V_i(t)}} = \frac{1}{1 + sRC}
-\end{align}
-
-\begin{figure}[htb!]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_passive_1ord/lp_passive_1ord}
-  \caption[Passive first-order \ac{LPF}]{Simplest passive \ac{LPF} of first-order%
-    \label{fig:lp_passive_1ord}}
-\end{figure}
-
-This is the ratio between the Laplace transformed time-domain signals of the output and input respectively. We then generalize the result by normalizing the complex frequency variable $s$ by defining
-\begin{align}
-  s_n &= \frac{s}{\omega_c}
-\end{align}
-
-For further simplification one can set $\sigma$ to zero; which is equivalent to assuming sinusoidal form of the input signal.
-Thus, for $\sigma=0$
-\begin{align}
-  s_n &= \frac{\ju\omega}{\omega_c} = \ju\frac{f}{f_c} = \ju\omega_n
-\end{align}
-
-The cutoff frequency of the circuit in \figref{fig:lp_passive_1ord} is $f_c=1/(2\pi RC)$. By definition the normalized complex frequency variable thus becomes $s_n=2\pi RC$. Therefore, the transfer function can be written as
-\begin{align}
-  H(s_n) &= \frac{1}{1+s_n}
-\end{align}
-
-The magnitude $\abs{\vect{H}(\ju\omega_n)}$ and phase $\varphi=\angle\vect{H}(\ju\omega_n)$ of the transfer function for sinusoidal signals are then given by
-\begin{align}
-  \abs{\vect{H}(\ju\omega_n)}^2 &= \frac{1}{1+\omega_n^2} &&\text{and} &\varphi &= \angle\vect{H}(\ju\omega_n) = \arctan\frac{1}{1 + \ju\omega_n}
-\end{align}
-
-For frequencies $\omega_n\gg 1$ one can approximate $\abs{\vect{H}}=1/\omega_n$. This corresponds to a reduction in gain of \SI{20}{\decibel} per frequency decade.
-
-If a sharper cutoff is required, $N$ \ac{LPF}s can be connected in series. The \ac{TF} then becomes
-\begin{align}
-  \vect{H}(s_n) &= \prod\limits_{i=1}^{N}\frac{1}{1+\alpha_i s_n}
-\end{align}
-where $\alpha_i$ are real and positive coefficients and for frequencies $\omega_n\gg 1$, $\abs{\vect{H}}\approx 1/\omega_n^N\propto 1/\omega^N$. The gain therefore falls off at $N\cdot\SI{20}{\decibel}\:\text{per decade}$. It can be observed that the \ac{TF} posesses $N$ real and negative poles. This is characteristic of $N$th-order passive $RC$ \ac{LPF}.
-
-If we cascade \ac{LPF}s with identical cutoff frequencies, then
-\begin{align}
-  \alpha &= \alpha_i = \sqrt{\sqrt[N]{2}-1}
-\end{align}
-which is the condition for which \emph{critical damping} occurs. Each individual cutoff frequency is a factor $1/\alpha$ higher than that of the filter as a whole.
-
-The \ac{TF} of the $N$th-order \ac{LPF} has the general form
-\begin{align}
-  H(s_n) &= H_0 \pqty{1 + \sum\limits_{i=1}^N c_i s_n}^{-1} \label{eqn:lpf_nthord_tf_general}
-\end{align}
-where $c_i$ are real and positive coefficients and the order of the filter is equal to the highest power of $s_n$. By rewriting the denominator in factored form and allowing complex poles, one denotes \autoref{eqn:lpf_nthord_tf_general} as
-\begin{align}
-  H(s_n) &= \frac{H_0}{(1+a_1s_n+b_1s_n^2)(1+a_2s_n+b_2s_n^2)\cdots} \label{eqn:lpf_nthord_tf_poles}
-\end{align}
-where $a_i$ and $b_i$ are real and positive coefficients and $b_1=0$ for odd orders $N$.
-
-The frequency response can be optimized to different theoretical aspects by setting the coefficients $a_i$ and $b_i$. As a consequence of these optimizations, complex poles arise, that cannot be realized by blocks of passive $RC$ filters. It is possible to meet the optimized conditions by using $LRC$ filters with the simplest example shown in \figref{fig:lp_passive_2ord}, where
-\begin{align}
-  H(s) &= \frac{1/(LC)}{s^2+\frac{R}{L}s+\frac{1}{LC}} &&\text{and} &f_c &= \frac{1}{2\pi\sqrt{LC}}
-\end{align}
-This design does not pose any difficulties when opting for high cutoff frequencies. But it is apparent, that one requires the use of large capacitances as well as large inductances for low cutoff frequencies. And because large inductances are unwieldy and have poor electrical properties, an active filter design is better suited for low cutoff frequencies. In these types of circuits the inductances are avoided by the addition of active elements --- namely \ac{OPA}s --- to the $RC$ network.
-
-\begin{figure}[htb!]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_passive_2ord/lp_passive_2ord}
-  \caption[Passive second-order \ac{LPF}]{Passive second-order \ac{LPF}, $LRC$ circuit%
-    \label{fig:lp_passive_2ord}}
-\end{figure}
-
-
-\subsubsection{Butterworth Lowpass Filter}
-From the general solution in \autoref{eqn:lpf_nthord_tf_general} the squared absolute gain in \ac{LPF}s takes the form
-\begin{align}
-  \abs{\vect{H}(\omega_n)}^2 &= H_0^2 \pqty{1 + \sum\limits_{i=1}^N k_{2i}\omega_n^{2i}}^{-1}
-\end{align}
-where odd powers of $\omega_n$ do not occur, since $\abs{\vect{H}}^2$ must be an even function. In Butterworth \ac{LPF}s the function $\abs{\vect{H}}^2$ must be maximally flat at $\omega_n < 1$, i.e.\ for frequencies below the cutoff frequency. This condition is best met if we only keep the highest order term, since lower order terms contribute the most to the denominator at low frequencies, decreasing the gain. Hence, for Butterworth \ac{LPF}s
-\begin{align}
-  \abs{\vect{H}(\omega_n)}^2 &= \frac{H_0^2}{1+k_{2N}\omega_n^{2N}} \label{eqn:butterwoth_gain_squared}
-\end{align}
-where $k_{2N}=1$ due to the normalizing condition, which states that the square of the gain is reduced by \SI{3}{\decibel} at $\omega_n=1$, i.e. $\abs{\vect{H}(\omega_n=1)}^2 \approx \abs{\vect{H}(\omega_n=0)}^2/2$.
-
-When implementing a Butterworth \ac{LPF}, one needs to consider the complex gain $\vect{H}$ involved in \autoref{eqn:butterwoth_gain_squared}. It can be determined by solving for coefficients $c_i$ in \autoref{eqn:lpf_nthord_tf_general}, given the squared gain of \autoref{eqn:butterwoth_gain_squared}. It is possible to solve the transfer function analytically by combining complex conjugate poles. We then obtain the coefficients $a_i$ and $b_i$ of the quadratic expression in \autoref{eqn:lpf_nthord_tf_poles}
-\begin{align}
-  \intertext{even order $N$:}
-  a_i &= 2\cos\frac{(2i-1)\pi}{2N} &\text{for}\: &i = 1,2,\dots.\frac{N}{2}\\
-  b_i &= 1
-  \intertext{odd order $N$:}
-  a_2 &= 1,\qquad a_i =2\cos\frac{(i-1)\pi}{N} &\text{for}\: & i=2,3,\dots,\frac{N+1}{2}\\
-  b_1 &= 0,\qquad b_i =1
-\end{align}
-
-
-\begin{figure}[!htb]
-  \centering
-  \subcaptionbox{Standard normalization, cutoff frequency at \SI{-3}{\decibel}\label{sfig:lp_filter_2ord_bessel_bp}}[0.45\textwidth]{%
-    \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_2ord_bessel_bp}}
-  \hfill
-  \subcaptionbox{Chebyshev normalization, cutoff frequency at negative the allowed ripple $\delta$\label{sfig:lp_filter_2ord_cheby_bp}}[0.45\textwidth]{%
-    \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_2ord_cheby_bp}}
-  \caption[\ac{LPF} Pass- and Stopband]{\ac{LPF} Pass- and Stopband, where the passband is defined by $\omega_n<1$ and the stopband is chosen depending on the application (usually starting at \SIrange{-20}{-160}{\decibel})%
-    \label{fig:lp_lowpass_pass_stopband}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_4ord_step}
-  \caption[Step response of fourth-order \ac{LPF}]{Step response of fourth-order \ac{LPF} --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
-    \label{fig:lp_filter_4ord_step}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_4ord_imp}
-  \caption[Impulse response of fourth-order \ac{LPF}]{Impulse response of fourth-order \ac{LPF} --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
-    \label{fig:lp_filter_4ord_imp}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_mag}
-  \caption[Influence of \ac{LPF} order $N$ on the amplitude of the frequency response]{Influence of \ac{LPF} order $N$ on the amplitude of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
-    \label{fig:lp_filter_mag}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_pha}
-  \caption[Influence of the \ac{LPF} order $N$ on the  phase of the frequency response]{Influence of the \ac{LPF} order $N$ on the  phase of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
-    \label{fig:lp_filter_pha}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_grd}
-  \caption[Influence of the \ac{LPF} order $N$ on the group delay of the frequency response]{Influence of the \ac{LPF} order $N$ on the group delay of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
-  \label{fig:lp_filter_grd}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_1ord_imp_conv/lp_active_1ord_imp_conv}
-  \caption[Active first-order \ac{LPF} with impetance converter]{Active first-order \ac{LPF} with impetance converter%
-    \label{fig:lp_active_1ord_imp_conv}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_1ord_inv_amp/lp_active_1ord_inv_amp}
-  \caption[Active first-order \ac{LPF} with inverting amplifier]{Active first-order \ac{LPF} with inverting amplifier%
-    \label{fig:lp_active_1ord_inv_amp}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_2ord_neg/lp_active_2ord_neg}
-  \caption[Active second-order \ac{LPF} with multiple negative feedback]{Active second-order \ac{LPF} with multiple negative feedback%
-    \label{fig:lp_active_2ord_neg}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_2ord_pos/lp_active_2ord_pos}
-  \caption[Active second-order \ac{LPF} with single positive feedback]{Active second-order \ac{LPF} with single positive feedback%
-    \label{fig:lp_active_2ord_pos}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_3ord_bessel/lp_active_3ord_bessel}
-  \caption[Active third-order \ac{LPF}]{Active third-order \ac{LPF}%
-    \label{fig:lp_active_3ord_bessel}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_3ord_bessel_simple/lp_active_3ord_bessel_simple}
-  \caption[Simplified active third-order \ac{LPF}]{Simplified active third-order \ac{LPF}%
-    \label{fig:lp_active_3ord_bessel_simple}}
-\end{figure}
-
-\subsection{Anti Aliasing Filter}
-The \acf{AAF} is used ahead of \ac{ADC}s to reduce the signal bandwidth. More precisely, it aims to reduce the aliasing effect, i.e.\ the artificial distortion of signals, that occurs when sampling at a finite frequency.
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=0.72]{figures/electronics/aaf/plot_aliasing}
-  \caption[Aliasing]{Aliasing effect%
-    \label{fig:plot_aliasing}}
-\end{figure}
 
 \subsection{Analog to Digital Converters}
+
+\subsection{Transmission Protocols}
+
+Digital transmission protocols offer established standards for the communication between \ac{IC}s and devices that at least include a processing unit. There exists a plethora of protocols, that address the communication on a range of different levels of abstraction. Theoretically, these levels can be categorized according to the \acl{OPA} model (\acs{OPA} model), but it is obvious that most protocols address issues on multiple levels. Nevertheless, the model is useful when establishing a new network, since all steps, necessary for a successful communication, are best traced in order of the model. The \ac{OPA} model includes seven layers, as seen in \figref{fig:osi_model}.
+\begin{enumerate}
+  \item The \emph{physical layer} defines the physical form of the data transmission, i.e.\ the mediumm, in which the data is transmitted and the physical connections.
+  \item The \emph{data link layer} addresses the transmission conditions and standards, which allow the communication between two or more devices.
+  \item In the \emph{network layer} we implement the definitions for the shortest connections, error detection and addressing techniques.
+  \item The \emph{transport layer} ensures that all data is transparent and securely transmitted. Its segmented data is used to detect dublicates and missing data.
+  \item The \emph{session layer} establishes channels between devices. It manages open connections and synchronization.
+  \item It is the \emph{presentation layer}, where one defines the syntax and semantics of the code.
+  \item And the \emph{application layer} that provides the protocols and services that are used in applications. This is the data directly available to the end-user.
+\end{enumerate}
+
+When dealing with real hardware, the level of abstraction that can be reached will be limited depending on the device. Namely in the communication between \ac{MCU}s the
+Different low end communication protocols can be used to communicate between \ac{IC}s. Many smart devices of today use the \acf{I2C}, the \acf{SPI} or both connections to access their registers. With these protocols two respectively, four wires connect two devices over short distances. When the distance increases or the environment gets to noisy, one needs to improve the cable's isolation, insert active signal repeaters, or switch to another transmission standard.
+The transmission standard \acs{RS}-485, defines a widely adopted industry standard of differential digital signal transmission. These offer more stable signal transmissions in harsh environments and over long distances with the caveat of using two wires for each signal.
+In depth information about data communication protocols is available in the handbook \cite{buchanan2004handbook}
+Rs intro \cite{marais2008rs}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=1]{figures/data_transmission/osi_model/osi_model}
+  \caption[OSI Model]{OSI Model%
+  \label{fig:osi_model}}
+\end{figure}
+
+\subsubsection{RS-458}
+\ac{RS}-485
+\subsubsection{Serial Peripheral Interface}
+\ac{SPI}
+\subsubsection{USB}
+\ac{USB}
