@@ -20,7 +20,7 @@ for el in colpalettes:
     if el.name == 'WesMixL':
         mpl.rcParams['axes.prop_cycle'] = mpl.cycler('color',el.rgb_hex())
 
-mpl.rcParams['figure.figsize'] = [dim/2.54 for dim in [12,6]]
+mpl.rcParams['figure.figsize'] = [dim/2.54 for dim in [9,4.5]]
 mpl.rcParams['savefig.dpi'] = 100
 mpl.rcParams['font.size'] = 11
 mpl.rcParams['legend.fontsize'] = 'medium'
@@ -69,9 +69,9 @@ ax = fig.add_subplot()
 ax.plot(x,y_normal, label=r'Normal')
 ax.plot(x,y_rr,'--', label=r'Rail to rail')
 
-ax.legend()
+ax.legend(handlelength=1)
 ax.set_xlabel(r'Time')
-ax.set_ylabel(r'Signal')
+ax.set_ylabel(r'Signal [$V$]')
 
 yticks = np.append(np.arange(0,a,2.5),a)
 yticks = np.unique(np.append(np.flip(-yticks),yticks))

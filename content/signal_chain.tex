@@ -1,7 +1,9 @@
 \chapter{Signal Chain%
   \label{chap:\currfilebase}}
 
-Some sensors operate at small energies. The signals are to weak to be converted into digital ones by standard components. \emph{Signal conditioning} enables us to amplify and denoise analog signals so that the signal can be further processed. In our application, both the load cell's and accelerometer's senors signal must be amplified to match the input range of their respective \ac{ADC}. In this section we put together all conditioning steps necessary from sensor to the digital signal under the term signal chain. Because the selected accelerometers come in \ac{IC} packages that include the complete signal chain, we focus on the signal chain of the load cell. For a quick introduction to signal conditioning and processing, read \secref{signal_conditioning_processing}.
+  Some sensors operate at small energies. The signals are to weak to be converted into digital ones by standard components. \emph{Signal conditioning} enables us to amplify and denoise analog signals so that the signal can be further processed. In our application, both the load cell's and accelerometer's senors signal must be amplified to match the input range of their respective \ac{ADC}. In this section we put together all conditioning steps necessary from sensor to the digital signal under the term signal chain. Because the selected accelerometers come in \ac{IC} packages that include the complete signal chain, we focus on the signal chain of the load cell. For a quick introduction into signal conditioning and processing, read \secref{signal_conditioning_processing}. A schematic of a typical signal chain of an \ac{EMA} is shown in \figref{fig:measurement}.
+
+\ac{LC}s that are based on strain gauges or piezoelectric ceramics both generate low-voltage respectively low-current signals when under stress. In strain gauge \ac{LC}s, it is the resistance that changes when it is stressed. Therefore, an electric energy supply is necessary to be able to generate a sensor signal. This makes the sensor an active one. With piezoceramics, it is possible to measure the current induced solely by the piezoelectric effect, which makes it passive; but especially in small sensors, preconditioning circuits are already integrated in the sensor so that one needs additional supply voltage for the conditioning and to get an amplified current or voltage signal. When looking at the voltage output signals, they vary in the range of a few \si{\milli\volt}. Standard components operate in the range of a few volts; therefore we need to amplify the signals first, if we want to use low-cost conditioning. The key components used to condition analog signals are filters. They are used to reduce the bandwidth to the range expected to be measured, cutting off unnecessary noise from outside this bandwidth. The last processing step in the analog signal chain is the conversion of the signal into a digital one, that is from a time-continuous, continuously valued signal into a discrete time-step and quantized one. This conversion presupposes the signal to be conditioned, so that the value range and frequency bandwidth are both limited to the maximum operation range of the \ac{ADC}, to meet the best possible resolution in time and amplitude of the signal in the digital realm. This can be achieved using at least one amplifier and one \ac{LPF}.
 
 \section{Amplification}
 
@@ -54,14 +56,29 @@ Although the major part of electronics is based on voltage controlled circuits, 
     \label{fig:op_amp_transfer_cuves}}
 \end{figure}
 
-Because of their differential circuit, \ac{OPA}s normally are powered by symmetric operating voltages. Rail-to-rail \ac{OPA}s have the capability to control the output between the positive and negative supply voltage, allowing maximal amplification, see \figref{fig:plot_opamp_railrail}.
-When working with digital circuits, a single voltage supply is preferred. For this case one uses single supply voltage \ac{OPA}s.
+Because of the differential circuit of the standard \ac{OPA}, it is normally powered by a symmetric voltage supply. But when working with digital circuits, one usually uses single power supplies. For these applications \ac{OPA}s were designed, that allow single supply voltage operation. Furthermore when one cannot use a higher voltage power supplies, rail-to-rail \ac{OPA}s will allow control of the signal output between the full range of the positive and negative supply voltage, allowing maximal amplification, see \figref{fig:opamp_controllability}.
+When working with digital circuits, a single voltage supply is preferred. For this case one uses single supply voltage \ac{OPA}s. In this thesis \ac{OPA}s that were able to use both single and dual supply voltages were used.
 
-\begin{figure}[htb!]
+\begin{figure}[!htb]
   \centering
-  \includegraphics[scale=0.72]{figures/electronics/op_amp/plot_opamp_railrail}
-  \caption[OPA controllability]{OPA controllability at $\pm\SI{5}{\volt}$ operating voltage%
-    \label{fig:plot_opamp_railrail}}
+  \subcaptionbox{Normal VV-\ac{OPA} compared to rail-to-rail VV-\ac{OPA} with supply voltages of $\pm\SI{5}{\volt}$}{%
+    \includegraphics[scale=0.72]{figures/electronics/op_amp/plot_opamp_railrail}}
+  \hspace{4em}
+  \subcaptionbox{Single supply voltage VV-\ac{OPA} with a supply voltage of \SI{5}{\volt}}{%
+    \includegraphics[scale=0.72]{figures/electronics/op_amp/plot_opamp_single}}
+    \caption[Controllability of VV-\ac{OPA} signal outputs]{Controllability of VV-\ac{OPA} signal outputs%
+    \label{fig:opamp_controllability}}
+\end{figure}
+
+\subsubsection{The Instrumentation Amplifier}
+
+\cite{kitchin2006inst}
+Because
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.9]{figures/electronics/op_amp/in_amp_circuit}
+  \caption[Typical Instrumentation Amplifier Design]{Typical instrumentation amplifier design%
+    \label{fig:lp_active_1ord_imp_conv}}
 \end{figure}
 
 \subsection{Mean Noise Figure and the Signal-to-Noise Ratio}
