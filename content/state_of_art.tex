@@ -27,9 +27,13 @@ A device that responds to a changing phenomenon is called sensor. If we need to 
 
 As part of this we focus on self-generating piezoelectric sensors, capacitive modulators that convert mechanical deformation in a static electric field into an electric current, as well as strain gauge based modulators.
 
-\subsection{Load Cells}
+\subsection{Sensor Types}
 
-A force measurement sensor that converts a force into an electrical signal is called \acf{LC}. The basis of force measurement results from the physical behavior of a body under external forces. Depending on the bandwidth and magnitude of the signal, as well as the duration of the signal capture, different methods of force measurement are applied in various designs. The methods in brief are:
+Here we separate different sensors depending on physical value they respond to. In \ac{EMA} we use a force input signal and measure a acceleration, velocity or displacement output signal. Where force is generally detected using Load Cells (\acs{LC}s), the output signal is commonly detected by accelerometers at predefined point on the \ac{MT}. But other setups may be used. Optical methods, for example, allow the detection of the output signal in a non-contacting manner and are preferred when testing very small structures. But for this thesis an approach with low-cost accelerometers is chosen. Therefore, a brief introduction to load cells and accelerometers is given. More on sensor types can be found in \cite{webster2018measurement}.
+
+\subsubsection{Load Cells}
+
+A force measurement sensor that converts a force into an electrical signal is called \acf{LC}. The basis of force measurement results from the physical behavior of a body under external forces. Depending on the bandwidth and magnitude of the signal, as well as the duration of the signal capture, different methods of force measurement are applied in various designs. The methods in brief are \cite{webster2018measurement}:
 
 \begin{itemize}
   \item Balancing the unknown force against a standard mass through a system of levers
@@ -39,34 +43,11 @@ A force measurement sensor that converts a force into an electrical signal is ca
   \item Converting the applied force into the deformation of an elastic element
 \end{itemize}
 
-Furthermore, these methods yield numerous of designs of measuring equipment. Each of which addressing two main problems. First, the physical and geometrical constrains by the application of the device and second, the means by which the force can be converted into an electrical signal.
+Furthermore, these methods can be combined with different designs of measuring equipment. Each of which addressing two main problems. First, the physical and geometrical constrains by the application of the device and second, the means by which the force can be converted into an electrical signal.
 
-\ac{LC}s in \ac{EMA} equipment designs typically use piezoelectric sensors because of their high bandwidth in compact designs and their capability to detect small deflections.
+\subsubsection{Accelerometers}
 
-\subsubsection{Strain Gauges}
-
-In strain gauge \ac{LC}s the elastic properties of a material probe is exploited.
-
-The probe is loaded in a controlled manner in its elastic region. Deformations are captured by a strain gauge at a suitable location. The probe deformation is directly determined by the force acting on the probe because of Hooke's law.
-
-The strain gauges themselves each use a specific length gauge wire in order to reach a resistance of typically \SI{120}{\ohm}. The wire is bonded between two thin sheets in coiled up form as can be seen in \figref{sfig:strain_gauge}. The sheets act as insulating carrier and can be easily deformed with the intent of passing the load to the wire grid. The gauge is attached to the probe structure by a wax or a resin. The intent is that deformations in transversal direction of the strain gauge act on all coils simultaneously, changing their resistance. By using small sized strain gauges with respect to the probe, the mechanical and thermal properties of the strain gauge become negligible small. As an example, we assume the probe expands. Then a strain gauge on its surface experiences tension. The coils in the grid are therefore stretched and as a result of the generalized Hook's law the coil cross sections decrease. Both the strain in axial direction of the coil and the decreased coil cross sections increase the wire's resistance.
-
-In order to measure deformations one needs to take environmental influences into consideration. It is well known that resistance is susceptible to variations in temperature. Placing the strain gauge in a wheatstone bridge, with resistors, that change their resistance in the same manner as the strain gauge will reduce the influence of temperature significantly --- see \figref{sfig:wheatstone_bridge_single}.
-
-\begin{figure}[!htb]
-  \centering
-  \subcaptionbox{Strain gauge on structure, with (1) Structure, (2) Metal Pad, (3) Grid and (4) Carrier\label{sfig:strain_gauge}}{%
-    \includegraphics[scale=0.7]{figures/measurement/sensors/strain_gauge}}
-  \hspace{4em}
-  \subcaptionbox{Strain gauge in Wheatstone bridge circuit\label{sfig:wheatstone_bridge_single}}{%
-    \includegraphics[scale=0.7]{figures/measurement/sensors/wheatstone_bridge_single}}
-  \caption[Strain Gauge]{Strain gauge%
-    \label{fig:strain_gauge}}
-\end{figure}
-
-\subsection{Accelerometers}
-
-Accelerometers are sensors that convert acceleration into an electrical signal. In order to measure a physical phenomenon we use seismic masses that act on the sensor structure based on their inertia properties. In strain gauge based accelerometers the structure translates the inertia force into a deformation, where capacitive sensor structures may use deformations or relative motions of separate components in an electric field. In piezoelectric accelerometers the seismic mass deforms a piezoelectric material, see \figref{fig:piezo_sensor}.
+Accelerometers are sensors that convert acceleration into an electrical signal. In order to measure a physical phenomenon we use seismic masses that act on the sensor structure based on their inertia properties. For example, it is the structure in strain gauge based accelerometers that translates the inertia force into a deformation, where capacitive sensor structures may use deformations or relative motions of separate components in an electric field. In piezoelectric accelerometers the seismic mass deforms a piezoelectric material, see \figref{fig:piezo_sensor}. This is the simplest setup of so called seismic accelerometers.
 \\[4ex]
 \begin{minipage}{\linewidth}
 \centering
@@ -113,26 +94,26 @@ In seismic accelerometers the base of the arrangement is motion. When describing
   m\dv[2]{z}{t} &= c\dv{z}{t} + kz = mg\cos\pqty{\theta}-m\dv[2]{x_1}{t}
 \end{align}
 where
-\begin{description}[topsep=0ex, noitemsep]
+\begin{itemize}
   \item $m$ is the seismic mass
   \item $z=x_2-x_1$ is the relative motion between the mass and the base
   \item $x_1$ is the displacement of the base
   \item $x_2$ is the displacement of the mass
   \item $\theta$ is the angle between sense axis and gravity
-\end{description}
-The second-order system expressed in Laplace transform thus takes the form
+\end{itemize}
+The Laplace transformed second-order system thus takes the form
 \begin{align}
   G(s) &= \frac{X(s)}{F(s)} = \frac{K}{s^2/\omega_n^2 + 2\zeta s/\omega_n + 1 \label{eqn:acceler_dynamics}}
 \end{align}
 where
-\begin{description}[topsep=0ex, noitemsep]
+\begin{itemize}
   \item $s$ is the Laplace operator
   \item $K=1/k$ is the static sensitivity
   \item $\omega_n=\sqrt{k/m}$ is the undamped frequency in \si{\radian\per\second}
   \item $\zeta=c/2\sqrt{km}$ is the damping ratio
-\end{description}
+\end{itemize}
 It is obvious that the performance of accelerometers depends on their static sensitivity, the natural frequency and the damping ratio. We want the accelerometer to have a linear transfer function in the range of operation. But namely the damping ratio can distort a measurement when operating an accelerometer near its eigenfrequency, see \figref{fig:seismic_accelerometer_edited}.
-
+This is the most simplified case, that measures the acceleration in one dimension. In three dimensional accelerometers, that are generally used in \ac{EMA}, the acceleration becomes a function of $\dv*[2]{x}{t}$, $\dv*[2]{y}{t}$ and $\dv*[2]{z}{t}$. Consequently, multiple transducers in multiple channels are used.
 
 \begin{figure}[!htb]
   \centering
@@ -141,12 +122,37 @@ It is obvious that the performance of accelerometers depends on their static sen
     \label{fig:seismic_accelerometer_edited}}
 \end{figure}
 
-\subsection{Piezoelectric Sensors}
+\subsection{Transducer Principles}
+
+The same transducer types can be used in \ac{LC}s and accelerometers due direct relation between acceleration and force in inertial models. Namely in commercially available \ac{EMA}s, piezoelectric transducers are typically used in both the \ac{LC}s and accelerometers. In this section the physical principles of transducers used in this thesis are presented.
+
+\subsubsection{Strain Gauges}
+
+In strain gauge \ac{LC}s and accelerometers the elastic properties of a material probe is exploited.
+
+Given a probe, we apply a controlled load through an external force in \ac{LC}s or through the seismic mass in accelerometers. This load deforms the probe in the elastic region and the deformations are captured by a strain gauge at a suitable location. The probe deformation is proportional to the force acting on the probe because of Hooke's law.
+
+The strain gauges themselves each use a specific length gauge wire in order to reach a resistance of typically \SI{120}{\ohm}. The wire is bonded between two thin sheets in coiled up form as can be seen in \figref{sfig:strain_gauge}. The sheets act as insulating carrier and can be easily deformed with the intent of passing the load to the wire grid. The gauge is attached to the probe structure by a wax or a resin. The intent is that deformations in transversal direction of the strain gauge act on all coils simultaneously, changing their resistance. By using small sized strain gauges with respect to the probe, the mechanical and thermal properties of the strain gauge become negligible small. As an example, we assume the probe expands. Then a strain gauge on its surface experiences tension. The coils in the grid are therefore stretched and as a result of the generalized Hook's law the coil cross sections decrease. Both the strain in axial direction of the coil and the decreased coil cross sections increase the wire's resistance.
+
+In order to measure deformations one needs to take environmental influences into consideration. It is well known that resistance is susceptible to variations in temperature. Placing the strain gauge in a wheatstone bridge, with resistors, that change their resistance in the same manner as the strain gauge will reduce the influence of temperature significantly --- see \figref{sfig:wheatstone_bridge_single}.
+
+\begin{figure}[!htb]
+  \centering
+  \subcaptionbox{Strain gauge on structure, with (1) Structure, (2) Metal Pad, (3) Grid and (4) Carrier\label{sfig:strain_gauge}}{%
+    \includegraphics[scale=0.7]{figures/measurement/sensors/strain_gauge}}
+  \hspace{4em}
+  \subcaptionbox{Strain gauge in Wheatstone bridge circuit\label{sfig:wheatstone_bridge_single}}{%
+    \includegraphics[scale=0.7]{figures/measurement/sensors/wheatstone_bridge_single}}
+  \caption[Strain Gauge]{Strain gauge%
+    \label{fig:strain_gauge}}
+\end{figure}
+
+\subsubsection{Piezoelectric Materials}
 Some materials develop electric charge proportional to directly applied mechanical stress. The same materials show the converse effect. A proportional strain of the material will occur to an applied electric field.
 
-The first phenomenon has found its application in a variety of self-generating sensors that output electrical signals --- namely in \ac{LC}s and accelerometers, where the piezoelectric charge is converted into a current or voltage signal.
+The first phenomenon has found its application in a variety of self-generating sensors that output electrical signals, namely in \ac{LC}s and accelerometers, where the piezoelectric charge is converted into a current or voltage signal.
 
-Piezoelectric sensors are designed to exploit the piezoelectric effect of the material in one axis. Additionally, we use amplifier circuits so that the weak electrical signal, induced due to the piezoelectric charge, is elevated to amplitudes that are in the range of operation of standard electronic components. These circuits require additional energy. Commercially available \ac{LC}s therefore require supplied energy --- see \figref{fig:piezo_ampcirc}.
+Piezoelectric sensors are designed to exploit the piezoelectric effect of the material in one axis. Additionally, we use amplifier circuits so that the weak electrical signal, induced due to the piezoelectric charge, is elevated to amplitudes that are in the range of operation of standard electronic components. These circuits require additional energy. Commercially available \ac{LC}s therefore require supplied energy, see \figref{fig:piezo_ampcirc}.
 
 \begin{figure}[!htb]
   \centering
@@ -162,60 +168,56 @@ Piezoelectric sensors are designed to exploit the piezoelectric effect of the ma
 Depending on the design of the sensor, piezoelectric materials are used in different shapes. \figref{fig:piezo_designs} shows some possible variations.
 
 
+\subsubsection{Capacitive Transducers}
 
-\subsection{Capacitive Accelerometers}
-
-To understand the working principle of capacitive accelerometers, we first consider the displacement sensors.
-
-\subsubsection{Capacitive Displacement Sensors}
-The basic sensing element of a displacement sensor typically consists of two parallel electrodes with capacitance C.
+In capacitive transducers the electric field of a capacitor is used as reference. Changes in the electric field of a sensing capacitor generate an electrical signal output at the surrounding circuit. That is, if we change the supply voltage or capacitance of said capacitor, the signal output is non-zero. This gives a broad framework of different transducers that normally use charge-discharge or constant input signals, which enable us to measure either the capacitance or the change in capacitance. The simplest capacitor design consists of two parallel electrodes with capacitance C.
 \begin{align}
   C &= f(d,A,\varepsilon)
 \end{align}
 
-With variable distance, dielectric material or area and with the measurement of the capacitance, we can then deduce the plate displacement in normal and parallel direction to the plates depending on the method used. See \figref{fig:cap_disp}
+With variable distance, dielectric material or area and with the measurement of the capacitance, we can then deduce the plate displacement in normal and parallel direction to the plates depending on the method used, see \figref{fig:cap_disp}. In the following some models of the capacitance from \cite{webster2018measurement} are shown.
 
-In variable displacement sensors, the distance between two capacitive plates is inversely proportional to the capacitance.
+In \emph{variable displacement} transducers, the distance between two capacitive plates is inversely proportional to the capacitance.
 \begin{align}
   C(x) &= \frac{\varepsilon A}{x} = \frac{\varepsilon_r\varepsilon_0 A}{x}
 \end{align}
 where
-\begin{description}[topsep=0ex, noitemsep]
+\begin{itemize}
   \item $\varepsilon$ is dielectric constant or permittivity
   \item $\varepsilon_r$ is the relative dielectric constant (in air and vacuum $\varepsilon_r\approx 1$)
   \item $\varepsilon_0$ is \SI{8.854188}{\farad\per\meter}, the dielectric constant of vacuum
   \item $x$ is the distance of the plates in \si{\meter}
   \item $A$ is the effective area of the plates in \si{\meter\squared}
-\end{description}
+\end{itemize}
 
-In variable area displacement sensors, the capacitance is proportional to the reduction of area due to the movement of the plate.
+In \emph{variable area displacement} transducers, the capacitance is proportional to the reduction of area due to the movement of the plate.
 \begin{align}
   C(x) &= \frac{\varepsilon_r\varepsilon_0\pqty{A-wx}}{d}\label{eqn:var_ar_displace}
 \end{align}
 where
-\begin{description}[topsep=0ex, noitemsep]
+\begin{itemize}
   \item $\varepsilon_2$ is the permittivity of the displacing material (e.g.\ liquid)
   \item $w$ is the width
   \item $wx$ is the reduction in the area due to movement of the plate
   \item $d$ is the distance of the plates in \si{\meter}
-\end{description}
+\end{itemize}
 
-In variable dielectric sensors, the capacitance depends on the ratio of each permittivity in the electric field.
+In \emph{variable dielectric} transducers, the capacitance depends on the ratio of each permittivity in the electric field.
 \begin{align}
-  C(x) &= \varepsilon_0 w \bqty{\varepsilon_2 l - \pqty{\varepsilon_2-\varepsilon_1}x}\label{eqn:var_diel_displace}\\
+  C(x) &= \varepsilon_0 w \bqty{\varepsilon_2 l - \pqty{\varepsilon_2-\varepsilon_1}x}\label{eqn:var_diel_displace}
 \end{align}
 where
-\begin{description}[topsep=0ex, noitemsep]
+\begin{itemize}
   \item $x$ is the displacement normal to the plate's direction
   \item $\varepsilon_1$ is the relative permittivity of the dielectric material
   \item $\varepsilon_2$ is the permittivity of the displacing material (e.g.\ liquid)
-\end{description}
-Differential capacitive displacement sensors are setup in capacitive arrangements that aim to eliminate nonlinearities. Different variations of these types of sensors exist. For example we can allow the outer plates to move and fix the middle one or we can reverse this setup. But the range is equal to twice the separation in both cases.
+\end{itemize}
 
-\begin{align}
+\emph{Differential displacement} sensors are setup in capacitive arrangements that aim to eliminate nonlinearities. Different variations of these types of sensors exist. For example we can allow the outer plates to move and fix the middle one or we can reverse this setup. But the range is equal to twice the separation in both cases.
+\begin{align*}
   2\delta C = C_1-C_2 &= \frac{\varepsilon_r\varepsilon_0 lw}{d-\delta d} - \frac{\varepsilon_r\varepsilon_0 lw}{d+\delta d} = \frac{2\varepsilon_r\varepsilon_0 lwd}{d^2+\delta d^2}\\
   C_1+C_2 &= \frac{\varepsilon_r\varepsilon_0 lw}{d-\delta d} + \frac{\varepsilon_r\varepsilon_0 lw}{d+\delta d} = \frac{2\varepsilon_r\varepsilon_0 lwd}{d^2+\delta d^2}\\
-\end{align}
+\end{align*}
 Giving approximately
 \begin{align}
   \frac{\delta C}{C} = \frac{\delta d}{d}
@@ -247,12 +249,11 @@ Giving approximately
     \end{tabular}%\\[4ex]
     % \usebox4
   }
-  \caption[Capacitive displacement sensors]{Capacitive displacement sensors \cite{webster2018measurement}%
+  \caption[Capacitive displacement transducers]{Capacitive displacement transducers \cite{webster2018measurement}%
     \label{fig:cap_disp}}
 \end{figure}
 
-\subsubsection{From Displacement to Acceleration}
-If one combines a capacitive displacement sensor with a seismic mass, one can use the inertia force to correlate the acceleration to the displacement and hence to the change in the electric field of the sensor. With the use of differential capacitive designs and high machining accuracy these designs can be realized in a tiny form factor as \acf{MEMS}. A scheme of such a sensor is shown in \figref{fig:accelerometer_bent}.
+Given a sensor design, one can then map the displacement of the respective transducer to the load acting on a \ac{LC}, respectively, when using a seismic mass and the corresponding equation of motion, to the acceleration measured by an accelerometer. The capacitive displacement transducer is applicable for many sensor applications and the fact, that the sensing conductors can be built from a variety of materials and can be optimized for different input voltage levels, makes its form factor scalable in both directions. In a sensor \ac{IC} package, the capacitive transducers can be realized in a smaller form factor or with higher precision at the same size compared to resistive sensors, like strain gauges. A simplified model of the mechanics inside a capacitive \ac{MEMS} sensor are shown in \figref{fig:accelerometer_bent}.
 
 \begin{figure}[!htb]
   \centering
@@ -340,12 +341,13 @@ Electronic components are divided into two main types; passive and active ones. 
 Because of the increase in digital processing, the number of passive components has decreased drastically in modern electronic circuits. This, in addition to the trend of using more complex devices in favour to multiple simple passive components, has led to a great variety of passive components which are designed with emphasis on reliability.
 
 Typical examples of passive components are:
-\begin{description}
-  \item[Wires] Depending on the mechanical requirements for the wire, it can either be designed with a solid core or a stranded wire core. A wire consisting of multiple smaller diameter conductors shows better flexibility but reduced current-carrying capacity at the same wire diameter. This is because of the smaller overall conductor cross-section of a stranded wire and, when transmitting high frequency signals, a greater power dissipation due to the more prevalent skin effect. Furthermore the simplicity of solid core wires makes them more resistant to corrosion and more suitable to be used in harsh environments.
-  \item[Resistors] Depending on the application different types of resistors can be applied. Fixed value resistors, can be used for safety of other components by dissipating heat or reducing to set the current and voltage in combination relative to other devices. Variable resistors change their value due to different physical phenomena. Thermistors show resistances that are highly susceptible to temperature changes, potentiometers resistance is manually tunable and photoresistors show a light dependant resistance, to name a few.
-  \item[Capacitors] Capacitors store energy in form of an electric field. They have many applications, most prominently in filter circuits and as bypass capacitors to reduce smooth out non constant power draws.
-  \item[Inductive Devices] Are devices that store energy in form of an electric field. In modern devices coils are less common due to benefits, when realizing the circuit with capacitors instead. But in specialized applications, namely when converting between electrical and mechanical signals, i.e.\ in motors, generators, loudspeakers etc.
-\end{description}
+\begin{itemize}
+  \item \emph{Wires} Depending on the mechanical requirements for the wire, it can either be designed with a solid core or a stranded wire core. A wire consisting of multiple smaller diameter conductors shows better flexibility but reduced current-carrying capacity at the same wire diameter. This is because of the smaller overall conductor cross-section of a stranded wire and, when transmitting high frequency signals, a greater power dissipation due to the more prevalent skin effect. Furthermore the simplicity of solid core wires makes them more resistant to corrosion and more suitable to be used in harsh environments.
+  \item \emph{Resistors} Depending on the application different types of resistors can be applied. Fixed value resistors, can be used for safety of other components by dissipating heat or reducing to set the current and voltage in combination relative to other devices. Variable resistors change their value due to different physical phenomena. Thermistors show resistances that are highly susceptible to temperature changes, potentiometers resistance is manually tunable and photoresistors show a light dependant resistance, to name a few.
+  \item \emph{Capacitors} store energy in form of an electric field. They have many applications, most prominently in filter circuits and as bypass capacitors to reduce smooth out non constant power draws.
+  \item \emph{Inductive Devices} Are devices that store energy in form of an electric field. In modern devices coils are less common due to benefits, when realizing the circuit with capacitors instead. But in specialized applications, namely when converting between electrical and mechanical signals, i.e.\ in motors, generators, loudspeakers etc.
+  \item \emph{Transformers} transfer electrical energy from circuit to circuit. Step-up transformers increase the voltage of high alternating current, where step-down decrease the voltages in exchange for higher currents.
+\end{itemize}
 % \subsubsection{Wires}
 
 % Wires connect several electronic components. Ideally no loss or noise is introduced in wires but inductances occur due to the conductor's shape and material properties as well as electric fields, that are either self induced or present due to ambient conditions.
@@ -359,17 +361,17 @@ Typical examples of passive components are:
 % Resistors are loads that reduce the current flow and set the voltage levels within a circuit. There are many different types of resistors.
 
 \subsection{Active Components}
-Active components show some form of amplification of the input signal in most cases; in other ones they generate vibrations, but generally an additional energy supply is needed to operate active components.
+Active components enable the control of high energy signals using small input signals. If the control happens to be continuous and proportional to the input signal, the component used is called linear amplifier. Because of their function, active components typically require additional power supply. Most components of this type include doped semiconductors, therefore conservatively passive semiconductor component are categorized in the group of active components as well. Finally, power sources that don not control signals based on small inputs but rather convert other forms of energies into electrical ones, are included in active components too.
 
-As an essential example, we consider the \acf{OPA}. The \ac{OPA} is a multi-stage, high gain and galvanically coupled differential amplifier. It is used to amplify an electrical signal, and its function is primarily determined by its surrounding circuit. Namely filters can be realized by using \ac{OPA}s.
+\begin{itemize}
+  \item \emph{Diodes} are non-linear components with an asymmetrical current-voltage curve. Because of this the diode is directional where, conventionally defined current is only allowed to flow from anode to cathode. Its analogous in a water circuit is a check valve.
+  \item \emph{Bipolar transistors} can be used as amplifier or trigger and are based on semiconductors that are doped with both carriers, i.e.\ electrons and holes. Depending on the surrounding one can amplify voltages, currents or powers with bipolar transistors, but the transistor itself is current controlled.
+  \item \emph{Field transistors} or uni polar transistor is doped using only one of the two types of carriers compared to the bipolar transistor. They are voltage controlled.
+  \item In an \emph{\acf{IC}} a complete circuitry is produced on a carrier material. Multiple consecutive steps of diffusion, oxidation and etching of a semiconductor result in a multi-layered structure. \ac{IC}s come in packages that are a fraction of the size a circuit of classical components would use. For the categoization of those packages one can look at \figref{fig:ic_flowchart}. The use of \ac{IC}s increases reliability and maintainablity and decreases costs, whenever it is possible to replace a conventional circuit.
+  \item The \emph{\acf{OPA}} is a multi-stage, high gain and galvanically coupled differential amplifier. Consisting of multiple transistors in an \ac{IC}, the properties of \ac{OPA}s surpass the ones of single transistors in many designs. Namely, higher gains are possible due to the reduction of the amplified noise.
+\end{itemize}
 
-\subsection{Applictions}
-Electrical signal conditioning is based on arrangements of active and passive components in circuits. A good and in depth coverage of active filters and measurement circuits can be found in~\cite{Tietze2008EC}. For many common applications a \acf{IC} exists. These circuits internal to chips that come in various package sizes, see \figref{fig:ic_flowchart}.
-
-
-\subsection{Analog to Digital Converters}
-
-\subsection{Transmission Protocols}
+\section{Transmission Protocols}
 
 Digital transmission protocols offer established standards for the communication between \ac{IC}s and devices that at least include a processing unit. There exists a plethora of protocols, that address the communication on a range of different levels of abstraction. Theoretically, these levels can be categorized according to the \acl{OPA} model (\acs{OPA} model), but it is obvious that most protocols address issues on multiple levels. Nevertheless, the model is useful when establishing a new network, since all steps, necessary for a successful communication, are best traced in order of the model. The \ac{OPA} model includes seven layers, as seen in \figref{fig:osi_model}.
 \begin{enumerate}
@@ -395,9 +397,35 @@ Rs intro \cite{marais2008rs}
   \label{fig:osi_model}}
 \end{figure}
 
+\subsection{Universal Asynchronous Receiver-Transmitter}
+The \ac{UART} protocol is a widely adopted, low-level interface that does not specify the data format or speed. The receiver and transmitter are connected by one wire, that transfers serial bits in form of two voltage-levels, high and low. Both devices must configured to the bit rate for successful signal transmissions. Where the bit rate defines the number of physically transferred bits per second:
+\begin{align}
+  R_b &= \frac{1}{T_b}
+\end{align}
+Which is correlated to the baud rate, which defines the transferred symbols in bauds per second (\si{\baud\per\second}):
+\begin{align}
+  f_{\text{sym}} &= \frac{R}{N}
+\end{align}
+where the information per pulse $N$ defines the number of bits per pulsed bit. Note that digital systems that use binary code $N=1$ and therefore $f_{\text{sym}}=R_b$.
+We often use a two wire setup of \ac{UART} to enable full-duplex transmission between two devices.
+
 \subsubsection{RS-458}
-\ac{RS}-485
-\subsubsection{Serial Peripheral Interface}
-\ac{SPI}
-\subsubsection{USB}
-\ac{USB}
+\acs{RS}-485, or EIA-485 is a standard that defines the driver characteristics of a differential serial communication system that has found a wide adoption in industrial control systems. It defines the characteristics of the transmitter and receiver on the physical layer only. Therefore, it does not specify the communication protocol and any serial transmission protocol may be transmitted via this connection. Because it is differential, it uses two channels, labeled A and B, to transmit one signal at a time. In a transmitter the input serial signal is converted two signals of reversed magnitudes. The receiver then reconstructs the original signal by using the difference between the two signals. This is much more reliable than single wire signal, since it can be assumed that all environmental disturbances act on both channels equally, introducing no change to the differential signal between the two. The additional connector C, specified defines the drivers ground.
+
+\subsection{Serial Peripheral Interface}
+The \ac{SPI} interface defines a serial connection between two or more devices that requires at least three wires. All transmissions are initiated by a master device, that sends registry addresses as requests. Slave devices, if active, send the data from the requested registry on to the \ac{MISO} wire. The \ac{SCLK} is carrying the master clock, defining the baud rate for all signal transmissions. The \ac{SS} pin activates the slave transmission. A slave can only send and receive if the \ac{SS} pin is activated, which usually means that it is low. This pin can be ignored if only one slave device is present. Because of the naming convention of the data wires, the pins with the same names are connected if one links the master with a slave device. That is \ac{MISO} to \ac{MISO} and \ac{MOSI} to \ac{MOSI}. When daisy chaining multiple slave devices one needs to link the wires with reverse naming, to ensure data transmission in series. In this mode all slave devices are active at the same time and each appends its registry data to the previous ones. The typical bus setups can be seen in \figref{fig:spi_bus}.
+
+\begin{figure}[!htb]
+  \centering
+  \subcaptionbox{Independent slave configuration\label{sfig:spi_bus_ind}}{%
+    \includestandalone[scale=0.72]{figures/data_transmission/spi_bus_ind/spi_bus_ind}}
+  \hfill
+  \subcaptionbox{Daiy chain configuration\label{sfig:spi_bus_daiy}}{%
+    \includestandalone[scale=0.72]{figures/data_transmission/spi_bus_daisy/spi_bus_daisy}}
+  \caption[SPI bus configurations]{\ac{SPI} bus configurations%
+    \label{fig:spi_bus}}
+\end{figure}
+%\subsubsection{Inter-Integrated Circuits Protocol}
+
+%\subsection{USB}
+%\ac{USB}

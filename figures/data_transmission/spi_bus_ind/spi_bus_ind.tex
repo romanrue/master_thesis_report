@@ -1,0 +1,186 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{shapes.geometric,
+    arrows, positioning, calc, chains, backgrounds}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+% \usepackage{pgffor}
+\usepackage{xparse}
+\usepackage{varwidth}
+\usetikzlibrary{trees}
+\usetikzlibrary{shadows, arrows.meta}
+\usetikzlibrary{fit, fadings, backgrounds}
+\usetikzlibrary{shapes.misc}
+\usepackage[edges]{forest}
+
+% encoding and fonts
+\usepackage[utf8]{inputenc} % input encoding
+\usepackage{times}          % general
+\usepackage{helvet}         % sans serif
+\usepackage[T1]{fontenc}    % font encoding
+
+\usepackage{array}
+\usepackage{booktabs}
+\newcommand{\imgpath}{img}
+
+% user defined colors (define in colors.csv, run gen_colors_tex.py to update changes)
+\input{../../presets/colors/colors}
+\tikzset{colorset/.code={\pgfplotscolormapdefinemappedcolor{#1}}}
+
+\newcommand{\nvarwidth}[2][3cm]{%
+	\begin{varwidth}{#1}
+		\centering
+		#2
+  \end{varwidth}
+}
+
+\NewDocumentCommand{\alabel}{O{3cm}+m}{%
+  \nvarwidth[#1]{#2}
+}
+
+\NewDocumentCommand{\imlabel}{O{scale=0.9}+m}{%
+  \includegraphics[#1]{#2}
+}
+
+\renewcommand{\arraystretch}{1.2}
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\makeatletter
+\newcommand*{\rectxy@anchor@top}[2]{%https://tex.stackexchange.com/questions/247821/define-a-new-rectangular-node-with-several-anchor-points-in-tikz
+  \anchor{t#1}{%
+    \pgf@process{\southwest}%
+    \pgf@xa=\pgf@x
+    \pgf@process{\northeast}%
+    \pgf@x=\dimexpr\pgf@xa + (\pgf@x-\pgf@xa)*#1/#2\relax
+  }%
+}
+\newcommand*{\rectxy@anchor@bottom}[2]{%
+  \anchor{b#1}{%
+    \pgf@process{\northeast}%
+    \pgf@xa=\pgf@x
+    \pgf@process{\southwest}%
+    \pgf@x=\dimexpr\pgf@x + (\pgf@xa-\pgf@x)*#1/#2\relax
+  }%
+}
+\newcommand*{\rectxy@anchor@left}[2]{%
+  \anchor{l#1}{%
+    \pgf@process{\northeast}%
+    \pgf@ya=\pgf@y
+    \pgf@process{\southwest}%
+    \pgf@y=\dimexpr\pgf@y + (\pgf@ya-\pgf@y)*#1/#2\relax
+  }%
+}
+\newcommand*{\rectxy@anchor@right}[2]{%
+  \anchor{r#1}{%
+    \pgf@process{\southwest}%
+    \pgf@ya=\pgf@y
+    \pgf@process{\northeast}%
+    \pgf@y=\dimexpr\pgf@ya + (\pgf@y-\pgf@ya)*#1/#2\relax
+  }%
+}
+\newcommand*{\declareshaperectxy}[2]{%
+  \pgfdeclareshape{rectangle #1x#2}{%
+    \inheritsavedanchors[from=rectangle]
+    \inheritanchorborder[from=rectangle]
+    \inheritanchor[from=rectangle]{north}
+    \inheritanchor[from=rectangle]{north west}
+    \inheritanchor[from=rectangle]{center}
+    \inheritanchor[from=rectangle]{west}
+    \inheritanchor[from=rectangle]{east}
+    \inheritanchor[from=rectangle]{mid}
+    \inheritanchor[from=rectangle]{mid west}
+    \inheritanchor[from=rectangle]{mid east}
+    \inheritanchor[from=rectangle]{base}
+    \inheritanchor[from=rectangle]{base west}
+    \inheritanchor[from=rectangle]{base east}
+    \inheritanchor[from=rectangle]{south}
+    \inheritanchor[from=rectangle]{south east}
+    \inheritbackgroundpath[from=rectangle]
+    \count@=\m@ne
+    \@whilenum\count@<#1 \do{%
+      \advance\count@\@ne
+      \expandafter\rectxy@anchor@top\expandafter{\the\count@}{#1}%
+      \expandafter\rectxy@anchor@bottom\expandafter{\the\count@}{#1}%
+    }%
+    \count@=\m@ne
+    \@whilenum\count@<#2 \do{%
+      \advance\count@\@ne
+      \expandafter\rectxy@anchor@left\expandafter{\the\count@}{#2}%
+      \expandafter\rectxy@anchor@right\expandafter{\the\count@}{#2}%
+    }%
+  }%
+}
+\makeatother
+
+\tikzset{inside/.code=\preto\tikz@auto@anchor{\pgf@x-\pgf@x\pgf@y-\pgf@y}}
+
+\declareshaperectxy{3}{7}
+\declareshaperectxy{3}{5}
+
+\def\mlabels{{"$\overline{\mathrm{SS2}}$", "$\overline{\mathrm{SS1}}$", "$\overline{\mathrm{SS0}}$", "$\mathrm{MISO}$", "$\mathrm{MOSI}$", "$\mathrm{SCLK}$"}}%
+\def\slabels{{"$\overline{\mathrm{SS}}$", "$\mathrm{MISO}$", "$\mathrm{MOSI}$", "$\mathrm{SCLK}$"}}%
+
+\begin{document}
+\begin{tikzpicture}[%
+    device/.style={%
+      draw,
+      rounded corners,
+      minimum width=3.333cm,
+    },
+    mdevice/.style={%
+      device,
+      rectangle 3x7,
+      minimum height=3.5cm
+    },
+    sdevice/.style={%
+      device,
+      rectangle 3x5,
+      minimum height=2.5cm
+    },
+    >={Latex[length=6pt]},
+    *-/.style={{Circle[length=4pt]}-,shorten <=-2pt},
+    *->/.style={{Circle[length=4pt]}->,shorten <=-2pt}
+  ]
+  \node[mdevice, fill=WesMixUL8qual0!80] (M) {};
+  \path[] (M.west) -- ++(1,0) node[align=center] {SPI\\Master};
+  \node[sdevice, fill=WesMixUL8qual1!80, right = 6.666cm of M.north, anchor=north] (S0) {};
+  \path[] (S0.east) -- ++(-1,0) node[align=center] {SPI\\Slave};
+  \node[sdevice, fill=WesMixUL8qual2!80, below = 0.5cm of S0] (S1) {};
+  \path[] (S1.east) -- ++(-1,0) node[align=center] {SPI\\Slave};
+  \node[sdevice, fill=WesMixUL8qual3!80, below = 0.5cm of S1] (S2) {};
+  \path[] (S2.east) -- ++(-1,0) node[align=center] {SPI\\Slave};
+  \foreach [count=\i from 0] \pos in {1,...,6} {%
+    \pgfmathparse{\mlabels[\i]}
+    \let\mlabel\pgfmathresult
+    \path[] (M.r\pos) -- ++(-.2,0) node[left] {\footnotesize\mlabel};
+  }
+  \foreach [count=\i from 0] \pos in {1,...,4} {%
+    \pgfmathparse{\slabels[\i]}
+    \let\slabel\pgfmathresult
+    \path[] (S0.l\pos) -- ++(.2,0) node[right] {\footnotesize\slabel};
+    \path[] (S1.l\pos) -- ++(.2,0) node[right] {\footnotesize\slabel};
+    \path[] (S2.l\pos) -- ++(.2,0) node[right] {\footnotesize\slabel};
+  }
+  \coordinate[right = 0.6cm of M.r7] (h0);
+  \foreach \i in {1, ..., 5} {%
+    \pgfmathsetmacro\ibefore{\i-1}
+    \coordinate[right = 0.5cm of h\ibefore] (h\i);
+  }
+  \draw[->] (M.r6) -- (S0.l4);
+  \draw[->] (M.r5) -- (S0.l3);
+  \draw[<-] (M.r4) -- (S0.l2);
+  \draw[->] (M.r3) -- (S0.l1);
+  \draw[->] (M.r2) -| (h1|-S1.l1) -- (S1.l1);
+  \draw[->] (M.r1) -| (h0|-S2.l1) -- (S2.l1);
+  \draw[*-]  (h2|-M.r4) |- (S2.l2);
+  \draw[*->] (h3|-M.r5) |- (S2.l3);
+  \draw[*->] (h4|-M.r6) |- (S2.l4);
+  \draw[*-]  (h2|-S1.r2) |- (S1.l2);
+  \draw[*->] (h3|-S1.r3) |- (S1.l3);
+  \draw[*->] (h4|-S1.r4) |- (S1.l4);
+\end{tikzpicture}
+
+\end{document} 

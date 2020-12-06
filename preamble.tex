@@ -62,10 +62,16 @@
 \newcommand{\PDerT}[2]{\frac{\partial^2 #1}{\partial {#2}^2}}
 \newcommand{\PDerM}[3]{\frac{\partial^2 #1}{\partial #2 \, \partial #3}}
 
+% requires asmath
 \DeclareMathOperator\arcsinh{arcsinh}
 \DeclareMathOperator\arccosh{arccosh}
 \DeclareMathOperator\arctanh{arctanh}
-% mass density symbol
+
+%requires siunitx
+\DeclareSIUnit\baud{Bd}
+
+
+\newcommand{\estimates}{\mathrel{\widehat{=}}}% mass density symbol
 \newcommand{\Den}{\delta}
 
 % environments

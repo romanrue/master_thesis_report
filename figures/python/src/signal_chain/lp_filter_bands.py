@@ -306,7 +306,7 @@ ytlabel_loc = np.delete(ytlabel_loc, np.s_[2:-1:2])
 gamma = find_nearest(single_dict['bessel']['m'], ytlabel_loc[1])
 ytlabel_loc[1] = gamma[1]
 ytlabels= [r'{:g}'.format(num) for num in list(ytlabel_loc)]
-ytlabels[1] = r'$\zeta$'
+ytlabels[1] = r'$A_{SB}$'
 
 fig_bp1 = plt.figure()
 ax = axis_setup(fig_bp1, *log_ticks_loc(single_limits[0]))
@@ -340,8 +340,8 @@ ytlabel_loc = np.delete(ytlabel_loc, np.s_[2:-1:2])
 gamma = find_nearest(single_dict['cheby2']['m'], ytlabel_loc[1])
 ytlabel_loc[1] = gamma[1]
 ytlabels= [r'{:g}'.format(num) for num in list(ytlabel_loc)]
-ytlabels[1] = r'$\zeta$'
-ytlabels[-1] = r'$-\delta$'
+ytlabels[1] = r'$A_{SB}$'
+ytlabels[-1] = r'$A_{\min}$'
 
 fig_bp2 = plt.figure()
 ax = axis_setup(fig_bp2, *log_ticks_loc(single_limits[0]))

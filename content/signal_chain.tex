@@ -1,11 +1,10 @@
 \chapter{Signal Chain%
   \label{chap:\currfilebase}}
 
-Some sensors operate at small energies. The signals are to weak to be converted into digital ones by standard components. \emph{Signal conditioning} enables us to amplify and denoise analog signals so that the signal can be further processed. In our application, both the load cell's and accelerometer's senors signal must be amplified to match the input range of the respective \ac{ADC}. In this section we put together all conditioning steps necessary from sensor to the digital signal under the term signal chain. Because the selected accelerometers come in an \ac{IC} packages that include the complete signal chain, we focus on the signal chain of the load cell. For more background on signal conditioning and processing, read \secref{signal_conditioning_processing}.
-
-\section{Excitation}
+Some sensors operate at small energies. The signals are to weak to be converted into digital ones by standard components. \emph{Signal conditioning} enables us to amplify and denoise analog signals so that the signal can be further processed. In our application, both the load cell's and accelerometer's senors signal must be amplified to match the input range of their respective \ac{ADC}. In this section we put together all conditioning steps necessary from sensor to the digital signal under the term signal chain. Because the selected accelerometers come in \ac{IC} packages that include the complete signal chain, we focus on the signal chain of the load cell. For a quick introduction to signal conditioning and processing, read \secref{signal_conditioning_processing}.
 
 \section{Amplification}
+
 Electrical signals are amplified by active electrical components; i.e.\ typically by \ac{OPA}s or circuits of \ac{OPA}s.
 
 \subsection{Operational Amplifier}
@@ -16,7 +15,7 @@ In simple amplifiers, the \ac{SNR} purely depends on the quality of the componen
 
 \begin{figure}[htb!]
   \centering
-  \includegraphics[scale=1]{figures/electronics/op_amp/op_amp_types/op_amp_types}
+  \includegraphics[scale=0.95]{figures/electronics/op_amp/op_amp_types/op_amp_types}
   \caption[Main OPA types]{Main operational amplifier types%
   \label{fig:op_amp_types}}
 \end{figure}
@@ -31,7 +30,7 @@ The transfer characteristics of an ideal \ac{OPA}s can be seen in \figref{fig:op
   g_{m,D} &= \eval{\dv{I_o}{V_D}}_{b}
 \end{align}
 
-Although the major part of electronics is based on voltage controlled circuits, the amplifiers with low-resistance inputs are better suited for high frequency applications. The main advantages of the latter are the lower oscillation tendency due to shortened internal signal paths and larger range of possible gains compared to high-resistance input \ac{OPA}s. When designing circuits with current amplifiers it is often easier to use the current transfer factor $k_I$ than the differential transconductance.
+Although the major part of electronics is based on voltage controlled circuits, \ac{OPA} designs, different from the standard \ac{OPA} are preferable in some applications. Amplifiers with low-resistance inputs are better suited for high frequency applications. The main advantages of the latter are the lower oscillation tendency due to shortened internal signal paths and larger range of possible gains compared to high-resistance input \ac{OPA}s. When designing circuits with current amplifiers it is often easier to use the current transfer factor $k_I$ than the differential transconductance.
 \begin{align}
   k_I &= \eval{\dv{I_o}{I_N}}_{b}
 \end{align}
@@ -57,8 +56,6 @@ Although the major part of electronics is based on voltage controlled circuits, 
 
 Because of their differential circuit, \ac{OPA}s normally are powered by symmetric operating voltages. Rail-to-rail \ac{OPA}s have the capability to control the output between the positive and negative supply voltage, allowing maximal amplification, see \figref{fig:plot_opamp_railrail}.
 When working with digital circuits, a single voltage supply is preferred. For this case one uses single supply voltage \ac{OPA}s.
-
-
 
 \begin{figure}[htb!]
   \centering
@@ -201,7 +198,7 @@ where $a_i$ and $b_i$ are real and positive coefficients and $b_1=0$ for odd ord
 
 The frequency response can be optimized to different theoretical aspects by setting the coefficients $a_i$ and $b_i$. As a consequence of these optimizations, complex poles arise, that cannot be realized by blocks of passive $RC$ filters. It is possible to meet the optimized conditions by using $LRC$ filters with the simplest example shown in \figref{fig:lp_passive_2ord}, where
 \begin{align}
-  H(s) &= \frac{1/(LC)}{s^2+\frac{R}{L}s+\frac{1}{LC}} &&\text{and} &f_c &= \frac{1}{2\pi\sqrt{LC}}
+  &&H(s) &= \frac{1/(LC)}{s^2+\frac{R}{L}s+\frac{1}{LC}} &&\text{and} &f_c &= \frac{1}{2\pi\sqrt{LC}}&&
 \end{align}
 This design does not pose any difficulties when opting for high cutoff frequencies. But it is apparent, that one requires the use of large capacitances as well as large inductances for low cutoff frequencies. And because large inductances are unwieldy and have poor electrical properties, an active filter design is better suited for low cutoff frequencies. With these designs the use of inductances are avoided by the addition of active elements, namely \ac{OPA}s, to the $RC$ network.
 
@@ -212,7 +209,7 @@ This design does not pose any difficulties when opting for high cutoff frequenci
     \label{fig:lp_passive_2ord}}
 \end{figure}
 
-\subsection{Optimization of Lowpass Filters}
+\subsection{Optimizations of Lowpass Filters}
 We take the \emph{standard form} of the second-order \ac{LPF} into consideration, where:
 \begin{align}
   H(s_n) &= \frac{H_0}{1+a_1s_n+b_1s_n^2} = \frac{k}{\displaystyle 1+\frac{s_n}{Q}+s_n^2} = \frac{k}{1+2\zeta s_n+s_n^2} \\
@@ -238,7 +235,7 @@ Many filter designs expose this configurability of a second order systems. Becau
   \item The \emph{Bessel} filter is optimized to have the most stable phase response, which is critical for fast signal level changes. The caveat comes in form of the poorest roll-off of all filters, when compared at same order.
 \end{itemize}
 
-Here the bandpass refer to the until gain section in the filter up until the cutoff frequency and the stopband is defined depending on application. If one expects high noise densities directly above the cutoff frequency, the stop band needs to be defined at a low gain and the roll-off of the filter must designs to be steep, whereas if some application only allows small phase shifts, the latter cannot be achieved by a high order filter. The definition of the cutoff frequency is more consistent. For most filters the cut-off frequency is reached, when the gain reaches \SI{-3}{\decibel}, i.e\ approximately when when the filter halves squared gain, that is proportional to the power transmission. An exception is the Chebyshev here it is common to define the cutoff the point where the filter roll-off reaches minus the maximally allowed ripple gain in decibel, see \figref{fig:lp_lowpass_pass_stopband}.
+The influence of the order on the filter gain can be seen in \figref{fig:lp_filter_mag}. Above, the passband refers to frequency contributions below the cutoff frequency and the stopband is defined depending on the application. If one expects high noise densities directly above the cutoff frequency, the stop band needs to be defined at a low gain and the roll-off of the filter must be designed to be steep, whereas if some application only allows small phase shifts, the latter cannot be achieved by a high order filter. The definition of the cutoff frequency is more consistent. For most filters the cut-off frequency is reached, when the gain falls short by \SI{3}{\decibel}, i.e\ when when the filter halves the squared gain, which in turn is proportional to the power transmission. An exception is the Chebyshev filter. Here it is common to define the cutoff the point where the filter roll-off reaches minus the maximally allowed ripple gain in decibel, see \figref{fig:lp_lowpass_pass_stopband}.
 Note that given the three optima, any hybrid filter design between the Chebyshev and the Butterworth as well as between the Butterworth and Bessel is possible too.
 
 \begin{figure}[!htb]
@@ -246,13 +243,13 @@ Note that given the three optima, any hybrid filter design between the Chebyshev
   \subcaptionbox{Standard normalization, cutoff frequency at \SI{-3}{\decibel}\label{sfig:lp_filter_2ord_bessel_bp}}[0.45\textwidth]{%
     \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_2ord_bessel_bp}}
   \hfill
-  \subcaptionbox{Chebyshev normalization, cutoff frequency at negative the allowed ripple $\delta$\label{sfig:lp_filter_2ord_cheby_bp}}[0.45\textwidth]{%
+  \subcaptionbox{Chebyshev normalization, cutoff frequency at negative the allowed ripple $A_{\max}/A_{\min}$\label{sfig:lp_filter_2ord_cheby_bp}}[0.45\textwidth]{%
     \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_2ord_cheby_bp}}
   \caption[\ac{LPF} Pass- and Stopband]{\ac{LPF} Pass- and Stopband, where the passband is defined by $\omega_n<1$ and the stopband is chosen depending on the application (usually starting at \SIrange{-20}{-160}{\decibel})%
     \label{fig:lp_lowpass_pass_stopband}}
 \end{figure}
 
-Until now we described all-pole \ac{LPF}s, i.e.\ no nodes are present in the filter system, as can be seen in the \ac{TF} of \eqref{eqn:lpf_nthord_tf_poles}. With filter designs that include nodes, one can realize sharper cutoffs without increasing the phase shift. Generally more complex filter curves are possible at the cost of more unstable behavior and more complex filter design. Due to these disadvantages their behavior is not as reliable as the filters listed before. Therefore they were not considered during this thesis. For more background on these filters, also called \emph{elliptic-function} filters, we advice to take look at the textbook \cite{williams2014analog} for more background.
+When comparing the step and impulse responses in \figref{fig:lp_filter_4ord_step} and \figref{fig:lp_filter_4ord_imp}, it becomes apparent that one must trade better frequency-cutoff with worse signal response in the time domain. This is because the change in phase over the frequency, i.e.\ the group delay, is almost constant in the Bessel filter, whereas the Chebyshev optimization, tuned to maximum gain roll-off speed, induces fast changes in the phase. This causes the undesired swinging in the time signals. This The phase responses can be compared in \figref{fig:lp_filter_pha}. A more in depth look at the group delay is given in the following description of the Bessel filter.
 
 \begin{figure}[!htb]
   \centering
@@ -261,6 +258,8 @@ Until now we described all-pole \ac{LPF}s, i.e.\ no nodes are present in the fil
     \label{fig:lp_filter_4ord_step}}
 \end{figure}
 
+Until now we described all-pole \ac{LPF}s, i.e.\ no nodes are present in the filter system, as can be seen in the \ac{TF} \eqref{eqn:lpf_nthord_tf_poles}. With filter designs that include nodes, one can realize sharper cutoffs without increasing the phase shift. Generally more complex filter curves are possible at the cost of more unstable behavior and more complex filter design. Due to these disadvantages their behavior is not as reliable as the filters listed before. Therefore they were not considered during this thesis. For more background on these filters, also called \emph{elliptic-function} filters, we advice to take look at the textbook \cite{williams2014analog}.
+
 \begin{figure}[!htb]
   \centering
   \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_4ord_imp}
@@ -268,31 +267,11 @@ Until now we described all-pole \ac{LPF}s, i.e.\ no nodes are present in the fil
     \label{fig:lp_filter_4ord_imp}}
 \end{figure}
 
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_mag}
-  \caption[Influence of \ac{LPF} order $N$ on the amplitude of the frequency response]{Influence of \ac{LPF} order $N$ on the amplitude of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
-    \label{fig:lp_filter_mag}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_pha}
-  \caption[Influence of the \ac{LPF} order $N$ on the  phase of the frequency response]{Influence of the \ac{LPF} order $N$ on the  phase of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
-    \label{fig:lp_filter_pha}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_grd}
-  \caption[Influence of the \ac{LPF} order $N$ on the group delay of the frequency response]{Influence of the \ac{LPF} order $N$ on the group delay of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
-  \label{fig:lp_filter_grd}}
-\end{figure}
 
 \subsubsection{Active Filter Designes}
 \begin{figure}[!htb]
   \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_1ord_imp_conv/lp_active_1ord_imp_conv}
+  \includegraphics[scale=0.9]{figures/electronics/lowpass/lp_active_1ord_imp_conv/lp_active_1ord_imp_conv}
   \caption[Active first-order \ac{LPF} with impetance converter]{Active first-order \ac{LPF} with impetance converter%
     \label{fig:lp_active_1ord_imp_conv}}
 \end{figure}
@@ -304,34 +283,61 @@ Until now we described all-pole \ac{LPF}s, i.e.\ no nodes are present in the fil
     \label{fig:lp_active_1ord_inv_amp}}
 \end{figure}
 
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_2ord_neg/lp_active_2ord_neg}
-  \caption[Active second-order \ac{LPF} with multiple negative feedback]{Active second-order \ac{LPF} with multiple negative feedback%
-    \label{fig:lp_active_2ord_neg}}
-\end{figure}
+%\begin{figure}[!htb]
+%  \centering
+%  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_2ord_neg/lp_active_2ord_neg}
+%  \caption[Active second-order \ac{LPF} with multiple negative feedback]{Active second-order \ac{LPF} with multiple negative feedback%
+%    \label{fig:lp_active_2ord_neg}}
+%\end{figure}
+%
+%\begin{figure}[!htb]
+%  \centering
+%  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_2ord_pos/lp_active_2ord_pos}
+%  \caption[Active second-order \ac{LPF} with single positive feedback]{Active second-order \ac{LPF} with single positive feedback%
+%    \label{fig:lp_active_2ord_pos}}
+%\end{figure}
+%
+%\begin{figure}[!htb]
+%  \centering
+%  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_3ord_bessel/lp_active_3ord_bessel}
+%  \caption[Active third-order \ac{LPF}]{Active third-order \ac{LPF}%
+%    \label{fig:lp_active_3ord_bessel}}
+%\end{figure}
+%
+%\begin{figure}[!htb]
+%  \centering
+%  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_3ord_bessel_simple/lp_active_3ord_bessel_simple}
+%  \caption[Simplified active third-order \ac{LPF}]{Simplified active third-order \ac{LPF}%
+%    \label{fig:lp_active_3ord_bessel_simple}}
+%\end{figure}
+
+\subsubsection{Butterworth Lowpass Filter}
+From the general solution in \autoref{eqn:lpf_nthord_tf_general} the squared absolute gain in \ac{LPF}s takes the form
+\begin{align}
+  \abs{\vect{H}(\omega_n)}^2 &= H_0^2 \pqty{1 + \sum\limits_{i=1}^N k_{2i}\omega_n^{2i}}^{-1}
+\end{align}
+where odd powers of $\omega_n$ do not occur, since $\abs{\vect{H}}^2$ must be an even function. In Butterworth \ac{LPF}s the function $\abs{\vect{H}}^2$ must be maximally flat at $\omega_n < 1$, i.e.\ for frequencies below the cutoff frequency. This condition is best met if we only keep the highest order term, since lower order terms contribute the most to the denominator at low frequencies, decreasing the gain. Hence, for Butterworth \ac{LPF}s
+\begin{align}
+  \abs{\vect{H}(\omega_n)}^2 &= \frac{H_0^2}{1+k_{2N}\omega_n^{2N}} \label{eqn:butterwoth_gain_squared}
+\end{align}
+where $k_{2N}=1$ due to the normalizing condition, which states that the square of the gain is reduced by \SI{3}{\decibel} at $\omega_n=1$, i.e. $\abs{\vect{H}(\omega_n=1)}^2 = \abs{\vect{H}(\omega_n=0)}^2/2$.
+
+When implementing a Butterworth \ac{LPF}, one needs to consider the complex gain $\vect{H}$ involved in \autoref{eqn:butterwoth_gain_squared}. It can be determined by solving for coefficients $c_i$ in \autoref{eqn:lpf_nthord_tf_general}, given the squared gain of \autoref{eqn:butterwoth_gain_squared}. It is then possible to solve the transfer function analytically by combining complex conjugate poles. In the solution, we obtain the coefficients $a_i$ and $b_i$ of the quadratic expression in \autoref{eqn:lpf_nthord_tf_poles}
+\begin{align}
+  \intertext{even order $N$:}
+  a_i &= 2\cos\frac{(2i-1)\pi}{2N} &\text{for}\: &i = 1,2,\dots.\frac{N}{2}\\
+  b_i &= 1
+  \intertext{odd order $N$:}
+  a_2 &= 1,\qquad a_i =2\cos\frac{(i-1)\pi}{N} &\text{for}\: & i=2,3,\dots,\frac{N+1}{2}\\
+  b_1 &= 0,\qquad b_i =1
+\end{align}
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_2ord_pos/lp_active_2ord_pos}
-  \caption[Active second-order \ac{LPF} with single positive feedback]{Active second-order \ac{LPF} with single positive feedback%
-    \label{fig:lp_active_2ord_pos}}
+  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_mag}
+  \caption[Influence of \ac{LPF} order $N$ on the amplitude of the frequency response]{Influence of \ac{LPF} order $N$ on the amplitude of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
+    \label{fig:lp_filter_mag}}
 \end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_3ord_bessel/lp_active_3ord_bessel}
-  \caption[Active third-order \ac{LPF}]{Active third-order \ac{LPF}%
-    \label{fig:lp_active_3ord_bessel}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_3ord_bessel_simple/lp_active_3ord_bessel_simple}
-  \caption[Simplified active third-order \ac{LPF}]{Simplified active third-order \ac{LPF}%
-    \label{fig:lp_active_3ord_bessel_simple}}
-\end{figure}
-
 \subsubsection{Chebyshev Lowpass Filter}
 In the passband the Chebyshev \ac{LPF} is allowed to have a predetermined ripple. The characteristic of Chebyshev polynomials is, that the ripple ripples are constant, i.e.\ their local extrema in the gain plot can be connected by two horizontal lines that are displaced by the predetermined ripple.
 \begin{align}
@@ -346,7 +352,7 @@ To get the \ac{LPF} frome these Chebyshev polynomials, we define
 \begin{align}
   \abs{\vect{A}}^2 &= \frac{kA_0^2}{1+\varepsilon^2T_N^2(x)}
 \end{align}
-where $A_0$ is the so called DC- or zero-gain and the constant $k$ is chosen such that, for $x=0$, the square of the gain $\abs{\vec{A}}^2$ becomes $A_0^2$. If $N$ is even, that is $k=1$ and if $N$ is odd, we set $k=1+\varepsilon^2$. The latter is a measure of the ripple and is given by
+where $A_0$ is the so called DC- or zero-gain and the constant $k$ is chosen such that, for $x=0$, the square of the gain $\abs{\vec{A}}^2$ becomes $A_0^2$. If $N$ is even, this means $k=1$ and if $N$ is odd, we set $k=1+\varepsilon^2$; where the latter is a measure of the ripple and is given by
 \begin{align}
   &\frac{A_{\max}}{A_{\min}} = \sqrt{1+\varepsilon^2}\\
   \intertext{and}
@@ -386,61 +392,88 @@ Once $\abs{\vect{A}}^2$ is determined, the complex gains can be calculated. Howe
 
 The obtained coefficients $a_i'$ and $b_i'$ define a Chebyshev filter at the cutoff frequency $\omega_x$, which the gain assumes the value $A_{\min}$ for the last time. For easy comparison with other filter types we want to evaluate the filter at a cutoff frequency where the gain is \SI{-3}{\decibel}. For this we multiply the normalized frequency $s_n$ with a real constant $\alpha$, changing the quadratic expressions in the denominator of \eqref{eqn:lpf_nthord_tf_poles} to
 \begin{align}
-  (1 + a_i'\alpha s_n + b_i'\alpha^2s_^2)
+  (1 + a_i'\alpha s_n + b_i'\alpha^2s_n^2)
 \end{align}
-Next, we evaluate $\alpha$, so that the gain value is $1/\sqrt{2}\hateq\SI{-3}{\decibel}$ at the normalized frequency $s_n=\ju$. The coefficients for the filter with cutoff frequency pass through at \SI{-3}{\decibel} can then be determined by multiplication with the constant.
-\begin{align*}
-  a_i &= \alpha a_i' &\text{and}& &b_i &= \alpha^2b_i'
-\end{align*}
-
-In
-
-
-
-
-
-
-\subsubsection{Butterworth Lowpass Filter}
-From the general solution in \autoref{eqn:lpf_nthord_tf_general} the squared absolute gain in \ac{LPF}s takes the form
+Next, we evaluate $\alpha$, so that the gain value is $1/\sqrt{2}\estimates\SI{-3}{\decibel}$ at the normalized frequency $s_n=\ju$. The coefficients for the filter with cutoff frequency pass through at \SI{-3}{\decibel} can then be determined by multiplication with the constant.
 \begin{align}
-  \abs{\vect{H}(\omega_n)}^2 &= H_0^2 \pqty{1 + \sum\limits_{i=1}^N k_{2i}\omega_n^{2i}}^{-1}
+  &&a_i &= \alpha a_i' &\text{and}& &b_i &= \alpha^2b_i'&& \label{eqn:broken_denominator}
 \end{align}
-where odd powers of $\omega_n$ do not occur, since $\abs{\vect{H}}^2$ must be an even function. In Butterworth \ac{LPF}s the function $\abs{\vect{H}}^2$ must be maximally flat at $\omega_n < 1$, i.e.\ for frequencies below the cutoff frequency. This condition is best met if we only keep the highest order term, since lower order terms contribute the most to the denominator at low frequencies, decreasing the gain. Hence, for Butterworth \ac{LPF}s
-\begin{align}
-  \abs{\vect{H}(\omega_n)}^2 &= \frac{H_0^2}{1+k_{2N}\omega_n^{2N}} \label{eqn:butterwoth_gain_squared}
-\end{align}
-where $k_{2N}=1$ due to the normalizing condition, which states that the square of the gain is reduced by \SI{3}{\decibel} at $\omega_n=1$, i.e. $\abs{\vect{H}(\omega_n=1)}^2 \approx \abs{\vect{H}(\omega_n=0)}^2/2$.
 
-When implementing a Butterworth \ac{LPF}, one needs to consider the complex gain $\vect{H}$ involved in \autoref{eqn:butterwoth_gain_squared}. It can be determined by solving for coefficients $c_i$ in \autoref{eqn:lpf_nthord_tf_general}, given the squared gain of \autoref{eqn:butterwoth_gain_squared}. It is then possible to solve the transfer function analytically by combining complex conjugate poles. In the solution, we obtain the coefficients $a_i$ and $b_i$ of the quadratic expression in \autoref{eqn:lpf_nthord_tf_poles}
-\begin{align}
-  \intertext{even order $N$:}
-  a_i &= 2\cos\frac{(2i-1)\pi}{2N} &\text{for}\: &i = 1,2,\dots.\frac{N}{2}\\
-  b_i &= 1
-  \intertext{odd order $N$:}
-  a_2 &= 1,\qquad a_i =2\cos\frac{(i-1)\pi}{N} &\text{for}\: & i=2,3,\dots,\frac{N+1}{2}\\
-  b_1 &= 0,\qquad b_i =1
-\end{align}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_pha}
+  \caption[Influence of the \ac{LPF} order $N$ on the  phase of the frequency response]{Influence of the \ac{LPF} order $N$ on the  phase of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
+    \label{fig:lp_filter_pha}}
+\end{figure}
 
 \subsubsection{Bessel Lowpass Filter}
+In the step and impulse response, \figref{fig:lp_filter_4ord_step}~and~\ref{fig:lp_filter_4ord_imp}, the Butterworth and Chebyshev filters show considerable overshoot. With the Bessel or also called Thomson filter we aim to mitigate this effect in order to create smooth response curves. It can be shown, that best square-wave responses are obtained when the \emph{group delay} of the filter is constant with respect to the frequency. The condition for the lowpass Bessel filter therefore sets the group delay in the passband maximally flat. The group delay $t_{gr}$ is defined as the negative of the change in phase shift due to frequency change.
+\begin{align}
+  t_{gr} &= -\dv{\varphi}{\omega}
+\end{align}
+Often we use the normalized group delay for calculations
+\begin{align}
+  T_{gr} &= t_{gr}\omega_c = 2\pi t_{gr}f_c = 2\pi\frac{t_{gr}}{T_c}
+\end{align}
+And given that the reciprocal of the cutoff frequency is by definition $T_c=2\pi/\omega_c$
+\begin{align}
+  T_{gr} &= -\omega_c\dv{\varphi}{\omega} = -\dv{\varphi}{\omega_n}
+\end{align}
 
+As an example, we consider the gain of a second-order \ac{LPF} given by \eqref{eqn:lpf_nthord_tf_poles} and assume sinusoidal signals, i.e.\ $s=\ju\omega$. The phase shift of this system is
+\begin{align}
+  \varphi &= -\arctan\frac{a_1\omega_n}{1-b_1\omega_n^2}
+\end{align}
 
+Thus by calculating the negative of the derivative with respect to the normalized frequency, we get the normalized group delay
+\begin{align}
+  T_{gr} &= \frac{a_1(1+b_1\omega_n^2)}{1+(a_1^2-2b_1)\omega_n^2+b_1^2\omega_n^4}
+\end{align}
+For small frequencies, where $\omega_n\ll 1$, we can neglect the fourth order terms and this simplifies to
+\begin{align}
+  T_{gr} &= a_1\frac{1+b_1\omega_n^2}{1+(a_1^2-2b_1)\omega_n^2}
+\end{align}
+Now $T_{gr}=f(\omega_n^2)$ and we can find the coefficient configurations where it becomes independent of $\omega_n^2$, that is
+\begin{align}
+  &&b_1 &= a_1^2-2b_1 &\text{or}& &b_1 &= \frac{1}{3}a_1^2&&
+\end{align}
+A second equation to determine the coefficients is given, when we set the gain at the cutoff frequency to \SI{-3}{\decibel}, i.e.\ $\abs{A}^2=1/2$ at $\omega_n=1$.
+\begin{align}
+  \frac{1}{2} &= \frac{1}{(1-b_1)^2+a_1^2}
+\end{align}
 
+The calculations of higher order filters become more involved, since a system of nonlinear equations arises. But using a different approach one can find a recursion formula for the coefficients in \eqref{eqn:lpf_nthord_tf_general}.
+\begin{align}
+  &&c_1' &= 1 &\text{and}&  &c_i' &= \frac{2(N-i+1)}{i(2N-i+1)}c_{i-1}'\quad\text{for}\;i=2\dots N&&
+\end{align}
 
+But note, that this approach gives the coefficient for \SI{3}{\decibel} frequency cutoffs at $omega_n=0$. To find the coefficients at for a usable cutoff frequency, we apply the same approach as we did with the Chebyshev coefficients. For that we rewrite the equation in form of \eqref{eqn:lpf_nthord_tf_poles} to get the second-order filter coefficients $a_i'$ and $b_i'$, apply the transformation $s_n=\alpha\ju\omega_n$ and solve for $\alpha$. The coefficients $a_i$ and $b_i$ can then be calculated with \eqref{eqn:broken_denominator}.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_grd}
+  \caption[Influence of the \ac{LPF} order $N$ on the group delay of the frequency response]{Influence of the \ac{LPF} order $N$ on the group delay of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
+  \label{fig:lp_filter_grd}}
+\end{figure}
 
 
 \subsection{Anti Aliasing Filter}
-The \acf{AAF} is used ahead of \ac{ADC}s to reduce the signal bandwidth. More precisely, it aims to reduce the aliasing effect, i.e.\ the artificial distortion of signals, that occurs when sampling at a finite frequency.
+The \acf{AAF} is used ahead of \ac{ADC}s to reduce the signal bandwidth. More precisely, it aims to reduce the aliasing effect, i.e.\ the artificial distortion of signals, that occurs when sampling at a finite frequency. The effect that aliasing can have on a signal is visualized in \figref{fig:plot_aliasing}. Here two analog sinusoidal signals are sampled at the same sampling frequency $f_s$. The digitized signal will always be a approximation of the analog one, but it is clear that the signal with $f<f_{\max}$ has a better approximation in its digital form, and most importantly, it is an approximation of same frequency in contrast to the signal with $f>f_{\max}$.
 
 \begin{figure}[!htb]
   \centering
   \includegraphics[scale=0.72]{figures/electronics/aaf/plot_aliasing}
-  \caption[Aliasing]{Aliasing effect%
+  \caption[Aliasing]{Aliasing effect --- Note, that two analog sinusoidal signals of different frequencies are shown and sampled at the same frequency $f_s$. Interpolating the discrete points gives the respective digital signals, where the signal with frequency $f<f_{\max}$ gives a good approximation of its analog form and the signal with frequency $f>f_f{\max}$ connects to a lower frequency signal in its digital form.%
     \label{fig:plot_aliasing}}
 \end{figure}
 
+More specifically, when we take the \acf{FT} of the signal with $f>f_{\max}$ we see a peak of the absolute amplitude at a new frequency $f_d\leq f_s<f$. Similarly, when using input signals with multiple frequency components, the signal gain distorted by components in from the domain $f>f_{\max}$. This distortion is the result of overlapping signal components, which makes them indistinguishable. This is called aliasing.
+
+For signals that are bandwidth limited, i.e\ their \ac{FT} is zero outside a finite region, the \emph{Nyquist-Shannon} sampling theorem finds that if those signals are sampled at $f_s=2f_{\max}$, where $f_{\max}$ is the highest frequency component, it is completely determined. Therefore, we want to cut off all frequency components above $f_s/2$ before digitizing any signal.
+
 \section{Analog to Digital Conversion}
 
-Additionally to other noise sources in the signal chain the \ac{ADC} shows internal noise that can categorized into two uncorrelated main sources. The quantization noise and the thermal noise. The total internal noise can thus be expressed as the Euclidean norm of these two sources.
+Additionally to other noise sources in the signal chain the \ac{ADC} shows internal noise that can be categorized into two uncorrelated main sources. The quantization noise and the thermal noise. The total internal noise can thus be expressed as the Euclidean norm of these two sources.
 
 \begin{align}
   n_\text{ADC} &= \sqrt{n_{\text{ADC},\text{Thermal}}^2 + n_{\text{ADC},\text{Quantization}}^2}
@@ -452,10 +485,10 @@ Quantization noise is present due to the process of mapping an infinite number o
   s_\text{LBS} &= \frac{V_{FSR}}{2^m}
 \end{align}
 where
-\begin{description}[topsep=0ex, noitemsep]
+\begin{itemize}
   \item $V_{\text{FSR}}$ is the full-scale range of the analog input value and
   \item $m$ is the resolution in number of bits
-\end{description}
+\end{itemize}
 
 \begin{figure}[!htb]
   \centering

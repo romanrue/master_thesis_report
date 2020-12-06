@@ -1,7 +1,6 @@
 \chapter{Data Acquisition and Software%
   \label{chap:\currfilebase}}
 
-
 \section{Data acquistion}
 
 The \ac{DAC} system developed in this thesis is an open source Arduino based system consisting of multiple microcontrollers. All signal channels are transmitted to a central microcontroller before passing to a computer that serves as visualization and analysis tool.
@@ -152,7 +151,6 @@ All measurements consist of a \SI{32}{bit}-timestamp and the measured values and
 
 Clock synchronizations are executed in form digital data exchange, by synchronizing the timestamps before a complete measurement. The sensor measurements themselves are conducted as soon as ready to benefit of the sensors maximum measurement frequency. With this method, no data bandwidth is used between measurement cycles for clock synchronization, but it comes with three caveats. Firstly, every \ac{MCU} runs on its own clock cycle. Measurements are conducted whenever the individual time interval after the clock is exceeded. These time intervals are matched by sharing the master timestamp with the ones of the slave programmically. The slave timestamps are then tuned to same value during a setup process. But after the synchronization the Gausssian distributed deviations to the intervals accumulate, ultimately yielding unknown time-shifts to the signals.
 
-
 Measurements are packaged due to the time the master requires to change the communication to another slave. During these switches no data is transmitted eventually limiting the data rate of the system.
 
 \begin{figure}[!htb]
@@ -169,19 +167,34 @@ The software developed during this project is split into the Arduino software ru
 For the instrument to work, some functions are required, while other desired functions are tools that simplify the workflow during measurements and facilitate bug fixes in the software.
 
 The requirements to the software tools are:
-\begin{enumerate}[label=\emph{m\arabic*}, itemindent=3em, labelsep=2em]
+\begin{enumerate}
   \item Read out accelerometer and \ac{LC} data at the maximum sample speed of the accelerometer \ac{IC}.\label{req:read_out}
   \item Synchronize measurements timestamps.\label{req:sync}
   \item Initialize measurement by hammer impulse.\label{req:init}
 \end{enumerate}
 
 The desired software tools are:
-\begin{enumerate}[label=\emph{w\arabic*}, itemindent=3em, labelsep=2em]
+\begin{enumerate}[resume]
   \item Generate continuous real time output of measurement data.\label{des:cont_out}
   \item Track data transfer via \ac{USB}.\label{des:dat_track}
 \end{enumerate}
 
-% \subsubsection*{\ref{req:read_out}:}
-% The target is to read out data from two or more accelerometer \acs{IC}s and the data from the \ac{LC} in form of the data flow as in \figref{fig:data_flow}.
+\subsection{Implementation}
 
-% values in a \ac{DAC} system with multiple
+For data communication, all data software used in this project use a standardized input and output of the package format described in \tabref{tab:mcu_com_protocol}; where the addresses are used as identifiers.
+
+\subsubsection{Common Addresses}
+Addresses are identified by a parser that identifies the instruction contained in the address. Every device is assigned to handle predefined addresses accordingly. That is, it processes the instruction or it transmits the data package to then next device. Every data package keeps its address as defined in \tabref{tab:mcu_com_protocol} from start to destination. A measurement package, for example includes multiple measurements in the data block and has an address specific to the measurement sensor, with its destination to the \ac{CPU}, whereas a command from the computer application has a destination address to one specific \ac{MCU}; all \ac{MCU}s inbetween the two devices transmit the data as is. For this reason, although the parser is defined by the same class in every device, it requires an additional identification to detect on which device the parser is running.
+
+\subsubsection{Microcontroller Software}
+The software running on the \ac{MCU} is programmed in the Arduino programming language and uploaded via bootloader. This way, the software can be uploaded by a serial interface but, additionally to the software itself, some of the flash memory is reserved for the bootloader. The remaining memory is used during operation is used for a digital \ac{FIFO} buffer.
+Because all used \ac{MCU}s are using one core only, parallel data transfer is not possible and the data must be merged and serialized at the master \ac{MCU}. Both the parser and the buffer add an overhead to the cyclic running program on the \ac{MCU} that potentially limits the communication speed.
+
+\subsubsection{Computer Software}
+The software on the computer runs in python. As a key module that enables the communication between the running python script and the serial port the pyserial has been used. The software tools are able to identify, store and visualize the captured data.
+
+\subsection{Challenges}
+
+\subsubsection{Time Synchronization}
+
+The time synchronization between the \ac{MCU}s is handled on software level. The master sends its current clock as a data package to the slaves and they adapt their clocks accordingly. This can be conducted in multiple ways. TODO
