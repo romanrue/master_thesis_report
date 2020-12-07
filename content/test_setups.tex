@@ -3,6 +3,45 @@
 
 The test conducted during this thesis isolated features of the prototype system described in \chpref{chap:dac_software}. Measurement data has been compared to a reference system, called MODE3. Both systems are configured to include one impulse hammer, one \ac{DAC} system and one three dimensional accelerometer, as well as a read out computer system with accompanying software.
 
+\section{Sensor Comparison}
+\subsubsection{Accelerometer}
+\begin{table}
+  \centering
+  {\renewcommand{\arraystretch}{1}%
+  \footnotesize
+  \begin{tabular}{lcccccc}
+    \toprule
+    \multicolumn{1}{c}{Accelerometer} & \makecell{in system\\\dots} & \makecell{Sensing\\element} & \makecell{Bandwidth\\/ \si{\hertz}} & \makecell{Dynamic\\range / \si{g}} & \makecell{Acceleration noise\\density / \si{\mu g\per\sqrt\hertz}} & \makecell{Estimated\\ cost / $\mathrm{CHF}$}\\
+    \midrule
+    PCB-356B18  & MODE3 & Piezoceramic & \SIrange{0.3}{5000}{\relax} & $\pm 5$ & \makecell{1.2\\\scriptsize{(at \SI{100}{\hertz})}} & 2500\\
+    LIS3DSH  & Prototype & Capacitive & \SIrange{0}{800}{\relax} & \makecell{$\pm 2/\pm 4/\pm 6/$\\$\pm 8 /\pm 16$ \scriptsize{(selectable)}} & \makecell{150\\\scriptsize{(at \SI{100}{\hertz} and $\pm\SI{2}{g}$)}} & 5\\
+    \bottomrule
+  \end{tabular}
+  \caption[Accelerometer Comparison]{Accelerometer comparison%
+    \label{tab:acc_compare}}
+  \normalsize
+  }
+\end{table}
+
+\subsubsection{Load Cell}
+\begin{table}
+  \centering
+  {\renewcommand{\arraystretch}{1}%
+  \footnotesize
+  \begin{tabular}{lcccccc}
+    \toprule
+    \multicolumn{1}{c}{\makecell{Load Cell\\with hammer}} & \makecell{in system\\\dots} & \makecell{Sensing\\element} & \makecell{Frequency\\response / \si{\hertz}} & \makecell{Range / \si{\kilo\newton}} & \makecell{Sensitivity\\/ \si{\micro\volt\per\newton}} & \makecell{Estimated\\ cost / $\mathrm{CHF}$}\\
+    \midrule
+    IEPE Type A2000 & MODE3 & Piezoceramic & 5400 & 20 & 200 & 1800\\
+    DYMH-103 with hammer  & Prototype & Strain gauge & unknown & 3 & \SIrange{3.3}{5}{\relax} & 120\\
+    \bottomrule
+  \end{tabular}
+  \caption[Load Cell and Hammer configurations]{\ac{LC} and hammer configurations%
+    \label{tab:lc_compare}}
+  \normalsize
+  }
+\end{table}
+
 \section{Hammer-Hammer Test}
 
 The hammer tips of the impact hammers of both the the prototype system and the MODE3 are hit against each other. The target of this test is to evaluate the signal quality of the \ac{LC} in the prototype system.
@@ -15,17 +54,16 @@ The configurations used in the tests are listen in \tabref{tab:hh_config}. The c
   \centering
   {\renewcommand{\arraystretch}{1}%
   \footnotesize
-  \begin{tabular}{lcc}
+  \begin{tabular}{lccccc}
     \toprule
-    \multicolumn{1}{c}{Sensor Parameter} & \makecell{Reference\\Hammer} & \makecell{Prototype\\Hammer}\\
+    \multicolumn{1}{c}{ADC} & \makecell{in system\\\dots} & \makecell{Number of\\channels} & \makecell{A/D resolution\\/ \si{bit}} & \makecell{Sample rate\\/ \si{S\per\second}} & \makecell{Estimated\\ cost / $\mathrm{CHF}$}\\
     \midrule
-    Sampling rate & \SI{1600}{\hertz} & \SI{1600}{\hertz}\\
-    Dynamic Range & \SIrange{0}{20}{\kilo\newton} & \SIrange{0}{3}{\kilo\newton}\\ This is the simplest setup of so called seismic accelerometers.
-    Quantization resolution & \SI{24}{bit} & \SI{12}{bit}\\
+    \makecell{FOCUS II\\\scriptsize(Dynamic signal analyzer)} & MODE3 & \makecell{4\\\scriptsize{(differential)}} & 24 & \SIrange{2}{96000}{\relax} & 3000\\
+    \makecell{Arduino Due} & Prototype & \makecell{12\\\scriptsize{(single-ended)}} &  12 & \SIrange{0}{1e6}{\relax} & 45\\
     \bottomrule
   \end{tabular}
   \caption[Hammer-Hammer Test Configuration]{Hammer-hammer test configuration%
-    \label{tab:hh_config}}
+    \label{tab:adc_compare}}
   \normalsize
   }
 \end{table}

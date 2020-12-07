@@ -1,7 +1,7 @@
 \chapter{Data Acquisition and Software%
   \label{chap:\currfilebase}}
 
-\section{Data acquistion}
+\section{Data Acquisition}
 
 The \ac{DAC} system developed in this thesis is an open source Arduino based system consisting of multiple microcontrollers. All signal channels are transmitted to a central microcontroller before passing to a computer that serves as visualization and analysis tool.
 
@@ -49,11 +49,13 @@ The \ac{DAC} system developed in this thesis is an open source Arduino based sys
 
 \subsection{Building Blocks}
 
-Building blocks are the main components used in the \ac{DAC} signal chain. Additional components that are required to enable the stable operation of the building blocks are not listed.
+Building blocks are the main components used in the \ac{DAC} signal chain. Additional components that are required to enable the stable operation of the building blocks are not shown; e.g. the \ac{RS}-485 drivers.
 
 Because the of accelerometer \ac{IC} output interfaces it is not possible to connect all sensors directly to one \ac{MCU} that acts as a \ac{DAC}. We need to transform the signal to a different interface. A low-cost and versatile method to achieve this, is to use a \ac{MCU} for each accelerometer \ac{IC}. These read the sensor \ac{IC} registers and communicate to the \ac{MCU} master. The master, on the other hand, acts as a passthrough and transmits the data to the \ac{CPU}. In the setup used, it also reads out the \ac{LC} signal. \tabref{tab:mcu_used} lists the \ac{MCU}s used during this thesis.% Other components can be found in \autoref{apx:appendix}.
 
-The analog signal output of the \ac{LC} needs to be amplified to match the input range of the \ac{ADC}. To gain the maximum resolution, this depends on the expected input range. To get a higher value resolution than offered by the \ac{MCU} embedded \ac{ADC} one can set in an external \ac{ADC} \ac{IC} upstream to the \ac{MCU}. Additionally, we use a \ac{LPF} in \figref{sfig:dac_comp_precond}. The \ac{LPF} is needed to cut off high frequency components of the signal that occur particularly in sharp impulse signals. This design choice may lead to problems because it is not standard procedure in the development a measurement instrument. Typically, components in the analog signal chain are chosen, based on the frequency bandwidth of the input signal. This means, the cut-off frequency of the \ac{LPF} is set well above the signal's bandwidth. But because we use low-cost components in our system, the bandwidth is limited to half the sampling rate of the slowest sensor. According to the Nyquist frequency theorem, the cut-off frequency then needs to be reduced to half the sampling frequency, potentially reducing the output magnitude of higher frequency components of the signal.
+The analog signal output of the \ac{LC} needs to be amplified to match the input range of the \ac{ADC}. To gain the maximum resolution, this depends on the expected input range. For an additional resolution benefit, than offered by the microcontroller embedded \ac{ADC} one can include an external \ac{ADC} \ac{IC} upstream of the \ac{MCU}. Additionally, we use a \ac{LPF} in \figref{sfig:dac_comp_precond}. The \ac{LPF} following the \ac{LC} is mainly used to cut off noise components of the signal. But, because the accelerometers have an integrated \ac{AAF} at usually \SI{800}{\hertz}, the lowpass filter also limits the bandwidth of the hammer signal to a bandwidth of up to \SI{800}{\hertz}. In that sense it also acts as a \ac{AAF} for the consecutive \ac{ADC}. In other words, we limit the systems bandwidth to a sampling rate of \SI{1600}{\hertz}, the maximum sampling rate of the slowest sensor. Therefore, we use the maximal possible bandwidth according to Nyquist.
+
+As instrumentation amplifier the AD627 from Analog Devices has been implemented. All microcontroller \acs{PCB}s used during this thesis are listed in \tabref{tab:mcu_used}.
 
 \begin{table}[!htb]
   \centering
@@ -72,7 +74,7 @@ The analog signal output of the \ac{LC} needs to be amplified to match the input
     \midrule
     Arduino Due & \makecell{AT91SAM3\\ARM Cortex} & 12 & 3.3 & 84 & 512 & 96\\
     Teensy 3.2 & \makecell{MK20DX256VLH\\Cortex-M4} & \makecell{13\\ \scriptsize{(\SI{16}{bit}-values)}} & 3.3 & 72 & 256 & 64\\
-    \makecell[l]{Robotdyn\\Blackpill} & \makecell{STM32F103C8\\Cortex-M3} & 12 & 72 & 64 & 20\\
+    \makecell[l]{Robotdyn\\Blackpill} & \makecell{STM32F103C8\\Cortex-M3} & 12 & 3.3 & 72 & 64 & 20\\
     \bottomrule
   \end{tabular}
   \normalsize
@@ -81,16 +83,17 @@ The analog signal output of the \ac{LC} needs to be amplified to match the input
     \label{tab:mcu_used}}
 \end{table}
 
-Instrumental-Amplifier
-AD627BRZ
-
-Lowpass Filter
-LTC1069-1IS8, 8th order, monolithic, clock tunable
-LTC1154CN, highly customizable filter block
-LTC1066-1, 8th order, clock tunable DAC
-
-ADC
-EVAL-AD7988, evaluation board for SAR-ADC
+%The configurations used during this thesis were
+%Instrumental-Amplifier
+%AD627BRZ
+%
+%Lowpass Filter
+%LTC1069-1IS8, 8th order, monolithic, clock tunable
+%LTC1154CN, highly customizable filter block
+%LTC1066-1, 8th order, clock tunable DAC
+%
+%ADC
+%EVAL-AD7988, evaluation board for SAR-ADC
 
 
 
@@ -116,7 +119,7 @@ It is clear that one cannot use human readable code to transmit the data and gua
 
 \subsubsection{MCU communication protocol}
 
-The communication protocol for \ac{MCU} to \ac{MCU} and \ac{MCU} to computer was developed for this project.
+The communication protocol between \ac{MCU} and \ac{MCU} and between \ac{MCU} and computer was developed for this project.
 
 \begin{table}[!htb]
   \centering
@@ -145,11 +148,11 @@ The communication protocol for \ac{MCU} to \ac{MCU} and \ac{MCU} to computer was
 
 \subsection{Dataflow}
 
-The dataflow between the \ac{MCU}s is sequential and all data is passed to a central \ac{MCU}, called master, before we streamline it to the \ac{CPU}. The master cycles through all connected \ac{MCU} performing a data request, hold and receive action. As soon as a slave \ac{MCU} gets a request, it transmits a data package from its buffer. The master, now receiving the data package, will throughput the signal to the \ac{CPU}, where the data is stored. By the end of this process the master will jump to the next slave.
+The dataflow between the \ac{MCU}s is sequential and all data is passed to a central \ac{MCU}, called master, before we streamline it to the \ac{CPU}. The master cycles through all connected \ac{MCU}s, performing a data request, hold and receive action. As soon as a slave \ac{MCU} gets a request, it transmits a data package from its buffer. The master, now receiving the data package, will throughput the signal to the \ac{CPU}, where the data is stored. By the end of this process the master will jump to the next slave.
 
 All measurements consist of a \SI{32}{bit}-timestamp and the measured values and are pushed into a \ac{FIFO} buffer in the flash memory of the \ac{MCU}, directly connected to the sensor. Bundled data packages are then pulled from the buffer and translated into the transmission code as defined in \tabref{tab:mcu_com_protocol}. In \figref{fig:data_flow} the data flow is represented by a system that is using only one slave \ac{MCU}, displayed in violet.
 
-Clock synchronizations are executed in form digital data exchange, by synchronizing the timestamps before a complete measurement. The sensor measurements themselves are conducted as soon as ready to benefit of the sensors maximum measurement frequency. With this method, no data bandwidth is used between measurement cycles for clock synchronization, but it comes with three caveats. Firstly, every \ac{MCU} runs on its own clock cycle. Measurements are conducted whenever the individual time interval after the clock is exceeded. These time intervals are matched by sharing the master timestamp with the ones of the slave programmically. The slave timestamps are then tuned to same value during a setup process. But after the synchronization the Gausssian distributed deviations to the intervals accumulate, ultimately yielding unknown time-shifts to the signals.
+Time synchronizations are executed in form digital data exchange, by synchronizing the timestamps before a complete measurement. The sensor measurements themselves are conducted as soon as ready to benefit of the sensors maximum measurement frequency. With this method, no data bandwidth is used between measurement cycles for clock synchronization, but it comes with three caveats. Firstly, every \ac{MCU} runs on its own clock cycle. Measurements are conducted whenever the individual time interval after the clock is exceeded. These time intervals are matched by sharing the master timestamp with the ones of the slave programmically. The slave timestamps are then tuned to same value during a setup process. But after the synchronization the Gausssian distributed deviations to the intervals accumulate, ultimately yielding unknown time-shifts to the signals.
 
 Measurements are packaged due to the time the master requires to change the communication to another slave. During these switches no data is transmitted eventually limiting the data rate of the system.
 
@@ -196,5 +199,11 @@ The software on the computer runs in python. As a key module that enables the co
 \subsection{Challenges}
 
 \subsubsection{Time Synchronization}
+The time synchronization between the \ac{MCU}s is handled on software level. The master sends its current clock as a data package to the slaves and they adapt their clocks accordingly. This is the simplest approach appart from an interrupt and can be conducted with higher accuracy when estimating the transmission duration. For example, when using a feedback loop, where the slave directly returns the sent signal, the master can estimate the transmission duration by dividing the duration since the transmitted message minus the slave processing time in two. In this manner it then sends the master time minus the estimated transmission duration to the slave. The caveat of this approach is, that no real synchronization but only estimated timestamp synchronizations are realized. During the sensors and their respective \ac{MCU}s run on different clock cyclers, that are prone to deviate from another. Additionally, the timestamps have a considerable impact on the data bandwidth during measurements.
 
-The time synchronization between the \ac{MCU}s is handled on software level. The master sends its current clock as a data package to the slaves and they adapt their clocks accordingly. This can be conducted in multiple ways. TODO
+Until now no better solution has been implemented into the software. The time synchronization might be reconsidered alltogether and moved to the physical layer, to reduce the bandwidth of the measurement package. For example, with clock synchronization the \ac{MCU} clocks themselves would match the master clock. Synchronization timestamps are no longer needed but the slaves must be connected by a additional differential wire pair, to transmitt the master clock. On software level, a plethora of synchronization techniques exist. More information on this issue can be found in \cite{sriram2018embedded}.
+
+\subsubsection{Transmission Timing}
+Since every slave is connected to the master directly via \ac{RS}-485, i.e.\ using \ac{UART} ports of the \ac{MCU}s connected to \ac{RS}-485 driver modules, one needs to cycle through each transmission sequentially. Additionally, the same \ac{RS}-485 connection is used for transmission and reception of the data, that is in half-duplex mode. During measurements, every time the master switches to the next slave and every time the half-duplex mode switches direction, a new transmission must be established, potentially introducing delay times.
+
+These delays limit the overall data rate considerably and reduce the reliability of the system. It is advised to use a different approach, when increasing the sensor count. A daisy chain of all accelerometers in a full-duplex communication cycle, for example, enables the same connection to run continuously, where all slave devices append their respective sensor data to a long data string. Although more reliable, the physical layer of such a system must be carefully considered, since the total length of the wires increases by twice the distance between master and slave for every additional slave. Signal loss can only be prevented by adding signal repeaters or trough the use of higher supply voltages for the \ac{RS}-485 transmission.
