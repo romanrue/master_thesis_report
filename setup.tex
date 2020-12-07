@@ -14,7 +14,12 @@
 \usepackage{bm}           % bold greek letters
 \usepackage{physics}      % simplified commands for physics notation
 \usepackage{siunitx}      % consistent SI-units
-  \sisetup{per-mode=symbol-or-fraction,range-phrase=\dots,range-units=single}
+  \sisetup{per-mode=symbol-or-fraction,
+    range-phrase=\dots,
+    range-units=single,
+    binary-units=true
+  }
+
 
 %%%----------------------------------------------------------------
 %%% LISTS
@@ -24,7 +29,7 @@
 %%%----------------------------------------------------------------
 %%% FIGURES
 %\usepackage{tocbasic}     % floating figures (KOMA script compatible)
-%\usepackage{scrhack}      % fixes floating environments in KOMA script 
+%\usepackage{scrhack}      % fixes floating environments in KOMA script
 %\usepackage[footnotesize, sl, SL, hang, tight]{subfigure}
 \ifpdf
     \PassOptionsToPackage{pdftex}{graphicx}
@@ -233,7 +238,7 @@
     % Choose your logo here!
     %\includegraphics*[width=0.37\textwidth]{figures/title/iwf_eth_logo}
     %\includegraphics*[width=0.21\textwidth]{figures/title/loco_icvr}
-    %\includegraphics*[width=0.21\textwidth]{figures/title/logo_inspire_ics} 
+    %\includegraphics*[width=0.21\textwidth]{figures/title/logo_inspire_ics}
     %\includegraphics*[width=0.24\textwidth]{figures/title/logo_inspire_icvr}
     %\includegraphics*[width=0.24\textwidth]{figures/title/logo_inspire_irpd}
     \includegraphics*[scale=1]{figures/title/iwf_logo_hardcopy}
@@ -242,7 +247,7 @@
 	\Huge
 	\textbf{\textsf{\@title}}\\[0.7cm]
 	%\Large\@subtitle\\[2.0cm]
-	%\includegraphics*[width=0.4\textwidth]{figures/title/mytitlefigure} 
+	%\includegraphics*[width=0.4\textwidth]{figures/title/mytitlefigure}
 	\vspace{1cm}
 	\sffamily\Large
     \@author\\[0.7cm]

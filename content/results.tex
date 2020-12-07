@@ -1,7 +1,7 @@
 \chapter{Results and Discussion}
-\label{chp:results}
+\label{chap:results}
 
-In this chapter the results of the setups in \autoref{test_setups} are discussed.
+results of the setups in \autoref{chp:test_setups} are discussed.
 
 %***********************************
 \section{Hammer-Hammer Test}
@@ -41,10 +41,5 @@ When we then consider the frequency domain of \figref{fig:HAp024_FFTa_z} one can
     \label{fig:HAp024_FFTa_z}}
 \end{figure}
 
-\section{Other Test Setups}
-
-Other tests failed to deliver results:
-\begin{itemize}
-    \item The hammer-surface test did not give insight to the maximum bandwidith of the prototype hammer because of software issues, bottelnecking the data rate.
-    \item The clock tunable filter test failed do to an insufficiently precise clock signal.
-\end{itemize}
+\section{Filter Test Setups}
+The implementation of \figref{sfig:dac_comp_precond} is an iteration on the setup without a filter. But for the verification of the filter function a test setup was needed. But because of incompatibilites between the variable clock generator and the clock tunable filters, no meaningful output signals could be measured.

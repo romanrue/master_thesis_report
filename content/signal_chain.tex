@@ -91,7 +91,7 @@ An amplifier increases the noise density by the \emph{spectral noise figure} $F(
 \begin{align}
   \mathrm{SNR}_i &= \frac{\nu_{g,\text{eff}}^2}{\nu_r} = \frac{\nu_{g,\text{eff}}^2}{\displaystyle\int_{f_L}^{f_U} \abs{\vect{\nu}_r(f)}^2 \dd{f}} = \frac{\nu_{g,\text{eff}}^2}{\displaystyle\int_{f_L}^{f_U} F(f)\abs{\vect{\nu}_{r,\text{eff}}(f)}^2 \dd{f}} \label{eqn:snr_i}
 \end{align}
-which is lower than the \ac{SNR} of the signal generator.
+which is lower than the \ac{SNR} of the signal generator. Note that in a circuit, it is the comparison between the powers of the useful signal and the input noise, that determines the quality of the signal that is amplified. If the input signal is too low compared to the input signal noise, the noise contribution will dominate in the amplified signal.
 
 The \emph{mean noise figure} corresponds to the relation of the \ac{SNR} ratios:
 \begin{align}
@@ -121,7 +121,7 @@ Considering that the signal is amplified by the useful gain $\vect{A}_{B,us}$, w
 \begin{align}
   \mathrm{SNR}_o &= \frac{\abs{\vect{A}_{B,us}}^2\nu_{g,\text{eff}}^2}{P_{n,o}} = \frac{\abs{\vect{A}_{B,us}}^2\nu_{g,\text{eff}}^2}{\int_0^\infty \abs{\vect{A}_B(2\ju\pi f)}^2F(f)\abs{\vect{\nu}_{r,g}(f)}^2\dd{f}}
 \end{align}
-Which is lower than $\mathrm{SNR}_i$, given by \eqref{snr_i}, since $P_{n,o}$ includes the total noise, compared to the range $f_L<f<f_U$ used to define in $P_{n,i}$. Note that the components following the amplifier are primarily driven by the amplified noise, if the power at the output $P_{n,o}$ is considerably larger than the useful signal power. That said, the noise of the $P_{n,o}$ as defined in \eqref{eqn:p_no} is only of importance if the noise outside the useful range is transmitted. To reduce this signal component we apply a filter that reduces the bandwidth of the signal. Optimally this is a bandpass filter with lower and upper cutoff frequencies at $f_L$ and $f_U$.
+Which is lower than $\mathrm{SNR}_i$, given by \eqref{eqn:snr_i}, since $P_{n,o}$ includes the total noise of all frequencies and not just the range $f_L<f<f_U$ used to define in $P_{n,i}$. Note that the components following the amplifier are primarily driven by the amplified noise, if the power at the output $P_{n,o}$ is considerably larger than the useful signal power. That said, the noise of the $P_{n,o}$ as defined in \eqref{eqn:p_no} is only of importance if the noise outside the useful range is transmitted. To reduce this signal component we apply a filter that reduces the bandwidth of the signal. Optimally this is a bandpass filter with lower and upper cutoff frequencies at $f_L$ and $f_U$.
 
 If the noise densities of both the signal generator and the amplifier are almost constant in the transfer bandwidth, the noise power at the amplifier output can be approximated by:
 \begin{align}
@@ -511,10 +511,10 @@ For signals that are bandwidth limited, i.e\ their \ac{FT} is zero outside a fin
 
 \section{Analog to Digital Conversion}
 
-Additionally to other noise sources in the signal chain the \ac{ADC} shows internal noise that can be categorized into two uncorrelated main sources. The quantization noise and the thermal noise. The total internal noise can thus be expressed as the Euclidean norm of these two sources.
+The \ac{ADC} shows internal noise that can be categorized into two uncorrelated main sources. The quantization noise and the thermal noise. The total internal noise can thus be expressed as the Euclidean norm of these two sources.
 
 \begin{align}
-  n_\text{ADC} &= \sqrt{n_{\text{ADC},\text{Thermal}}^2 + n_{\text{ADC},\text{Quantization}}^2}
+  N_\text{ADC} &= \sqrt{N_{\text{ADC},\text{Thermal}}^2 + N_{\text{ADC},\text{Quantization}}^2}
 \end{align}
 
 Quantization noise is present due to the process of mapping an infinite number of possible electrical signal values in an analog signal to a finite number of digital codes. Subsequently, any digital output corresponds to an infinite number of analog inputs within range of the output value, plus and minus half the \ac{LSB} size, $s_\text{LBS}$. One can decrease quantization noise by choosing a higher resolution \ac{ADC}.
@@ -543,3 +543,37 @@ Thermal noise is a phenomenon inherent in all electrical components. Because of 
   \caption[ADC thermal noise]{ADC --- Thermal noise in the time domain with Gaussian probability density~\cite{hall2020fund}%
     \label{fig:plot_themerr}}
 \end{figure}
+
+Depending on the relative noise contributions of each source, we divide \ac{ADC}s into two extremes. Low- and high resolution \ac{ADC}s. Characteristic for a low-resolution \ac{ADC} is that $N_{\text{ADC},\text{Quantization}}\gg N_{\text{ADC},\text{Thermal}}$. Here the quantization noise dominates because of the large \ac{LSB} size. Typcally, starting above \SI{16}{\bit} resolution we decimates the \ac{LSB} so that the thermal noise becomes dominant. Within the low-cost system operate primarily with low-resolution \ac{ADC}s.
+
+\subsection{Topologies}
+\begin{table}
+  \centering
+  {\renewcommand{\arraystretch}{1}%
+  \footnotesize
+  \begin{tabular}{lccp{4cm}}
+    \toprule
+    \multicolumn{1}{c}{\acs{ADC} Topology} & \makecell{Data rates\\/ \si{\mega S\per\second}} & \multicolumn{1}{c}{\makecell{Resolution\\/ \si{\bit}}} & \makecell{Benefits}\\
+    \midrule
+    \acs{SAR} & $\leq 4$ & $\leq 18$ & \vspace*{-1\baselineskip}%
+      \begin{itemize}%
+        \item simple implementation
+        \item no latency
+        \item low power
+      \end{itemize}\\
+    delta-sigma & $\leq 10$ & $\leq 28$ & \vspace*{-1\baselineskip}%
+      \begin{itemize}%
+        \item high resolution
+        \item high integration
+      \end{itemize}\\
+    \bottomrule
+  \end{tabular}
+  \caption[ADC Topologies]{\ac{ADC} topologies%
+    \label{tab:adc_topologies}}
+  \normalsize
+  }
+\end{table}
+
+\ac{SAR} \ac{ADC}s have a low-power consumption and are available in very small packages. This makes them them the preferred option for mobile devices as well as general purpose applications and data acquisition systems. An additional advantage of the \ac{SAR} topology is the negligible or zero latency. Its power consumption is proportional to the sampling rate.
+
+The delta-sigma \ac{ADC}s offer the highest-resolution and are generally preferred in precision applications. Because they are highly integrated, they replace many components of a data acquisition system. In this topology a digital filter is included, typically optimized for the application. Its disadvantages are medium power consumption and cycle latency.
