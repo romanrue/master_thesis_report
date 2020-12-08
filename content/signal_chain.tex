@@ -26,7 +26,7 @@ In simple amplifiers, the \ac{SNR} purely depends on the quality of the componen
 \begin{figure}[htb!]
   \centering
   \includegraphics[scale=0.95]{figures/electronics/op_amp/op_amp_types/op_amp_types}
-  \caption[Main OPA types]{Main operational amplifier types%
+  \caption[Main OPA types]{Main operational amplifier types \cite{Tietze2008EC}%
   \label{fig:op_amp_types}}
 \end{figure}
 
@@ -79,7 +79,7 @@ When working with digital circuits, a single voltage supply is preferred. For th
 \end{figure}
 
 \subsection{Mean Noise Figure and the Signal-to-Noise Ratio}
-To determine the mean noise figure and the \acf{SNR} one needs conduct tests on an amplifier with a known signal. In its simplest form one can determine the \ac{SNR} and the mean noise figure by connecting a signal generator directly to the amplifier's input. Per definition, the \ac{SNR} is the ratio of the information containing signal power over the noise power:
+To determine the mean noise figure and the \acf{SNR} one needs conduct tests on an amplifier with a known signal. In its simplest form one can determine the \ac{SNR} and the mean noise figure by connecting a signal generator directly to the amplifier's input. In \cite{Tietze2008EC} \citeauthor{Tietze2008EC} write, that per definition, the \ac{SNR} is the ratio of the information containing signal power over the noise power:
 \begin{align}
   \mathrm{SNR} &= \frac{P_{us}}{P_n}
 \end{align}
@@ -140,6 +140,7 @@ This means that the area under the plot of the squared magnitude is replaced by 
     \label{fig:equivalent_noise_bandwidth}}
 \end{figure}
 
+\newpage
 \subsection{Instrumentation Amplifier}
 In resistive sensor applications bridge circuits similar to \figref{sfig:wheatstone_bridge_single} are used. The two outputs of the bridge circuit each carry a signal that enables us to sense a change in resistance differentially. But because the circuit uses a constant supply voltage, a \emph{common-mode}, is present in both signals, i.e.\ a \ac{DC} voltage. If we use standard \ac{OPA}s for amplification, the differential signal is amplified, while the common-mode voltage receives unity gain. This is a common-mode reduction, the undesirable common-mode is still appearing in the output signal. In contrast, instrumentation amplifiers allow differential signal amplification and all common-mode rejection. It has got a two pin differential input and one single-ended output with respect to a reference terminal.
 
@@ -170,7 +171,7 @@ Whenever we measure a signal in the real world, it will inherently contain some 
 
 The two main types of filters are analog and digital ones, where the digital filters are more versatile, cost-effective and precise compared to their counterpart. Nevertheless, analog filters are required when dealing with analog signals, i.e.\ whenever the signal must be bandwidth limited. As described previously, it is advantageous if a signal is bandwidth limited before it is amplified, because we do not want to amplify the noise components of the signal. Furthermore electric devices in the signal chain may be bandwidth limited as well; disturbances of the signal occur due to frequency dependent phase shifts or damping when operating outside these ranges. Namely when digitizing a signal, the additional effect of aliasing may disturb a signal significantly if it contains frequency components above the Nyquist frequency.
 
-We operate at a low frequencies in the frame of this thesis. The useful bandwidth of the lower modes in \ac{EMA} of \ac{MT}s range typically between a few ten and a few hundred hertz. Therefore, we focus on a lowpass-filter design, so that there is no miss on the lowest eigenfrequencies. For simplicity, from this point on onward the term bandwidth addresses the upper bandwidth limit, while the lower limit remains near zero. Additionally, the cutoff frequency refers to the lowpass cutoff frequency. For more details on other filter designs we recommend the textbooks for analog electronics and filter design \cite{Tietze2008EC, Stiny2019AeB, williams2014analog}. The content in this Section is reliant on the theories, found in these books.
+We operate at a low frequencies in the frame of this thesis. The useful bandwidth of the lower modes in \ac{EMA} of \ac{MT}s range typically between a few ten and a few hundred hertz. Therefore, we focus on a lowpass-filter design, so that there is no miss on the lowest eigenfrequencies. For simplicity, from this point on onward the term bandwidth addresses the upper bandwidth limit, while the lower limit remains near zero. Additionally, the cutoff frequency refers to the lowpass cutoff frequency. For more details on other filter designs we recommend the textbooks for analog electronics and filter design \cite{Tietze2008EC, Stiny2019AeB} and \cite{williams2014analog}. The content in this Section is reliant on the theories found in these books.
 
 \subsection{Passive Lowpass Filters}
 The frequency response of the simplest \ac{LPF}, as shown in \figref{fig:lp_passive_1ord}, can be expressed as
@@ -247,8 +248,9 @@ This design does not pose any difficulties when opting for high cutoff frequenci
     \label{fig:lp_passive_2ord}}
 \end{figure}
 
+\newpage
 \subsection{Optimizations of Lowpass Filters}
-We take the \emph{standard form} of the second-order \ac{LPF} into consideration, where:
+Following \citeauthor{Tietze2008EC}~\cite{Tietze2008EC}, we take the \emph{standard form} of the second-order \ac{LPF} into consideration, where:
 \begin{align}
   H(s_n) &= \frac{H_0}{1+a_1s_n+b_1s_n^2} = \frac{k}{\displaystyle 1+\frac{s_n}{Q}+s_n^2} = \frac{k}{1+2\zeta s_n+s_n^2} \\
   Q &= \frac{1}{2\zeta} = \frac{b_1}{a_1}
@@ -291,7 +293,7 @@ When comparing the step and impulse responses in \figref{fig:lp_filter_4ord_step
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_4ord_step}
+  \includegraphics[scale=0.68]{figures/electronics/lowpass/lp_filter_4ord_step}
   \caption[Step response of fourth-order \ac{LPF}]{Step response of fourth-order \ac{LPF} --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
     \label{fig:lp_filter_4ord_step}}
 \end{figure}
@@ -300,54 +302,10 @@ Until now we described all-pole \ac{LPF}s, i.e.\ no nodes are present in the fil
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_4ord_imp}
+  \includegraphics[scale=0.68]{figures/electronics/lowpass/lp_filter_4ord_imp}
   \caption[Impulse response of fourth-order \ac{LPF}]{Impulse response of fourth-order \ac{LPF} --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
     \label{fig:lp_filter_4ord_imp}}
 \end{figure}
-
-\subsubsection{Active Filter Designes}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=0.9]{figures/electronics/lowpass/lp_active_1ord_imp_conv/lp_active_1ord_imp_conv}
-  \caption[Active first-order \ac{LPF} with impetance converter]{Active first-order \ac{LPF} with impetance converter%
-    \label{fig:lp_active_1ord_imp_conv}}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_1ord_inv_amp/lp_active_1ord_inv_amp}
-  \caption[Active first-order \ac{LPF} with inverting amplifier]{Active first-order \ac{LPF} with inverting amplifier%
-    \label{fig:lp_active_1ord_inv_amp}}
-\end{figure}
-
-%\begin{figure}[!htb]
-%  \centering
-%  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_2ord_neg/lp_active_2ord_neg}
-%  \caption[Active second-order \ac{LPF} with multiple negative feedback]{Active second-order \ac{LPF} with multiple negative feedback%
-%    \label{fig:lp_active_2ord_neg}}
-%\end{figure}
-%
-%\begin{figure}[!htb]
-%  \centering
-%  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_2ord_pos/lp_active_2ord_pos}
-%  \caption[Active second-order \ac{LPF} with single positive feedback]{Active second-order \ac{LPF} with single positive feedback%
-%    \label{fig:lp_active_2ord_pos}}
-%\end{figure}
-%
-%\begin{figure}[!htb]
-%  \centering
-%  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_3ord_bessel/lp_active_3ord_bessel}
-%  \caption[Active third-order \ac{LPF}]{Active third-order \ac{LPF}%
-%    \label{fig:lp_active_3ord_bessel}}
-%\end{figure}
-%
-%\begin{figure}[!htb]
-%  \centering
-%  \includegraphics[scale=1]{figures/electronics/lowpass/lp_active_3ord_bessel_simple/lp_active_3ord_bessel_simple}
-%  \caption[Simplified active third-order \ac{LPF}]{Simplified active third-order \ac{LPF}%
-%    \label{fig:lp_active_3ord_bessel_simple}}
-%\end{figure}
 
 \subsubsection{Butterworth Lowpass Filter}
 From the general solution in \autoref{eqn:lpf_nthord_tf_general} the squared absolute gain in \ac{LPF}s takes the form
@@ -361,21 +319,25 @@ where odd powers of $\omega_n$ do not occur, since $\abs{\vect{H}}^2$ must be an
 where $k_{2N}=1$ due to the normalizing condition, which states that the square of the gain is reduced by \SI{3}{\decibel} at $\omega_n=1$, i.e. $\abs{\vect{H}(\omega_n=1)}^2 = \abs{\vect{H}(\omega_n=0)}^2/2$.
 
 When implementing a Butterworth \ac{LPF}, one needs to consider the complex gain $\vect{H}$ involved in \autoref{eqn:butterwoth_gain_squared}. It can be determined by solving for coefficients $c_i$ in \autoref{eqn:lpf_nthord_tf_general}, given the squared gain of \autoref{eqn:butterwoth_gain_squared}. It is then possible to solve the transfer function analytically by combining complex conjugate poles. In the solution, we obtain the coefficients $a_i$ and $b_i$ of the quadratic expression in \autoref{eqn:lpf_nthord_tf_poles}
-\begin{align}
+\begin{align*}
   \intertext{even order $N$:}
   a_i &= 2\cos\frac{(2i-1)\pi}{2N} &\text{for}\: &i = 1,2,\dots.\frac{N}{2}\\
   b_i &= 1
   \intertext{odd order $N$:}
   a_2 &= 1,\qquad a_i =2\cos\frac{(i-1)\pi}{N} &\text{for}\: & i=2,3,\dots,\frac{N+1}{2}\\
   b_1 &= 0,\qquad b_i =1
-\end{align}
+\end{align*}
 
+\afterpage{%
 \begin{figure}[!htb]
   \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_mag}
+  \includegraphics[scale=0.68]{figures/electronics/lowpass/lp_filter_mag}
   \caption[Influence of \ac{LPF} order $N$ on the amplitude of the frequency response]{Influence of \ac{LPF} order $N$ on the amplitude of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
     \label{fig:lp_filter_mag}}
 \end{figure}
+\clearpage
+}
+
 \subsubsection{Chebyshev Lowpass Filter}
 In the passband the Chebyshev \ac{LPF} is allowed to have a predetermined ripple. The characteristic of Chebyshev polynomials is, that the ripple ripples are constant, i.e.\ their local extrema in the gain plot can be connected by two horizontal lines that are displaced by the predetermined ripple.
 \begin{align}
@@ -429,20 +391,23 @@ Once $\abs{\vect{A}}^2$ is determined, the complex gains can be calculated. Howe
 \end{align*}
 
 The obtained coefficients $a_i'$ and $b_i'$ define a Chebyshev filter at the cutoff frequency $\omega_x$, which the gain assumes the value $A_{\min}$ for the last time. For easy comparison with other filter types we want to evaluate the filter at a cutoff frequency where the gain is \SI{-3}{\decibel}. For this we multiply the normalized frequency $s_n$ with a real constant $\alpha$, changing the quadratic expressions in the denominator of \eqref{eqn:lpf_nthord_tf_poles} to
-\begin{align}
+\begin{align*}
   (1 + a_i'\alpha s_n + b_i'\alpha^2s_n^2)
-\end{align}
+\end{align*}
 Next, we evaluate $\alpha$, so that the gain value is $1/\sqrt{2}\estimates\SI{-3}{\decibel}$ at the normalized frequency $s_n=\ju$. The coefficients for the filter with cutoff frequency pass through at \SI{-3}{\decibel} can then be determined by multiplication with the constant.
 \begin{align}
   &&a_i &= \alpha a_i' &\text{and}& &b_i &= \alpha^2b_i'&& \label{eqn:broken_denominator}
 \end{align}
 
+{%
 \begin{figure}[!htb]
   \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_pha}
+  \includegraphics[scale=0.68]{figures/electronics/lowpass/lp_filter_pha}
   \caption[Influence of the \ac{LPF} order $N$ on the  phase of the frequency response]{Influence of the \ac{LPF} order $N$ on the  phase of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
     \label{fig:lp_filter_pha}}
 \end{figure}
+\clearpage
+}
 
 \subsubsection{Bessel Lowpass Filter}
 In the step and impulse response, \figref{fig:lp_filter_4ord_step}~and~\ref{fig:lp_filter_4ord_imp}, the Butterworth and Chebyshev filters show considerable overshoot. With the Bessel or also called Thomson filter we aim to mitigate this effect in order to create smooth response curves. It can be shown, that best square-wave responses are obtained when the \emph{group delay} of the filter is constant with respect to the frequency. The condition for the lowpass Bessel filter therefore sets the group delay in the passband maximally flat. The group delay $t_{gr}$ is defined as the negative of the change in phase shift due to frequency change.
@@ -485,16 +450,56 @@ The calculations of higher order filters become more involved, since a system of
   &&c_1' &= 1 &\text{and}&  &c_i' &= \frac{2(N-i+1)}{i(2N-i+1)}c_{i-1}'\quad\text{for}\;i=2\dots N&&
 \end{align}
 
-But note, that this approach gives the coefficient for \SI{3}{\decibel} frequency cutoffs at $omega_n=0$. To find the coefficients at for a usable cutoff frequency, we apply the same approach as we did with the Chebyshev coefficients. For that we rewrite the equation in form of \eqref{eqn:lpf_nthord_tf_poles} to get the second-order filter coefficients $a_i'$ and $b_i'$, apply the transformation $s_n=\alpha\ju\omega_n$ and solve for $\alpha$. The coefficients $a_i$ and $b_i$ can then be calculated with \eqref{eqn:broken_denominator}.
+But note, that this approach gives the coefficient for \SI{3}{\decibel} frequency cutoffs at $\omega_n=0$. To find the coefficients at for a usable cutoff frequency, we apply the same approach as we did with the Chebyshev coefficients. For that we rewrite the equation in form of \eqref{eqn:lpf_nthord_tf_poles} to get the second-order filter coefficients $a_i'$ and $b_i'$, apply the transformation $s_n=\alpha\ju\omega_n$ and solve for $\alpha$. The coefficients $a_i$ and $b_i$ can then be calculated with \eqref{eqn:broken_denominator}.
 
+{%
 \begin{figure}[!htb]
   \centering
-  \includegraphics[scale=0.72]{figures/electronics/lowpass/lp_filter_grd}
+  \includegraphics[scale=0.68]{figures/electronics/lowpass/lp_filter_grd}
   \caption[Influence of the \ac{LPF} order $N$ on the group delay of the frequency response]{Influence of the \ac{LPF} order $N$ on the group delay of the frequency response --- Note, that the Chebyshev filter is represented with the cutoff frequency at \SI{-3}{\decibel} for comparability.%
   \label{fig:lp_filter_grd}}
 \end{figure}
+\clearpage
+}
 
+\subsection{Active Filter Topologies}
+Depending on the desired filter optimization target, one can choose the best suited topology to approach its \ac{TF}. First-order topologies are the noninverting and the inverting \ac{LPF}, see \figref{fig:lp_active_1ord_top}. Note that the negative sign in the \ac{TF} of the inverting amplifier generates a \SI{180}{\degree} phase shift from input and output. Furhtermore, at unity gain both $R_1$ and $R_2$ tolerances have an influence on the gain; therefore the noninverting impedance \ac{LPF} is preferred if one is looking for high unity gain accuracy.
 
+\begin{figure}[!htb]
+  \centering
+  \subcaptionbox{Active first-order \ac{LPF} with impedance converter\label{sfig:lp_active_1ord_imp_conv}}
+    {\includegraphics[scale=0.95]{figures/electronics/lowpass/lp_active_1ord_imp_conv/lp_active_1ord_imp_conv}}
+    \hspace{4em}
+  \subcaptionbox{Active first-order \ac{LPF} with inverting amplifier\label{sfig:lp_active_1ord_inv_amp}}
+    {\includegraphics[scale=0.95]{figures/electronics/lowpass/lp_active_1ord_inv_amp/lp_active_1ord_inv_amp}}
+  \\[0.5em]
+  \caption[First-Order Lowpass Filter Topologies]{First-order lowpass filter topologies%
+    \label{fig:lp_active_1ord_top}}
+\end{figure}
+
+The Sallen-Key topology is a common building block for filters. It is best used for applications that do not require sharp cutoffs. Since it is difficult to generate large Q-factors with this design.
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.95]{figures/electronics/lowpass/lp_active_2ord_pos/lp_active_2ord_pos}
+  \caption[Active Second-Order \ac{LPF} With Single Positive Feedback]{Active second-order \ac{LPF} with single positive feedback, Sallen-Key%
+    \label{fig:lp_active_2ord_pos}}
+\end{figure}
+
+%\begin{figure}[!htb]
+%  \centering
+%  \includegraphics[scale=0.95]{figures/electronics/lowpass/lp_active_3ord_bessel/lp_active_3ord_bessel}
+%  \caption[Active third-order \ac{LPF}]{Active third-order \ac{LPF}%
+%    \label{fig:lp_active_3ord_bessel}}
+%\end{figure}
+%
+%\begin{figure}[!htb]
+%  \centering
+%  \includegraphics[scale=0.95]{figures/electronics/lowpass/lp_active_3ord_bessel_simple/lp_active_3ord_bessel_simple}
+%  \caption[Simplified active third-order \ac{LPF}]{Simplified active third-order \ac{LPF}%
+%    \label{fig:lp_active_3ord_bessel_simple}}
+%\end{figure}
+
+\newpage
 \subsection{Anti Aliasing Filter}
 The \acf{AAF} is used ahead of \ac{ADC}s to reduce the signal bandwidth. More precisely, it aims to reduce the aliasing effect, i.e.\ the artificial distortion of signals, that occurs when sampling at a finite frequency. The effect that aliasing can have on a signal is visualized in \figref{fig:plot_aliasing}. Here two analog sinusoidal signals are sampled at the same sampling frequency $f_s$. The digitized signal will always be a approximation of the analog one, but it is clear that the signal with $f<f_{\max}$ has a better approximation in its digital form, and most importantly, it is an approximation of same frequency in contrast to the signal with $f>f_{\max}$.
 
@@ -508,6 +513,7 @@ The \acf{AAF} is used ahead of \ac{ADC}s to reduce the signal bandwidth. More pr
 More specifically, when we take the \acf{FT} of the signal with $f>f_{\max}$ we see a peak of the absolute amplitude at a new frequency $f_d\leq f_s<f$. Similarly, when using input signals with multiple frequency components, the signal gain distorted by components in from the domain $f>f_{\max}$. This distortion is the result of overlapping signal components, which makes them indistinguishable. This is called aliasing.
 
 For signals that are bandwidth limited, i.e\ their \ac{FT} is zero outside a finite region, the \emph{Nyquist-Shannon} sampling theorem finds that if those signals are sampled at $f_s=2f_{\max}$, where $f_{\max}$ is the highest frequency component, it is completely determined. Therefore, we want to cut off all frequency components above $f_s/2$ before digitizing any signal.
+\clearpage
 
 \section{Analog to Digital Conversion}
 
@@ -547,6 +553,10 @@ Thermal noise is a phenomenon inherent in all electrical components. Because of 
 Depending on the relative noise contributions of each source, we divide \ac{ADC}s into two extremes. Low- and high resolution \ac{ADC}s. Characteristic for a low-resolution \ac{ADC} is that $N_{\text{ADC},\text{Quantization}}\gg N_{\text{ADC},\text{Thermal}}$. Here the quantization noise dominates because of the large \ac{LSB} size. Typcally, starting above \SI{16}{\bit} resolution we decimates the \ac{LSB} so that the thermal noise becomes dominant. Within the low-cost system operate primarily with low-resolution \ac{ADC}s.
 
 \subsection{Topologies}
+\ac{SAR} \ac{ADC}s have a low-power consumption and are available in very small packages. This makes them them the preferred option for mobile devices as well as general purpose applications and data acquisition systems. An additional advantage of the \ac{SAR} topology is the negligible or zero latency. Its power consumption is proportional to the sampling rate.
+
+The delta-sigma \ac{ADC}s offer the highest-resolution and are generally preferred in precision applications. Because they are highly integrated, they replace many components of a data acquisition system. In this topology a digital filter is included, typically optimized for the application. Its disadvantages are medium power consumption and cycle latency.
+
 \begin{table}
   \centering
   {\renewcommand{\arraystretch}{1}%
@@ -573,7 +583,3 @@ Depending on the relative noise contributions of each source, we divide \ac{ADC}
   \normalsize
   }
 \end{table}
-
-\ac{SAR} \ac{ADC}s have a low-power consumption and are available in very small packages. This makes them them the preferred option for mobile devices as well as general purpose applications and data acquisition systems. An additional advantage of the \ac{SAR} topology is the negligible or zero latency. Its power consumption is proportional to the sampling rate.
-
-The delta-sigma \ac{ADC}s offer the highest-resolution and are generally preferred in precision applications. Because they are highly integrated, they replace many components of a data acquisition system. In this topology a digital filter is included, typically optimized for the application. Its disadvantages are medium power consumption and cycle latency.

@@ -2,32 +2,31 @@
 
 %***********************************************************************
 \section{Conclusion}
-In this thesis
-\begin{itemize}
-  \item A low-cost capacitive accelerometer \ac{IC} has been used to measure the output signal of an \ac{EMA} measurement setup
-  \item An impulse hammer using a strain gauge load cell has been developed using low-cost components.
-  \item Different conditioning filter circuits have been studied for the impulse hammer signal
-  \item A data packaging and communication protocol has been developed
-\end{itemize}
+A force impact hammer has been constructed from only low-cost components. It has been demonstrated that a built in strain gauge load cell, which was designed for weighting applications, can follow the impulse trajectories with practically no overshoot. Said trajectory consistently follows the impulse of a reference piezoceramic apart from some expected increase in noise. The output signal of an experimental modal analysis measurement has been captured by a low-cost accelerometer which then showed a good correlation to a reference sensor. Furthermore, a microcontroller based data acquisition system has been developed with a specialized transmission protocol for microcontroller inter-communication. In this system, the use of a semi-duplex connections proved to decrease the reliability of the data acquisition.
 
-daisy chaining sensor network -> star configuration -> nors-485
+\section{Progress and Points of Transfer}
+Regarding the different layers of this project, it can be improved at multiples points. The filter has not been successfully implemented into the analog signal chain of the load cell yet. Neither were the clock tunable filters operational. As soon as the filter is integrated in the signal chain the upper bandwidth limit of the load cell can be tested with the use of harder hammer tips.
+The data flow of the data acquisition system did not prove to be sufficiently reliable. Before multi-channeling accelerometers, one needs to consider to change the dataflow, for example by enabling daisy-chaining of the accelerometers.
+One also can consider iterating the time synchronization.
 
-\subsection{Deficiencies}
-Because of the lack of a thorough state of the art research in the beginning of the project, the solution space of the project has been constricted early on. In this solution space, the data rates and the required compute efficiency of \ac{MCU}s were not met by the software. Furthermore, the issue of conditioning the analog signal of the \ac{LC} signal has been addressed at a late stage. Leading to no successful hardware setup with an upstream \ac{LPF}.
-
-\newpage
 %***********************************************************************
 \section{Future Work}
-There are multiple options to progress from this point. They can be framed in ... directions:
-\begin{itemize}
-  \item Explore the same solution space further, i.e.\ handling the \ac{LPF} circuit and optimizing the software.
-  \item Change to a different solution space with either standard components using \ac{CPU}s or \ac{FPGA}s, targeting simpler implementation or higher bandwidths
-  \item Exploring the limits of the application and limits current solution without additional preconditioning
-\end{itemize}
+The low-cost modal analysis system is not finished as it is. Multi-Channeling the accelerometer, industrializing, and eventually miniaturizing the product are the key next steps in the development. Of course testing, evaluating and comparing signals to a reference system and models will play an important role in guaranteeing the systems accuracy. Additionally, one can improve on what already exists, as described in the previous section. In the same way, we can also exchange components, adding different features. For example a better real time capability by switching from Arduino to a Raspberry Pi or even field programmable gate arrays. It is also possible to switch to wireless communication between nodes or test the limits of the current data bandwidth.
 
-Independent of the chosen direction one can progress by
-\begin{itemize}
-  \item Testing the limits of multi channelling
-  \item Leaving the prototyping stage and simplify the production
-  \item Exploring wireless communication
-\end{itemize}
+Our ultimate goal is to reduce costs of the modal analysis measurement procedure. Apart from the development of this system it will also become increasingly important to address the software interface and generally the handling of the device. Because it should become possible, that the specialists do not have to conduct the measurements themselves. For this, we need to make the device accessible to anyone with the use of thorough instructions and/or increased automation.
+
+
+
+%Because, the system is not
+%\begin{itemize}
+%  \item Explore the same solution space further, i.e.\ handling the \ac{LPF} circuit and optimizing the software.
+%  \item Change to a different solution space with either standard components using \ac{CPU}s or \ac{FPGA}s, targeting simpler implementation or higher bandwidths
+%  \item Exploring the limits of the application and limits current solution without additional preconditioning
+%\end{itemize}
+%
+%Independent of the chosen direction one can progress by
+%\begin{itemize}
+%  \item Testing the limits of multi channelling
+%  \item Leaving the prototyping stage and simplify the production
+%  \item Exploring wireless communication
+%\end{itemize}

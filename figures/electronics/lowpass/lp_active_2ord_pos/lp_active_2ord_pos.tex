@@ -1,6 +1,8 @@
-\documentclass[tikz,11pt]{standalone}
+\documentclass[varwidth,11pt]{standalone}
+\usepackage{tikz}
 \usetikzlibrary{shapes.geometric,
-    arrows}
+    arrows.meta, arrows, calc}
+
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{color}
@@ -15,10 +17,11 @@
 
 \usepackage{array}
 \usepackage{booktabs}
+\usepackage{physics}
 
+\usepackage{array, multirow}
+\usepackage{adjustbox}
 \usepackage{verbatim}
-\usepackage[active,tightpage]{preview}
-\PreviewEnvironment{tikzpicture}
 
 % user defined colors (define in colors.csv, run gen_colors_tex.py to update changes)
 \input{../../../presets/colors/colors}
@@ -36,27 +39,33 @@
 
 \begin{document}
 \def\scale{0.7}
-\begin{circuitikz}[scale=\scale]
-\ctikzset{resistors/scale=\scale,
-  capacitors/scale=\scale,
-  amplifiers/scale=\scale
-}
-\draw (0, 0) node[op amp, yscale=-1] (opamp) {}
-  (opamp.-)  -| ++(-0.5,-1.5) coordinate(B){}
-  (opamp.+) to[short,-*] ++(-1.8, 0) coordinate(A)
-  (opamp.out) to[short,-*] ++(0.5, 0) coordinate(C)
-  to [short, -o] ++(3,0) coordinate(E)
-  (E|-B) node[ground]{} node[ocirc]{}
-  (A) to [short, -*, R, l_=$R_2$] ++(-3, 0) coordinate(D)
-  (D) to [R, l_=$R_1$] ++(-3, 0) to [short, -o] ++(-0.5,0) coordinate(F)
-  (D) to [short, *-, C=$C_2$] ++(0,2) -| (C)
-  (A) to [C, l_=$C_1$] (A|-B) node[ground]{}
-  (F|-B) node[ground]{} node[ocirc]{}
-  (C) to [R=$(\alpha-1)R_3$] (C|-B) to [R=$R_3$] ++(0,-2) node[ground]{}
-  (B) to [short, -*] (B-|C)
-;
-\draw[voltcol]
-	(F) to [open, v>=$\vect{V}_i$, color=voltcol] (F|-B) % input voltage
-	(E) to [open, v^>=$\vect{V}_o$, color=voltcol] (E|-B); % output voltage
-\end{circuitikz}
+\renewcommand{\arraystretch}{4}
+\begin{tabular}{c}
+  \(\displaystyle%
+    A(s_n) = \frac{\alpha}{1+\omega_c\bqty{C_1(R_1+R_2)+(1-\alpha)R_1C_2}s_n+\omega_c^2R_1R_2C_1C_2s_n^2}
+  \)\\%
+  \begin{circuitikz}[scale=\scale]
+  \ctikzset{resistors/scale=\scale,
+    capacitors/scale=\scale,
+    amplifiers/scale=\scale
+  }
+  \draw (0, 0) node[op amp, yscale=-1] (opamp) {}
+    (opamp.-)  -| ++(-0.5,-1.5) coordinate(B){}
+    (opamp.+) to[short,-*] ++(-1.8, 0) coordinate(A)
+    (opamp.out) to[short,-*] ++(0.5, 0) coordinate(C)
+    to [short, -o] ++(3,0) coordinate(E)
+    (E|-B) node[ground]{} node[ocirc]{}
+    (A) to [short, -*, R, l_=$R_2$] ++(-3, 0) coordinate(D)
+    (D) to [R, l_=$R_1$] ++(-3, 0) to [short, -o] ++(-0.5,0) coordinate(F)
+    (D) to [short, *-, C=$C_2$] ++(0,2) -| (C)
+    (A) to [C, l_=$C_1$] (A|-B) node[ground]{}
+    (F|-B) node[ground]{} node[ocirc]{}
+    (C) to [R=$(\alpha-1)R_3$] (C|-B) to [R=$R_3$] ++(0,-2) node[ground]{}
+    (B) to [short, -*] (B-|C)
+  ;
+  \draw[voltcol]
+    (F) to [open, v>=$\vect{V}_i$, color=voltcol] (F|-B) % input voltage
+    (E) to [open, v^>=$\vect{V}_o$, color=voltcol] (E|-B); % output voltage
+  \end{circuitikz}
+\end{tabular}
 \end{document}

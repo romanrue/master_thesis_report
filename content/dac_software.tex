@@ -33,6 +33,7 @@ The \ac{DAC} system developed in this thesis is an open source Arduino based sys
   \end{tikzpicture}
   }
   \footnotesize
+  \renewcommand{\arraystretch}{1.2}
   \begin{tabular}{c@{:\hskip 0.5em}l}
     \toprule
     \multicolumn{2}{c}{Interfaces}\\
@@ -94,10 +95,7 @@ As instrumentation amplifier the AD627 from Analog Devices has been implemented.
 %
 %ADC
 %EVAL-AD7988, evaluation board for SAR-ADC
-
-
-
-
+\clearpage
 
 \subsection{Interfaces}
 
@@ -143,7 +141,7 @@ The communication protocol between \ac{MCU} and \ac{MCU} and between \ac{MCU} an
 
 % . to of smart sensor IC are predetermined. With \ac{SPI}Standard interfaces, determined by senor ic
 % MCU com based uart length -> differential transmission using the rs-485 protocol, introduces slave master com, only one slave can speak at a time
-
+\clearpage
 
 
 \subsection{Dataflow}
@@ -162,6 +160,7 @@ Measurements are packaged due to the time the master requires to change the comm
   \caption[Data flow]{Data flow between two \ac{MCU}s and the CPU%
     \label{fig:data_flow}}
 \end{figure}
+\clearpage
 
 \section{Software}
 
